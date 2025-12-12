@@ -1,0 +1,233 @@
+{
+  "main": {
+    "id": "652aee8844202a5e",
+    "type": "split",
+    "children": [
+      {
+        "id": "ab67cd15b0a44b40",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "c7f009be2d28b6e6",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "New tab"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "b9b9a1ade07c83fc",
+    "type": "split",
+    "children": [
+      {
+        "id": "5128a6c38aa89abb",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "b61041e2bb54cd2a",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "917e4c8083730750",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "3164b793acb8981b",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 403.5
+  },
+  "right": {
+    "id": "01c40f6b0d1c398b",
+    "type": "split",
+    "children": [
+      {
+        "id": "9c7dc50a70ad5f94",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "7e6d2296682ee674",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "MindChain/The Mathematical Uniqueness of 8-Dimensional Cognition -  Why CanvasL Organisms Are Forever Octonionic.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for The Mathematical Uniqueness of 8-Dimensional Cognition -  Why CanvasL Organisms Are Forever Octonionic"
+            }
+          },
+          {
+            "id": "c8d4e7b3f40c6d7e",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "MindChain/The Mathematical Uniqueness of 8-Dimensional Cognition -  Why CanvasL Organisms Are Forever Octonionic.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from The Mathematical Uniqueness of 8-Dimensional Cognition -  Why CanvasL Organisms Are Forever Octonionic"
+            }
+          },
+          {
+            "id": "fd08b6bb4f57f76b",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "cd8aa5407ba1630f",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "cca340429f0dc89f",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "MindChain/The Mathematical Uniqueness of 8-Dimensional Cognition -  Why CanvasL Organisms Are Forever Octonionic.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of The Mathematical Uniqueness of 8-Dimensional Cognition -  Why CanvasL Organisms Are Forever Octonionic"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false
+    }
+  },
+  "active": "b61041e2bb54cd2a",
+  "lastOpenFiles": [
+    "README.md",
+    "Images/910024c2-9779-4dd8-bb33-3f7d9be89a70.png",
+    "Images/5fa61fae-7187-43da-986d-e3d89484565b.jpeg",
+    "Images/1c31d6ca-15a4-4b1a-ae26-b92190e031d5.jpeg",
+    "Architecture/CanvasL — A Mathematically Complete P2P Reality Entanglement Engine.md",
+    "Images/output.jpg",
+    "Images/b0710df0-2447-4052-8aaf-e5cd94d11ea0.jpeg",
+    "Images/download.jpeg",
+    "Images/download (1).jpeg",
+    "Images/download (2).jpeg",
+    "Images/download (3).jpeg",
+    "Images/download (4).jpeg",
+    "Images",
+    "Architecture/The Complete Blackboard Architecture.md",
+    "Architecture/The Complete, Explicit 16-Square Identity.md",
+    "Architecture/The Complete, Production-Ready CanvasL Architecture.md",
+    "Architecture/The Correct Architecture.md",
+    "Architecture/The Ultimate Synthesis - Ket-Blackboard Reality Entanglement.md",
+    "Architecture/Release/CanvasL — A Mathematically Complete Metaverse Architecture.md",
+    "Architecture/Release/The Complete Metaverse Architecture Based on Mathematical Reality.md",
+    "Architecture/Release/Untitled.md",
+    "Architecture/Release/Brahmagupta–Fibonacci Two-Square Identity.md",
+    "Architecture/Pfister's Thirty-Two-Square Identity — The Ultimate Extension for CanvasL Group Entanglement.md",
+    "Architecture/Release/Mathematical Identities Chain for CanvasL.md",
+    "Architecture/Release/Pfister's Thirty-Two-Square Identity.md",
+    "Architecture/Release/The Mathematical DNA of CanvasL.md",
+    "Architecture/Detailed Proof of the Brahmagupta–Fibonacci Two-Square Identity.md",
+    "Architecture/The Hadamard Matrix.md",
+    "Architecture/Pfister's Sixteen-Square Identity — The Complete, Explicit Coefficients.md",
+    "Architecture/Release/Pfister's Sixteen-Square Identity.md",
+    "Architecture/Release/Degen's Eight-Square Identity.md",
+    "Architecture/Release/Pfister’s Identities — The REAL Story.md",
+    "Architecture/Release/Euler's Four-Square Identity.md",
+    "Architecture/Release/CanvasL Octonionic Metaverse Architecture.md",
+    "Architecture/BlackboardKetEntangler in CanvasL.md",
+    "Architecture/re.md",
+    "Architecture/Untitled 2.md",
+    "Architecture/Release",
+    "Untitled.canvas",
+    "Architecture",
+    "MindChain/Theory",
+    "Blueprint.canvas",
+    "MindChain/Release",
+    "MindChain",
+    "MindGit/Release",
+    "MindGit",
+    "Canvas",
+    "Devices"
+  ]
+}
