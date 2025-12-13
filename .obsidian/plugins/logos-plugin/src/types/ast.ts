@@ -33,6 +33,7 @@ export interface ASTFunction {
 	returnType?: string;
 	body: string[];
 	assemblyTemplate: string;
+	operation?: string;
 }
 
 export interface ASTVariable {

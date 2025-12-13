@@ -189,6 +189,7 @@
   },
   "active": "1fded648ba7a72a7",
   "lastOpenFiles": [
+    "Test-AST.canvas",
     "Assembly–Algebra Language/The Node-to-Assembly Mapping.md",
     "AGENTS.md",
     "Assembly–Algebra Language/Polynomial Arithmetic over F2 - Assembly–Algebra Language (AAL) Implementation & Verification Suite.md",
@@ -224,7 +225,6 @@
     "Canvas/Implmentation/Appendeum",
     "Canvas/Implmentation/The Polynomial Canvas Compiler.md",
     "Canvas/Implmentation/The Polynomial Canvas Algebra.md",
-    "Canvas/Implmentation/Vision Statement.md",
     "Canvas/Implmentation/canvas_build_architecture.tsx",
     "Images/910024c2-9779-4dd8-bb33-3f7d9be89a70.png",
     "Images/5fa61fae-7187-43da-986d-e3d89484565b.jpeg",

@@ -1,14 +1,16 @@
-import { App, Modal, TFile } from 'obsidian';
+import { App, Modal, TFile, Notice } from 'obsidian';
 import { ParsedCanvas, ClassifiedNode } from '../types/canvas';
 import { AST } from '../types/ast';
 import { CanvasParser } from '../parsers/CanvasParser';
 import { ASTGenerator } from '../generators/ASTGenerator';
+import { TypeScriptGenerator, GeneratedCode } from '../generators/TypeScriptGenerator';
 
 export class CompilerModal extends Modal {
 	private parser: CanvasParser;
 	private canvasFile: TFile | null = null;
 	private parsed: ParsedCanvas | null = null;
 	private ast: AST | null = null;
+	private generatedCode: GeneratedCode | null = null;
 
 	constructor(app: App) {
 		super(app);
@@ -47,6 +49,7 @@ async openWithFile(file: TFile) {
 		this.renderNodes(contentEl);
 		this.renderEdges(contentEl);
 		this.renderDependencyAnalysis(contentEl);
+		this.renderCodeGeneration(contentEl);
 	}
 
 	private renderHeader(container: HTMLElement) {
@@ -414,6 +417,182 @@ async openWithFile(file: TFile) {
 		contentEl.empty();
 		contentEl.createEl('h2', { text: '❌ Error' });
 		contentEl.createEl('p', { text: message, cls: 'logos-error' });
+	}
+
+	private renderCodeGeneration(container: HTMLElement) {
+		if (!this.ast) return;
+
+		const section = container.createDiv({ cls: 'logos-section logos-code-section' });
+		section.createEl('h3', { text: '💻 Generated Code' });
+
+		// Generate code button
+		const buttonContainer = section.createDiv({ cls: 'logos-button-container' });
+		
+		const generateBtn = buttonContainer.createEl('button', {
+			text: '🚀 Generate TypeScript',
+			cls: 'logos-generate-btn'
+		});
+		
+		generateBtn.addEventListener('click', () => {
+			this.generateAndDisplayCode();
+		});
+
+		// Code display area
+		const codeContainer = section.createDiv({ cls: 'logos-code-container' });
+		codeContainer.setAttribute('id', 'logos-code-display');
+		codeContainer.createEl('p', { 
+			text: 'Click "Generate TypeScript" to see the generated code',
+			cls: 'logos-placeholder'
+		});
+	}
+
+	private generateAndDisplayCode() {
+		if (!this.ast) return;
+
+		try {
+			// Generate TypeScript code
+			const generator = new TypeScriptGenerator(this.ast, {
+				includeComments: true,
+				includeImports: true,
+				useTypeScript: true,
+				outputFormat: 'module'
+			});
+
+			this.generatedCode = generator.generateCode();
+
+			// Display the code
+			this.displayGeneratedCode();
+
+			new Notice('Code generated successfully!');
+		} catch (error) {
+			console.error('Code generation error:', error);
+			new Notice(`Code generation failed: ${error.message}`);
+		}
+	}
+
+	private displayGeneratedCode() {
+		if (!this.generatedCode) return;
+
+		const codeDisplay = document.getElementById('logos-code-display');
+		if (!codeDisplay) return;
+
+		codeDisplay.empty();
+
+		// Code metadata
+		const metadata = codeDisplay.createDiv({ cls: 'logos-code-metadata' });
+		metadata.createEl('div', { 
+			text: `📄 ${this.generatedCode.filename}`,
+			cls: 'logos-code-filename'
+		});
+		metadata.createEl('div', { 
+			text: `${this.generatedCode.metadata.totalLines} lines | ${this.generatedCode.metadata.totalFunctions} functions | ${this.generatedCode.metadata.totalVariables} variables`,
+			cls: 'logos-code-stats'
+		});
+
+		// Action buttons
+		const actions = codeDisplay.createDiv({ cls: 'logos-code-actions' });
+		
+		const copyBtn = actions.createEl('button', {
+			text: '📋 Copy',
+			cls: 'logos-action-btn'
+		});
+		copyBtn.addEventListener('click', () => this.copyCodeToClipboard());
+
+		const saveBtn = actions.createEl('button', {
+			text: '💾 Save',
+			cls: 'logos-action-btn'
+		});
+		saveBtn.addEventListener('click', () => this.saveCodeToFile());
+
+		const downloadBtn = actions.createEl('button', {
+			text: '⬇️ Download',
+			cls: 'logos-action-btn'
+		});
+		downloadBtn.addEventListener('click', () => this.downloadCode());
+
+		// Code display with syntax highlighting
+		const codeBlock = codeDisplay.createDiv({ cls: 'logos-code-block' });
+		const pre = codeBlock.createEl('pre');
+		const code = pre.createEl('code', {
+			cls: 'language-typescript'
+		});
+		code.textContent = this.generatedCode.content;
+
+		// Add line numbers
+		this.addLineNumbers(pre);
+	}
+
+	private addLineNumbers(pre: HTMLElement) {
+		const lines = pre.textContent?.split('\n') || [];
+		const lineNumbersDiv = pre.createDiv({ cls: 'logos-line-numbers' });
+		
+		lines.forEach((_, index) => {
+			lineNumbersDiv.createEl('div', {
+				text: (index + 1).toString(),
+				cls: 'logos-line-number'
+			});
+		});
+	}
+
+	private async copyCodeToClipboard() {
+		if (!this.generatedCode) return;
+
+		try {
+			await navigator.clipboard.writeText(this.generatedCode.content);
+			new Notice('Code copied to clipboard!');
+		} catch (error) {
+			console.error('Copy failed:', error);
+			new Notice('Failed to copy code');
+		}
+	}
+
+	private async saveCodeToFile() {
+		if (!this.generatedCode || !this.canvasFile) return;
+
+		try {
+			const vault = this.canvasFile.vault;
+			const folder = this.canvasFile.parent;
+			
+			if (!folder) {
+				new Notice('Cannot determine save location');
+				return;
+			}
+
+			const filePath = `${folder.path}/${this.generatedCode.filename}`;
+			
+			// Check if file exists
+			const existingFile = vault.getAbstractFileByPath(filePath);
+			if (existingFile) {
+				new Notice('File already exists. Use Download instead.');
+				return;
+			}
+
+			// Create the file
+			await vault.create(filePath, this.generatedCode.content);
+			new Notice(`Code saved to ${this.generatedCode.filename}`);
+		} catch (error) {
+			console.error('Save failed:', error);
+			new Notice(`Failed to save code: ${error.message}`);
+		}
+	}
+
+	private downloadCode() {
+		if (!this.generatedCode) return;
+
+		try {
+			const blob = new Blob([this.generatedCode.content], { type: 'text/plain' });
+			const url = URL.createObjectURL(blob);
+			const a = document.createElement('a');
+			a.href = url;
+			a.download = this.generatedCode.filename;
+			a.click();
+			URL.revokeObjectURL(url);
+			
+			new Notice('Code downloaded!');
+		} catch (error) {
+			console.error('Download failed:', error);
+			new Notice('Failed to download code');
+		}
 	}
 
 	onClose() {

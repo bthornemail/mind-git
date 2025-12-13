@@ -437,3 +437,157 @@ If your plugin does not need CSS, delete this file.
 	background: var(--background-primary);
 	max-width: 100%;
 }
+
+/* Code Generation Styles */
+.logos-code-section {
+	border-left-color: #2ecc71;
+}
+
+.logos-button-container {
+	display: flex;
+	gap: 10px;
+	margin: 15px 0;
+}
+
+.logos-generate-btn {
+	background: var(--interactive-accent);
+	color: var(--text-on-accent);
+	border: none;
+	padding: 10px 20px;
+	border-radius: 6px;
+	font-weight: 600;
+	cursor: pointer;
+	transition: all 0.2s;
+}
+
+.logos-generate-btn:hover {
+	background: var(--interactive-accent-hover);
+	transform: translateY(-2px);
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.logos-code-container {
+	background: var(--background-primary);
+	border-radius: 6px;
+	padding: 15px;
+	border: 1px solid var(--background-modifier-border);
+}
+
+.logos-placeholder {
+	text-align: center;
+	color: var(--text-muted);
+	padding: 40px;
+	font-style: italic;
+}
+
+.logos-code-metadata {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 10px;
+	background: var(--background-secondary);
+	border-radius: 4px;
+	margin-bottom: 10px;
+}
+
+.logos-code-filename {
+	font-family: var(--font-monospace);
+	font-weight: 600;
+	color: var(--text-accent);
+}
+
+.logos-code-stats {
+	font-size: 12px;
+	color: var(--text-muted);
+}
+
+.logos-code-actions {
+	display: flex;
+	gap: 8px;
+	margin-bottom: 15px;
+}
+
+.logos-action-btn {
+	background: var(--background-secondary);
+	color: var(--text-normal);
+	border: 1px solid var(--background-modifier-border);
+	padding: 6px 12px;
+	border-radius: 4px;
+	font-size: 13px;
+	cursor: pointer;
+	transition: all 0.2s;
+}
+
+.logos-action-btn:hover {
+	background: var(--background-modifier-hover);
+	border-color: var(--interactive-accent);
+}
+
+.logos-code-block {
+	position: relative;
+	background: var(--background-primary-alt);
+	border-radius: 4px;
+	overflow: hidden;
+	max-height: 500px;
+	overflow-y: auto;
+}
+
+.logos-code-block pre {
+	margin: 0;
+	padding: 15px;
+	padding-left: 50px;
+	font-family: var(--font-monospace);
+	font-size: 13px;
+	line-height: 1.6;
+	overflow-x: auto;
+	position: relative;
+}
+
+.logos-code-block code {
+	color: var(--text-normal);
+	white-space: pre;
+}
+
+.logos-line-numbers {
+	position: absolute;
+	left: 0;
+	top: 0;
+	padding: 15px 10px;
+	background: var(--background-secondary);
+	border-right: 1px solid var(--background-modifier-border);
+	user-select: none;
+	text-align: right;
+	min-width: 40px;
+}
+
+.logos-line-number {
+	font-family: var(--font-monospace);
+	font-size: 12px;
+	line-height: 1.6;
+	color: var(--text-muted);
+	height: 20.8px;
+}
+
+/* Syntax highlighting (basic) */
+.logos-code-block .language-typescript {
+	color: var(--text-normal);
+}
+
+/* Scrollbar styling for code block */
+.logos-code-block::-webkit-scrollbar {
+	width: 8px;
+	height: 8px;
+}
+
+.logos-code-block::-webkit-scrollbar-track {
+	background: var(--background-secondary);
+}
+
+.logos-code-block::-webkit-scrollbar-thumb {
+	background: var(--background-modifier-border);
+	border-radius: 4px;
+}
+
+.logos-code-block::-webkit-scrollbar-thumb:hover {
+	background: var(--text-muted);
+}
