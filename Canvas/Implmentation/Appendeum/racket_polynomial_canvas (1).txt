@@ -1,0 +1,433 @@
+#lang racket
+
+;; ============================================================================
+;; CANVAS POLYNOMIAL ALGEBRA - RACKET IMPLEMENTATION
+;; Maps Obsidian Canvas to multivariate polynomials over ℝ[x,y,w,h,c,t,id]
+;; ============================================================================
+
+(provide poly-term
+         make-poly-term
+         poly-add
+         poly-multiply
+         poly-differentiate
+         poly-evaluate
+         canvas-node->poly-term
+         canvas-state->polynomial
+         compile-polynomial-canvas)
+
+(require "interface/obsidian-canvas.rkt")
+
+;; ============================================================================
+;; 1. CORE ALGEBRAIC STRUCTURES
+;; ============================================================================
+
+;; A polynomial term encoding a canvas node
+;; Represents: a₀ + a₁x + a₂y + a₃w + a₄h + a₅c + a₆t + a₇id
+(struct poly-term (id              ; Node identifier
+                   x y w h         ; Geometric coordinates
+                   c               ; Color ∈ ℤ₈
+                   type            ; Node type
+                   degree          ; Polynomial degree (0-7)
+                   coefficients    ; List of 8 coefficients
+                   content         ; Original content
+                   metadata)       ; Additional data
+  #:transparent)
+
+;; A differential operator (edge transformation)
+(struct diff-operator (symbol      ; e.g., "∂/∂compile"
+                       order       ; 1=derivative, -1=integral
+                       variables   ; Which vars to act on
+                       direction)  ; Optional direction vector
+  #:transparent)
+
+;; A polynomial edge connecting two terms
+(struct poly-edge (id from to operator label)
+  #:transparent)
+
+;; Complete canvas as polynomial expression
+(struct canvas-polynomial (terms      ; Hash: id → poly-term
+                           edges      ; Hash: id → poly-edge
+                           degree     ; Max degree
+                           dimension) ; Dimensional level (0D-7D)
+  #:transparent)
+
+;; ============================================================================
+;; 2. NODE-TO-POLYNOMIAL ENCODING
+;; ============================================================================
+
+(define (canvas-node->poly-term node)
+  ;; Convert canvas-node struct to poly-term
+  
+  (define content (canvas-node-content node))
+  (define content-hash (hash-string content))
+  (define type-value (encode-node-type (canvas-node-type node)))
+  
+  ;; Compute polynomial degree from content
+  (define degree (compute-degree content))
+  
+  ;; Build coefficient vector: [a₀, a₁, a₂, a₃, a₄, a₅, a₆, a₇]
+  (define coeffs
+    (list
+     (modulo content-hash 1000)                    ; a₀: constant
+     (/ (canvas-node-x node) 1000.0)              ; a₁: x coefficient
+     (/ (canvas-node-y node) 1000.0)              ; a₂: y coefficient
+     (/ (canvas-node-width node) 500.0)           ; a₃: w coefficient
+     (/ (canvas-node-height node) 500.0)          ; a₄: h coefficient
+     (string->number (canvas-node-color node))    ; a₅: c coefficient
+     type-value                                    ; a₆: t coefficient
+     (modulo content-hash 100)))                   ; a₇: id coefficient
+  
+  (poly-term
+   (canvas-node-id node)
+   (canvas-node-x node)
+   (canvas-node-y node)
+   (canvas-node-width node)
+   (canvas-node-height node)
+   (modulo (string->number (canvas-node-color node)) 8)
+   (canvas-node-type node)
+   degree
+   coeffs
+   content
+   (hash 'original-node node)))
+
+(define (compute-degree content)
+  ;; Determine polynomial degree from content (0-7 dimensional levels)
+  
+  (cond
+    ;; Zero polynomial (control nodes)
+    [(or (string-contains? content "#Zero")
+         (string-contains? content "#Control"))
+     0]
+    
+    ;; Dimensional markers
+    [(or (string-contains? content "0D") 
+         (string-contains? content "Quantum Vacuum")) 0]
+    [(or (string-contains? content "1D")
+         (string-contains? content "Temporal")) 1]
+    [(or (string-contains? content "2D")
+         (string-contains? content "Bipartite")) 2]
+    [(or (string-contains? content "3D")
+         (string-contains? content "Algebraic")) 3]
+    [(or (string-contains? content "4D")
+         (string-contains? content "Network")) 4]
+    [(or (string-contains? content "5D")
+         (string-contains? content "Consensus")) 5]
+    [(or (string-contains? content "6D")
+         (string-contains? content "Intelligence")) 6]
+    [(or (string-contains? content "7D")
+         (string-contains? content "Quantum")) 7]
+    
+    ;; Compute from complexity
+    [else 
+     (define lines (length (string-split content "\n")))
+     (min 7 (inexact->exact (floor (log lines 2))))]))
+
+(define (encode-node-type type)
+  ;; Prime encoding: text=2, file=3, link=5, group=7, control=11
+  (case type
+    [(text) 2]
+    [(file) 3]
+    [(link) 5]
+    [(group) 7]
+    [(control) 11]
+    [else 2]))
+
+(define (hash-string str)
+  ;; Simple string hash function
+  (for/fold ([hash 0])
+            ([char (in-string str)])
+    (modulo (+ (* hash 31) (char->integer char)) 1000000)))
+
+;; ============================================================================
+;; 3. EDGE-TO-OPERATOR ENCODING
+;; ============================================================================
+
+(define (canvas-edge->poly-edge edge)
+  ;; Convert canvas-edge to poly-edge with differential operator
+  
+  (define label (canvas-edge-label edge))
+  (define operator (label->operator label))
+  
+  (poly-edge
+   (canvas-edge-id edge)
+   (canvas-edge-from edge)
+   (canvas-edge-to edge)
+   operator
+   label))
+
+(define (label->operator label)
+  ;; Map edge labels to differential operators
+  
+  (define lower-label (string-downcase label))
+  
+  (cond
+    ;; Compilation/transformation
+    [(or (string-contains? lower-label "compile")
+         (string-contains? lower-label "→"))
+     (diff-operator "∂/∂compile" 1 '(x y w h) #f)]
+    
+    ;; Integration (accumulation)
+    [(or (string-contains? lower-label "integrate")
+         (string-contains? lower-label "+"))
+     (diff-operator "∫" -1 '(x y) #f)]
+    
+    ;; Dependencies
+    [(or (string-contains? lower-label "depends")
+         (string-contains? lower-label "uses"))
+     (diff-operator "∂/∂dependency" 1 '(id) #f)]
+    
+    ;; Testing/verification (Laplacian)
+    [(or (string-contains? lower-label "test")
+         (string-contains? lower-label "verify"))
+     (diff-operator "Δ" 2 '(x y) #f)]
+    
+    ;; Flow/propagation (gradient)
+    [(or (string-contains? lower-label "flow")
+         (string-contains? lower-label "propagate"))
+     (diff-operator "∇" 1 '(x y) #f)]
+    
+    ;; Default: directional derivative
+    [else
+     (diff-operator "∂/∂connection" 1 '(x y) '(1 0))]))
+
+;; ============================================================================
+;; 4. POLYNOMIAL ALGEBRA OPERATIONS
+;; ============================================================================
+
+(define (poly-add p1 p2)
+  ;; Add two polynomial terms: N₁ ⊕ N₂
+  ;; Creates group/combination
+  
+  (define new-coeffs
+    (map + (poly-term-coefficients p1) (poly-term-coefficients p2)))
+  
+  (poly-term
+   (format "~a+~a" (poly-term-id p1) (poly-term-id p2))
+   (/ (+ (poly-term-x p1) (poly-term-x p2)) 2)  ; Centroid
+   (/ (+ (poly-term-y p1) (poly-term-y p2)) 2)
+   (max (poly-term-w p1) (poly-term-w p2))
+   (max (poly-term-h p1) (poly-term-h p2))
+   (modulo (+ (poly-term-c p1) (poly-term-c p2)) 8)
+   'group
+   (max (poly-term-degree p1) (poly-term-degree p2))
+   new-coeffs
+   (format "Group: ~a + ~a" 
+           (poly-term-content p1) 
+           (poly-term-content p2))
+   (hash 'operation 'addition 
+         'sources (list (poly-term-id p1) (poly-term-id p2)))))
+
+(define (poly-multiply p1 p2)
+  ;; Multiply two polynomial terms: N₁ ⊗ N₂
+  ;; Creates composition/connection
+  
+  (define new-coeffs
+    (map * (poly-term-coefficients p1) (poly-term-coefficients p2)))
+  
+  (poly-term
+   (format "~a×~a" (poly-term-id p1) (poly-term-id p2))
+   (poly-term-x p2)  ; Result at target position
+   (poly-term-y p2)
+   (/ (+ (poly-term-w p1) (poly-term-w p2)) 2)
+   (/ (+ (poly-term-h p1) (poly-term-h p2)) 2)
+   (modulo (* (poly-term-c p1) (poly-term-c p2)) 8)
+   (poly-term-type p2)
+   (+ (poly-term-degree p1) (poly-term-degree p2))  ; Degree of product
+   new-coeffs
+   (format "Composition: ~a → ~a"
+           (poly-term-content p1)
+           (poly-term-content p2))
+   (hash 'operation 'multiplication
+         'sources (list (poly-term-id p1) (poly-term-id p2)))))
+
+(define (poly-differentiate p operator)
+  ;; Apply differential operator: ∂P/∂x
+  
+  (define order (diff-operator-order operator))
+  (define vars (diff-operator-variables operator))
+  (define coeffs (poly-term-coefficients p))
+  
+  (define new-coeffs
+    (if (= order 1)
+        ;; First derivative: apply power rule to relevant terms
+        (for/list ([i (in-range (length coeffs))])
+          (if (member (index->variable i) vars)
+              (* (list-ref coeffs i) (+ i 1))
+              (list-ref coeffs i)))
+        coeffs))
+  
+  (poly-term
+   (poly-term-id p)
+   (poly-term-x p)
+   (poly-term-y p)
+   (poly-term-w p)
+   (poly-term-h p)
+   (poly-term-c p)
+   (poly-term-type p)
+   (max 0 (- (poly-term-degree p) 1))
+   new-coeffs
+   (poly-term-content p)
+   (hash-set (poly-term-metadata p) 
+             'operator 
+             (diff-operator-symbol operator))))
+
+(define (poly-evaluate p point)
+  ;; Evaluate polynomial at given point: P(x₀, y₀, ...)
+  
+  (define coeffs (poly-term-coefficients p))
+  (define x (hash-ref point 'x (poly-term-x p)))
+  (define y (hash-ref point 'y (poly-term-y p)))
+  (define w (hash-ref point 'w (poly-term-w p)))
+  (define h (hash-ref point 'h (poly-term-h p)))
+  (define c (hash-ref point 'c (poly-term-c p)))
+  (define t (encode-node-type (hash-ref point 'type (poly-term-type p))))
+  
+  ;; Evaluate: a₀ + a₁x + a₂y + a₃w + a₄h + a₅c + a₆t + a₇
+  (+ (list-ref coeffs 0)
+     (* (list-ref coeffs 1) x)
+     (* (list-ref coeffs 2) y)
+     (* (list-ref coeffs 3) w)
+     (* (list-ref coeffs 4) h)
+     (* (list-ref coeffs 5) c)
+     (* (list-ref coeffs 6) t)
+     (list-ref coeffs 7)))
+
+(define (index->variable idx)
+  ;; Map coefficient index to variable name
+  (list-ref '(constant x y w h c t id) idx))
+
+;; ============================================================================
+;; 5. CANVAS-TO-POLYNOMIAL COMPILATION
+;; ============================================================================
+
+(define (canvas-state->polynomial canvas)
+  ;; Convert entire canvas-state to polynomial representation
+  
+  (define nodes (canvas-state-nodes canvas))
+  (define edges (canvas-state-edges canvas))
+  
+  ;; Create polynomial terms for all nodes
+  (define terms (make-hash))
+  (define max-degree 0)
+  
+  (for ([node nodes])
+    (define term (canvas-node->poly-term node))
+    (hash-set! terms (poly-term-id term) term)
+    (set! max-degree (max max-degree (poly-term-degree term))))
+  
+  ;; Create polynomial edges
+  (define poly-edges (make-hash))
+  (for ([edge edges])
+    (define pedge (canvas-edge->poly-edge edge))
+    (hash-set! poly-edges (poly-edge-id pedge) pedge))
+  
+  (canvas-polynomial
+   terms
+   poly-edges
+   max-degree
+   max-degree))  ; Dimension = max degree
+
+(define (compile-polynomial-canvas canvas-poly)
+  ;; Compile polynomial canvas to expression tree
+  
+  (define terms (canvas-polynomial-terms canvas-poly))
+  (define edges (canvas-polynomial-edges canvas-poly))
+  
+  ;; Find root nodes (no incoming edges)
+  (define incoming (make-hash))
+  (for ([(id edge) (in-hash edges)])
+    (hash-set! incoming (poly-edge-to edge) #t))
+  
+  (define roots
+    (for/list ([(id term) (in-hash terms)]
+               #:unless (hash-has-key? incoming id))
+      id))
+  
+  (printf "Compiled polynomial canvas:\n")
+  (printf "  Terms: ~a\n" (hash-count terms))
+  (printf "  Edges: ~a\n" (hash-count edges))
+  (printf "  Degree: ~a\n" (canvas-polynomial-degree canvas-poly))
+  (printf "  Dimension: ~aD\n" (canvas-polynomial-dimension canvas-poly))
+  (printf "  Roots: ~a\n" roots)
+  
+  (hash
+   'roots roots
+   'polynomial canvas-poly))
+
+;; ============================================================================
+;; 6. HELPER FUNCTIONS
+;; ============================================================================
+
+(define (make-poly-term id content x y w h color type)
+  ;; Constructor for poly-term from raw values
+  (canvas-node->poly-term
+   (canvas-node id x y w h content color)))
+
+(define (string-contains? str substr)
+  ;; Check if string contains substring
+  (not (not (regexp-match? (regexp-quote substr) str))))
+
+;; ============================================================================
+;; 7. INTEGRATION WITH EXISTING SYSTEM
+;; ============================================================================
+
+;; Update canvas-state->logos to use polynomial representation
+(define (canvas-state->logos-polynomial canvas)
+  ;; Enhanced version that includes polynomial algebra
+  
+  (define canvas-poly (canvas-state->polynomial canvas))
+  (define compiled (compile-polynomial-canvas canvas-poly))
+  
+  (printf "\n=== Polynomial Canvas Compiled ===\n")
+  (printf "Algebraic Structure:\n")
+  (printf "  Ring: ℝ[x,y,w,h,c,t,id]\n")
+  (printf "  Dimension: ~aD\n" (canvas-polynomial-dimension canvas-poly))
+  (printf "  Degree: ~a\n" (canvas-polynomial-degree canvas-poly))
+  
+  (hash
+   'type 'polynomial-canvas
+   'polynomial canvas-poly
+   'compiled compiled
+   'original-canvas canvas))
+
+;; ============================================================================
+;; 8. EXAMPLE USAGE
+;; ============================================================================
+
+(module+ test
+  (printf "\n=== Testing Polynomial Canvas System ===\n")
+  
+  ;; Create test nodes
+  (define n1 (canvas-node "n1" 100 100 300 150 "#Activate: main" "1"))
+  (define n2 (canvas-node "n2" 500 100 300 150 "#Integrate: x y" "2"))
+  (define n3 (canvas-node "n3" 900 100 300 150 "Result" "3"))
+  
+  ;; Create test edges
+  (define e1 (canvas-edge "e1" "n1" "n2" "compiles to" "1"))
+  (define e2 (canvas-edge "e2" "n2" "n3" "stores to" "2"))
+  
+  ;; Create canvas
+  (define test-canvas (canvas-state (list n1 n2 n3) (list e1 e2)))
+  
+  ;; Convert to polynomial
+  (define poly-canvas (canvas-state->polynomial test-canvas))
+  
+  (printf "\nTest Canvas Polynomial:\n")
+  (printf "  Terms: ~a\n" (hash-count (canvas-polynomial-terms poly-canvas)))
+  (printf "  Max Degree: ~a\n" (canvas-polynomial-degree poly-canvas))
+  
+  ;; Test algebraic operations
+  (define p1 (hash-ref (canvas-polynomial-terms poly-canvas) "n1"))
+  (define p2 (hash-ref (canvas-polynomial-terms poly-canvas) "n2"))
+  
+  (printf "\nTesting Addition (Group Formation):\n")
+  (define p-sum (poly-add p1 p2))
+  (printf "  Result ID: ~a\n" (poly-term-id p-sum))
+  (printf "  Result Degree: ~a\n" (poly-term-degree p-sum))
+  
+  (printf "\nTesting Multiplication (Composition):\n")
+  (define p-prod (poly-multiply p1 p2))
+  (printf "  Result ID: ~a\n" (poly-term-id p-prod))
+  (printf "  Result Degree: ~a\n" (poly-term-degree p-prod))
+  
+  (printf "\nTest passed!\n"))
