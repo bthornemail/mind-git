@@ -6,7 +6,6 @@ declare enum CanvasColor {
     CYAN = 5,
     PURPLE = 6
 }
-
 type EdgeSide = "top" | "right" | "bottom" | "left";
 type EdgeEnd = "none" | "arrow";
 interface Edge {
@@ -20,7 +19,6 @@ interface Edge {
     color?: CanvasColor;
     label?: string;
 }
-
 interface GenericNode {
     id: string;
     x: number;
@@ -42,10 +40,6 @@ interface LinkNode extends GenericNode {
     type: "link";
     url: string;
 }
-interface FileNode extends GenericNode {
-    type: "file";
-    subpath?: string; // (optional, string) is a subpath that may link to a heading or a block. Always starts with a #
-}
 type GroupNodeBackgroundStyle = "cover" | "ratio" | "repeat";
 interface GroupNode {
     type: "group";
@@ -57,4 +51,4 @@ interface JSONCanvas {
     nodes: Partial<Node>[];
     edges: Partial<Edge>[];
 }
-export { type JSONCanvas as CanvasJSON, CanvasColor, type Edge, type EdgeEnd, type EdgeSide, type GenericNode, type GroupNode, type Node,type LinkNode, type TextNode };
+export { type JSONCanvas as CanvasJSON, CanvasColor, type Edge, type EdgeEnd, type EdgeSide, type GenericNode, type GroupNode, type Node, type LinkNode, type TextNode };

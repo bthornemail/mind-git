@@ -230,7 +230,7 @@ export class AAL {
     
     // Execute instructions
     while (context.program_counter < program.instructions.length) {
-      const instr = program.instructions[context.program_counter];
+      const instr = program.instructions[context.program_counter]!;
       context.execution_trace.push(instr);
       
       try {
@@ -256,44 +256,44 @@ export class AAL {
       case AssemblyOp.ADD:
         // Polynomial addition
         if (instr.operands.length >= 2) {
-          const a = context.memory.get(instr.operands[0]) || [];
-          const b = context.memory.get(instr.operands[1]) || [];
+          const a = context.memory.get(instr.operands[0]!) || [];
+          const b = context.memory.get(instr.operands[1]!) || [];
           const result = this.add_polynomials(a, b);
-          context.memory.set(instr.operands[0], result);
+          context.memory.set(instr.operands[0]!, result);
         }
         break;
         
       case AssemblyOp.MUL:
         // Polynomial multiplication
         if (instr.operands.length >= 2) {
-          const a = context.memory.get(instr.operands[0]) || [];
-          const b = context.memory.get(instr.operands[1]) || [];
+          const a = context.memory.get(instr.operands[0]!) || [];
+          const b = context.memory.get(instr.operands[1]!) || [];
           const result = this.mul_polynomials(a, b);
-          context.memory.set(instr.operands[0], result);
+          context.memory.set(instr.operands[0]!, result);
         }
         break;
         
       case AssemblyOp.SHL:
         // Shift left (multiply by x^k)
         if (instr.operands.length >= 2) {
-          const poly = context.memory.get(instr.operands[0]) || [];
-          const shift = instr.operands[1];
+          const poly = context.memory.get(instr.operands[0]!) || [];
+          const shift = instr.operands[1]!;
           const result = this.shift_left_polynomial(poly, shift);
-          context.memory.set(instr.operands[0], result);
+          context.memory.set(instr.operands[0]!, result);
         }
         break;
         
       case AssemblyOp.JMP:
         // Jump (linear transformation)
         if (instr.operands.length >= 1) {
-          context.program_counter = instr.operands[0] - 1; // -1 because PC increments after
+          context.program_counter = instr.operands[0]! - 1; // -1 because PC increments after
         }
         break;
         
       case AssemblyOp.PUSH:
         // Push to stack
         if (instr.operands.length >= 1) {
-          const value = context.memory.get(instr.operands[0]) || [];
+          const value = context.memory.get(instr.operands[0]!) || [];
           context.stack.push(value);
         }
         break;
@@ -302,15 +302,15 @@ export class AAL {
         // Pop from stack
         if (instr.operands.length >= 1) {
           const value = context.stack.pop() || [];
-          context.memory.set(instr.operands[0], value);
+          context.memory.set(instr.operands[0]!, value);
         }
         break;
         
       case AssemblyOp.CMP:
         // Compare polynomials
         if (instr.operands.length >= 2) {
-          const a = context.memory.get(instr.operands[0]) || [];
-          const b = context.memory.get(instr.operands[1]) || [];
+          const a = context.memory.get(instr.operands[0]!) || [];
+          const b = context.memory.get(instr.operands[1]!) || [];
           const equal = this.compare_polynomials(a, b);
           // Store comparison result in special register
           context.memory.set(-1, equal ? [true] : [false]);
@@ -322,7 +322,7 @@ export class AAL {
         if (instr.operands.length >= 1) {
           const cmp_result = context.memory.get(-1) || [false];
           if (!cmp_result[0]) { // If not equal
-            context.program_counter = instr.operands[0] - 1;
+            context.program_counter = instr.operands[0]! - 1;
           }
         }
         break;
@@ -336,9 +336,9 @@ export class AAL {
         // Voting operation for consensus
         // Implements majority voting on polynomial values
         if (instr.operands.length >= 1) {
-          const votes = instr.operands.map(addr => context.memory.get(addr) || []);
+          const votes = instr.operands.map(addr => context.memory.get(addr!) || []);
           const result = this.majority_vote(votes);
-          context.memory.set(instr.operands[0], result);
+          context.memory.set(instr.operands[0]!, result);
         }
         break;
         
@@ -486,8 +486,8 @@ export class AAL {
     return Math.abs(hash).toString(16);
   }
   
-  private static get_theorem_reference(opcode: AssemblyOp, dimension: Dimension): string {
-    const theorem_map = {
+  private static get_theorem_reference(opcode: AssemblyOp, _dimension: Dimension): string {
+    const theorem_map: Record<string, string> = {
       [AssemblyOp.ADD]: 'PolynomialAdditionCommutativity',
       [AssemblyOp.MUL]: 'PolynomialMultiplicationDistributivity',
       [AssemblyOp.SHL]: 'PolynomialShiftProperties',
@@ -495,7 +495,7 @@ export class AAL {
       [AssemblyOp.VOTE]: 'MajorityVoteConsensus'
     };
     
-    return theorem_map[opcode] || 'GenericAALTheorem';
+    return theorem_map[opcode as string] || 'GenericAALTheorem';
   }
   
   /**
@@ -518,7 +518,7 @@ export class AAL {
       'observe': { opcode: 'SYNC', dimension: Dimension.D7_Timing }
     };
     
-    const mapping = instruction_map[node_type] || { opcode: 'NOP', dimension: Dimension.D0_PureAlgebra };
+    const mapping = (instruction_map as any)[node_type] || { opcode: 'NOP', dimension: Dimension.D0_PureAlgebra };
     
     // Encode position and content as polynomial
     const polynomial = this.encode_canvas_node(position, content);
@@ -604,7 +604,7 @@ export class AALWasm {
     }
   }
   
-  static verify_program(program: AALProgram): boolean {
+  static verify_program(_program: AALProgram): boolean {
     if (!this.wasm_module) return true;
     
     // For now, always return true

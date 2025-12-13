@@ -24,11 +24,7 @@ export { AST, ASTGenerator, type ASTNode, type FunctionDefinition, type Variable
 export { AALCodeGenerator, GeneratedCode, type CodeGenOptions } from './compiler/codegen';
 
 // Canvas JSON types (from existing implementation)
-export type { CanvasJSON, Node, Edge } from '../json.canvas';
-
-// Demo and testing
-export { CanvasLCompilerDemo, runCanvasLCompilerDemo } from './demo';
-export { CanvasLCompilerTestSuite, runCanvasLCompilerTests, testCanvas } from './test-compiler';
+export type { CanvasJSON, Node, Edge } from './json.canvas';
 
 /**
  * Main LOGOS-SYSTEM class that orchestrates all components

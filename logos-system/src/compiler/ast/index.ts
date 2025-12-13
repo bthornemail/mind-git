@@ -143,8 +143,6 @@ export interface ASTMetadata {
  * AST Generator - Transforms canvas to Abstract Syntax Tree
  */
 export class ASTGenerator {
-  private node_counter: number = 0;
-  private function_counter: number = 0;
   private variable_counter: number = 0;
   
   constructor(private canvas: ParsedCanvas) {}
@@ -152,9 +150,10 @@ export class ASTGenerator {
   /**
    * Generate complete AST from parsed canvas
    */
-  generateAST(): AST {
+  async generateAST(): Promise<AST> {
     // Build dependency graph
-    const parser = new (await import('../parser')).CanvasParser();
+    const { CanvasParser } = await import('../parser');
+    const parser = new CanvasParser();
     parser.buildDependencyGraph(this.canvas);
     
     // Check for cycles
@@ -203,8 +202,8 @@ export class ASTGenerator {
     const function_groups = this.groupNodesIntoFunctions(ordered_nodes);
     
     function_groups.forEach((group, index) => {
-      const entry_node = group[0]; // First node in group is entry point
-      const exit_node = group[group.length - 1]; // Last node is exit point
+      const entry_node = group[0]!; // First node in group is entry point
+      const exit_node = group[group.length - 1]!; // Last node is exit point
       
       const func: FunctionDefinition = {
         name: this.generateFunctionName(entry_node, index),
@@ -273,7 +272,7 @@ export class ASTGenerator {
   private createASTNode(
     canvas_node: CanvasNode, 
     index: number, 
-    functions: FunctionDefinition[]
+    _functions: FunctionDefinition[]
   ): ASTNode {
     const node_type = this.mapCanvasNodeToASTType(canvas_node);
     const children = this.createChildNodes(canvas_node);
@@ -381,13 +380,13 @@ export class ASTGenerator {
   /**
    * Generate AST edges from canvas edges
    */
-  private generateASTEdges(canvas_edges: CanvasEdge[], ast_nodes: ASTNode[]): ASTEdge[] {
+  private generateASTEdges(canvas_edges: CanvasEdge[], _ast_nodes: ASTNode[]): ASTEdge[] {
     return canvas_edges.map(edge => ({
       from: edge.from,
       to: edge.to,
       type: edge.type,
       weight: edge.weight,
-      label: edge.label
+      label: (edge as any).label
     }));
   }
   
@@ -577,18 +576,17 @@ export class ASTGenerator {
   }
   
   private getTheoremReference(classification: NodeClassification): string {
-    const theorem_map = {
+    const theorem_map: Record<string, string> = {
       [NodeClassification.ACTIVATE]: 'LinearTransformationTheorem',
       [NodeClassification.INTEGRATE]: 'PolynomialAdditionCommutativity',
       [NodeClassification.PROPAGATE]: 'PolynomialShiftProperties',
       [NodeClassification.BACKPROPAGATE]: 'PolynomialEqualityProperties',
-      [NodeClassification.TRANSFORM]: 'PolynomialMultiplicationDistributivity',
       [NodeClassification.VERIFY]: 'MajorityVoteConsensus',
       [NodeClassification.STORE]: 'MemoryPreservationTheorem',
       [NodeClassification.OBSERVE]: 'QuantumObservationTheorem'
     };
     
-    return theorem_map[classification] || 'GenericTheorem';
+    return theorem_map[classification as string] || 'GenericTheorem';
   }
   
   private generateNodeComment(canvas_node: CanvasNode): string {
@@ -630,13 +628,13 @@ export class ASTGenerator {
   }
   
   // Placeholder implementations for methods that would be fully implemented
-  private extractParameters(group: CanvasNode[]): string[] { return []; }
-  private inferReturnType(group: CanvasNode[]): string { return 'any'; }
-  private extractLocalVariables(group: CanvasNode[]): VariableDefinition[] { return []; }
-  private generateAssemblyTemplate(entry_node: CanvasNode): string { return ''; }
-  private isEntryPoint(entry_node: CanvasNode): boolean { return false; }
-  private isExitPoint(exit_node: CanvasNode): boolean { return false; }
-  private isObserverFunction(group: CanvasNode[]): boolean { return false; }
-  private inferVariableType(node: CanvasNode): string { return 'any'; }
+  private extractParameters(_group: CanvasNode[]): string[] { return []; }
+  private inferReturnType(_group: CanvasNode[]): string { return 'any'; }
+  private extractLocalVariables(_group: CanvasNode[]): VariableDefinition[] { return []; }
+  private generateAssemblyTemplate(_entry_node: CanvasNode): string { return ''; }
+  private isEntryPoint(_entry_node: CanvasNode): boolean { return false; }
+  private isExitPoint(_exit_node: CanvasNode): boolean { return false; }
+  private isObserverFunction(_group: CanvasNode[]): boolean { return false; }
+  private inferVariableType(_node: CanvasNode): string { return 'any'; }
   private parseNodeContent(content: string): any { return content; }
 }

@@ -13,7 +13,7 @@
  */
 
 import { AST, ASTNode, ASTNodeType, FunctionDefinition, VariableDefinition } from '../ast';
-import { AAL, AALInstruction, AALProgram, AssemblyOp, Dimension } from '../../core/aal';
+import { AAL, AALInstruction, AssemblyOp, Dimension } from '../../core/aal';
 import { PolyF2, Polynomial } from '../../core/polynomial';
 import { IdentityChain, Vector8D } from '../../core/identity-chain';
 
@@ -62,7 +62,6 @@ export interface ProofData {
  * AAL Code Generator
  */
 export class AALCodeGenerator {
-  private instruction_counter: number = 0;
   private label_counter: number = 0;
   private optimization_stats = {
     hopf_optimizations: 0,
@@ -274,7 +273,7 @@ export class AALCodeGenerator {
       opcode: AssemblyOp.ADD,
       dimension: Dimension.D2_Environment,
       operands: this.extractOperands(node),
-      comment: node.metadata.comment
+      comment: node.metadata.comment || undefined
     });
   }
   
@@ -288,7 +287,7 @@ export class AALCodeGenerator {
       opcode,
       dimension: node.metadata.dimension,
       operands: this.extractOperands(node),
-      comment: node.metadata.comment
+      comment: node.metadata.comment || undefined
     });
   }
   
@@ -321,7 +320,7 @@ export class AALCodeGenerator {
   /**
    * Generate loop instruction
    */
-  private generateLoopInstruction(node: ASTNode): AALInstruction[] {
+  private generateLoopInstruction(_node: ASTNode): AALInstruction[] {
     const instructions: AALInstruction[] = [];
     
     // For simplicity, generate a basic while loop structure
@@ -381,7 +380,7 @@ export class AALCodeGenerator {
       opcode: AssemblyOp.JMP,
       dimension: Dimension.D0_PureAlgebra,
       operands: this.extractOperands(node),
-      comment: node.metadata.comment
+      comment: node.metadata.comment || undefined
     });
   }
   
@@ -400,7 +399,7 @@ export class AALCodeGenerator {
   /**
    * Generate observer instruction
    */
-  private generateObserverInstruction(node: ASTNode): AALInstruction {
+  private generateObserverInstruction(_node: ASTNode): AALInstruction {
     return this.createInstruction({
       opcode: AssemblyOp.SYNC,
       dimension: Dimension.D7_Timing,
@@ -520,7 +519,7 @@ export class AALCodeGenerator {
     lines.push('');
     
     // Instructions
-    instructions.forEach((instr, index) => {
+    instructions.forEach((instr, _index) => {
       const comment = instr.metadata.comment;
       const operands = instr.operands.map(op => op.toString()).join(', ');
       
@@ -645,7 +644,7 @@ export class AALCodeGenerator {
     } else if (dimension <= Dimension.D3_MemoryModel) {
       return AssemblyOp.MUL;
     } else {
-      return AssemblyOp.TRANSFORM; // Would be AssemblyOp.TRANSFORM if it existed
+      return AssemblyOp.ADD; // Fallback to ADD for now
     }
   }
   
@@ -654,31 +653,21 @@ export class AALCodeGenerator {
   }
   
   private opcodeToByte(opcode: AssemblyOp): number {
-    const opcode_map = {
+const opcode_map: Record<string, number> = {
       [AssemblyOp.NOP]: 0x00,
       [AssemblyOp.JMP]: 0x01,
       [AssemblyOp.ADD]: 0x02,
-      [AssemblyOp.SUB]: 0x03,
       [AssemblyOp.MUL]: 0x04,
       [AssemblyOp.DIV]: 0x05,
       [AssemblyOp.SHL]: 0x06,
-      [AssemblyOp.SHR]: 0x07,
       [AssemblyOp.CMP]: 0x08,
       [AssemblyOp.JNE]: 0x09,
-      [AssemblyOp.CALL]: 0x0A,
-      [AssemblyOp.RET]: 0x0B,
-      [AssemblyOp.PUSH]: 0x0C,
-      [AssemblyOp.POP]: 0x0D,
       [AssemblyOp.SYNC]: 0x0E,
       [AssemblyOp.VOTE]: 0x0F,
-      [AssemblyOp.FEEDBACK]: 0x10,
-      [AssemblyOp.ADAPT]: 0x11,
-      [AssemblyOp.SYSCALL]: 0x12,
-      [AssemblyOp.INT]: 0x13,
       [AssemblyOp.HALT]: 0xFF
     };
     
-    return opcode_map[opcode] || 0x00;
+    return opcode_map[opcode as string] || 0x00;
   }
   
   private getVariableAddress(variable: VariableDefinition): number {
@@ -765,7 +754,7 @@ export class AALCodeGenerator {
   }
   
   private getTheoremForInstruction(instr: AALInstruction): string {
-    const theorem_map = {
+    const theorem_map: Record<string, string> = {
       [AssemblyOp.ADD]: 'PolynomialAdditionCommutativity',
       [AssemblyOp.MUL]: 'PolynomialMultiplicationDistributivity',
       [AssemblyOp.SHL]: 'PolynomialShiftProperties',
@@ -774,12 +763,12 @@ export class AALCodeGenerator {
       [AssemblyOp.VOTE]: 'MajorityVoteConsensus'
     };
     
-    return theorem_map[instr.opcode] || 'GenericAALTheorem';
+    return theorem_map[instr.opcode as string] || 'GenericAALTheorem';
   }
   
   private numberToBytes(n: number): number[] {
     const bytes = [];
-    const abs = Math.abs(n);
+    let abs = Math.abs(n);
     
     do {
       bytes.push(abs % 256);

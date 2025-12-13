@@ -5,9 +5,10 @@
   "main": "src/index.ts",
   "type": "module",
   "scripts": {
-    "build": "tsc && npm run build:wasm",
+    "build": "tsc --project tsconfig.build.json",
     "build:wasm": "cd formal && make all",
-    "dev": "tsc --watch",
+    "build:dev": "tsc --project tsconfig.json",
+    "dev": "tsc --project tsconfig.build.json --watch",
     "test": "npm run test:unit && npm run test:formal",
     "test:unit": "jest src/",
     "test:formal": "cd formal && make test",

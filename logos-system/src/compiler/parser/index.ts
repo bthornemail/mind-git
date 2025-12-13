@@ -11,9 +11,9 @@
  * - Edges represent data flow and dependencies
  */
 
-import { CanvasJSON, Node, Edge } from '../../json.canvas';
-import { AALInstruction, AALProgram, AssemblyOp, Dimension } from '../core/aal';
-import { Polynomial } from '../core/polynomial';
+import type { CanvasJSON, Node, Edge } from '../json.canvas';
+import { AssemblyOp, Dimension } from '../../core/aal';
+import { Polynomial } from '../../core/polynomial';
 
 /**
  * Parsed Canvas Structure
@@ -113,7 +113,7 @@ export class CanvasParser {
    * Extract nodes from canvas JSON
    */
   private extractNodes(canvas: CanvasJSON): CanvasNode[] {
-    return canvas.nodes.map((node, index) => {
+    return canvas.nodes.map((node: any, index: number) => {
       const position = this.extractPosition(node);
       const size = this.extractSize(node);
       const content = this.extractContent(node);
@@ -145,7 +145,7 @@ export class CanvasParser {
     const edges: CanvasEdge[] = [];
     
     if (canvas.edges) {
-      canvas.edges.forEach((edge, index) => {
+      canvas.edges.forEach((edge: any, index: number) => {
         const edge_type = this.classifyEdge(edge);
         const weight = this.calculateEdgeWeight(edge);
         const polynomial = this.encodeEdge(edge, edge_type, weight);
@@ -175,8 +175,8 @@ export class CanvasParser {
     if (nodes.length === 0) return null;
     
     // Find node closest to origin
-    let observer = nodes[0];
-    let min_distance = origin_distance(observer);
+    let observer = nodes[0] || null;
+    let min_distance = observer ? origin_distance(observer) : Infinity;
     
     for (const node of nodes) {
       const distance = origin_distance(node);
@@ -187,7 +187,7 @@ export class CanvasParser {
     }
     
     // Check if it's close enough to be considered observer (within 10 pixels)
-    if (min_distance < 10) {
+    if (min_distance < 10 && observer) {
       return observer;
     }
     
@@ -228,7 +228,7 @@ export class CanvasParser {
   /**
    * Classify node type based on content and position
    */
-  private classifyNode(node: any, content: string, position: { x: number; y: number }): NodeClassification {
+  private classifyNode(_node: any, content: string, _position: { x: number; y: number }): NodeClassification {
     // Classification based on content prefixes
     if (content.startsWith('#Activate:') || content.startsWith('#activate:')) {
       return NodeClassification.ACTIVATE;
@@ -478,7 +478,7 @@ export class CanvasParser {
   /**
    * Check compatibility with Hopf fibrations
    */
-  private checkHopfCompatibility(nodes: CanvasNode[], edges: CanvasEdge[]): boolean {
+  private checkHopfCompatibility(nodes: CanvasNode[], _edges: CanvasEdge[]): boolean {
     // Check if the canvas structure is compatible with Hopf fibrations
     // This is a simplified check - full verification would require topological analysis
     

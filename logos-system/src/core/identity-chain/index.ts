@@ -258,8 +258,9 @@ export class IdentityChain {
   /**
    * Generate test vectors with known properties
    */
-  static generate_unit_vector_2(angle: number): Vector2D {
-    return [Math.cos(angle), Math.sin(angle)];
+  static generate_unit_vector_2(angle?: number): Vector2D {
+    const angleToUse = angle ?? Math.random() * 2 * Math.PI;
+    return [Math.cos(angleToUse), Math.sin(angleToUse)];
   }
   
   static generate_unit_vector_4(): Vector4D {
@@ -357,6 +358,6 @@ export class IdentityChainWasm {
       env: { memory: new WebAssembly.Memory({ initial: 256 }) }
     });
     
-    return instance.exports.verify_all_identities() === 1;
+    return (instance.exports as any).verify_all_identities() === 1;
   }
 }

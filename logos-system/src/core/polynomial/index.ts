@@ -195,14 +195,14 @@ export class PolyF2 {
    */
   static is_monic(p: Polynomial): boolean {
     const trimmed = this.trim(p);
-    return trimmed.length > 0 && trimmed[trimmed.length - 1];
+    return trimmed.length > 0 && trimmed[trimmed.length - 1] === true;
   }
 
   /**
    * Evaluate polynomial at x = 1 (count of true coefficients mod 2)
    */
   static evaluate_at_1(p: Polynomial): boolean {
-    return p.reduce((sum, coeff) => sum !== coeff, false);
+    return p.reduce((sum, coeff, index) => sum !== coeff, false);
   }
 
   /**
@@ -314,7 +314,7 @@ export class PolyF2Wasm {
       env: { memory: this.memory! }
     });
 
-    return instance.exports.verify_all_polynomial_operations() === 1;
+    return (instance.exports as any).verify_all_polynomial_operations() === 1;
   }
 
   static add(a: Polynomial, b: Polynomial): Polynomial {
