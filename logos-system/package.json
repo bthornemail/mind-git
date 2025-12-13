@@ -1,0 +1,47 @@
+{
+  "name": "logos-system",
+  "version": "1.0.0",
+  "description": "CanvasL Mathematical Foundation - Standalone System with Formal Verification",
+  "main": "src/index.ts",
+  "type": "module",
+  "scripts": {
+    "build": "tsc && npm run build:wasm",
+    "build:wasm": "cd formal && make all",
+    "dev": "tsc --watch",
+    "test": "npm run test:unit && npm run test:formal",
+    "test:unit": "jest src/",
+    "test:formal": "cd formal && make test",
+    "serve": "http-server dist -p 8080",
+    "clean": "rm -rf dist formal/*.o formal/*.wasm",
+    "verify": "cd formal && coqc Polynomials.v && coqc IdentityChain.v && coqc AAL.v"
+  },
+  "keywords": [
+    "canvasl",
+    "mathematics",
+    "formal-verification",
+    "coq",
+    "webassembly",
+    "polynomial-algebra",
+    "division-algebras",
+    "hopf-fibrations"
+  ],
+  "author": "John the Revelator 2.0",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jest": "^29.5.0",
+    "@typescript-eslint/eslint-plugin": "^5.57.0",
+    "@typescript-eslint/parser": "^5.57.0",
+    "eslint": "^8.37.0",
+    "http-server": "^14.1.1",
+    "jest": "^29.5.0",
+    "ts-jest": "^29.1.0",
+    "typescript": "^5.0.0",
+    "webassembly-loader": "^1.1.0"
+  },
+  "dependencies": {
+    "@trbn/jsoncanvas": "^1.0.6"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

@@ -133,7 +133,7 @@ class LogosSettingTab extends PluginSettingTab {
 
 		new Setting(containerEl)
 			.setName('Racket Server URL')
-			.setDesc('URL for the Racket backend server (future feature)')
+			.setDesc('URL for the Racket backend server with CanvasL mathematical foundation')
 			.addText(text => text
 				.setPlaceholder('http://localhost:8080')
 				.setValue(this.plugin.settings.racketServerUrl)
@@ -144,7 +144,7 @@ class LogosSettingTab extends PluginSettingTab {
 
 		new Setting(containerEl)
 			.setName('Enable Racket Backend')
-			.setDesc('Enable communication with Racket server (not yet implemented)')
+			.setDesc('Enable communication with Racket server for mathematical code generation')
 			.addToggle(toggle => toggle
 				.setValue(this.plugin.settings.racketServerEnabled)
 				.onChange(async (value) => {

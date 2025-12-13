@@ -1,0 +1,15 @@
+{
+	"nodes":[
+		{"id":"observer","type":"text","x":0,"y":0,"width":200,"height":100,"text":"# Observe\n\nThe identity element at origin"},
+		{"id":"activate-main","type":"text","x":-200,"y":150,"width":200,"height":100,"text":"# Activate: main\n\nStart the program"},
+		{"id":"integrate-xy","type":"text","x":0,"y":150,"width":200,"height":100,"text":"# Integrate: x y\n\nAdd two numbers"},
+		{"id":"store-result","type":"text","x":200,"y":150,"width":200,"height":100,"text":"# Store: result\n\nSave the result"},
+		{"id":"transform-square","type":"text","x":0,"y":300,"width":200,"height":100,"text":"# Transform: x\n\nCalculate x²"}
+	],
+	"edges":[
+		{"id":"edge1","fromNode":"observer","toNode":"activate-main","label":"start","fromSide":"bottom","toSide":"top"},
+		{"id":"edge2","fromNode":"activate-main","toNode":"integrate-xy","label":"data","fromSide":"right","toSide":"left"},
+		{"id":"edge3","fromNode":"integrate-xy","toNode":"store-result","label":"output","fromSide":"right","toSide":"left"},
+		{"id":"edge4","fromNode":"store-result","toNode":"transform-square","label":"input","fromSide":"bottom","toSide":"top"}
+	]
+}

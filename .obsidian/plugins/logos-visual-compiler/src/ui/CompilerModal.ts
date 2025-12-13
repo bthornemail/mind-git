@@ -4,6 +4,7 @@ import { AST } from '../types/ast';
 import { CanvasParser } from '../parsers/CanvasParser';
 import { ASTGenerator } from '../generators/ASTGenerator';
 import { TypeScriptGenerator, GeneratedCode } from '../generators/TypeScriptGenerator';
+import { getRacketBridge } from '../generators/RacketBridge';
 
 export class CompilerModal extends Modal {
 	private parser: CanvasParser;
@@ -437,6 +438,15 @@ async openWithFile(file: TFile) {
 			this.generateAndDisplayCode();
 		});
 
+		const generateRacketBtn = buttonContainer.createEl('button', {
+			text: '🎯 Generate Racket',
+			cls: 'logos-generate-btn logos-racket-btn'
+		});
+		
+		generateRacketBtn.addEventListener('click', () => {
+			this.generateRacketCode();
+		});
+
 		// Code display area
 		const codeContainer = section.createDiv({ cls: 'logos-code-container' });
 		codeContainer.setAttribute('id', 'logos-code-display');
@@ -592,6 +602,171 @@ async openWithFile(file: TFile) {
 		} catch (error) {
 			console.error('Download failed:', error);
 			new Notice('Failed to download code');
+		}
+	}
+
+	private async generateRacketCode() {
+		if (!this.ast) return;
+
+		try {
+			// Show loading state
+			const codeDisplay = document.getElementById('logos-code-display');
+			if (codeDisplay) {
+				codeDisplay.empty();
+				codeDisplay.createEl('p', { 
+					text: '🎯 Generating Racket code...',
+					cls: 'logos-placeholder'
+				});
+			}
+
+			// Check if Racket backend is enabled in settings
+			// For now, we'll try to connect regardless of settings
+			// In a full implementation, we'd check this.settings.racketServerEnabled
+
+			// Get Racket bridge instance with configured server URL
+			const bridge = getRacketBridge(); // Uses default localhost:8080
+			
+			// Check if Racket server is available
+			const isConnected = await bridge.checkConnection();
+			if (!isConnected) {
+				new Notice('Racket server not available. Please start the Racket backend with: `racket racket-server-simple.rkt`');
+				if (codeDisplay) {
+					codeDisplay.empty();
+					codeDisplay.createEl('p', { 
+						text: '❌ Racket server not available. Please start the Racket backend with: `racket racket-server-simple.rkt`',
+						cls: 'logos-error'
+					});
+				}
+				return;
+			}
+
+			// Generate Racket code via HTTP request
+			const racketCode = await bridge.generateCode(this.ast);
+
+			// Display the generated Racket code
+			this.displayRacketCode(racketCode);
+
+			new Notice('Racket code generated successfully!');
+		} catch (error) {
+			console.error('Racket code generation error:', error);
+			new Notice(`Racket code generation failed: ${error.message}`);
+			
+			// Show error in code display
+			const codeDisplay = document.getElementById('logos-code-display');
+			if (codeDisplay) {
+				codeDisplay.empty();
+				codeDisplay.createEl('p', { 
+					text: `❌ Error: ${error.message}`,
+					cls: 'logos-error'
+				});
+			}
+		}
+	}
+
+	private displayRacketCode(racketCode: string) {
+		const codeDisplay = document.getElementById('logos-code-display');
+		if (!codeDisplay) return;
+
+		codeDisplay.empty();
+
+		// Code metadata
+		const metadata = codeDisplay.createDiv({ cls: 'logos-code-metadata' });
+		metadata.createEl('div', { 
+			text: '🎯 generated-code.rkt',
+			cls: 'logos-code-filename'
+		});
+		metadata.createEl('div', { 
+			text: `Racket Scheme | ${racketCode.split('\n').length} lines`,
+			cls: 'logos-code-stats'
+		});
+
+		// Action buttons
+		const actions = codeDisplay.createDiv({ cls: 'logos-code-actions' });
+		
+		const copyBtn = actions.createEl('button', {
+			text: '📋 Copy',
+			cls: 'logos-action-btn'
+		});
+		copyBtn.addEventListener('click', () => this.copyRacketCodeToClipboard(racketCode));
+
+		const saveBtn = actions.createEl('button', {
+			text: '💾 Save',
+			cls: 'logos-action-btn'
+		});
+		saveBtn.addEventListener('click', () => this.saveRacketCodeToFile(racketCode));
+
+		const downloadBtn = actions.createEl('button', {
+			text: '⬇️ Download',
+			cls: 'logos-action-btn'
+		});
+		downloadBtn.addEventListener('click', () => this.downloadRacketCode(racketCode));
+
+		// Code display with syntax highlighting
+		const codeBlock = codeDisplay.createDiv({ cls: 'logos-code-block' });
+		const pre = codeBlock.createEl('pre');
+		const code = pre.createEl('code', {
+			cls: 'language-scheme'
+		});
+		code.textContent = racketCode;
+
+		// Add line numbers
+		this.addLineNumbers(pre);
+	}
+
+	private async copyRacketCodeToClipboard(racketCode: string) {
+		try {
+			await navigator.clipboard.writeText(racketCode);
+			new Notice('Racket code copied to clipboard!');
+		} catch (error) {
+			console.error('Copy failed:', error);
+			new Notice('Failed to copy Racket code');
+		}
+	}
+
+	private async saveRacketCodeToFile(racketCode: string) {
+		if (!this.canvasFile) return;
+
+		try {
+			const vault = this.canvasFile.vault;
+			const folder = this.canvasFile.parent;
+			
+			if (!folder) {
+				new Notice('Cannot determine save location');
+				return;
+			}
+
+			const filePath = `${folder.path}/generated-code.rkt`;
+			
+			// Check if file exists
+			const existingFile = vault.getAbstractFileByPath(filePath);
+			if (existingFile) {
+				new Notice('File already exists. Use Download instead.');
+				return;
+			}
+
+			// Create the file
+			await vault.create(filePath, racketCode);
+			new Notice('Racket code saved to generated-code.rkt');
+		} catch (error) {
+			console.error('Save failed:', error);
+			new Notice(`Failed to save Racket code: ${error.message}`);
+		}
+	}
+
+	private downloadRacketCode(racketCode: string) {
+		try {
+			const blob = new Blob([racketCode], { type: 'text/plain' });
+			const url = URL.createObjectURL(blob);
+			const a = document.createElement('a');
+			a.href = url;
+			a.download = 'generated-code.rkt';
+			a.click();
+			URL.revokeObjectURL(url);
+			
+			new Notice('Racket code downloaded!');
+		} catch (error) {
+			console.error('Download failed:', error);
+			new Notice('Failed to download Racket code');
 		}
 	}
 

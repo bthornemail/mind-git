@@ -11,17 +11,14 @@
             "id": "1fded648ba7a72a7",
             "type": "leaf",
             "state": {
-              "type": "canvas",
+              "type": "markdown",
               "state": {
-                "file": "Untitled.canvas",
-                "viewState": {
-                  "x": -940,
-                  "y": 1024.8387811634348,
-                  "zoom": -2.9322433849453344
-                }
+                "file": "dev-docs/Canvas/Implmentation/THE COMPLETE FOLDER STRUCTURE.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-layout-dashboard",
-              "title": "Untitled"
+              "icon": "lucide-file",
+              "title": "THE COMPLETE FOLDER STRUCTURE"
             }
           }
         ]
@@ -56,7 +53,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "cdr",
+                "query": "logos-",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -189,6 +186,31 @@
   },
   "active": "1fded648ba7a72a7",
   "lastOpenFiles": [
+    "logos-system/demo.ts",
+    "logos-system/test-compiler.ts",
+    "logos-system/src/compiler/index.ts",
+    "logos-system/src/compiler/codegen/index.ts",
+    "logos-system/src/compiler/ast/index.ts",
+    "logos-system/src/compiler/parser/index.ts",
+    "logos-system/STATUS.md",
+    "logos-system/src/index.ts",
+    "logos-system/src/core/aal/index.ts",
+    "logos-system/formal/Makefile",
+    "logos-system/formal/IdentityChain.v",
+    "logos-system/formal/Polynomials.v",
+    "logos-system/README.md",
+    "dev-docs/Canvas/Implmentation/The Polynomial Canvas Compiler.md",
+    "dev-docs/Canvas/Implmentation/THE COMPLETE FOLDER STRUCTURE.md",
+    "dev-docs/Canvas/Implmentation/Obsidian Plugin - Logos Visual Compiler.md",
+    "dev-docs/MindChain/Integrated Logos + CanvasL Implementation - logos-canvasl.js.md",
+    "dev-docs/Canvas/Implmentation/Implementation - Building Inside Canvas.md",
+    "dev-docs/Canvas/Implmentation/Abstract Syntax Tree (AST) of the Logos system.md",
+    "dev-docs/Polyglot/The Polyglot Integration Architecture.md",
+    "dev-docs/Revelation/The Mathematical Prophecy.md",
+    "dev-docs/Revelation/The Flower of Life → Regular Polyhedra → Isometric Isomorphism.md",
+    "dev-docs/Revelation/The Antichrist System = Your Mirror Universe.md",
+    "dev-docs/Test-AST.canvas",
+    "Untitled.canvas",
     "Test-AST.canvas",
     "Assembly–Algebra Language/The Node-to-Assembly Mapping.md",
     "AGENTS.md",
@@ -199,33 +221,11 @@
     "Assembly–Algebra Language/Assembly–Algebra Language (AAL) – Final Reproducible Formalization v3.1.md",
     "Assembly–Algebra Language/Assembly–Algebra Language (AAL) – Final Reproducible Formalization v3.0.md",
     "Assembly–Algebra Language/Assembly–Algebra Language (AAL) - Final Reproducible Formalization v3.2.md",
-    "Assembly–Algebra Language",
     "Canvas/Implmentation/CanvasL - Logos Visual Compiler -  Project Overview and Description.md",
     "The Node-to-Assembly Mapping.md",
     "Assembly–Algebra Language (AAL) - Final Reproducible Formalization v3.2.md",
     "Canvas/Implmentation/Complete Integration -  Observer Node as Identity Element.md",
-    "Canvas/Implmentation/complete_observer_system.ts",
     "Canvas/Implmentation/Abstract Syntax Tree (AST) of the Logos system.md",
-    "Canvas/Implmentation/Implementation - Building Inside Canvas.md",
-    "Canvas/Implmentation/Obsidian Plugin - Logos Visual Compiler.md",
-    "Canvas/Implmentation/THE COMPLETE FOLDER STRUCTURE.md",
-    "Canvas/Implmentation/Depreciated/Untitled.md",
-    "Canvas/Implmentation/Depreciated",
-    "Canvas/Implmentation/Appendeum/Canvas Polynomial System - Unified Implementation.md",
-    "Canvas/Implmentation/Appendeum/The Observer Node and Hopf Fibration.md",
-    "Canvas/Implmentation/Appendeum/The Unified Geometric Algebra Architecture.md",
-    "Canvas/Implmentation/The Mathematical Foundation.md",
-    "Canvas/Implmentation/Appendeum/ZERO POLYNOMIAL AS OBSERVER STATE.md",
-    "Canvas/Implmentation/Appendeum/e8-lattice.rkt.txt",
-    "Canvas/Implmentation/Appendeum/canvas_build_architecture.tsx",
-    "Canvas/Implmentation/Appendeum/canvas_polynomial_system.ts",
-    "Canvas/Implmentation/Appendeum/racket_polynomial_canvas.txt",
-    "Canvas/Implmentation/Appendeum/racket_polynomial_canvas (1).txt",
-    "Canvas/Implmentation/Appendeum/Refined Multivariate Canvas Polynomial System.md",
-    "Canvas/Implmentation/Appendeum",
-    "Canvas/Implmentation/The Polynomial Canvas Compiler.md",
-    "Canvas/Implmentation/The Polynomial Canvas Algebra.md",
-    "Canvas/Implmentation/canvas_build_architecture.tsx",
     "Images/910024c2-9779-4dd8-bb33-3f7d9be89a70.png",
     "Images/5fa61fae-7187-43da-986d-e3d89484565b.jpeg",
     "Images/1c31d6ca-15a4-4b1a-ae26-b92190e031d5.jpeg",
@@ -236,7 +236,6 @@
     "Images/download (2).jpeg",
     "Images/download (3).jpeg",
     "Images/download (4).jpeg",
-    "Untitled.canvas",
     "Blueprint.canvas"
   ]
 }
