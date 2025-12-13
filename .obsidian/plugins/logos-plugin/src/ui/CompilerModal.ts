@@ -1,23 +1,31 @@
 import { App, Modal, TFile } from 'obsidian';
 import { ParsedCanvas, ClassifiedNode } from '../types/canvas';
+import { AST } from '../types/ast';
 import { CanvasParser } from '../parsers/CanvasParser';
+import { ASTGenerator } from '../generators/ASTGenerator';
 
 export class CompilerModal extends Modal {
 	private parser: CanvasParser;
 	private canvasFile: TFile | null = null;
 	private parsed: ParsedCanvas | null = null;
+	private ast: AST | null = null;
 
 	constructor(app: App) {
 		super(app);
 		this.parser = new CanvasParser();
 	}
 
-	async openWithFile(file: TFile) {
+async openWithFile(file: TFile) {
 		this.canvasFile = file;
 		try {
 			this.parsed = await this.parser.parseCanvasFile(file);
+			
+			// Generate AST
+			const generator = new ASTGenerator(this.parsed);
+			this.ast = generator.generateAST();
+			
 			this.open();
-		} catch (error) {
+} catch (error) {
 			console.error('Failed to parse canvas:', error);
 			this.showError(error.message);
 		}
@@ -33,8 +41,9 @@ export class CompilerModal extends Modal {
 			return;
 		}
 
-		this.renderHeader(contentEl);
+	this.renderHeader(contentEl);
 		this.renderMetadata(contentEl);
+		this.renderAST(contentEl);
 		this.renderNodes(contentEl);
 		this.renderEdges(contentEl);
 		this.renderDependencyAnalysis(contentEl);
@@ -73,6 +82,175 @@ export class CompilerModal extends Modal {
 			const emoji = this.getEmojiForType(type);
 			typesList.createEl('li', { text: `${emoji} ${type}: ${count}` });
 		});
+	}
+
+	private renderAST(container: HTMLElement) {
+		if (!this.ast) return;
+
+		const section = container.createDiv({ cls: 'logos-section' });
+		section.createEl('h3', { text: '🌳 Abstract Syntax Tree (AST)' });
+
+		// AST metadata
+		const metadata = this.ast.metadata;
+		const metadataList = section.createEl('ul', { cls: 'logos-ast-metadata' });
+		metadataList.createEl('li', { text: `Functions: ${this.ast.functions.length}` });
+		metadataList.createEl('li', { text: `Variables: ${this.ast.variables.length}` });
+		metadataList.createEl('li', { text: `Entry Points: ${this.ast.entryPoints.length}` });
+		metadataList.createEl('li', { text: `Max Depth: ${metadata.maxDepth}` });
+		metadataList.createEl('li', { text: `Complexity: ${metadata.complexity}` });
+		metadataList.createEl('li', { 
+			text: `Cycles: ${metadata.containsCycles ? '⚠️ Yes' : '✅ No'}`,
+			cls: metadata.containsCycles ? 'logos-warning' : 'logos-success'
+		});
+
+		// Functions section
+		if (this.ast.functions.length > 0) {
+			const functionsSection = section.createDiv({ cls: 'logos-ast-functions' });
+			functionsSection.createEl('h4', { text: '🔧 Extracted Functions' });
+			
+			const functionsContainer = functionsSection.createDiv({ cls: 'logos-functions-container' });
+			this.ast.functions.forEach(func => {
+				this.renderFunction(functionsContainer, func);
+			});
+		}
+
+		// Variables section
+		if (this.ast.variables.length > 0) {
+			const variablesSection = section.createDiv({ cls: 'logos-ast-variables' });
+			variablesSection.createEl('h4', { text: '📝 Identified Variables' });
+			
+			const variablesContainer = variablesSection.createDiv({ cls: 'logos-variables-container' });
+			const variablesList = variablesContainer.createEl('ul');
+			this.ast.variables.forEach(variable => {
+				const varEl = variablesList.createEl('li', { cls: 'logos-variable-item' });
+				varEl.createEl('span', { 
+					text: `${variable.name}: ${variable.type}`,
+					cls: 'logos-variable-name'
+				});
+				varEl.createEl('span', { 
+					text: `(${variable.scope})`,
+					cls: 'logos-variable-scope'
+				});
+			});
+		}
+
+		// AST structure visualization
+		const structureSection = section.createDiv({ cls: 'logos-ast-structure' });
+		structureSection.createEl('h4', { text: '🏗️ AST Structure' });
+		
+		const structureContainer = structureSection.createDiv({ cls: 'logos-structure-container' });
+		this.renderASTStructure(structureContainer);
+	}
+
+	private renderFunction(container: HTMLElement, func: any) {
+		const funcEl = container.createDiv({ cls: 'logos-function' });
+		
+		const header = funcEl.createDiv({ cls: 'logos-function-header' });
+		header.createEl('span', { 
+			text: `${func.name}(${func.parameters.join(', ')})`,
+			cls: 'logos-function-signature'
+		});
+		
+		if (func.returnType) {
+			header.createEl('span', { 
+				text: `: ${func.returnType}`,
+				cls: 'logos-function-return'
+			});
+		}
+
+		const body = funcEl.createDiv({ cls: 'logos-function-body' });
+		if (func.assemblyTemplate) {
+			body.createEl('div', { 
+				text: `Assembly: ${func.assemblyTemplate}`,
+				cls: 'logos-function-assembly'
+			});
+		}
+
+		if (func.body && func.body.length > 0) {
+			body.createEl('div', { cls: 'logos-function-content' });
+			func.body.forEach(line => {
+				body.createEl('div', { 
+					text: line,
+					cls: 'logos-function-line'
+				});
+			});
+		}
+	}
+
+	private renderASTStructure(container: HTMLElement) {
+		if (!this.ast) return;
+
+		const canvas = container.createEl('canvas', { 
+			cls: 'logos-ast-canvas'
+		});
+		canvas.width = 600;
+		canvas.height = 400;
+		
+		const ctx = canvas.getContext('2d');
+		if (!ctx) return;
+
+		// Simple tree visualization
+		const nodeMap = new Map();
+		this.ast.nodes.forEach((node, index) => {
+			const x = 50 + (index * 120) % 550;
+			const y = 50 + Math.floor(index * 120 / 550) * 100;
+			
+			// Store node position
+			nodeMap.set(node.id, { x, y, node });
+			
+			// Draw node
+			ctx.fillStyle = this.getNodeColor(node.type);
+			ctx.fillRect(x - 30, y - 20, 60, 40);
+			ctx.strokeStyle = '#000';
+			ctx.strokeRect(x - 30, y - 20, 60, 40);
+			
+			// Draw label
+			ctx.fillStyle = '#fff';
+			ctx.font = '12px monospace';
+			ctx.textAlign = 'center';
+			ctx.fillText(node.type.substring(0, 3), x, y + 5);
+		});
+
+		// Draw edges
+		ctx.strokeStyle = '#666';
+		ctx.lineWidth = 1;
+		this.ast.edges.forEach(edge => {
+			const fromPos = nodeMap.get(edge.from);
+			const toPos = nodeMap.get(edge.to);
+			
+			if (fromPos && toPos) {
+				ctx.beginPath();
+				ctx.moveTo(fromPos.x, fromPos.y);
+				ctx.lineTo(toPos.x, toPos.y);
+				ctx.stroke();
+				
+				// Arrow
+				const angle = Math.atan2(toPos.y - fromPos.y, toPos.x - fromPos.x);
+				ctx.save();
+				ctx.translate(toPos.x, toPos.y);
+				ctx.rotate(angle);
+				ctx.beginPath();
+				ctx.moveTo(-10, -5);
+				ctx.lineTo(0, 0);
+				ctx.lineTo(-10, 5);
+				ctx.stroke();
+				ctx.restore();
+			}
+		});
+	}
+
+	private getNodeColor(type: string): string {
+		const colorMap: Record<string, string> = {
+			'activate': '#3498db',
+			'integrate': '#2ecc71',
+			'transform': '#f39c12',
+			'propagate': '#9b59b6',
+			'verify': '#e74c3c',
+			'store': '#95a5a6',
+			'observe': '#e67e22',
+			'data': '#34495e'
+		};
+		return colorMap[type] || '#666';
 	}
 
 	private renderNodes(container: HTMLElement) {

@@ -1,6 +1,6 @@
 export interface ASTNode {
 	id: string;
-	type: 'activate' | 'integrate' | 'transform' | 'propagate' | 'verify' | 'store' | 'observe' | 'data';
+	type: 'activate' | 'integrate' | 'transform' | 'propagate' | 'verify' | 'store' | 'observe' | 'data' | 'unknown';
 	operation: string;
 	operands: string[];
 	metadata: {

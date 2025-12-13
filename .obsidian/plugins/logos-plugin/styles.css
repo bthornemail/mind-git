@@ -303,3 +303,137 @@ If your plugin does not need CSS, delete this file.
 	font-family: var(--font-monospace);
 	background: var(--background-primary);
 }
+
+/* AST Styles */
+.logos-ast-metadata {
+	list-style: none;
+	padding: 0;
+	margin: 10px 0;
+}
+
+.logos-ast-metadata li {
+	padding: 5px 0;
+	display: flex;
+	justify-content: space-between;
+}
+
+.logos-ast-functions {
+	margin-top: 15px;
+}
+
+.logos-functions-container {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+	gap: 10px;
+	max-height: 300px;
+	overflow-y: auto;
+	padding: 10px;
+	background: var(--background-primary);
+	border-radius: 6px;
+}
+
+.logos-function {
+	padding: 12px;
+	border: 1px solid var(--background-modifier-border);
+	border-radius: 6px;
+	background: var(--background-primary);
+}
+
+.logos-function-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 8px;
+	font-family: var(--font-monospace);
+	font-size: 13px;
+}
+
+.logos-function-signature {
+	font-weight: bold;
+	color: var(--text-accent);
+}
+
+.logos-function-return {
+	color: var(--text-muted);
+	font-size: 11px;
+}
+
+.logos-function-body {
+	font-size: 12px;
+	line-height: 1.4;
+}
+
+.logos-function-assembly {
+	background: var(--background-secondary);
+	padding: 4px 8px;
+	border-radius: 3px;
+	font-family: var(--font-monospace);
+	font-size: 11px;
+	color: var(--text-warning);
+	margin-bottom: 6px;
+}
+
+.logos-function-content {
+	background: var(--background-secondary);
+	padding: 6px;
+	border-radius: 3px;
+	margin-top: 6px;
+}
+
+.logos-function-line {
+	font-family: var(--font-monospace);
+	font-size: 11px;
+	padding: 2px 0;
+}
+
+.logos-ast-variables {
+	margin-top: 15px;
+}
+
+.logos-variables-container {
+	background: var(--background-primary);
+	padding: 10px;
+	border-radius: 6px;
+	max-height: 200px;
+	overflow-y: auto;
+}
+
+.logos-variable-item {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 4px 8px;
+	margin: 2px 0;
+	background: var(--background-secondary);
+	border-radius: 3px;
+}
+
+.logos-variable-name {
+	font-family: var(--font-monospace);
+	font-weight: 500;
+}
+
+.logos-variable-scope {
+	color: var(--text-muted);
+	font-size: 11px;
+}
+
+.logos-ast-structure {
+	margin-top: 15px;
+}
+
+.logos-structure-container {
+	display: flex;
+	justify-content: center;
+	padding: 10px;
+	background: var(--background-primary);
+	border-radius: 6px;
+	border: 1px solid var(--background-modifier-border);
+}
+
+.logos-ast-canvas {
+	border: 1px solid var(--background-modifier-border);
+	border-radius: 4px;
+	background: var(--background-primary);
+	max-width: 100%;
+}
