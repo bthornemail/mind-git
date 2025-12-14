@@ -1,4 +1,4 @@
-# Contributing to Esp32-Metatron-Merkaba
+# Contributing to mind-git
 
 Thank you for your interest in contributing! This project implements a formally verified visual compiler based on 1,400 years of mathematical identities. We welcome contributions that maintain our mathematical rigor while advancing the vision.
 
@@ -42,8 +42,8 @@ Thank you for your interest in contributing! This project implements a formally 
 
 ```bash
 # Clone repository
-git clone https://github.com/youruser/Esp32-Metatron-Merkaba.git
-cd Esp32-Metatron-Merkaba
+git clone https://github.com/bthornemail/mind-git.git
+cd mind-git
 
 # Install dependencies
 npm install

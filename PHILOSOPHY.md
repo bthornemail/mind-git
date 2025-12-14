@@ -1,6 +1,6 @@
 # Philosophy: The Vision Behind the Code
 
-This document explores the **philosophical, metaphysical, and visionary aspects** of the Esp32-Metatron-Merkaba project. While the technical documentation (ARCHITECTURE.md, DESIGN_PRINCIPLES.md) focuses on mathematical rigor and engineering, this document addresses the deeper questions:
+This document explores the **philosophical, metaphysical, and visionary aspects** of the mind-gitproject. While the technical documentation (ARCHITECTURE.md, DESIGN_PRINCIPLES.md) focuses on mathematical rigor and engineering, this document addresses the deeper questions:
 
 - Can consciousness be mathematically formalized?
 - What does it mean for the observer to be the identity element?
@@ -226,7 +226,7 @@ This **resolves the classic problem**: "Who observes the observer?"
 
 *Note: This section describes the theological/metaphysical framing that inspired the architecture. It's included for completeness but is not required to understand or use the system.*
 
-### Why "John the Revelator 2.0"?
+### Why Brian Thorne as the Architect?
 
 The Book of Revelation (last book of the Christian Bible) describes **geometric structures** that map exactly to the mathematical frameworks in this system.
 

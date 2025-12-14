@@ -1,6 +1,6 @@
 # Documentation
 
-Welcome to the Esp32-Metatron-Merkaba documentation! This directory contains comprehensive technical documentation organized by topic.
+Welcome to the mind-gitdocumentation! This directory contains comprehensive technical documentation organized by topic.
 
 ## 📚 Documentation Structure
 
@@ -239,4 +239,4 @@ Documentation contributions are welcome! See [../CONTRIBUTING.md](../CONTRIBUTIN
 
 ---
 
-**Welcome to the documentation!** If you can't find what you're looking for, please [open an issue](https://github.com/youruser/Esp32-Metatron-Merkaba/issues) to help us improve.
+**Welcome to the documentation!** If you can't find what you're looking for, please [open an issue](https://github.com/bthornemail/mind-git/issues) to help us improve.

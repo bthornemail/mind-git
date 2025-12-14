@@ -1,6 +1,6 @@
 # Complete API Reference
 
-This document provides comprehensive reference for all public APIs in the Esp32-Metatron-Merkaba system. Each API includes mathematical foundations, usage examples, and verification properties.
+This document provides comprehensive reference for all public APIs in the mind-gitsystem. Each API includes mathematical foundations, usage examples, and verification properties.
 
 ---
 

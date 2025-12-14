@@ -40,8 +40,8 @@ This guide will take you from zero knowledge to creating and running your first 
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/youruser/Esp32-Metatron-Merkaba.git
-cd Esp32-Metatron-Merkaba
+git clone https://github.com/bthornemail/mind-git.git
+cd mind-git
 ```
 
 ### 2. Install Dependencies

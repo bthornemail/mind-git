@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-**Esp32-Metatron-Merkaba** implements CanvasL - a visual programming language that transforms spatial diagrams (Obsidian Canvas files) into mathematically verified executable programs. The system embodies 1,400 years of mathematical development, from Brahmagupta's complex numbers (628 AD) to Adams' proof of dimensional limits (1960).
+**mind-git** implements CanvasL - a visual programming language that transforms spatial diagrams (Obsidian Canvas files) into mathematically verified executable programs. The system embodies 1,400 years of mathematical development, from Brahmagupta's complex numbers (628 AD) to Adams' proof of dimensional limits (1960).
 
 The core innovation: **visual spatial arrangement of canvas nodes directly corresponds to polynomial algebra over F₂**, with formal verification via Coq proofs and execution through a multi-language compilation pipeline.
 

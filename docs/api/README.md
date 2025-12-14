@@ -1,6 +1,6 @@
 # API Reference Documentation
 
-This directory contains complete API reference for all components of the Esp32-Metatron-Merkaba system. Each API is documented with mathematical foundations, usage examples, and verification properties.
+This directory contains complete API reference for all components of the mind-gitsystem. Each API is documented with mathematical foundations, usage examples, and verification properties.
 
 ## Core Library APIs
 

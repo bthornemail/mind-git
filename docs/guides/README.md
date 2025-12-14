@@ -1,6 +1,6 @@
 # Guides Documentation
 
-This directory contains practical guides and tutorials for using the Esp32-Metatron-Merkaba system. While the architecture and research documents explain *why* and *how* the system works, these guides show *how to use it* effectively.
+This directory contains practical guides and tutorials for using the mind-gitsystem. While the architecture and research documents explain *why* and *how* the system works, these guides show *how to use it* effectively.
 
 ## Getting Started
 

@@ -18,7 +18,7 @@ fi
 
 # Start Racket server in background
 echo "🚀 Starting Racket server..."
-cd /home/main/dev/Esp32-Metatron-Merkaba
+cd /home/main/dev/mind-git
 nohup racket racket-server-minimal.rkt > test-server.log 2>&1 &
 SERVER_PID=$!
 

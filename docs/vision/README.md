@@ -1,6 +1,6 @@
 # Vision Documentation
 
-This directory contains visionary, philosophical, and long-term strategic thinking behind the Esp32-Metatron-Merkaba project. While architecture and research explain *how* the system works, the vision explains *why* it exists and *where* it's going.
+This directory contains visionary, philosophical, and long-term strategic thinking behind the mind-gitproject. While architecture and research explain *how* the system works, the vision explains *why* it exists and *where* it's going.
 
 ## Core Vision Statement
 

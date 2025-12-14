@@ -1,6 +1,6 @@
 # Architecture Overview
 
-This document describes the **core architectural patterns, mental models, and design principles** that shape the Esp32-Metatron-Merkaba project. Understanding this architecture is essential for contributors and users who want to grasp how the system works at a conceptual level.
+This document describes the **core architectural patterns, mental models, and design principles** that shape the mind-gitproject. Understanding this architecture is essential for contributors and users who want to grasp how the system works at a conceptual level.
 
 ---
 

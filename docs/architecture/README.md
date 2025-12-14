@@ -1,6 +1,6 @@
 # Architecture Documentation
 
-This directory contains the complete architectural documentation for the Esp32-Metatron-Merkaba project. The architecture is not arbitrary - it emerges from mathematical necessity.
+This directory contains the complete architectural documentation for the mind-gitproject. The architecture is not arbitrary - it emerges from mathematical necessity.
 
 ## Core Mental Model
 

@@ -11,7 +11,7 @@ Think of it as concentric circles: pure mathematics at the center, with increasi
 ## Directory Structure Overview
 
 ```
-Esp32-Metatron-Merkaba/
+mind-git/
 ├── logos-system/                    ← Standalone mathematical library
 │   ├── src/
 │   │   ├── core/                   ← Layer 1: Pure mathematics

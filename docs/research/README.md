@@ -1,6 +1,6 @@
 # Research Documentation
 
-This directory contains the complete mathematical and theoretical research underlying the Esp32-Metatron-Merkaba project. Every architectural decision is grounded in 1,400 years of mathematical development.
+This directory contains the complete mathematical and theoretical research underlying the mind-gitproject. Every architectural decision is grounded in 1,400 years of mathematical development.
 
 ## Core Research Areas
 
