@@ -1,0 +1,57 @@
+version: '3.8'
+
+services:
+  logos-system:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: canvasl-logos-system
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./examples:/app/examples:ro
+      - ./logos-system/src:/app/src:ro
+    environment:
+      - NODE_ENV=production
+      - LOGOS_SYSTEM_VERSION=1.1.0
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "node", "--version"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # Development service with hot reload
+  logos-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    container_name: canvasl-logos-dev
+    ports:
+      - "3000:3000"
+      - "9229:9229"  # Node.js debugging port
+    volumes:
+      - ./logos-system:/app/logos-system
+      - /app/logos-system/node_modules
+    environment:
+      - NODE_ENV=development
+    command: npm run dev
+    profiles:
+      - dev
+
+  # Web service for serving compiled output
+  logos-web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: canvasl-logos-web
+    ports:
+      - "8081:8080"
+    volumes:
+      - ./logos-system/dist:/app/dist:ro
+    command: ["npm", "run", "serve"]
+    depends_on:
+      - logos-system
+    profiles:
+      - web

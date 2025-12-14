@@ -1,8 +1,12 @@
 {
   "name": "mind-git",
-  "version": "1.0.0",
-  "description": "The Mathematical Foundation for Self-Evolving Computational Systems",
-  "main": "index.js",
+  "version": "1.1.0",
+  "description": "Mathematical foundation for self-evolving computational systems with CanvasL visual programming",
+  "main": "logos-system/dist/index.js",
+  "types": "logos-system/dist/index.d.ts",
+  "bin": {
+    "mind-git": "./bin/mind-git.js"
+  },
   "scripts": {
     "build": "cd logos-system && npm run build",
     "test": "cd logos-system && npm test",
@@ -12,15 +16,27 @@
     "lint": "cd logos-system && npm run lint",
     "clean": "cd logos-system && npm run clean && cd formal && make clean"
   },
-  "keywords": ["canvasl", "polynomial", "mathematics", "self-evolving", "computational"],
+  "keywords": [
+    "canvasl",
+    "polynomial",
+    "mathematics",
+    "visual-programming",
+    "compiler",
+    "ast",
+    "formal-verification",
+    "spatial-computing",
+    "typescript",
+    "javascript"
+  ],
   "author": "Brian Thorne <bthornemail@gmail.com>",
-  "license": "ISC",
+  "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/bthornemail/mind-git.git"
+    "url": "git+https://github.com/bthornemail/mind-git.git"
   },
   "type": "commonjs",
   "dependencies": {
-    "@trbn/jsoncanvas": "^1.0.6"
+    "@trbn/jsoncanvas": "^1.0.6",
+    "commander": "^11.0.0"
   }
 }

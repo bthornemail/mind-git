@@ -1,14 +1,19 @@
 {
   "name": "logos-system",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "CanvasL Mathematical Foundation - Standalone System with Formal Verification",
-  "main": "src/index.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "canvasl": "dist/cli.js"
+  },
   "type": "module",
   "scripts": {
     "build": "tsc --project tsconfig.build.json",
     "build:wasm": "cd formal && make all",
     "build:dev": "tsc --project tsconfig.json",
     "dev": "tsc --project tsconfig.build.json --watch",
+    "start": "node dist/index.js",
     "test": "npm run test:unit && npm run test:formal && npm run test:security",
     "test:unit": "jest src/",
     "test:formal": "cd formal && make test",
@@ -18,7 +23,12 @@
     "clean": "rm -rf dist formal/*.o formal/*.wasm",
     "verify": "cd formal && coqc Polynomials.v && coqc IdentityChain.v && coqc AAL.v",
     "security:audit": "node dist/security/audit.js",
-    "security:hardening": "npm run build && npm run test:security"
+    "security:hardening": "npm run build && npm run test:security",
+    "docker:build": "docker build -t logos-system:latest .",
+    "docker:run": "docker run -p 8080:8080 logos-system:latest",
+    "docker:dev": "docker-compose --profile dev up",
+    "docker:prod": "docker-compose up -d",
+    "docker:stop": "docker-compose down"
   },
   "keywords": [
     "canvasl",
@@ -28,7 +38,12 @@
     "webassembly",
     "polynomial-algebra",
     "division-algebras",
-    "hopf-fibrations"
+    "hopf-fibrations",
+    "visual-programming",
+    "spatial-computing",
+    "ast",
+    "compiler",
+    "docker"
   ],
   "author": "Brian Thorne <bthornemail@gmail.com>",
   "license": "MIT",

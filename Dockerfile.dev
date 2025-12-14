@@ -1,0 +1,35 @@
+# Development Dockerfile with hot reload
+FROM node:18-alpine
+
+# Install Coq for formal verification
+RUN apk add --no-cache \
+    coq \
+    make \
+    gcc \
+    musl-dev
+
+WORKDIR /app/logos-system
+
+# Copy package files
+COPY package*.json ./
+
+# Install all dependencies (including dev)
+RUN npm install
+
+# Copy source code
+COPY . .
+
+# Build the project initially
+RUN npm run build
+
+# Create non-root user
+RUN addgroup -g 1001 -S nodejs
+RUN adduser -S nodejs -u 1001
+RUN chown -R nodejs:nodejs /app
+USER nodejs
+
+# Expose ports
+EXPOSE 3000 9229
+
+# Default command for development
+CMD ["npm", "run", "dev"]
