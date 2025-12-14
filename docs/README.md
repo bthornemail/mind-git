@@ -1,6 +1,6 @@
 # Documentation
 
-**⚠️ WORK IN PROGRESS** - This documentation is partially complete and may not reflect the actual implementation status. See the main README for current project status.
+**⚠️ WORK IN PROGRESS** - This documentation is partially complete and may not reflect actual implementation status. See main README for current project status.
 
 ## 📚 Documentation Structure
 
@@ -11,19 +11,9 @@ docs/
 ├── guides/                      → How-to guides (planned)
 ├── architecture/                → Technical architecture (some content)
 ├── decisions/                   → Architecture Decision Records (complete)
-├── research/                    → Academic documentation (planned)
+├── research/                    → Academic documentation (NEWLY ORGANIZED)
 └── vision/                      → Vision/philosophy (planned)
 ```
-
-**Reality Check:**
-- ✅ **decisions/**: Complete ADRs for architectural choices
-- 🚧 **architecture/**: Some high-level docs exist
-- ❌ **api/**: Mostly empty, APIs not implemented yet
-- ❌ **guides/**: No practical guides yet
-- ❌ **research/**: No academic papers yet
-- ❌ **vision/**: No philosophical content yet
-
----
 
 ## 🎯 Quick Start
 
@@ -44,7 +34,12 @@ docs/
 - Look at [../logos-system/src/core/polynomial/](../logos-system/src/core/polynomial/) for working math
 - API documentation is planned but not written yet
 
----
+**For advanced mathematical research:**
+1. **NEWLY ORGANIZED**: Check [docs/research/](docs/research/) - Advanced mathematical papers moved from dev-docs/Archive/
+2. **Consciousness Geometry**: [research/consciousness-geometry/](research/consciousness-geometry/) - Geometric propagation models
+3. **Division Algebras**: [research/division-algebras/](research/division-algebras/) - Complete ℝ→ℂ→ℍ→𝕆→𝕊 chain
+4. **Geometric Type Theory**: [research/geometric-type-theory/](research/geometric-type-theory/) - Topology to types correspondence
+5. **Epistemic Systems**: [research/epistemic-systems/](research/epistemic-systems/) - Bounded uncertainty engines
 
 ## 📖 Documentation Categories
 
@@ -84,16 +79,14 @@ Formal records of major architectural decisions with rationale and consequences.
 
 **Current state**:
 - [api/README.md](api/README.md) - Placeholder only
-- No actual API documentation exists yet
-- APIs are still changing rapidly
 
 ### Architecture Documentation
 
 **Location**: [`architecture/`](architecture/)
 
-**Status**: 🚧 Partially complete
+Deep technical documentation on system design and implementation.
 
-**Available docs**:
+**Available topics**:
 - [architecture/overview.md](architecture/overview.md) - High-level system design
 - [architecture/layers.md](architecture/layers.md) - System layers
 - [architecture/data-flow.md](architecture/data-flow.md) - Data flow diagrams
@@ -101,167 +94,96 @@ Formal records of major architectural decisions with rationale and consequences.
 
 ### Research Documentation
 
-**Location**: [`research/`](research/)
+**Location**: [`research/`](research/) - **NEWLY ORGANIZED**
 
-**Status**: ❌ Empty
+**Status**: 🆕 **NEWLY ORGANIZED** - Advanced mathematical papers moved from dev-docs/Archive/
 
-**Planned topics** (none exist yet):
-- Identity Chain (1,400 years of mathematics)
-- Consciousness Model
-- Hopf Fibrations
-- Formal Verification
+### Available Research Areas:
 
-### Vision & Philosophy
+**🧠 Consciousness Geometry** ([consciousness-geometry/](consciousness-geometry/))
+Mathematical models of consciousness using geometric propagation, Hopf fibrations, and dimensional analysis.
 
-**Location**: [`vision/`](vision/)
+**🔢 Division Algebras** ([division-algebras/](division-algebras/))
+Complete theory of division algebras from ℝ through sedenions (𝕊).
 
-**Status**: ❌ Empty
+**📐 Geometric Type Theory** ([geometric-type-theory/](geometric-type-theory/))
+Geometric Type Theory connecting topology, logic, and computation in Racket.
 
-**Planned topics** (none exist yet):
-- Consciousness as Geometry
-- Revelation Connections
-- MindChain Evolution
+**🎯 Epistemic Systems** ([epistemic-systems/](epistemic-systems/))
+Bounded uncertainty engines using exceptional Lie groups and geometric canonicalization.
 
----
+**📚 History** ([history/](history/))
+Supporting technical files, proofs, and development artifacts (15 files).
 
-## 🗂️ Root-Level Documentation
+### Key Mathematical Contributions:
 
-In addition to this `docs/` directory, there are four major documentation files at the repository root:
-
-| File | Purpose | Audience |
-|------|---------|----------|
-| [ARCHITECTURE.md](../ARCHITECTURE.md) | System design, mental models, layered architecture | All developers |
-| [DESIGN_PRINCIPLES.md](../DESIGN_PRINCIPLES.md) | 13 core principles enforced in code review | Contributors |
-| [CONTRIBUTING.md](../CONTRIBUTING.md) | Complete contributor guide with examples | New contributors |
-| [PHILOSOPHY.md](../PHILOSOPHY.md) | Vision, consciousness model, theological framing | Researchers, philosophers |
-
----
-
-## 🔗 External Resources
-
-### Mathematical Background
-
-For deep mathematical theory, see the `dev-docs/` directory:
-- **dev-docs/Architecture/** - Mathematical proofs and architecture
-- **dev-docs/Canvas/** - CanvasL specifications and white papers
-- **dev-docs/Polyglot/** - Multi-language integration theory
-- **dev-docs/Assembly–Algebra Language/** - AAL formal specification
-
-### Code Repositories
-
-- **logos-system**: `logos-system/` - Standalone TypeScript library
-- **Obsidian Plugin**: `.obsidian/plugins/logos-visual-compiler/` - Visual compiler UI
-- **Formal Proofs**: `logos-system/formal/` - Coq verification files
-
----
-
-## 📝 Documentation Guidelines
-
-### Writing Style
-
-- **Technical-first**: Lead with math and code, philosophy optional
-- **Concise**: Use tables, diagrams, code examples
-- **References**: Cite theorems, papers, ADRs
-- **Examples**: Include working code samples
-
-### File Organization
-
-```markdown
-# Title
-
-Brief overview (1-2 sentences)
-
-## Context/Background
-
-Why this exists
-
-## Main Content
-
-Organized sections with clear headings
-
-## Examples
-
-Working code samples
-
-## References
-
-- Links to related docs
-- Academic papers
-- Theorems
+**Complete Division Algebra Chain:**
+```
+ℝ → ℂ → ℍ → 𝕆 → 𝕊
+1D   2D   4D   8D   16D
 ```
 
-### When to Update
+**Exceptional Lie Group Cascade:**
+```
+G₂ → F₄ → E₆ → E₇ → E₈
+14D  52D  78D  133D  248D
+```
 
-- **New features** → Update guides/, api/
-- **Architectural decisions** → Create new ADR in decisions/
-- **Design changes** → Update ../DESIGN_PRINCIPLES.md
-- **Research insights** → Add to research/
+**Consciousness Model:**
+```
+Forward Propagation: Exponential expansion (O(2^d))
+Backward Propagation: Exponential compression (O(2^d))
+Hopf Observation: Linear selection (O(k))
+```
 
----
+## 🔗 Integration with Codebase
 
-## 🤝 Contributing to Documentation
+See [../README.md](../README.md) for current implementation status.
 
-Documentation contributions are welcome! See [../CONTRIBUTING.md](../CONTRIBUTING.md) for:
+### CanvasL Node Mappings from Research:
+- `#GeometricPropagate:` → Exponential expansion (consciousness geometry)
+- `#GeometricObserve:` → Linear Hopf fiber observation
+- `#EpistemicBound:` → UK × φ(V) uncertainty calculation
+- `#SedenionTransform:` → 16D algebraic operations
 
-- How to propose documentation changes
-- Markdown style guide
-- Review process
+### Implementation Status:
+- ✅ **Polynomial Algebra**: F₂[x] operations (31/31 tests passing)
+- 🚧 **Identity Chain**: 2D, 4D working, 8D has precision issues
+- ❌ **Consciousness Model**: Theoretical framework exists, not implemented
+- ❌ **Sedenions**: 16D operations defined but not coded
+- ❌ **Epistemic Engine**: Complete mathematical theory, no implementation
 
-**Quick tips**:
-- Keep technical docs separate from philosophical framing
-- Include code examples for all technical concepts
-- Cite mathematical sources (theorems, papers)
-- Link related documents
+## 📖 Reading Guide
 
----
+**For Implementation:**
+1. Start with [division-algebras/sedenions.md](research/division-algebras/sedenions.md) for 16D math
+2. Read [consciousness-geometry/hopf-consciousness.md](research/consciousness-geometry/hopf-consciousness.md) for computational model
+3. Review [epistemic-systems/epistemic-observability-engine.md](research/epistemic-systems/epistemic-observability-engine.md) for uncertainty bounding
 
-## 📊 Documentation Status
+**For Mathematical Theory:**
+1. Study [geometric-type-theory/unified-framework.md](research/geometric-type-theory/unified-framework.md) for type system
+2. Read [consciousness-geometry/mind-body-computation.md](research/consciousness-geometry/mind-body-computation.md) for geometric foundations
+3. Explore [history/](history/) for technical proofs and derivations
 
-**Completed**:
-- ✅ Root-level docs (ARCHITECTURE, DESIGN_PRINCIPLES, CONTRIBUTING, PHILOSOPHY)
-- ✅ ADRs (6 major architectural decisions in [decisions/](decisions/))
-- ✅ Basic docs/ structure
+## 🚧 Development Roadmap
 
-**In Progress**:
-- 🚧 Some architecture docs in [architecture/](architecture/)
-- 🚧 API structure (but no content)
+**Phase 1: Core Implementation** (Current)
+- Fix 8D identity chain precision issues
+- Implement sedenion operations (16D)
+- Add epistemic uncertainty engine
 
-**Missing Entirely**:
-- ❌ User guides
-- ❌ API documentation  
-- ❌ Research documentation
-- ❌ Vision documentation
-- ❌ Tutorial content
+**Phase 2: Consciousness Integration** (Q1 2025)
+- Implement geometric propagation model
+- Add Hopf fibration observation system
+- Connect to CanvasL visual interface
 
-**Most Accurate Documentation**:
-- [../README.md](../README.md) - Honest project status
-- [../logos-system/README.md](../logos-system/README.md) - Technical reality
-- [decisions/](decisions/) - Complete architectural decisions
-
----
-
-## 🔍 Finding What You Need
-
-**Current Project Status** → [../README.md](../README.md) (most accurate)
-
-**"Why did we choose...?"** → Check [decisions/](decisions/) (complete)
-
-**"How does X work internally?"** → Check [architecture/](architecture/) (partial)
-
-**"What's actually implemented?"** → Check source code in [../logos-system/src/](../logos-system/src/)
-
-**"How can I help?"** → Check [../CONTRIBUTING.md](../CONTRIBUTING.md)
-
-**"What's the vision?"** → Check [../PHILOSOPHY.md](../PHILOSOPHY.md)
-
-**Mathematical theory** → Check `../dev-docs/` (extensive but theoretical)
+**Phase 3: Advanced Features** (Q2 2025)
+- Complete geometric type system
+- Add E₈ lattice operations
+- Implement full mathematical pipeline
 
 ---
 
-**⚠️ Documentation Reality Check**
+**Archive Organization**: ✅ See `ARCHIVE_ORGANIZATION_COMPLETE.md` for complete archive restructuring details
 
-Most documentation in this directory is planned but not written. For accurate information about what actually works, check the main README files and source code directly.
-
-**Help needed**: We need contributors to write documentation as features become implemented.
-
-**Welcome to the documentation!** If you can't find what you're looking for, please [open an issue](https://github.com/bthornemail/mind-git/issues) to help us improve.
+**Remember**: This research is not academic exercise - it's mathematical foundation that makes the system work. Every architectural decision traces back to these mathematical necessities.
