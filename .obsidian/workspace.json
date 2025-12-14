@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "mission/TODO_The Complete Integration - MindGit as Meaning Infrastructure.md",
+                "file": "mission/TODO_03_The Complete Integration - MindGit as Meaning Infrastructure.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "TODO_The Complete Integration - MindGit as Meaning Infrastructure"
+              "title": "TODO_03_The Complete Integration - MindGit as Meaning Infrastructure"
             }
           }
         ]
@@ -186,23 +186,24 @@
   },
   "active": "1fded648ba7a72a7",
   "lastOpenFiles": [
+    "mission/TODO_02_Grounding the Synthesis in CanvasL AST Terms.md",
+    "mission/TODO_01_Grounding the Dimensional Expansion System.md",
+    "mission/TODO_03_The Complete Integration - MindGit as Meaning Infrastructure.md",
+    "mission/TODO_04_Complete Integration - The Full System.md",
+    "AAL_CANVASL_INTEGRATION.md",
+    "demonstrate-aal-integration.cjs",
+    "test-aal-integration.cjs",
     "examples/verified/norm-preservation.json",
     "mission/Reframed Response - Extending the CanvasL + MindGit AST to Higher-Dimensional Structures.md",
-    "mission/TODO_The Complete Integration - MindGit as Meaning Infrastructure.md",
     "examples/verified/hamming-code.json",
     "examples/verified/gcd-verification.json",
     "examples/verified",
     "src/components/AALVerificationDashboard.tsx",
     "src/components",
     "src",
-    "mission/TODO_Grounding the Synthesis in CanvasL AST Terms.md",
     "logos-system/src/verification/coq-bridge.ts",
-    "logos-system/src/verification",
     "mission/Grounding the Dimensional Expansion System.md",
-    "mission/TODO_Grounding the Dimensional Expansion System.md",
     "mission/Grounding the Synthesis in CanvasL AST Terms.md",
-    "logos-system/src/compiler/aal-compiler.ts",
-    "logos-system/src/compiler/aal-integration.ts",
     "examples/advanced/README.md",
     "docs/DOCUMENTATION_STRUCTURE.md",
     "docs/contributing.md",
@@ -221,7 +222,6 @@
     "mission/RFC-LOGOS-TALK-01.md",
     "mission/CanvasL_Federated_AST_Summary.md",
     "mission/CanvasL_Executive_Summary (1).md",
-    "mission/RFC-LOGOS-TALK-01 - v2.md",
     "dev-docs/Test-AST.canvas",
     "Untitled.canvas",
     "Test-AST.canvas",
