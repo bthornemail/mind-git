@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "dev-docs/Architecture/BlackboardKetEntangler in CanvasL.md",
+                "file": "mission/releases/Git for Meaning – A Paradigm Shift in Decentralized Semantic Computation.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "BlackboardKetEntangler in CanvasL"
+              "title": "Git for Meaning – A Paradigm Shift in Decentralized Semantic Computation"
             }
           }
         ]
@@ -74,8 +74,7 @@
               "title": "Bookmarks"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -187,6 +186,13 @@
   },
   "active": "1fded648ba7a72a7",
   "lastOpenFiles": [
+    "dev-docs/Architecture/BlackboardKetEntangler in CanvasL.md",
+    "mission/releases/Git for Meaning – A Paradigm Shift in Decentralized Semantic Computation.md",
+    "mission/releases",
+    "FINAL_INTEGRATION_COMPLETE.md",
+    "mind-git-final-system.cjs",
+    "mind-git-formal-verification-fixed.cjs",
+    "mind-git-formal-verification.cjs",
     "P2P_INTEGRATION_COMPLETE.md",
     "mind-git-complete-p2p.cjs",
     "mind-git-webrtc.cjs",
@@ -194,14 +200,9 @@
     "src/p2p/protocols/projective-ket-linker.js",
     "src/p2p/protocols",
     "src/p2p/blackboard/quantum-blackboard.js",
-    "src/p2p/blackboard",
-    "src/p2p/network/p2p.js",
-    "src/p2p/network",
-    "src/p2p/core/genome.js",
     "dev-docs/Architecture/CanvasL — A Mathematically Complete P2P Reality Entanglement Engine.md",
     "dev-docs/Architecture/Release/P2P Projective Linking as Quantum Ket Entanglement v1.md",
     "dev-docs/Architecture/Release/P2P Projective Linking as Quantum Ket Entanglement.md",
-    "dev-docs/Architecture/BlackboardKetEntangler in CanvasL.md",
     "docs/research/history/COMPLETE_FINDINGS_FINAL.md",
     "docs/research/history/11d_cayley_dickson_formal.md",
     "mission/CanvasL_Executive_Summary (1).md",
@@ -221,8 +222,6 @@
     "docs/api-reference.md",
     "docs/getting-started.md",
     "docs/architecture.md",
-    "docs/canvas-nodes.md",
-    "docs/mathematical-foundation.md",
     "dev-docs/Test-AST.canvas",
     "Untitled.canvas",
     "Test-AST.canvas",
