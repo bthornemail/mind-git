@@ -396,9 +396,9 @@ errors: [{
       optimization_level: this.options.optimization_level,
       include_comments: true,
       include_debug_info: this.options.include_profiling,
-      target_platform: 'wasm',
-      hopf_optimization: true,
-      polynomial_optimization: true,
+      target_platform: this.options.target_platform,
+      hopf_optimization: this.options.hopf_optimization,
+      polynomial_optimization: this.options.polynomial_optimization,
       include_proofs: this.options.enable_verification
     };
   }

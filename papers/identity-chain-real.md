@@ -2,7 +2,7 @@
 
 **Brian Thorne**
 *Independent Researcher*
-Email: bthornemail@gmail.com
+Email: <bthornemail@gmail.com>
 
 ---
 
@@ -73,12 +73,14 @@ c₂ = a₁b₂ + a₂b₁
 ```
 
 **Properties:**
+
 - ✅ Commutative: ab = ba
 - ✅ Associative: (ab)c = a(bc)
 - ✅ Division algebra
 - ✅ Field structure
 
 **Example (Actual Execution):**
+
 ```
 Input a = [3, 4]   → ||a|| = 5
 Input b = [5, 12]  → ||b|| = 13
@@ -95,6 +97,7 @@ Norm preserved: 5 × 13 = 65 ✓
 ```
 
 **Hamilton's multiplication rules:**
+
 ```
 i² = j² = k² = ijk = -1
 ij = k,  jk = i,  ki = j
@@ -102,12 +105,14 @@ ji = -k, kj = -i, ik = -j
 ```
 
 **Properties:**
+
 - ❌ NOT commutative: ij ≠ ji (Hamilton's key discovery!)
 - ✅ Associative: (ab)c = a(bc)
 - ✅ Division algebra
 - ✅ Skew-field structure
 
 **Example (Actual Execution):**
+
 ```
 Input q1 = [1, 2, 3, 4] → ||q1|| = 5.4772
 Input q2 = [5, 6, 7, 8] → ||q2|| = 13.1909
@@ -125,6 +130,7 @@ Error: 0.000000
 ```
 
 **Properties:**
+
 - ❌ NOT commutative
 - ❌ NOT associative: (ab)c ≠ a(bc)
 - ✅ Alternative: (aa)b = a(ab) and a(bb) = (ab)b
@@ -132,6 +138,7 @@ Error: 0.000000
 - ✅ Power-associativity
 
 **Example (Actual Execution):**
+
 ```
 Input o1 = [1,1,1,1,1,1,1,1] → ||o1|| = 2.8284
 Input o2 = [1,0,0,0,0,0,0,0] → ||o2|| = 1.0000
@@ -149,6 +156,7 @@ Error: 0.000000
 ```
 
 **Properties:**
+
 - ❌ NOT commutative
 - ❌ NOT associative
 - ❌ NOT alternative
@@ -157,6 +165,7 @@ Error: 0.000000
 - ✅ Power-associativity
 
 **Zero Divisors Example:**
+
 ```
 (e₃ + e₁₀)(e₆ - e₁₅) = 0  (both non-zero!)
 ```
@@ -174,6 +183,7 @@ This is the **fundamental limit**: Beyond 8D, we lose division algebra structure
 **Location:** `logos-system/src/core/identity-chain/`
 
 **Core Module Structure:**
+
 ```typescript
 export class IdentityChain {
   // 2D - Brahm
@@ -207,6 +217,7 @@ Each algebra level constructs the next via the doubling formula:
 ```
 
 Where ā denotes conjugation. This builds:
+
 - ℂ from ℝ
 - ℍ from ℂ
 - 𝕆 from ℍ
@@ -233,6 +244,7 @@ const b: [number, number] = [1, 2, 3]; // ✗ Error: wrong length
 **Failing:** 0
 
 **Test Categories:**
+
 1. Brahmagupta (2D): 7 tests
 2. Euler (4D): 6 tests
 3. Degen (8D): 6 tests
@@ -318,6 +330,7 @@ Errors are entirely due to IEEE 754 floating-point representation.
 ### 5.1 Post-Quantum Cryptography
 
 **Ternary Cubic Forms** using octonions provide post-quantum secure signatures:
+
 - 40-byte signatures (vs 800+ bytes for NIST post-quantum standards)
 - Based on tensor decomposition (NP-hard, no quantum speedup)
 - Implemented in our codebase (`logos-system/src/core/cryptography/`)
@@ -325,6 +338,7 @@ Errors are entirely due to IEEE 754 floating-point representation.
 ### 5.2 Physics Simulations
 
 **Octonionic quantum mechanics:**
+
 - Models 3 generations of fermions
 - Exceptional Lie groups (G₂, F₄, E₆, E₇, E₈)
 - String theory compactifications
@@ -332,6 +346,7 @@ Errors are entirely due to IEEE 754 floating-point representation.
 ### 5.3 Dimensional Analysis
 
 The identity chain provides **proof of dimensional limits**:
+
 - Only 1, 2, 4, 8 dimensions support division algebras
 - Adams' theorem proven via topology
 - Implications for physical theories
@@ -361,6 +376,7 @@ Traditional mathematical software uses C++, Fortran, or specialized systems (Mat
 | Mathematica | Proprietary | All | N/A | ❌ No |
 
 **Our unique contributions:**
+
 - Complete chain (2D through 16D) in single framework
 - Comprehensive test coverage with actual numerical results
 - Modern language accessible to web developers
@@ -375,16 +391,19 @@ Traditional mathematical software uses C++, Fortran, or specialized systems (Mat
 ### 6.4 Future Work
 
 **Short Term:**
+
 - Arbitrary precision arithmetic (using bigint libraries)
 - GPU acceleration via WebGPU
 - Comprehensive benchmarking
 
 **Medium Term:**
+
 - Integration with physics simulation frameworks
 - Cryptographic applications (post-quantum signatures)
 - Educational visualizations
 
 **Long Term:**
+
 - Formal verification via Coq/Lean
 - Extension to 32D, 64D (Pfister's construction)
 - Applications in quantum computing
@@ -396,6 +415,7 @@ Traditional mathematical software uses C++, Fortran, or specialized systems (Mat
 We have presented a complete, tested implementation of the historical n-square identity chain from Brahmagupta (628 AD) to Pfister (1965). Our TypeScript implementation demonstrates exact norm preservation across 2D, 4D, 8D, and 16D algebras with 33 passing tests and comprehensive numerical verification.
 
 **Key Achievements:**
+
 - ✅ First complete open-source implementation of full identity chain
 - ✅ 33/34 tests passing with actual numerical verification
 - ✅ Norm preservation verified to floating-point precision
@@ -404,7 +424,7 @@ We have presented a complete, tested implementation of the historical n-square i
 
 This work serves as a foundation for applications in cryptography, physics, and higher-dimensional algebra, while honoring 1,400 years of mathematical discovery.
 
-**Code Availability:** https://github.com/bthornemail/logos-system
+**Code Availability:** <https://github.com/bthornemail/logos-system>
 
 **License:** MIT
 
@@ -537,6 +557,7 @@ Time:        3.187 s
 ---
 
 **Manuscript Statistics:**
+
 - Word count: ~3,800
 - Figures: 0 (code examples provided)
 - Tables: 3

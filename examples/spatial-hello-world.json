@@ -1,0 +1,62 @@
+{
+  "nodes": [
+    {
+      "id": "observer",
+      "type": "text",
+      "x": 0,
+      "y": 0,
+      "width": 250,
+      "height": 60,
+      "text": "#Observe: main",
+      "color": "0"
+    },
+    {
+      "id": "start",
+      "type": "text",
+      "x": 100,
+      "y": 100,
+      "width": 250,
+      "height": 60,
+      "text": "#Activate: Program Entry",
+      "color": "1"
+    },
+    {
+      "id": "console-log",
+      "type": "text",
+      "x": 300,
+      "y": 100,
+      "width": 250,
+      "height": 60,
+      "text": "#Transform: console.log",
+      "color": "2"
+    },
+    {
+      "id": "message",
+      "type": "text",
+      "x": 300,
+      "y": 200,
+      "width": 250,
+      "height": 60,
+      "text": "#Store: \"Hello from spatial programming!\"",
+      "color": "3"
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge-1",
+      "fromNode": "start",
+      "toNode": "console-log",
+      "fromSide": "right",
+      "toSide": "left",
+      "label": "execute"
+    },
+    {
+      "id": "edge-2",
+      "fromNode": "message",
+      "toNode": "console-log",
+      "fromSide": "top",
+      "toSide": "bottom",
+      "label": "parameter"
+    }
+  ]
+}
