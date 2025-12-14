@@ -87,6 +87,51 @@ export class ProductionCryptography {
   }
 
   /**
+   * Sign with cubic key
+   */
+  async signWithCubic(message: string, privateKey: any): Promise<any> {
+    const start = performance.now();
+    
+    try {
+      this.log('debug', 'Starting cubic signature', { messageLength: message.length });
+      
+      // Implementation would go here
+      const signature = {
+        message,
+        signature: 'mock-signature',
+        timestamp: Date.now()
+      };
+      
+      this.log('info', 'Cubic signature completed', { duration: performance.now() - start });
+      return signature;
+    } catch (error) {
+      this.log('error', 'Cubic signature failed', { error: error.message });
+      throw error;
+    }
+  }
+  private lllReducer: LLLReducer;
+  private secureMemory: SecureMemory;
+  private constantTime: ConstantTime;
+  private keyErasure: KeyErasure;
+  private auditLog: SecurityAuditEntry[] = [];
+  private config: ProductionCryptoConfig;
+
+  constructor(config?: ProductionCryptoConfig) {
+    this.config = {
+      audit: { enabled: true, logLevel: 'info' },
+      ...config
+    };
+
+    // Initialize components
+    this.lllReducer = new LLLReducer(this.config.lllParams);
+    this.secureMemory = new SecureMemory();
+    this.constantTime = new ConstantTime();
+    this.keyErasure = new KeyErasure(this.config.keyErasure);
+
+    this.log('info', 'ProductionCryptography initialized');
+  }
+
+  /**
    * Analyze lattice using LLL reduction with security monitoring
    *
    * @param basis - Lattice basis to analyze

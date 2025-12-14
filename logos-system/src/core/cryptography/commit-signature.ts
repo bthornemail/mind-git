@@ -101,9 +101,11 @@ export class CommitSignatureGenerator {
         hash: proofHash,
         theorem_reference: 'CommitPreservesInvariants',
         instruction,
-        security_level: 'safe',
-        created_at: Date.now(),
-        verified: false
+        polynomial: instruction.polynomial,
+        verification: {
+          theorem_reference: 'CommitPreservesInvariants',
+          security_level: 'safe' as const
+        }
       };
 
     } catch (error) {
@@ -163,9 +165,11 @@ export class CommitSignatureGenerator {
         hash: proofHash,
         theorem_reference: 'MergePreservesInvariants',
         instruction,
-        security_level: 'safe',
-        created_at: Date.now(),
-        verified: false
+        polynomial: instruction.polynomial,
+        verification: {
+          theorem_reference: 'MergePreservesInvariants',
+          security_level: 'safe' as const
+        }
       };
 
     } catch (error) {
@@ -221,9 +225,11 @@ export class CommitSignatureGenerator {
         hash: proofHash,
         theorem_reference: 'BranchPreservesInvariants',
         instruction,
-        security_level: 'safe',
-        created_at: Date.now(),
-        verified: false
+        polynomial: instruction.polynomial,
+        verification: {
+          theorem_reference: 'BranchPreservesInvariants',
+          security_level: 'safe' as const
+        }
       };
 
     } catch (error) {
@@ -382,7 +388,7 @@ export async function generateCommitProof(
   return {
     hash: proof.hash,
     theorem_reference: proof.theorem_reference,
-    instruction: proof.instruction
+    security_level: proof.verification.security_level
   };
 }
 
