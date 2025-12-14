@@ -3,7 +3,7 @@
  * These tests will be formally verified against Coq proofs
  */
 
-import { PolyF2 } from '../index';
+import { PolyF2 } from './index';
 
 describe('PolyF2 - Polynomial Algebra over F₂', () => {
   
@@ -299,7 +299,7 @@ describe('PolyF2 - Polynomial Algebra over F₂', () => {
     });
 
     test('empty polynomial edge cases', () => {
-      const empty: boolean[] = [];
+      const empty: boolean[] = [] as boolean[];
       
       expect(PolyF2.add(empty, empty)).toEqual(empty);
       expect(PolyF2.mul(empty, empty)).toEqual(empty);

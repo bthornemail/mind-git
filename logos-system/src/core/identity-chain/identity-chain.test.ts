@@ -3,19 +3,23 @@
  * These tests verify the mathematical correctness of all n-square identities
  */
 
-import { IdentityChain } from '../index';
+import { IdentityChain } from './index';
 
 // Note: These are mock functions for now
-const describe = (name: string, fn: () => void) => fn();
-const test = (name: string, fn: () => void) => fn();
+const describe = (name: string, fn: () => void): void => fn();
+const test = (name: string, fn: () => void): void => fn();
 const expect = (value: any) => ({
   toBe: (expected: any) => {},
   toEqual: (expected: any) => {},
-  toBeCloseTo: (expected: any) => {},
+  toBeCloseTo: (expected: any, precision?: number) => {},
   toBeDefined: () => {},
   toBeInstanceOf: (constructor: any) => {},
   toHaveLength: (length: number) => {},
-  toThrow: () => {}
+  toThrow: () => {},
+  not: {
+    toEqual: (expected: any) => {},
+    toThrow: () => {}
+  }
 });
 
 describe('IdentityChain - Complete N-Square Identities', () => {

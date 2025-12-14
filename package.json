@@ -4,7 +4,13 @@
   "description": "The Mathematical Foundation for Self-Evolving Computational Systems",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "cd logos-system && npm run build",
+    "test": "cd logos-system && npm test",
+    "test:unit": "cd logos-system && npm run test:unit",
+    "test:formal": "cd logos-system/formal && make verify",
+    "dev": "cd logos-system && npm run dev",
+    "lint": "cd logos-system && npm run lint",
+    "clean": "cd logos-system && npm run clean && cd formal && make clean"
   },
   "keywords": ["canvasl", "polynomial", "mathematics", "self-evolving", "computational"],
   "author": "Brian Thorne <bthornemail@gmail.com>",
