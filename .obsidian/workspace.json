@@ -187,6 +187,7 @@
   },
   "active": "1fded648ba7a72a7",
   "lastOpenFiles": [
+    "mind-git-corrected-system.cjs",
     "mind-git-final-demonstration.cjs",
     "dev-docs/Architecture/CanvasL — A Mathematically Complete P2P Reality Entanglement Engine.md",
     "dev-docs/Architecture/Release/P2P Projective Linking as Quantum Ket Entanglement v1.md",
@@ -211,7 +212,6 @@
     "examples/verified",
     "src/components/AALVerificationDashboard.tsx",
     "src/components",
-    "src",
     "mission/Grounding the Dimensional Expansion System.md",
     "mission/Grounding the Synthesis in CanvasL AST Terms.md",
     "examples/advanced/README.md",
