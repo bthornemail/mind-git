@@ -1,37 +1,48 @@
 # Documentation
 
-Welcome to the mind-gitdocumentation! This directory contains comprehensive technical documentation organized by topic.
+**⚠️ WORK IN PROGRESS** - This documentation is partially complete and may not reflect the actual implementation status. See the main README for current project status.
 
 ## 📚 Documentation Structure
 
 ```
 docs/
 ├── README.md                    ← You are here
-├── api/                         → API documentation
-├── guides/                      → How-to guides and tutorials
-├── architecture/                → Deep technical architecture docs
-├── decisions/                   → Architecture Decision Records (ADRs)
-├── research/                    → Academic/theoretical documentation
-└── vision/                      → Philosophical and visionary content
+├── api/                         → API documentation (mostly planned)
+├── guides/                      → How-to guides (planned)
+├── architecture/                → Technical architecture (some content)
+├── decisions/                   → Architecture Decision Records (complete)
+├── research/                    → Academic documentation (planned)
+└── vision/                      → Vision/philosophy (planned)
 ```
+
+**Reality Check:**
+- ✅ **decisions/**: Complete ADRs for architectural choices
+- 🚧 **architecture/**: Some high-level docs exist
+- ❌ **api/**: Mostly empty, APIs not implemented yet
+- ❌ **guides/**: No practical guides yet
+- ❌ **research/**: No academic papers yet
+- ❌ **vision/**: No philosophical content yet
 
 ---
 
 ## 🎯 Quick Start
 
-**New to the project?**
-1. Start with [Getting Started Guide](guides/getting-started.md) (coming soon)
-2. Read [../ARCHITECTURE.md](../ARCHITECTURE.md) for system overview
-3. Check [../DESIGN_PRINCIPLES.md](../DESIGN_PRINCIPLES.md) for coding standards
+**⚠️ Most documentation is planned but not written yet.**
+
+**For current project status:**
+1. Read [../README.md](../README.md) - Honest assessment of what works
+2. Check [../logos-system/README.md](../logos-system/README.md) - Technical details
+3. Look at [../ARCHITECTURE.md](../ARCHITECTURE.md) - System design (some content outdated)
 
 **Want to contribute?**
-1. Read [../CONTRIBUTING.md](../CONTRIBUTING.md)
-2. Review [decisions/](decisions/) for architectural decisions
-3. Check [../PHILOSOPHY.md](../PHILOSOPHY.md) to understand the vision
+1. Read [../CONTRIBUTING.md](../CONTRIBUTING.md) - Contribution guidelines
+2. Review [decisions/](decisions/) - Complete architectural decisions
+3. Check [../PHILOSOPHY.md](../PHILOSOPHY.md) - Project vision
 
-**Looking for APIs?**
-- [api/logos-system.md](api/logos-system.md) - Core library API (coming soon)
-- [api/obsidian-plugin.md](api/obsidian-plugin.md) - Plugin API (coming soon)
+**Looking for working APIs?**
+- Check the source code in [../logos-system/src/](../logos-system/src/)
+- Look at [../logos-system/src/core/polynomial/](../logos-system/src/core/polynomial/) for working math
+- API documentation is planned but not written yet
 
 ---
 
@@ -57,9 +68,9 @@ Formal records of major architectural decisions with rationale and consequences.
 
 **Location**: [`guides/`](guides/)
 
-Step-by-step tutorials and how-to guides for common tasks.
+**Status**: ❌ Not implemented yet
 
-**Planned guides**:
+**Planned guides** (none exist yet):
 - Getting Started (installation, first program)
 - Visual Programming with Canvas
 - Mathematical Foundations
@@ -69,32 +80,32 @@ Step-by-step tutorials and how-to guides for common tasks.
 
 **Location**: [`api/`](api/)
 
-Reference documentation for all public APIs.
+**Status**: ❌ Mostly empty
 
-**Planned API docs**:
-- logos-system library
-- Obsidian plugin
-- Racket backend bridge
+**Current state**:
+- [api/README.md](api/README.md) - Placeholder only
+- No actual API documentation exists yet
+- APIs are still changing rapidly
 
 ### Architecture Documentation
 
 **Location**: [`architecture/`](architecture/)
 
-Deep technical documentation on system design and implementation.
+**Status**: 🚧 Partially complete
 
-**Planned topics**:
-- Compiler Pipeline
-- Mathematical Core
-- Polyglot Integration
-- Module Boundaries
+**Available docs**:
+- [architecture/overview.md](architecture/overview.md) - High-level system design
+- [architecture/layers.md](architecture/layers.md) - System layers
+- [architecture/data-flow.md](architecture/data-flow.md) - Data flow diagrams
+- [architecture/module-boundaries.md](architecture/module-boundaries.md) - Module separation
 
 ### Research Documentation
 
 **Location**: [`research/`](research/)
 
-Academic and theoretical documentation for researchers.
+**Status**: ❌ Empty
 
-**Planned topics**:
+**Planned topics** (none exist yet):
 - Identity Chain (1,400 years of mathematics)
 - Consciousness Model
 - Hopf Fibrations
@@ -104,9 +115,9 @@ Academic and theoretical documentation for researchers.
 
 **Location**: [`vision/`](vision/)
 
-Philosophical context and broader vision.
+**Status**: ❌ Empty
 
-**Planned topics**:
+**Planned topics** (none exist yet):
 - Consciousness as Geometry
 - Revelation Connections
 - MindChain Evolution
@@ -208,35 +219,49 @@ Documentation contributions are welcome! See [../CONTRIBUTING.md](../CONTRIBUTIN
 
 **Completed**:
 - ✅ Root-level docs (ARCHITECTURE, DESIGN_PRINCIPLES, CONTRIBUTING, PHILOSOPHY)
-- ✅ ADRs (6 major architectural decisions)
-- ✅ docs/ structure
+- ✅ ADRs (6 major architectural decisions in [decisions/](decisions/))
+- ✅ Basic docs/ structure
 
 **In Progress**:
-- 🚧 API documentation
-- 🚧 User guides
-- 🚧 Architecture deep-dives
+- 🚧 Some architecture docs in [architecture/](architecture/)
+- 🚧 API structure (but no content)
 
-**Planned**:
-- 📋 Research documentation
-- 📋 Vision documentation
-- 📋 Tutorial videos (future)
+**Missing Entirely**:
+- ❌ User guides
+- ❌ API documentation  
+- ❌ Research documentation
+- ❌ Vision documentation
+- ❌ Tutorial content
+
+**Most Accurate Documentation**:
+- [../README.md](../README.md) - Honest project status
+- [../logos-system/README.md](../logos-system/README.md) - Technical reality
+- [decisions/](decisions/) - Complete architectural decisions
 
 ---
 
 ## 🔍 Finding What You Need
 
-**"How do I...?"** → Check [guides/](guides/)
+**Current Project Status** → [../README.md](../README.md) (most accurate)
 
-**"Why did we choose...?"** → Check [decisions/](decisions/)
+**"Why did we choose...?"** → Check [decisions/](decisions/) (complete)
 
-**"What does this API do?"** → Check [api/](api/)
+**"How does X work internally?"** → Check [architecture/](architecture/) (partial)
 
-**"How does X work internally?"** → Check [architecture/](architecture/) or [../ARCHITECTURE.md](../ARCHITECTURE.md)
+**"What's actually implemented?"** → Check source code in [../logos-system/src/](../logos-system/src/)
 
-**"What's the mathematical basis?"** → Check [research/](research/) or `dev-docs/`
+**"How can I help?"** → Check [../CONTRIBUTING.md](../CONTRIBUTING.md)
 
-**"What's the vision?"** → Check [../PHILOSOPHY.md](../PHILOSOPHY.md) or [vision/](vision/)
+**"What's the vision?"** → Check [../PHILOSOPHY.md](../PHILOSOPHY.md)
+
+**Mathematical theory** → Check `../dev-docs/` (extensive but theoretical)
 
 ---
+
+**⚠️ Documentation Reality Check**
+
+Most documentation in this directory is planned but not written. For accurate information about what actually works, check the main README files and source code directly.
+
+**Help needed**: We need contributors to write documentation as features become implemented.
 
 **Welcome to the documentation!** If you can't find what you're looking for, please [open an issue](https://github.com/bthornemail/mind-git/issues) to help us improve.

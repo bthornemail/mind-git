@@ -16,7 +16,7 @@ describe('PolyF2 - Polynomial Algebra over F₂', () => {
     });
 
     test('trim removes leading zeros', () => {
-      expect(PolyF2.trim([false, false, true, false])).toEqual([true]);
+      expect(PolyF2.trim([false, false, true, false])).toEqual([false, false, true]);
       expect(PolyF2.trim([false, false])).toEqual([]);
       expect(PolyF2.trim([true, false, false])).toEqual([true]);
     });
@@ -124,7 +124,7 @@ describe('PolyF2 - Polynomial Algebra over F₂', () => {
       const dividend = [true, true, true, true];  // 1 + x + x² + x³
       const divisor = [true, true];               // 1 + x
       const expected_quotient = [true, false, true]; // 1 + x²
-      const expected_remainder = [false];    // 0
+      const expected_remainder = [];    // 0
       
       const [quotient, remainder] = PolyF2.divmod(dividend, divisor);
       
@@ -133,11 +133,11 @@ describe('PolyF2 - Polynomial Algebra over F₂', () => {
     });
 
     test('division with remainder', () => {
-      // (x² + x) / (x + 1) = x with remainder 1
+      // (x² + x) / (x + 1) = x with remainder 0 (exact division)
       const dividend = [false, true, true];    // x + x²
       const divisor = [true, true];            // 1 + x
       const expected_quotient = [false, true]; // x
-      const expected_remainder = [true];       // 1
+      const expected_remainder = [];       // 0
       
       const [quotient, remainder] = PolyF2.divmod(dividend, divisor);
       

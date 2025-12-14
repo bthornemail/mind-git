@@ -285,7 +285,9 @@ export class IdentityChain {
     const quat1 = this.generate_unit_vector_4();
     const quat2 = this.generate_unit_vector_4();
     
-    return [...quat1, ...quat2] as Vector8D;
+    // Normalize the combined vector to ensure unit length
+    const combined = [...quat1, ...quat2] as Vector8D;
+    return this.normalize_8(combined);
   }
   
   /**

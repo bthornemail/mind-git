@@ -124,7 +124,8 @@ export class PolyF2 {
     
     const a_work = [...a]; // Working copy
     const b_deg = this.degree(b);
-    const quotient: Polynomial = [];
+    const a_deg = this.degree(a_work);
+    const quotient: Polynomial = a_deg >= b_deg ? new Array(a_deg - b_deg + 1).fill(false) : [];
     
     for (let i = this.degree(a_work); i >= b_deg; i--) {
       if (a_work[i]) {
@@ -183,7 +184,7 @@ export class PolyF2 {
     if (k < 0) return this.shift_right(p, -k);
     if (this.is_zero(p)) return [];
     
-    return [...Array(k).fill(false), ...p];
+    return this.trim([...Array(k).fill(false), ...p]);
   }
 
   /**
@@ -230,7 +231,7 @@ export class PolyF2 {
     
     const terms: string[] = [];
     
-    for (let i = trimmed.length - 1; i >= 0; i--) {
+    for (let i = 0; i < trimmed.length; i++) {
       if (trimmed[i]) {
         if (i === 0) {
           terms.push("1");
