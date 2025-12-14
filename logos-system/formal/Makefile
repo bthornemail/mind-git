@@ -14,10 +14,30 @@ WASM_FILES = polynomials.wasm identity_chain.wasm aal.wasm
 # Default target
 all: $(ML_FILES) $(WASM_FILES) verify
 
+# WebAssembly extraction targets
+polynomials.wasm: Polynomials.v
+identity_chain.wasm: IdentityChain.v  
+aal.wasm: AAL.v
+
+# Verification target
+verify: $(COQ_FILES:.v=.vo)
+	@echo "All Coq files verified successfully"
+
 # Compile Coq files and extract OCaml
 %.ml: %.v
 	@echo "Compiling $<..."
 	$(COQC) $(COQFLAGS) $<
+
+# Extract WebAssembly from OCaml
+%.wasm: %.ml
+	@echo "Extracting WebAssembly from $<..."
+	ocamlopt -output-obj -o $*.o $<
+	wasm-ld -o $@ $*.o
+
+# Direct Coq to WebAssembly extraction
+%.wasm: %.v
+	@echo "Direct WebAssembly extraction from $<..."
+	coqc -opt wasm $(COQFLAGS) $<
 	@echo "Extracting OCaml from $<..."
 	coqc -extract $(COQFLAGS) $<
 
