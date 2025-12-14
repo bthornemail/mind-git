@@ -1,9 +1,9 @@
 # Computational Verification of the Complete N-Square Identity Chain
 ## From Brahmagupta (628 AD) to Pfister (1965)
 
-**Authors:** [Your Name]
+**Authors:** Brian Thorne
 **Affiliation:** Independent Researcher
-**Email:** [your.email@example.com]
+**Email:** bthornemail@gmail.com
 
 ---
 
@@ -164,20 +164,20 @@ This work demonstrates that:
 - TypeScript provides a suitable framework for mathematical verification
 - Open source implementations can enhance mathematical understanding
 
-The complete implementation is available for community use and extension at: https://github.com/[your-repo]/logos-system/tree/main/src/core/identity-chain
+The complete implementation is available for community use and extension at: https://github.com/bthornemail/logos-system/tree/main/src/core/identity-chain
 
 ---
 
 ## 7. Code Availability
 
-**Repository:** https://github.com/[your-repo]/logos-system
+**Repository:** https://github.com/bthornemail/logos-system
 **Directory:** `src/core/identity-chain/`
 **Test Suite:** `src/core/identity-chain/__tests__/`
 **License:** MIT
 
 **Installation:**
 ```bash
-git clone https://github.com/[your-repo]/logos-system
+git clone https://github.com/bthornemail/logos-system
 cd logos-system
 npm install
 npm test -- identity-chain
@@ -199,11 +199,11 @@ npm test -- identity-chain
 
 ## Author Information
 
-**[Your Full Name]** is an independent researcher specializing in computational mathematics and the intersection of historical mathematics with modern software engineering. With expertise in both abstract algebra and practical software development, [he/she/they] focuses on making advanced mathematical concepts accessible through computational verification.
+**Brian Thorne** is an independent researcher specializing in computational mathematics and the intersection of historical mathematics with modern software engineering. With expertise in both abstract algebra and practical software development, he focuses on making advanced mathematical concepts accessible through computational verification.
 
-**Contact:** [your.email@example.com]
-**ORCID:** [Your ORCID ID]
-**GitHub:** https://github.com/[your-username]
+**Contact:** bthornemail@gmail.com
+**ORCID:** 0009-0002-7870-609X
+**GitHub:** https://github.com/bthornemail
 
 ---
 

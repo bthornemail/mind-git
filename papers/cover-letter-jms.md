@@ -28,10 +28,9 @@ Thank you for your consideration. We look forward to your response.
 
 Sincerely,
 
-[Your Name]
-[Your Affiliation]
-[Your Email]
-[Your Phone - Optional]
+Brian Thorne
+Independent Researcher
+bthornemail@gmail.com
 
 ---
 

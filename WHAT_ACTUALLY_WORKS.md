@@ -249,8 +249,8 @@ and would value your expert feedback on:
 2. Novelty (TypeScript for mathematical software)
 3. Suitable publication venues
 
-Paper draft: github.com/[your-username]/logos-system/papers/identity-chain-real.md
-Code: github.com/[your-username]/logos-system/src/core/identity-chain/
+Paper draft: github.com/bthornemail/logos-system/papers/identity-chain-real.md
+Code: github.com/bthornemail/logos-system/src/core/identity-chain/
 
 Would you have 15-20 minutes for a brief consultation?
 

@@ -93,7 +93,7 @@ We request that the following individuals not be selected as reviewers due to po
 
 ## Additional Information
 
-- **Code Availability:** Full source code is publicly available at https://github.com/[your-username]/[repo-name] under MIT license
+- **Code Availability:** Full source code is publicly available at https://github.com/bthornemail/[repo-name] under MIT license
 - **Data Availability:** All validation test data will be made available upon publication
 - **Competing Interests:** The authors declare no competing interests
 - **Funding:** This work was performed independently without external funding
@@ -122,7 +122,7 @@ Sincerely,
 Independent Researcher
 Email: [your email]
 ORCID: [your ORCID if you have one]
-GitHub: https://github.com/[your-username]
+GitHub: https://github.com/bthornemail
 
 ---
 

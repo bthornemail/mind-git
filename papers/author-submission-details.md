@@ -1,10 +1,10 @@
 # Author Information & Submission Details
 
 ## Primary Author
-**Name:** [Your Full Name]
-**Email:** [your.email@example.com]
+**Name:** Brian Thorne
+**Email:** bthornemail@gmail.com
 **Affiliation:** Independent Researcher
-**ORCID:** [Your ORCID ID - Get one at orcid.org]
+**ORCID:** 0009-0002-7870-609X
 **Country:** [Your Country]
 
 ## Corresponding Author

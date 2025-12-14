@@ -185,7 +185,7 @@ papers/
 
 For questions about these papers:
 - Email: [your email]
-- GitHub: https://github.com/[your-username]
+- GitHub: https://github.com/bthornemail
 - arXiv: [your arXiv author page]
 
 ---

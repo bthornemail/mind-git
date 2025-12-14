@@ -2,7 +2,7 @@
 
 **Brian Thorne**
 *Independent Researcher*
-Email: [your email]
+Email: bthornemail@gmail.com
 
 ---
 
@@ -404,7 +404,7 @@ We have presented a complete, tested implementation of the historical n-square i
 
 This work serves as a foundation for applications in cryptography, physics, and higher-dimensional algebra, while honoring 1,400 years of mathematical discovery.
 
-**Code Availability:** https://github.com/[your-username]/logos-system
+**Code Availability:** https://github.com/bthornemail/logos-system
 
 **License:** MIT
 
