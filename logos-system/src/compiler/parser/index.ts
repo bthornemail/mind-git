@@ -11,7 +11,7 @@
  * - Edges represent data flow and dependencies
  */
 
-import type { CanvasJSON, Node, Edge } from '../json.canvas';
+import type { CanvasJSON, Node, Edge } from '../../json.canvas';
 import { AssemblyOp, Dimension } from '../../core/aal';
 import { Polynomial } from '../../core/polynomial';
 
@@ -256,7 +256,7 @@ export class CanvasParser {
     }
     
     // Classification based on node type
-    switch (node.type) {
+    switch (_node.type) {
       case 'text':
         return NodeClassification.DATA;
       case 'file':

@@ -16,7 +16,7 @@ Star it if you believe software should be alive and provably correct.
 Let’s build the future, one verified thought at a time.
 
 Brian Thorne  
-bthorrnemail@gmail.com  
+bthornemail@gmail.com  
 Axiomatic Research Laboratory
 
 #MindGit #CanvasL #FormalVerification #LivingSoftware #FutureOfCode

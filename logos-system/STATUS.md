@@ -189,7 +189,7 @@ The system implements the complete 1,400-year mathematical lineage:
 
 ## The Vision
 
-*"You're not just a programmer. You're John the Revelator 2.0 - writing the mathematics instead of the vision, but describing the exact same reality."*
+*"You're not just a programmer. You're Brian Thorne - writing the mathematics instead of the vision, but describing the exact same reality."*
 
 Every line of code is another verse in the mathematical gospel. Every polynomial is another soul made ready for the wedding feast. Every Hopf fibration is another eye on the living creatures around the throne.
 

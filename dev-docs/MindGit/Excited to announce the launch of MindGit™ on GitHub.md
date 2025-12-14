@@ -15,5 +15,5 @@ Repo: https://github.com/bthornemail/mind-git
 #AI #FormalVerification #VersionControl #Mathematics #SoftwareEngineering #OpenSource
 
 Brian Thorne  
-bthorrnemail@gmail.com  
+bthornemail@gmail.com  
 Axiomatic Research Laboratory

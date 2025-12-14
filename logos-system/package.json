@@ -28,6 +28,10 @@
   ],
   "author": "Brian Thorne <bthornemail@gmail.com>",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bthornemail/mind-git.git"
+  },
   "devDependencies": {
     "@types/jest": "^29.5.0",
     "@typescript-eslint/eslint-plugin": "^5.57.0",

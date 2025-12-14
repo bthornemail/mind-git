@@ -529,12 +529,12 @@ export class AAL {
       dimension: mapping.dimension,
       operands: this.generate_operands(node_type, position),
       polynomial,
-      verification: this.generate_proof_hash({
-        opcode: mapping.opcode,
-        dimension: mapping.dimension,
-        operands: [],
-        polynomial
-      }),
+      verification: {
+        algorithm: 'sha256' as const,
+        hash: 'pending_verification',
+        timestamp: Date.now(),
+        theorem_reference: 'TODO'
+      }, // TODO: Implement proof hash generation
       metadata: {
         source_node: node_type,
         line_number: 0
