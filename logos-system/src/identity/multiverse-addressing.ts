@@ -80,7 +80,7 @@ export interface BoundingBox {
 }
 
 export interface Governance {
-  type: 'anarchy' | 'democracy' | 'republic' | 'monarchy' | 'technocracy' | 'theocracy';
+  type: 'anarchy' | 'democracy' | 'republic' | 'monarchy' | 'technocracy' | 'theocracy' | 'meritocracy';
   rules: GovernanceRule[];
   votingMechanism?: VotingMechanism;
   leaders: string[];
