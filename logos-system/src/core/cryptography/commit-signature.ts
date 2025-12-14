@@ -86,7 +86,7 @@ export class CommitSignatureGenerator {
         polynomial: newState.polynomial || [true],
         verification: {
           theorem_reference: 'CommitPreservesInvariants',
-          security_level: 'safe'
+          security_level: 'safe' as const
         }
       };
 
@@ -150,7 +150,7 @@ export class CommitSignatureGenerator {
         polynomial: this.computeMergedPolynomial(branchAState, branchBState),
         verification: {
           theorem_reference: 'MergePreservesInvariants',
-          security_level: 'safe'
+          security_level: 'safe' as const
         }
       };
 
@@ -210,7 +210,7 @@ export class CommitSignatureGenerator {
         polynomial: fromState.polynomial || [true],
         verification: {
           theorem_reference: 'BranchPreservesInvariants',
-          security_level: 'safe'
+          security_level: 'safe' as const
         }
       };
 

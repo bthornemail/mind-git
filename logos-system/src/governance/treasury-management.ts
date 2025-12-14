@@ -5,11 +5,11 @@
  * multiple currencies, budget allocation, financial controls, and audit trails.
  */
 
-import { Polynomial } from '../core/polynomial/polynomial';
+import { PolyF2 } from '../core/polynomial/index';
 import { AALType } from '../core/aal/types';
 import { DIDDocument } from '../identity/did-core';
-import { CubicSignature } from '../production/cubic-signature';
-import { ProductionCrypto } from '../production/production-crypto';
+import { CubicSignature } from '../core/cryptography/cubic-signature';
+import { ProductionCryptography } from '../core/cryptography/production-crypto';
 import { Token, TokenBalance } from './token-economics';
 
 export interface Treasury {
@@ -163,6 +163,13 @@ export interface Budget {
   totalAmount: number;
   allocatedAmount: number;
   spentAmount: number;
+  department?: string;
+  project?: string;
+  costCenter?: string;
+  manager?: string;
+  reviewers: string[];
+  tags: string[];
+  notes: string;
   remainingAmount: number;
   period: BudgetPeriod;
   categories: BudgetCategory[];
@@ -533,7 +540,7 @@ export class TreasuryManager {
           decimals: token.decimals,
           symbol: token.symbol,
           name: token.name,
-          type: token.type,
+          type: token.type as "native" | "wrapped" | "stablecoin" | "governance",
           lastPrice: 1,
           priceSource: 'internal',
           priceTimestamp: timestamp

@@ -5,16 +5,13 @@
   "main": "logos-system/dist/index.js",
   "types": "logos-system/dist/index.d.ts",
   "bin": {
-    "mind-git": "./bin/mind-git.js"
+    "mind-git": "./bin/mind-git-simple.cjs"
   },
+  "type": "module",
   "scripts": {
     "build": "cd logos-system && npm run build",
     "test": "cd logos-system && npm test",
-    "test:unit": "cd logos-system && npm run test:unit",
-    "test:formal": "cd logos-system/formal && make verify",
-    "dev": "cd logos-system && npm run dev",
-    "lint": "cd logos-system && npm run lint",
-    "clean": "cd logos-system && npm run clean && cd formal && make clean"
+    "start": "node logos-system/dist/index.js"
   },
   "keywords": [
     "canvasl",
@@ -32,11 +29,23 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bthornemail/mind-git.git"
+    "url": "https://github.com/bthornemail/mind-git.git"
   },
-  "type": "commonjs",
+  "files": [
+    "bin/",
+    "examples/",
+    "logos-system/dist/",
+    "logos-system/package.json",
+    "README.md",
+    "LICENSE",
+    "json.canvas.d.ts",
+    "json.canvas.js"
+  ],
   "dependencies": {
     "@trbn/jsoncanvas": "^1.0.6",
     "commander": "^11.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
   }
 }

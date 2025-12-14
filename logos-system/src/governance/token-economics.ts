@@ -5,11 +5,11 @@
  * reputation scoring, staking mechanisms, and economic incentives.
  */
 
-import { Polynomial } from '../core/polynomial/polynomial';
+import { PolyF2 } from '../core/polynomial/index';
 import { AALType } from '../core/aal/types';
-import { DIDDocument } from './did-core';
-import { CubicSignature } from '../production/cubic-signature';
-import { ProductionCrypto } from '../production/production-crypto';
+import { DIDDocument } from '../identity/did-core';
+import { CubicSignature } from '../core/cryptography/cubic-signature';
+import { ProductionCryptography } from '../core/cryptography/production-crypto';
 
 export interface Token {
   tokenId: string;

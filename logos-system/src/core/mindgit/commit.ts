@@ -21,9 +21,9 @@ import {
   CanvasLState,
   SovereignIdentity,
   CommitProof
-} from '../types';
-import { DNALogger } from '../dna-log';
-import { ContentAddressedStorage } from '../storage';
+} from '../../types';
+import { DNALogger } from './dna-log';
+import { ContentAddressedStorage } from './storage';
 import { TernaryCubicForm } from '../cryptography';
 import { signWithCubic, verifyCubicSignature } from '../cryptography/cubic-signature';
 import { generateCommitProof, verifyCommitProof } from '../cryptography/commit-signature';

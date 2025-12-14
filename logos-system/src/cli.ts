@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { compileCanvas } from './compiler/canvas-compiler';
+import { compileCanvas } from './compiler/index';
 import { readFileSync, writeFileSync } from 'fs';
 import { join } from 'path';
 

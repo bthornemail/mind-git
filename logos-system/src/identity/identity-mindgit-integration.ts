@@ -5,14 +5,14 @@
  * addressing with MindGit's version control and computational organism evolution.
  */
 
-import { Polynomial } from '../core/polynomial/polynomial';
+import { PolyF2 } from '../core/polynomial/index';
 import { AALType } from '../core/aal/types';
-import { MindGitMain } from '../mindgit/mindgit-main';
+import { MindGitMain } from '../mindgit/index';
 import { SovereignIdentityManager } from './sovereign-identity';
 import { MultiverseAddressManager } from './multiverse-addressing';
 import { IdentityVerifier, CredentialManager, AttestationManager } from './identity-verification';
 import { DIDDocument } from './did-core';
-import { ProductionCrypto } from '../production/production-crypto';
+import { ProductionCryptography } from '../core/cryptography/production-crypto';
 
 export interface IdentityGitConfig {
   defaultNamespace: string;
@@ -404,18 +404,18 @@ export class IdentityMindGit {
       throw new Error(`Repository not found: ${repositoryId}`);
     }
 
-    const targetBranch = repository.branches.get(targetBranch);
-    if (!targetBranch) {
+    const targetBranchObj = repository.branches.get(targetBranch);
+    if (!targetBranchObj) {
       throw new Error(`Target branch not found: ${targetBranch}`);
     }
 
     // Check merge permissions
-    if (!this.hasPermission(mergeAuthorDid, targetBranch, 'merge')) {
+    if (!this.hasPermission(mergeAuthorDid, targetBranchObj, 'merge')) {
       throw new Error(`No merge permission for ${mergeAuthorDid} on ${targetBranch}`);
     }
 
     // Verify merge requirements
-    const requireVerification = options.requireVerification ?? targetBranch.mergePolicy.requireVerification;
+    const requireVerification = options.requireVerification ?? targetBranchObj.mergePolicy?.requireVerification;
     if (requireVerification) {
       const verification = await this.performIdentityVerification(
         mergeAuthorDid,
@@ -462,7 +462,6 @@ export class IdentityMindGit {
         verificationLevel: 'enhanced',
         jurisdiction: 'global',
         complianceFrameworks: [],
-        mergeType: 'identity_verified'
       }
     };
 
@@ -511,7 +510,7 @@ export class IdentityMindGit {
     // Update default branch access control
     const accessControlEntry: AccessControlEntry = {
       entityDid: contributorDid,
-      permissions,
+      permissions: permissions as ("merge" | "read" | "write" | "admin")[],
       grantedBy: addedBy,
       grantedAt: new Date().toISOString()
     };
@@ -657,7 +656,7 @@ export class IdentityMindGit {
 
     // Create proof using cubic signature
     const cubicSignature = new CubicSignature();
-    return await cubicSignature.sign(JSON.stringify(proofData), signingKey);
+    return await cubicSignature.sign(JSON.stringify(proofData), signingKey.private_cubic);
   }
 
   private async performIdentityVerification(

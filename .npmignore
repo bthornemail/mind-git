@@ -1,0 +1,98 @@
+# Include ONLY essential files for npm package
+
+# Include these specific files and directories
+!bin/
+!examples/
+!README.md
+!LICENSE
+!package.json
+!logos-system/dist/
+!logos-system/package.json
+!logos-system/README.md
+!json.canvas.*
+
+# Exclude EVERYTHING else
+*
+**/*
+
+# Source files (we only include built dist)
+src/
+*.ts
+!*.d.ts
+
+# Documentation and dev files
+dev-docs/
+docs/
+papers/
+mission/
+AGENTS.md
+ARCHITECTURE.md
+CLAUDE.md
+CONTRIBUTING.md
+DESIGN_PRINCIPLES.md
+PHILOSOPHY.md
+REALITY_CHECK.md
+WHAT_ACTUALLY_WORKS.md
+IMPLEMENTATION_STATUS.md
+
+# Obsidian plugin files
+.obsidian/
+
+# Test files
+*.test.ts
+*.test.js
+**/test/
+
+# Build artifacts
+node_modules/
+*.log
+venv/
+
+# Development files
+.claude/
+.cursor/
+.env
+.env.*
+
+# Large binary files
+*.png
+*.jpg
+*.jpeg
+*.pdf
+*.docx
+
+# Git and version control
+.git/
+.gitignore
+
+# Docker files
+Dockerfile*
+docker-compose*
+
+# NPM files
+.npmignore
+package-lock.json
+
+# IDE files
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+
+# Racket files
+*.rkt
+
+# Shell scripts
+*.sh
+
+# Config files
+*.json
+!package.json
+!examples/spatial-hello-world.json
+!json.canvas.*

@@ -5,9 +5,9 @@
  * operating across multiple computational realities and dimensional spaces.
  */
 
-import { Polynomial } from '../core/polynomial/polynomial';
+import { PolyF2 } from '../core/polynomial/index';
 import { AALType } from '../core/aal/types';
-import { ProductionCrypto } from '../production/production-crypto';
+import { ProductionCryptography } from '../core/cryptography/production-crypto';
 
 export interface MultiverseAddress {
   universeId: string;

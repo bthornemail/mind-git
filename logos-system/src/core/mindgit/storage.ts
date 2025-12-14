@@ -446,7 +446,7 @@ export class ContentAddressedStorage {
           break;
           
         case 'tree':
-          const treeEntries = new Map(Object.entries(obj.data));
+          const treeEntries = new Map(Object.entries(obj.data) as [string, string][]);
           await this.storeTree(treeEntries);
           break;
           

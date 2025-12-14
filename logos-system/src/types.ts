@@ -132,8 +132,40 @@ export interface Attachment {
   [key: string]: any;
 }
 
+// Additional type definitions for missing interfaces
+export interface MindGitCommit {
+  id: string;
+  author: {
+    did: string;
+    cubic_public_key: any;
+  };
+  signatures: {
+    hash_chain: string;
+  };
+  aal_proof: ProofHash;
+  timestamp: number;
+}
+
+export interface CanvasLState {
+  polynomial: boolean[];
+  fitness?: number;
+  diversity?: number;
+  mutation_rate?: number;
+  generation?: number;
+}
+
+export interface MindGitBranch {
+  name: string;
+  sedenion_address: any;
+  owner_key: any;
+}
+
+export type DNAEntry = DNAManifestEntry | DNAGenerationEntry | DNABranchEntry | DNAMergeEntry | DNAIdentityEntry;
+
+export type DNAEntryType = 'manifest' | 'generation' | 'branch' | 'merge' | 'identity';
+
 // Re-export types from other modules
-export * from './core/polynomial/polynomial';
-export * from './core/aal/types';
+export * from './core/polynomial/index';
+export * from './core/aal/index';
 export * from './core/cryptography/cubic-signature';
 export * from './core/cryptography/production-crypto';

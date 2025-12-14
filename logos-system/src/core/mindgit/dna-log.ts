@@ -15,18 +15,13 @@
  */
 
 import { 
-  DNAEntry, 
-  DNAEntryType, 
   DNAManifestEntry, 
   DNAGenerationEntry, 
   DNABranchEntry, 
   DNAMergeEntry, 
   DNAIdentityEntry,
-  CanvasLState,
-  MindGitCommit,
-  MindGitBranch,
   SovereignIdentity
-} from './types';
+} from '../../types';
 import { TernaryCubicForm } from '../cryptography';
 import { Sedenion, Trigintaduonion } from '../multiverse';
 import { ProofHash } from '../aal';
@@ -67,7 +62,8 @@ export class DNALogger {
       '@canvasl': 'manifest',
       version,
       organism: organismName,
-      created_at: Date.now()
+      created_at: Date.now(),
+      timestamp: Date.now()
     };
 
     await this.appendEntry(manifest);
@@ -90,6 +86,7 @@ export class DNALogger {
   ): Promise<void> {
     const entry: DNAGenerationEntry = {
       '@canvasl': 'generation',
+      version: '1.0.0',
       generation,
       polynomial: state.polynomial,
       hash_chain: commit.signatures.hash_chain,
@@ -99,7 +96,8 @@ export class DNALogger {
       aal_proof: commit.aal_proof,
       fitness: state.fitness,
       diversity: state.diversity,
-      mutation_rate: state.mutation_rate
+      mutation_rate: state.mutation_rate,
+      timestamp: Date.now()
     };
 
     await this.appendEntry(entry);
@@ -114,10 +112,12 @@ export class DNALogger {
   async logBranch(branch: MindGitBranch, fromCommitId?: string): Promise<void> {
     const entry: DNABranchEntry = {
       '@canvasl': 'branch',
+      version: '1.0.0',
       branch_name: branch.name,
       sedenion_address: branch.sedenion_address,
       owner_key: branch.owner_key,
-      from_commit_id: fromCommitId
+      from_commit_id: fromCommitId,
+      timestamp: Date.now()
     };
 
     await this.appendEntry(entry);
@@ -143,12 +143,15 @@ export class DNALogger {
   ): Promise<void> {
     const entry: DNAMergeEntry = {
       '@canvasl': 'merge',
+      version: '1.0.0',
       generation,
       polynomial: state.polynomial,
       parent_ids: parentIds,
       merge_strategy: strategy as any,
       merge_proof: proof,
-      author_cubic_key: authorKey
+      author_cubic_key: authorKey,
+      aal_proof: proof,
+      timestamp: Date.now()
     };
 
     await this.appendEntry(entry);
@@ -168,11 +171,13 @@ export class DNALogger {
   ): Promise<void> {
     const entry: DNAIdentityEntry = {
       '@canvasl': 'identity',
+      version: '1.0.0',
       operation,
       did,
       cubic_public_key: identity.cubic_keypair.public_cubic,
       sedenion_address: identity.multiverse_keys.sedenion_public,
-      claims: identity.claims
+      claims: identity.claims,
+      timestamp: Date.now()
     };
 
     await this.appendEntry(entry);
@@ -248,7 +253,8 @@ export class DNALogger {
     }
 
     const writable = await this.fileHandle.createWritable({ keepExistingData: true });
-    await writable.seek(writable.getSize() || 0);
+    const file = await this.fileHandle.getFile();
+    await writable.seek(file.size || 0);
     await writable.write(new TextEncoder().encode(data));
     await writable.close();
   }

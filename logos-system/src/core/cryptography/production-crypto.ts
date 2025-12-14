@@ -109,27 +109,6 @@ export class ProductionCryptography {
       throw error;
     }
   }
-  private lllReducer: LLLReducer;
-  private secureMemory: SecureMemory;
-  private constantTime: ConstantTime;
-  private keyErasure: KeyErasure;
-  private auditLog: SecurityAuditEntry[] = [];
-  private config: ProductionCryptoConfig;
-
-  constructor(config?: ProductionCryptoConfig) {
-    this.config = {
-      audit: { enabled: true, logLevel: 'info' },
-      ...config
-    };
-
-    // Initialize components
-    this.lllReducer = new LLLReducer(this.config.lllParams);
-    this.secureMemory = new SecureMemory();
-    this.constantTime = new ConstantTime();
-    this.keyErasure = new KeyErasure(this.config.keyErasure);
-
-    this.log('info', 'ProductionCryptography initialized');
-  }
 
   /**
    * Analyze lattice using LLL reduction with security monitoring

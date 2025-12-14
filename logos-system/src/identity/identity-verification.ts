@@ -5,11 +5,11 @@
  * and attestation services for sovereign identities across the multiverse.
  */
 
-import { Polynomial } from '../core/polynomial/polynomial';
+import { PolyF2 } from '../core/polynomial/index';
 import { AALType } from '../core/aal/types';
 import { DIDDocument } from './did-core';
-import { CubicSignature } from '../production/cubic-signature';
-import { ProductionCrypto } from '../production/production-crypto';
+import { CubicSignature } from '../core/cryptography/cubic-signature';
+import { ProductionCryptography } from '../core/cryptography/production-crypto';
 
 export interface VerifiableCredential {
   '@context': string[];
@@ -685,7 +685,7 @@ export class IdentityVerifier {
       if (verification.valid) {
         // Extract claims from credential
         for (const [key, value] of Object.entries(credential.credentialSubject)) {
-          if (key !== 'id' && request.requiredClaims.includes(key)) {
+          if (key !== 'id' && request.requiredClaims?.includes(key)) {
             verifiedClaims.push({
               claimId: `${credential.id}:${key}`,
               type: key,

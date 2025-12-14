@@ -5,11 +5,11 @@
  * delegated voting, conviction voting, ranked choice, and liquid democracy.
  */
 
-import { Polynomial } from '../core/polynomial/polynomial';
+import { PolyF2 } from '../core/polynomial/index';
 import { AALType } from '../core/aal/types';
 import { DIDDocument } from '../identity/did-core';
-import { CubicSignature } from '../production/cubic-signature';
-import { ProductionCrypto } from '../production/production-crypto';
+import { CubicSignature } from '../core/cryptography/cubic-signature';
+import { ProductionCryptography } from '../core/cryptography/production-crypto';
 import { Vote, VoteChoice, DAOProposal } from './dao-framework';
 
 export interface VotingMechanism {
@@ -1362,7 +1362,7 @@ export class AdvancedVotingEngine {
     console.log(`Updated credits for ${voterDid}: ${amount}`);
   }
 
-  private async getDelegationChain(voterDid: string, delegateeDid?: string): string[] {
+  private async getDelegationChain(voterDid: string, delegateeDid?: string): Promise<string[]> {
     const chain: string[] = [voterDid];
     
     if (delegateeDid) {

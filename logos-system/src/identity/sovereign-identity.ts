@@ -5,11 +5,11 @@
  * recovery mechanisms, and multiverse addressing support.
  */
 
-import { Polynomial } from '../core/polynomial/polynomial';
+import { PolyF2 } from '../core/polynomial/index';
 import { AALType } from '../core/aal/types';
 import { DIDDocument, DIDRegistry, VerificationMethod } from './did-core';
-import { CubicSignature } from '../production/cubic-signature';
-import { ProductionCrypto } from '../production/production-crypto';
+import { CubicSignature } from '../core/cryptography/cubic-signature';
+import { ProductionCryptography } from '../core/cryptography/production-crypto';
 
 export interface IdentityKeyPair {
   keyId: string;

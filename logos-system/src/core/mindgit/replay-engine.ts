@@ -126,7 +126,7 @@ export class ReplayEngine {
         }
 
         // Verify hash chain continuity
-        if (options.strict_mode && entryType !== 'manifest') {
+        if (options.strict_mode && entryType !== 'manifest' && entryType !== undefined) {
           const hashValid = await this.verifyHashChain(lastHashChain, entry);
           if (!hashValid) {
             throw new Error(`Hash chain verification failed at generation ${currentState.generation}`);
@@ -400,7 +400,7 @@ export class ReplayEngine {
       warnings.push(`Polynomial has ${firstNonZero} leading zeros`);
     }
 
-    return errors;
+    return { errors, warnings };
   }
 
   /**
@@ -486,10 +486,10 @@ export class ReplayEngine {
 }
 
 ## Polynomial Analysis
-Degree: ${PolyF2.degree(state.polynomial)}
-Leading Term: ${PolyF2.getLeadingTerm(state.polynomial)}
+Degree: ${state.polynomial.length - 1}
+Leading Term: ${state.polynomial[state.polynomial.length - 1] ? 'x^' + (state.polynomial.length - 1) : '0'}
 Constant Term: ${state.polynomial[0] ? '1' : '0'}
-Norm: ${PolyF2.norm(state.polynomial)}
+Norm: ${Math.sqrt(state.polynomial.filter(x => x).length)}
 
 ## Evolutionary Metrics
 Fitness Score: ${state.fitness}

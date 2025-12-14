@@ -10,9 +10,6 @@ const { program } = require('commander');
 const { readFile, writeFile } = require('fs/promises');
 const { resolve } = require('path');
 
-// Import from local logos-system
-const { CanvasLCompiler } = require('../logos-system/dist/index.js');
-
 program
   .name('mind-git')
   .description('CanvasL visual compiler - spatial diagrams to executable code')
@@ -32,6 +29,8 @@ program
       const canvasData = await readFile(canvasPath, 'utf-8');
       const canvas = JSON.parse(canvasData);
       
+      // Dynamic import for ES module
+      const { CanvasLCompiler } = await import('../logos-system/dist/index.js');
       const compiler = new CanvasLCompiler();
       const result = await compiler.compileCanvas(canvas);
       

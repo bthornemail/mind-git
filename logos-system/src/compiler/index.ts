@@ -517,3 +517,11 @@ export function createCanvasLCompiler(options: Partial<CompilerOptions> = {}): C
   const merged_options = { ...defaultCompilerOptions(), ...options };
   return new CanvasLCompiler(merged_options);
 }
+
+/**
+ * Convenience function to compile canvas directly
+ */
+export async function compileCanvas(canvas_json: any): Promise<any> {
+  const compiler = createCanvasLCompiler();
+  return await compiler.compileCanvas(canvas_json);
+}

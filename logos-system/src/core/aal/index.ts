@@ -95,6 +95,7 @@ export interface ProofHash {
   hash: string;
   timestamp: number;
   theorem_reference: string;
+  security_level?: 'safe' | 'degraded' | 'compromised';
 }
 
 /**
