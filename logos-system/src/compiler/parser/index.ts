@@ -76,6 +76,14 @@ export enum NodeClassification {
   STORE = 'store',
   OBSERVE = 'observe',
   DATA = 'data',
+  LOOP = 'loop',
+  CONDITION = 'condition',
+  FUNCTION = 'function',
+  CALL = 'call',
+  RETURN = 'return',
+  PARAMETER = 'parameter',
+  VARIABLE = 'variable',
+  CONSTANT = 'constant',
   UNKNOWN = 'unknown'
 }
 
@@ -121,6 +129,8 @@ export class CanvasParser {
       const polynomial = this.encodeNode(node, position, content, classification);
       const dimension = this.calculateNodeDimension(classification, position, polynomial);
       
+      const operands = this.extractOperands(content, classification);
+      
       return {
         id: node.id || `node_${index}`,
         type: node.type || 'unknown',
@@ -131,7 +141,7 @@ export class CanvasParser {
         polynomial,
         dimension,
         degree: this.calculateDegree(polynomial),
-        operands: [],
+        operands,
         dependencies: [],
         dependents: []
       };
@@ -226,10 +236,10 @@ export class CanvasParser {
   }
   
   /**
-   * Classify node type based on content and position
+   * Classify node type based on content and position with dynamic parsing
    */
-  private classifyNode(_node: any, content: string, _position: { x: number; y: number }): NodeClassification {
-    // Classification based on content prefixes
+  private classifyNode(_node: any, content: string, position: { x: number; y: number }): NodeClassification {
+    // Classification based on explicit content prefixes
     if (content.startsWith('#Activate:') || content.startsWith('#activate:')) {
       return NodeClassification.ACTIVATE;
     }
@@ -255,6 +265,49 @@ export class CanvasParser {
       return NodeClassification.OBSERVE;
     }
     
+    // Dynamic classification based on content patterns
+    const lowerContent = content.toLowerCase();
+    
+    // Loop detection
+    if (this.isLoopNode(content, lowerContent)) {
+      return NodeClassification.LOOP;
+    }
+    
+    // Condition detection
+    if (this.isConditionNode(content, lowerContent)) {
+      return NodeClassification.CONDITION;
+    }
+    
+    // Function detection
+    if (this.isFunctionNode(content, lowerContent)) {
+      return NodeClassification.FUNCTION;
+    }
+    
+    // Function call detection
+    if (this.isFunctionCallNode(content, lowerContent)) {
+      return NodeClassification.CALL;
+    }
+    
+    // Return statement detection
+    if (this.isReturnNode(content, lowerContent)) {
+      return NodeClassification.RETURN;
+    }
+    
+    // Parameter detection
+    if (this.isParameterNode(content, lowerContent)) {
+      return NodeClassification.PARAMETER;
+    }
+    
+    // Variable detection
+    if (this.isVariableNode(content, lowerContent)) {
+      return NodeClassification.VARIABLE;
+    }
+    
+    // Constant detection
+    if (this.isConstantNode(content, lowerContent)) {
+      return NodeClassification.CONSTANT;
+    }
+    
     // Classification based on node type
     switch (_node.type) {
       case 'text':
@@ -271,14 +324,234 @@ export class CanvasParser {
   }
   
   /**
-   * Calculate node dimension based on classification and properties
+   * Extract operands from node content based on classification
+   */
+  private extractOperands(content: string, classification: NodeClassification): string[] {
+    const operands: string[] = [];
+    
+    switch (classification) {
+      case NodeClassification.FUNCTION:
+        // Extract function name and parameters
+        const funcMatch = content.match(/(?:function|const|let|var)\s+(\w+)\s*\(([^)]*)\)/);
+        if (funcMatch) {
+          operands.push(funcMatch[1]); // Function name
+          const params = funcMatch[2].split(',').map(p => p.trim()).filter(p => p);
+          operands.push(...params);
+        }
+        break;
+        
+      case NodeClassification.CALL:
+        // Extract function name and arguments
+        const callMatch = content.match(/(\w+(?:\.\w+)*)\s*\(([^)]*)\)/);
+        if (callMatch) {
+          operands.push(callMatch[1]); // Function name
+          const args = callMatch[2].split(',').map(a => a.trim()).filter(a => a);
+          operands.push(...args);
+        }
+        break;
+        
+      case NodeClassification.CONDITION:
+        // Extract variables in condition
+        const conditionVars = content.match(/\b[a-zA-Z_$][a-zA-Z0-9_$]*\b/g);
+        if (conditionVars) {
+          operands.push(...conditionVars.filter(v => !['if', 'else', 'switch', 'case', 'when'].includes(v)));
+        }
+        break;
+        
+      case NodeClassification.VARIABLE:
+      case NodeClassification.CONSTANT:
+        // Extract variable name and value
+        const varMatch = content.match(/(?:let|const|var)\s+([a-zA-Z_$][a-zA-Z0-9_$]*)\s*=\s*([^;]+)/);
+        if (varMatch) {
+          operands.push(varMatch[1]); // Variable name
+          // Extract variables from the right side
+          const rightSideVars = varMatch[2].match(/\b[a-zA-Z_$][a-zA-Z0-9_$]*\b/g);
+          if (rightSideVars) {
+            operands.push(...rightSideVars);
+          }
+        }
+        break;
+        
+      case NodeClassification.LOOP:
+        // Extract loop variable and condition
+        const loopMatch = content.match(/(?:for|while)\s*\(([^)]+)\)/);
+        if (loopMatch) {
+          const loopVars = loopMatch[1].match(/\b[a-zA-Z_$][a-zA-Z0-9_$]*\b/g);
+          if (loopVars) {
+            operands.push(...loopVars.filter(v => !['for', 'while', 'in', 'of'].includes(v)));
+          }
+        }
+        break;
+        
+      case NodeClassification.RETURN:
+        // Extract return value variables
+        const returnMatch = content.match(/return\s+([^;]+)/);
+        if (returnMatch) {
+          const returnVars = returnMatch[1].match(/\b[a-zA-Z_$][a-zA-Z0-9_$]*\b/g);
+          if (returnVars) {
+            operands.push(...returnVars);
+          }
+        }
+        break;
+        
+      default:
+        // For other types, extract any identifiers
+        const identifiers = content.match(/\b[a-zA-Z_$][a-zA-Z0-9_$]*\b/g);
+        if (identifiers) {
+          operands.push(...identifiers);
+        }
+        break;
+    }
+    
+    // Remove duplicates and filter out common keywords
+    const keywords = new Set([
+      'function', 'const', 'let', 'var', 'if', 'else', 'switch', 'case', 'when',
+      'for', 'while', 'do', 'break', 'continue', 'return', 'yield', 'true', 'false',
+      'null', 'undefined', 'this', 'new', 'typeof', 'instanceof', 'in', 'of'
+    ]);
+    
+    return [...new Set(operands)].filter(operand => !keywords.has(operand));
+  }
+
+  /**
+   * Dynamic node type detection methods
+   */
+  private isLoopNode(content: string, lowerContent: string): boolean {
+    const loopPatterns = [
+      /for\s*\(/,
+      /while\s*\(/,
+      /do\s*{/,
+      /loop/i,
+      /iteration/i,
+      /repeat/i
+    ];
+    
+    return loopPatterns.some(pattern => pattern.test(content)) ||
+           lowerContent.includes('for loop') ||
+           lowerContent.includes('while loop') ||
+           lowerContent.includes('iteration');
+  }
+  
+  private isConditionNode(content: string, lowerContent: string): boolean {
+    const conditionPatterns = [
+      /if\s*\(/,
+      /else\s*if\s*\(/,
+      /else\s*{/,
+      /switch\s*\(/,
+      /case\s+/,
+      /condition/i,
+      /when\s+/i
+    ];
+    
+    return conditionPatterns.some(pattern => pattern.test(content)) ||
+           lowerContent.includes('if condition') ||
+           lowerContent.includes('conditional') ||
+           (lowerContent.includes('<') || lowerContent.includes('>') || 
+            lowerContent.includes('==') || lowerContent.includes('!=') ||
+            lowerContent.includes('<=') || lowerContent.includes('>='));
+  }
+  
+  private isFunctionNode(content: string, lowerContent: string): boolean {
+    const functionPatterns = [
+      /function\s+\w+\s*\(/,
+      /const\s+\w+\s*=\s*\(/,
+      /let\s+\w+\s*=\s*\(/,
+      /var\s+\w+\s*=\s*\(/,
+      /\w+\s*:\s*\(/,
+      /def\s+\w+/,
+      /func\s+\w+/
+    ];
+    
+    return functionPatterns.some(pattern => pattern.test(content)) ||
+           lowerContent.includes('function definition') ||
+           lowerContent.includes('method definition') ||
+           lowerContent.startsWith('function ');
+  }
+  
+  private isFunctionCallNode(content: string, lowerContent: string): boolean {
+    const callPatterns = [
+      /\w+\s*\([^)]*\)\s*;/,
+      /\w+\.\w+\s*\([^)]*\)/,
+      /\w+\s*\([^)]*\)\s*$/,
+      /console\.\w+/,
+      /print\s*\(/,
+      /log\s*\(/
+    ];
+    
+    return callPatterns.some(pattern => pattern.test(content)) ||
+           lowerContent.includes('call ') ||
+           lowerContent.includes('invoke ') ||
+           (lowerContent.includes('(') && lowerContent.includes(')') && 
+            !this.isFunctionNode(content, lowerContent));
+  }
+  
+  private isReturnNode(content: string, lowerContent: string): boolean {
+    const returnPatterns = [
+      /return\s+/,
+      /yield\s+/,
+      /break\s*;/,
+      /continue\s*;/
+    ];
+    
+    return returnPatterns.some(pattern => pattern.test(content)) ||
+           lowerContent.startsWith('return ') ||
+           lowerContent.startsWith('yield ');
+  }
+  
+  private isParameterNode(content: string, lowerContent: string): boolean {
+    const parameterPatterns = [
+      /parameter\s+/i,
+      /param\s+/i,
+      /arg\s+/i,
+      /argument\s+/i
+    ];
+    
+    return parameterPatterns.some(pattern => pattern.test(content)) ||
+           lowerContent.includes('parameter') ||
+           lowerContent.includes('param ') ||
+           lowerContent.includes('argument ');
+  }
+  
+  private isVariableNode(content: string, lowerContent: string): boolean {
+    const variablePatterns = [
+      /[a-zA-Z_$][a-zA-Z0-9_$]*\s*=\s*[^=]/,
+      /let\s+[a-zA-Z_$]/,
+      /const\s+[a-zA-Z_$]/,
+      /var\s+[a-zA-Z_$]/,
+      /[a-zA-Z_$][a-zA-Z0-9_$]*\s*:\s*string/,
+      /[a-zA-Z_$][a-zA-Z0-9_$]*\s*:\s*number/
+    ];
+    
+    return variablePatterns.some(pattern => pattern.test(content)) ||
+           lowerContent.includes('variable ') ||
+           lowerContent.includes('var ') ||
+           (lowerContent.includes('=') && !this.isConstantNode(content, lowerContent));
+  }
+  
+  private isConstantNode(content: string, lowerContent: string): boolean {
+    const constantPatterns = [
+      /const\s+[a-zA-Z_$][a-zA-Z0-9_$]*\s*=\s*["'`\d]/,
+      /#define\s+/,
+      /final\s+/,
+      /readonly\s+/
+    ];
+    
+    return constantPatterns.some(pattern => pattern.test(content)) ||
+           lowerContent.includes('constant ') ||
+           (lowerContent.includes('const ') && 
+            (lowerContent.includes('"') || lowerContent.includes("'") || 
+             /\d/.test(lowerContent)));
+  }
+  
+  /**
+   * Calculate node dimension based on classification and properties with dynamic mapping
    */
   private calculateNodeDimension(
     classification: NodeClassification, 
     position: { x: number; y: number },
     polynomial: Polynomial
   ): Dimension {
-    // Base dimension based on classification
+    // Base dimension based on classification with extended mapping
     const dimension_map = {
       [NodeClassification.ACTIVATE]: Dimension.D0_PureAlgebra,
       [NodeClassification.INTEGRATE]: Dimension.D1_Functional,
@@ -288,24 +561,52 @@ export class CanvasParser {
       [NodeClassification.VERIFY]: Dimension.D5_Concurrency,
       [NodeClassification.STORE]: Dimension.D6_Privileged,
       [NodeClassification.OBSERVE]: Dimension.D7_Timing,
+      [NodeClassification.LOOP]: Dimension.D5_Concurrency, // Loops involve concurrency
+      [NodeClassification.CONDITION]: Dimension.D3_MemoryModel, // Conditions affect memory flow
+      [NodeClassification.FUNCTION]: Dimension.D4_ControlStack, // Functions use call stack
+      [NodeClassification.CALL]: Dimension.D4_ControlStack, // Function calls use stack
+      [NodeClassification.RETURN]: Dimension.D3_MemoryModel, // Returns affect memory
+      [NodeClassification.PARAMETER]: Dimension.D1_Functional, // Parameters are functional
+      [NodeClassification.VARIABLE]: Dimension.D1_Functional, // Variables are functional
+      [NodeClassification.CONSTANT]: Dimension.D0_PureAlgebra, // Constants are pure
       [NodeClassification.DATA]: Dimension.D0_PureAlgebra,
       [NodeClassification.UNKNOWN]: Dimension.D0_PureAlgebra
     };
     
     let base_dimension = dimension_map[classification] || Dimension.D0_PureAlgebra;
     
-    // Elevate dimension based on polynomial degree (self-reference depth)
+    // Dynamic dimension elevation based on node complexity
     const degree = this.calculateDegree(polynomial);
-    if (degree > 7) {
-      base_dimension = Dimension.D8_Probabilistic;
+    
+    // Elevate based on polynomial degree (self-reference depth)
+    if (degree > 15) {
+      base_dimension = Dimension.D10_Physical; // Maximum complexity
+    } else if (degree > 10) {
+      base_dimension = Dimension.D9_ProjectiveGeometry; // High complexity
+    } else if (degree > 7) {
+      base_dimension = Dimension.D8_Probabilistic; // Medium-high complexity
+    } else if (degree > 5) {
+      base_dimension = Math.max(base_dimension, Dimension.D6_Privileged); // Medium complexity
     } else if (degree > 3) {
+      base_dimension = Math.max(base_dimension, Dimension.D4_ControlStack); // Low-medium complexity
+    }
+    
+    // Special handling for complex control structures
+    if (classification === NodeClassification.LOOP || classification === NodeClassification.CONDITION) {
+      base_dimension = Math.max(base_dimension, Dimension.D5_Concurrency);
+    }
+    
+    // Special handling for functions
+    if (classification === NodeClassification.FUNCTION || classification === NodeClassification.CALL) {
       base_dimension = Math.max(base_dimension, Dimension.D4_ControlStack);
     }
     
     // Elevate based on distance from origin (higher dimensions at edges)
     const distance_from_origin = Math.sqrt(position.x * position.x + position.y * position.y);
-    if (distance_from_origin > 500) {
+    if (distance_from_origin > 1000) {
       base_dimension = Math.max(base_dimension, Dimension.D9_ProjectiveGeometry);
+    } else if (distance_from_origin > 500) {
+      base_dimension = Math.max(base_dimension, Dimension.D8_Probabilistic);
     }
     
     return Math.min(base_dimension, Dimension.D10_Physical);

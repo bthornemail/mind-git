@@ -1,0 +1,106 @@
+{
+  "nodes": [
+    {
+      "id": "observer",
+      "type": "text",
+      "x": 0,
+      "y": 0,
+      "width": 200,
+      "height": 60,
+      "text": "#Observe: loop_example",
+      "color": "0"
+    },
+    {
+      "id": "init",
+      "type": "text",
+      "x": 100,
+      "y": 100,
+      "width": 200,
+      "height": 60,
+      "text": "#Store: i = 0",
+      "color": "1"
+    },
+    {
+      "id": "condition",
+      "type": "text",
+      "x": 300,
+      "y": 100,
+      "width": 250,
+      "height": 60,
+      "text": "#BackPropagate: i < 10",
+      "color": "2"
+    },
+    {
+      "id": "loop-body",
+      "type": "text",
+      "x": 500,
+      "y": 100,
+      "width": 250,
+      "height": 60,
+      "text": "#Transform: console.log(i)",
+      "color": "3"
+    },
+    {
+      "id": "increment",
+      "type": "text",
+      "x": 500,
+      "y": 200,
+      "width": 200,
+      "height": 60,
+      "text": "#Integrate: i = i + 1",
+      "color": "4"
+    },
+    {
+      "id": "end",
+      "type": "text",
+      "x": 700,
+      "y": 100,
+      "width": 200,
+      "height": 60,
+      "text": "#Activate: End",
+      "color": "5"
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge-1",
+      "fromNode": "init",
+      "toNode": "condition",
+      "fromSide": "right",
+      "toSide": "left",
+      "label": "control"
+    },
+    {
+      "id": "edge-2",
+      "fromNode": "condition",
+      "toNode": "loop-body",
+      "fromSide": "right",
+      "toSide": "left",
+      "label": "true"
+    },
+    {
+      "id": "edge-3",
+      "fromNode": "loop-body",
+      "toNode": "increment",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "label": "data"
+    },
+    {
+      "id": "edge-4",
+      "fromNode": "increment",
+      "toNode": "condition",
+      "fromSide": "left",
+      "toSide": "bottom",
+      "label": "feedback"
+    },
+    {
+      "id": "edge-5",
+      "fromNode": "condition",
+      "toNode": "end",
+      "fromSide": "right",
+      "toSide": "left",
+      "label": "false"
+    }
+  ]
+}

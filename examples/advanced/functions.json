@@ -1,0 +1,134 @@
+{
+  "nodes": [
+    {
+      "id": "observer",
+      "type": "text",
+      "x": 0,
+      "y": 0,
+      "width": 200,
+      "height": 60,
+      "text": "#Observe: function_example",
+      "color": "0"
+    },
+    {
+      "id": "function-def",
+      "type": "text",
+      "x": 100,
+      "y": 50,
+      "width": 250,
+      "height": 60,
+      "text": "#Transform: function add(a, b)",
+      "color": "1"
+    },
+    {
+      "id": "param-a",
+      "type": "text",
+      "x": 100,
+      "y": 150,
+      "width": 150,
+      "height": 60,
+      "text": "#Store: parameter a",
+      "color": "2"
+    },
+    {
+      "id": "param-b",
+      "type": "text",
+      "x": 300,
+      "y": 150,
+      "width": 150,
+      "height": 60,
+      "text": "#Store: parameter b",
+      "color": "3"
+    },
+    {
+      "id": "function-body",
+      "type": "text",
+      "x": 200,
+      "y": 250,
+      "width": 200,
+      "height": 60,
+      "text": "#Integrate: return a + b",
+      "color": "4"
+    },
+    {
+      "id": "main-start",
+      "type": "text",
+      "x": 500,
+      "y": 100,
+      "width": 200,
+      "height": 60,
+      "text": "#Activate: Main Program",
+      "color": "5"
+    },
+    {
+      "id": "call-function",
+      "type": "text",
+      "x": 500,
+      "y": 200,
+      "width": 250,
+      "height": 60,
+      "text": "#Propagate: result = add(5, 3)",
+      "color": "6"
+    },
+    {
+      "id": "output",
+      "type": "text",
+      "x": 500,
+      "y": 300,
+      "width": 250,
+      "height": 60,
+      "text": "#Transform: console.log(result)",
+      "color": "7"
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge-1",
+      "fromNode": "param-a",
+      "toNode": "function-body",
+      "fromSide": "bottom",
+      "toSide": "left",
+      "label": "parameter"
+    },
+    {
+      "id": "edge-2",
+      "fromNode": "param-b",
+      "toNode": "function-body",
+      "fromSide": "bottom",
+      "toSide": "right",
+      "label": "parameter"
+    },
+    {
+      "id": "edge-3",
+      "fromNode": "function-def",
+      "toNode": "function-body",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "label": "defines"
+    },
+    {
+      "id": "edge-4",
+      "fromNode": "main-start",
+      "toNode": "call-function",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "label": "control"
+    },
+    {
+      "id": "edge-5",
+      "fromNode": "call-function",
+      "toNode": "function-body",
+      "fromSide": "left",
+      "toSide": "bottom",
+      "label": "calls"
+    },
+    {
+      "id": "edge-6",
+      "fromNode": "call-function",
+      "toNode": "output",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "label": "data"
+    }
+  ]
+}
