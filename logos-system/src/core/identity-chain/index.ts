@@ -141,27 +141,46 @@ export class IdentityChain {
    * Used as an intermediate step for safe composition in higher dimensions.
    */
   static pfister16(a: Vector16D, b: Vector16D): Vector16D {
-    // Pfister's construction using doubling method
-    // Build 16D algebra from two 8D octonion algebras
-    
-    const oct_a1 = a.slice(0, 8) as Vector8D;
-    const oct_a2 = a.slice(8, 16) as Vector8D;
-    const oct_b1 = b.slice(0, 8) as Vector8D;
-    const oct_b2 = b.slice(8, 16) as Vector8D;
-    
-    // Pfister doubling formula
-    const conj_a2 = this.conjugate8(oct_a2);
-    const conj_b2 = this.conjugate8(oct_b2);
-    
-    const part1 = this.degen8(oct_a1, oct_b1);
-    const part2 = this.degen8(this.degen8(oct_a2, conj_b2), [IDENTITY_CHAIN_CONSTANTS.PHI, 0, 0, 0, 0, 0, 0, 0] as Vector8D);
-    const part3 = this.degen8(oct_b2, oct_a1);
-    const part4 = this.degen8(oct_a1, conj_a2);
-    
-    return [
-      ...part1.map((x, i) => x + part2[i]),
-      ...part3.map((x, i) => x + part4[i])
-    ] as Vector16D;
+    // Pfister's construction using Cayley-Dickson doubling
+    // Build 16D sedenion from two 8D octonion algebras
+    //
+    // Correct Cayley-Dickson formula: (a, b) × (c, d) = (ac - d̅b, da + bc̅)
+    // where a, b, c, d are octonions and bar denotes conjugation
+
+    const a1 = a.slice(0, 8) as Vector8D;  // First octonion of a
+    const a2 = a.slice(8, 16) as Vector8D; // Second octonion of a
+    const b1 = b.slice(0, 8) as Vector8D;  // First octonion of b
+    const b2 = b.slice(8, 16) as Vector8D; // Second octonion of b
+
+    // Conjugates
+    const b2_conj = this.conjugate8(b2);
+    const b1_conj = this.conjugate8(b1);
+
+    // First half: a1×b1 - conj(b2)×a2
+    const a1_b1 = this.degen8(a1, b1);
+    const b2conj_a2 = this.degen8(b2_conj, a2);
+    const first_half = this.subtract8(a1_b1, b2conj_a2);
+
+    // Second half: b2×a1 + a2×conj(b1)
+    const b2_a1 = this.degen8(b2, a1);
+    const a2_b1conj = this.degen8(a2, b1_conj);
+    const second_half = this.add8(b2_a1, a2_b1conj);
+
+    return [...first_half, ...second_half] as Vector16D;
+  }
+
+  /**
+   * Add two octonions (component-wise)
+   */
+  private static add8(a: Vector8D, b: Vector8D): Vector8D {
+    return a.map((x, i) => x + b[i]) as Vector8D;
+  }
+
+  /**
+   * Subtract two octonions (component-wise)
+   */
+  private static subtract8(a: Vector8D, b: Vector8D): Vector8D {
+    return a.map((x, i) => x - b[i]) as Vector8D;
   }
   
   /**
