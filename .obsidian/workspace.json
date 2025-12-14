@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "mission/releases/Proposed Suite of Demos for MIND-GIT.md",
+                "file": "mission/inbox/Unified Metadata Framework Proposal.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Proposed Suite of Demos for MIND-GIT"
+              "title": "Unified Metadata Framework Proposal"
             }
           }
         ]
@@ -186,6 +186,9 @@
   },
   "active": "1fded648ba7a72a7",
   "lastOpenFiles": [
+    "mission/releases/Proposed Suite of Demos for MIND-GIT.md",
+    "mission/inbox/Unified Metadata Framework Proposal.md",
+    "mission/inbox",
     "OBSIDIAN_CLI_INTEGRATION_COMPLETE.md",
     "mathematical.aal",
     "hello.rkt",
@@ -198,11 +201,9 @@
     "demo-suite-generator-fixed.cjs",
     "demo-suite-generator.cjs",
     "mission/releases/Git for Meaning – A Paradigm Shift in Decentralized Semantic Computation.md",
-    "mission/releases/Proposed Suite of Demos for MIND-GIT.md",
     "dev-docs/Architecture/BlackboardKetEntangler in CanvasL.md",
     "mission/releases",
     "FINAL_INTEGRATION_COMPLETE.md",
-    "mind-git-final-system.cjs",
     "P2P_INTEGRATION_COMPLETE.md",
     "dev-docs/Architecture/CanvasL — A Mathematically Complete P2P Reality Entanglement Engine.md",
     "dev-docs/Architecture/Release/P2P Projective Linking as Quantum Ket Entanglement v1.md",
@@ -221,7 +222,6 @@
     "mission/Grounding the Synthesis in CanvasL AST Terms.md",
     "examples/advanced/README.md",
     "docs/DOCUMENTATION_STRUCTURE.md",
-    "docs/contributing.md",
     "dev-docs/Test-AST.canvas",
     "Untitled.canvas",
     "Test-AST.canvas",
