@@ -1,0 +1,37 @@
+{
+  "name": "mind-git-metadata",
+  "version": "1.0.0",
+  "description": "Unified metadata framework for MIND-GIT system",
+  "main": "core/MetadataService.js",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "update": "node scripts/cli.js update",
+    "validate": "node scripts/cli.js validate",
+    "export:docs": "node scripts/cli.js export docs",
+    "export:api": "node scripts/cli.js export api",
+    "export:npm": "node scripts/cli.js export npm",
+    "export:research": "node scripts/cli.js export research",
+    "integrate": "node scripts/integrate-metadata.js",
+    "status": "node scripts/cli.js status",
+    "generate-agents": "node scripts/cli.js generate-agents"
+  },
+  "dependencies": {
+    "commander": "^11.0.0",
+    "yaml": "^2.3.4"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0"
+  },
+  "keywords": [
+    "metadata",
+    "mind-git",
+    "canvasl",
+    "documentation",
+    "export",
+    "organization"
+  ],
+  "author": "Brian Thorne <bthornemail@gmail.com>",
+  "license": "MIT"
+}
