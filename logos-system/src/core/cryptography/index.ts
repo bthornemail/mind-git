@@ -516,3 +516,7 @@ export * from './secure-memory';
 export * from './constant-time';
 export * from './key-erasure';
 export * from './production-crypto';
+
+// Export MindGit-related cryptography functions for integration
+export { signWithCubic, verifyCubicSignature } from './cubic-signature';
+export { generateCommitProof, verifyCommitProof } from './commit-signature';
