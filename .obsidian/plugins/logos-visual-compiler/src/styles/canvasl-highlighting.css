@@ -1,0 +1,332 @@
+/* CanvasL Syntax Highlighting Styles */
+
+/* Base highlighting styles */
+.logos-canvasl-highlight {
+  border-radius: 3px;
+  padding: 2px 4px;
+  margin: 1px 0;
+  display: inline-block;
+  transition: all 0.2s ease;
+  cursor: help;
+  position: relative;
+}
+
+.logos-canvasl-highlight:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Prefix styles */
+.logos-prefix {
+  font-weight: bold;
+  font-family: 'Courier New', monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Content styles */
+.logos-content {
+  color: #2c3e50;
+  font-weight: normal;
+  margin-left: 4px;
+}
+
+/* Mnemonic styles */
+.logos-mnemonic {
+  font-size: 0.8em;
+  font-weight: bold;
+  font-family: 'Courier New', monospace;
+  background: rgba(52, 73, 94, 0.1);
+  padding: 1px 4px;
+  border-radius: 2px;
+  margin-left: 4px;
+}
+
+/* Dimension styles */
+.logos-dimension {
+  font-size: 0.75em;
+  color: #7f8c8d;
+  font-style: italic;
+  margin-left: 4px;
+}
+
+/* CanvasL Tooltip styles */
+.logos-canvasl-tooltip {
+  background: #2c3e50;
+  color: #ecf0f1;
+  border: 1px solid #34495e;
+  border-radius: 8px;
+  padding: 16px;
+  max-width: 450px;
+  font-size: 13px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  z-index: 10000;
+  animation: logos-tooltip-fade-in 0.3s ease;
+  line-height: 1.4;
+}
+
+@keyframes logos-tooltip-fade-in {
+  from { 
+    opacity: 0; 
+    transform: translateY(-8px) scale(0.95); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0) scale(1); 
+  }
+}
+
+/* Tooltip header */
+.logos-tooltip-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #34495e;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.logos-tooltip-prefix {
+  background: #3498db;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-weight: bold;
+  font-family: 'Courier New', monospace;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.logos-tooltip-mnemonic {
+  background: #e67e22;
+  color: white;
+  padding: 4px 6px;
+  border-radius: 3px;
+  font-weight: bold;
+  font-family: 'Courier New', monospace;
+  font-size: 11px;
+}
+
+.logos-tooltip-dimension {
+  background: #95a5a6;
+  color: white;
+  padding: 4px 6px;
+  border-radius: 3px;
+  font-size: 11px;
+  font-style: italic;
+}
+
+/* Tooltip description */
+.logos-tooltip-description {
+  margin-bottom: 12px;
+  color: #bdc3c7;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* Tooltip assembly */
+.logos-tooltip-assembly {
+  background: rgba(52, 73, 94, 0.3);
+  padding: 8px 10px;
+  border-radius: 4px;
+  margin-bottom: 12px;
+  border-left: 3px solid #3498db;
+}
+
+.logos-tooltip-assembly strong {
+  color: #3498db;
+  font-weight: bold;
+}
+
+/* Tooltip examples */
+.logos-tooltip-examples {
+  background: rgba(46, 204, 113, 0.05);
+  border: 1px solid rgba(46, 204, 113, 0.2);
+  border-radius: 4px;
+  padding: 12px;
+}
+
+.logos-tooltip-examples-title {
+  font-weight: bold;
+  color: #2ecc71;
+  margin-bottom: 8px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.logos-tooltip-example {
+  background: #2c3e50;
+  border: 1px solid #34495e;
+  border-radius: 3px;
+  padding: 6px 8px;
+  margin-bottom: 4px;
+  font-family: 'Courier New', monospace;
+  font-size: 12px;
+  color: #3498db;
+  transition: background-color 0.2s ease;
+}
+
+.logos-tooltip-example:hover {
+  background: #34495e;
+}
+
+.logos-tooltip-example:last-child {
+  margin-bottom: 0;
+}
+
+/* Color-specific highlighting */
+.logos-canvasl-highlight[data-prefix="#Activate:"] {
+  background-color: rgba(52, 152, 219, 0.1);
+  border-left: 3px solid #3498db;
+}
+
+.logos-canvasl-highlight[data-prefix="#Integrate:"] {
+  background-color: rgba(46, 204, 113, 0.1);
+  border-left: 3px solid #2ecc71;
+}
+
+.logos-canvasl-highlight[data-prefix="#Transform:"] {
+  background-color: rgba(243, 156, 18, 0.1);
+  border-left: 3px solid #f39c12;
+}
+
+.logos-canvasl-highlight[data-prefix="#Propagate:"] {
+  background-color: rgba(155, 89, 182, 0.1);
+  border-left: 3px solid #9b59b6;
+}
+
+.logos-canvasl-highlight[data-prefix="#BackPropagate:"] {
+  background-color: rgba(142, 68, 173, 0.1);
+  border-left: 3px solid #8e44ad;
+}
+
+.logos-canvasl-highlight[data-prefix="#Verify:"] {
+  background-color: rgba(231, 76, 60, 0.1);
+  border-left: 3px solid #e74c3c;
+}
+
+.logos-canvasl-highlight[data-prefix="#Store:"] {
+  background-color: rgba(149, 165, 166, 0.1);
+  border-left: 3px solid #95a5a6;
+}
+
+.logos-canvasl-highlight[data-prefix="#Observe:"] {
+  background-color: rgba(230, 126, 34, 0.1);
+  border-left: 3px solid #e67e22;
+}
+
+/* Dark mode adjustments */
+@media (prefers-color-scheme: dark) {
+  .logos-canvasl-tooltip {
+    background: #1a1a1a;
+    border-color: #333;
+    color: #e0e0e0;
+  }
+  
+  .logos-tooltip-description {
+    color: #b0b0b0;
+  }
+  
+  .logos-tooltip-assembly {
+    background: rgba(52, 152, 219, 0.2);
+    border-left-color: #3498db;
+  }
+  
+  .logos-tooltip-examples {
+    background: rgba(46, 204, 113, 0.1);
+    border-color: rgba(46, 204, 113, 0.3);
+  }
+  
+  .logos-tooltip-example {
+    background: #2a2a2a;
+    border-color: #444;
+    color: #5dade2;
+  }
+  
+  .logos-content {
+    color: #e0e0e0;
+  }
+  
+  .logos-dimension {
+    color: #999;
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .logos-canvasl-highlight {
+    border: 2px solid currentColor;
+    background: transparent !important;
+  }
+  
+  .logos-canvasl-tooltip {
+    border: 2px solid #fff;
+    background: #000;
+    color: #fff;
+  }
+  
+  .logos-tooltip-example {
+    border: 2px solid #fff;
+    background: #111;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .logos-canvasl-highlight {
+    transition: none;
+  }
+  
+  .logos-canvasl-highlight:hover {
+    transform: none;
+    box-shadow: none;
+  }
+  
+  .logos-canvasl-tooltip {
+    animation: none;
+  }
+  
+  .logos-tooltip-example {
+    transition: none;
+  }
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .logos-canvasl-tooltip {
+    max-width: 300px;
+    font-size: 12px;
+    padding: 12px;
+  }
+  
+  .logos-tooltip-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+  
+  .logos-tooltip-examples {
+    padding: 8px;
+  }
+  
+  .logos-tooltip-example {
+    font-size: 11px;
+    padding: 4px 6px;
+  }
+}
+
+/* Print styles */
+@media print {
+  .logos-canvasl-highlight {
+    background: transparent !important;
+    color: black !important;
+    border: 1px solid black !important;
+  }
+  
+  .logos-canvasl-tooltip {
+    display: none !important;
+  }
+}

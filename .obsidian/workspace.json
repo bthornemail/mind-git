@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "mission/releases/Git for Meaning – A Paradigm Shift in Decentralized Semantic Computation.md",
+                "file": "mission/releases/Proposed Suite of Demos for MIND-GIT.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Git for Meaning – A Paradigm Shift in Decentralized Semantic Computation"
+              "title": "Proposed Suite of Demos for MIND-GIT"
             }
           }
         ]
@@ -186,20 +186,24 @@
   },
   "active": "1fded648ba7a72a7",
   "lastOpenFiles": [
-    "dev-docs/Architecture/BlackboardKetEntangler in CanvasL.md",
+    "OBSIDIAN_CLI_INTEGRATION_COMPLETE.md",
+    "mathematical.aal",
+    "hello.rkt",
+    "output.ts",
+    "demos/README.md",
+    "demos",
+    "demo-configurations.js",
+    "demo-suite-generator.js",
+    "mission/releases/Reframed Response - Extending the CanvasL + MindGit AST to Higher-Dimensional Structures.md",
+    "demo-suite-generator-fixed.cjs",
+    "demo-suite-generator.cjs",
     "mission/releases/Git for Meaning – A Paradigm Shift in Decentralized Semantic Computation.md",
+    "mission/releases/Proposed Suite of Demos for MIND-GIT.md",
+    "dev-docs/Architecture/BlackboardKetEntangler in CanvasL.md",
     "mission/releases",
     "FINAL_INTEGRATION_COMPLETE.md",
     "mind-git-final-system.cjs",
-    "mind-git-formal-verification-fixed.cjs",
-    "mind-git-formal-verification.cjs",
     "P2P_INTEGRATION_COMPLETE.md",
-    "mind-git-complete-p2p.cjs",
-    "mind-git-webrtc.cjs",
-    "canvasl-p2p-demo.cjs",
-    "src/p2p/protocols/projective-ket-linker.js",
-    "src/p2p/protocols",
-    "src/p2p/blackboard/quantum-blackboard.js",
     "dev-docs/Architecture/CanvasL — A Mathematically Complete P2P Reality Entanglement Engine.md",
     "dev-docs/Architecture/Release/P2P Projective Linking as Quantum Ket Entanglement v1.md",
     "dev-docs/Architecture/Release/P2P Projective Linking as Quantum Ket Entanglement.md",
@@ -218,10 +222,6 @@
     "examples/advanced/README.md",
     "docs/DOCUMENTATION_STRUCTURE.md",
     "docs/contributing.md",
-    "docs/examples.md",
-    "docs/api-reference.md",
-    "docs/getting-started.md",
-    "docs/architecture.md",
     "dev-docs/Test-AST.canvas",
     "Untitled.canvas",
     "Test-AST.canvas",

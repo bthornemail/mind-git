@@ -1,0 +1,255 @@
+/* CanvasL Error Display Styles */
+
+/* Node error styling */
+.logos-node-error {
+  position: relative;
+  border: 1px solid #e74c3c !important;
+  box-shadow: 0 0 5px rgba(231, 76, 60, 0.3) !important;
+  animation: logos-error-pulse 2s infinite;
+}
+
+@keyframes logos-error-pulse {
+  0% { box-shadow: 0 0 5px rgba(231, 76, 60, 0.3); }
+  50% { box-shadow: 0 0 10px rgba(231, 76, 60, 0.6); }
+  100% { box-shadow: 0 0 5px rgba(231, 76, 60, 0.3); }
+}
+
+/* Error overlay */
+.logos-error-overlay {
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  z-index: 1000;
+  pointer-events: auto;
+}
+
+/* Error underline */
+.logos-error-underline {
+  width: 100%;
+  height: 100%;
+  background-color: #e74c3c;
+  border-radius: 1px;
+}
+
+/* Error indicator */
+.logos-error-indicator {
+  position: absolute;
+  top: -20px;
+  right: 0;
+  font-size: 12px;
+  cursor: pointer;
+  background: #e74c3c;
+  color: white;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease;
+}
+
+.logos-error-indicator:hover {
+  transform: scale(1.1);
+}
+
+/* Error tooltip */
+.logos-error-tooltip {
+  background: #2c3e50;
+  color: #ecf0f1;
+  border: 1px solid #34495e;
+  border-radius: 6px;
+  padding: 12px;
+  max-width: 400px;
+  font-size: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  z-index: 10000;
+  animation: logos-tooltip-fade-in 0.2s ease;
+}
+
+@keyframes logos-tooltip-fade-in {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Tooltip header */
+.logos-tooltip-header {
+  font-weight: bold;
+  margin-bottom: 8px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #34495e;
+  color: #e74c3c;
+}
+
+/* Tooltip errors */
+.logos-tooltip-errors {
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.logos-tooltip-error {
+  margin-bottom: 6px;
+  padding: 4px 6px;
+  border-radius: 3px;
+  background: rgba(52, 73, 94, 0.5);
+  border-left: 3px solid;
+}
+
+.logos-tooltip-error.logos-tooltip-error {
+  border-left-color: #e74c3c;
+  background: rgba(231, 76, 60, 0.1);
+}
+
+.logos-tooltip-error.logos-tooltip-warning {
+  border-left-color: #f39c12;
+  background: rgba(243, 156, 18, 0.1);
+}
+
+/* Error type styling */
+.logos-error-type {
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 10px;
+  margin-right: 4px;
+}
+
+.logos-tooltip-error .logos-error-type {
+  color: #e74c3c;
+}
+
+.logos-tooltip-warning .logos-error-type {
+  color: #f39c12;
+}
+
+/* Error message */
+.logos-error-message {
+  color: #ecf0f1;
+  line-height: 1.3;
+}
+
+/* Error location */
+.logos-error-location {
+  color: #95a5a6;
+  font-size: 10px;
+  font-style: italic;
+  margin-left: 4px;
+}
+
+/* Error section in modal */
+.logos-error-section {
+  background: #2c3e50;
+  border: 1px solid #e74c3c;
+  border-radius: 6px;
+  padding: 16px;
+  margin: 12px 0;
+}
+
+.logos-error-section h4 {
+  color: #e74c3c;
+  margin: 0 0 12px 0;
+  font-size: 14px;
+}
+
+/* Error list */
+.logos-error-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.logos-error-list li {
+  margin-bottom: 8px;
+  padding: 8px 12px;
+  border-radius: 4px;
+  border-left: 3px solid;
+}
+
+.logos-error-list li.logos-error-error {
+  background: rgba(231, 76, 60, 0.1);
+  border-left-color: #e74c3c;
+}
+
+.logos-error-list li.logos-error-warning {
+  background: rgba(243, 156, 18, 0.1);
+  border-left-color: #f39c12;
+}
+
+/* Console error styling */
+.logos-console-error {
+  color: #e74c3c;
+  font-weight: bold;
+}
+
+.logos-console-warning {
+  color: #f39c12;
+  font-weight: bold;
+}
+
+/* Success/error states */
+.logos-success {
+  color: #27ae60 !important;
+  background: rgba(39, 174, 96, 0.1) !important;
+  border-color: #27ae60 !important;
+}
+
+.logos-error {
+  color: #e74c3c !important;
+  background: rgba(231, 76, 60, 0.1) !important;
+  border-color: #e74c3c !important;
+}
+
+.logos-warning {
+  color: #f39c12 !important;
+  background: rgba(243, 156, 18, 0.1) !important;
+  border-color: #f39c12 !important;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .logos-error-tooltip {
+    max-width: 300px;
+    font-size: 11px;
+  }
+  
+  .logos-error-indicator {
+    width: 14px;
+    height: 14px;
+    font-size: 10px;
+    top: -18px;
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .logos-error-tooltip {
+    border: 2px solid #e74c3c;
+    background: #000;
+    color: #fff;
+  }
+  
+  .logos-error-underline {
+    height: 3px;
+  }
+  
+  .logos-node-error {
+    border: 2px solid #e74c3c !important;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .logos-node-error {
+    animation: none;
+  }
+  
+  .logos-error-tooltip {
+    animation: none;
+  }
+  
+  .logos-error-indicator {
+    transition: none;
+  }
+}

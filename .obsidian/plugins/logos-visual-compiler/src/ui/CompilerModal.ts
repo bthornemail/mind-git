@@ -5,20 +5,27 @@ import { CanvasParser } from '../parsers/CanvasParser';
 import { ASTGenerator } from '../generators/ASTGenerator';
 import { TypeScriptGenerator, GeneratedCode } from '../generators/TypeScriptGenerator';
 import { getRacketBridge } from '../generators/RacketBridge';
+import { StateManager, CompilationResult } from '../state/StateManager';
+import { CLIIntegration } from '../services/CLIIntegration';
 
 export class CompilerModal extends Modal {
 	private parser: CanvasParser;
+	private stateManager: StateManager;
+	private cliIntegration: CLIIntegration;
 	private canvasFile: TFile | null = null;
 	private parsed: ParsedCanvas | null = null;
 	private ast: AST | null = null;
 	private generatedCode: GeneratedCode | null = null;
+	private cliResult: CompilationResult | null = null;
 
-	constructor(app: App) {
+	constructor(app: App, parser: CanvasParser, stateManager: StateManager, cliIntegration: CLIIntegration) {
 		super(app);
-		this.parser = new CanvasParser();
+		this.parser = parser;
+		this.stateManager = stateManager;
+		this.cliIntegration = cliIntegration;
 	}
 
-async openWithFile(file: TFile) {
+	async openWithFile(file: TFile) {
 		this.canvasFile = file;
 		try {
 			this.parsed = await this.parser.parseCanvasFile(file);
@@ -27,8 +34,11 @@ async openWithFile(file: TFile) {
 			const generator = new ASTGenerator(this.parsed);
 			this.ast = generator.generateAST();
 			
+			// Set current file in state manager
+			this.stateManager.setCurrentFile(file);
+			
 			this.open();
-} catch (error) {
+		} catch (error) {
 			console.error('Failed to parse canvas:', error);
 			this.showError(error.message);
 		}
@@ -429,6 +439,19 @@ async openWithFile(file: TFile) {
 		// Generate code button
 		const buttonContainer = section.createDiv({ cls: 'logos-button-container' });
 		
+		// CLI Compilation Button (if enabled)
+		const settings = this.stateManager.getState();
+		if (settings.cliAvailable && this.stateManager.getState().preferredOutputFormat === 'cli') {
+			const cliBtn = buttonContainer.createEl('button', {
+				text: '🔧 Compile with CLI',
+				cls: 'logos-generate-btn logos-cli-btn'
+			});
+			
+			cliBtn.addEventListener('click', () => {
+				this.compileWithCLI();
+			});
+		}
+		
 		const generateBtn = buttonContainer.createEl('button', {
 			text: '🚀 Generate TypeScript',
 			cls: 'logos-generate-btn'
@@ -770,8 +793,219 @@ async openWithFile(file: TFile) {
 		}
 	}
 
+	private async compileWithCLI() {
+		if (!this.canvasFile) {
+			new Notice('No canvas file available');
+			return;
+		}
+
+		try {
+			// Show loading state
+			const codeDisplay = document.getElementById('logos-code-display');
+			if (codeDisplay) {
+				codeDisplay.empty();
+				codeDisplay.createEl('p', { 
+					text: '🔧 Compiling with CLI...',
+					cls: 'logos-placeholder'
+				});
+			}
+
+			// Get output format from settings
+			const settings = this.stateManager.getState();
+			const outputFormat = settings.preferredOutputFormat === 'cli' 
+				? 'typescript' // Default to TypeScript for CLI
+				: settings.preferredOutputFormat;
+
+			// Compile with CLI
+			const result = await this.cliIntegration.compileCanvas(this.canvasFile, {
+				outputFormat: outputFormat as any,
+				force: false
+			});
+
+			// Store result
+			this.cliResult = result;
+
+			// Display the result
+			this.displayCLIResult(result);
+
+			// Start file watching if enabled
+			if (settings.autoCompileOnFileChange) {
+				this.cliIntegration.startWatching(this.canvasFile, (newResult) => {
+					this.cliResult = newResult;
+					this.displayCLIResult(newResult);
+				});
+			}
+
+		} catch (error) {
+			console.error('CLI compilation error:', error);
+			new Notice(`CLI compilation failed: ${error.message}`);
+			
+			// Show error in code display
+			const codeDisplay = document.getElementById('logos-code-display');
+			if (codeDisplay) {
+				codeDisplay.empty();
+				codeDisplay.createEl('p', { 
+					text: `❌ Error: ${error.message}`,
+					cls: 'logos-error'
+				});
+			}
+		}
+	}
+
+	private displayCLIResult(result: CompilationResult) {
+		const codeDisplay = document.getElementById('logos-code-display');
+		if (!codeDisplay) return;
+
+		codeDisplay.empty();
+
+		if (!result.success) {
+			// Display errors
+			const errorSection = codeDisplay.createDiv({ cls: 'logos-error-section' });
+			errorSection.createEl('h4', { text: '❌ Compilation Errors' });
+			
+			if (result.errors && result.errors.length > 0) {
+				const errorList = errorSection.createEl('ul', { cls: 'logos-error-list' });
+				result.errors.forEach(error => {
+					const errorItem = errorList.createEl('li', { 
+						cls: `logos-error-${error.severity}` 
+					});
+					errorItem.createEl('span', { 
+						text: `${error.severity.toUpperCase()}: `,
+						cls: 'logos-error-type'
+					});
+					errorItem.createEl('span', { 
+						text: error.message,
+						cls: 'logos-error-message'
+					});
+				});
+			}
+			return;
+		}
+
+		// Display successful compilation
+		if (result.metadata) {
+			const metadata = codeDisplay.createDiv({ cls: 'logos-code-metadata' });
+			metadata.createEl('div', { 
+				text: `🔧 CLI Compilation`,
+				cls: 'logos-code-source'
+			});
+			metadata.createEl('div', { 
+				text: `${result.metadata.nodes_processed} nodes | ${result.metadata.edges_processed} edges | ${result.metadata.compilation_time}`,
+				cls: 'logos-code-stats'
+			});
+			if (result.metadata.verification_passed !== undefined) {
+				metadata.createEl('div', { 
+					text: `Verification: ${result.metadata.verification_passed ? '✅ Passed' : '❌ Failed'}`,
+					cls: result.metadata.verification_passed ? 'logos-success' : 'logos-error'
+				});
+			}
+		}
+
+		// Action buttons
+		const actions = codeDisplay.createDiv({ cls: 'logos-code-actions' });
+		
+		const copyBtn = actions.createEl('button', {
+			text: '📋 Copy',
+			cls: 'logos-action-btn'
+		});
+		copyBtn.addEventListener('click', () => this.copyCLICodeToClipboard());
+
+		const saveBtn = actions.createEl('button', {
+			text: '💾 Save',
+			cls: 'logos-action-btn'
+		});
+		saveBtn.addEventListener('click', () => this.saveCLICodeToFile());
+
+		const downloadBtn = actions.createEl('button', {
+			text: '⬇️ Download',
+			cls: 'logos-action-btn'
+		});
+		downloadBtn.addEventListener('click', () => this.downloadCLICode());
+
+		// Code display
+		if (result.code) {
+			const codeBlock = codeDisplay.createDiv({ cls: 'logos-code-block' });
+			const pre = codeBlock.createEl('pre');
+			const code = pre.createEl('code', {
+				cls: 'language-' + (result.metadata?.output_format || 'javascript')
+			});
+			code.textContent = result.code;
+
+			// Add line numbers
+			this.addLineNumbers(pre);
+		}
+	}
+
+	private async copyCLICodeToClipboard() {
+		if (!this.cliResult?.code) return;
+
+		try {
+			await navigator.clipboard.writeText(this.cliResult.code);
+			new Notice('CLI code copied to clipboard!');
+		} catch (error) {
+			console.error('Copy failed:', error);
+			new Notice('Failed to copy CLI code');
+		}
+	}
+
+	private async saveCLICodeToFile() {
+		if (!this.cliResult?.code || !this.canvasFile) return;
+
+		try {
+			const vault = this.canvasFile.vault;
+			const folder = this.canvasFile.parent;
+			
+			if (!folder) {
+				new Notice('Cannot determine save location');
+				return;
+			}
+
+			const extension = this.cliResult.metadata?.output_format === 'typescript' ? '.ts' : '.js';
+			const filePath = `${folder.path}/cli-generated${extension}`;
+			
+			// Check if file exists
+			const existingFile = vault.getAbstractFileByPath(filePath);
+			if (existingFile) {
+				new Notice('File already exists. Use Download instead.');
+				return;
+			}
+
+			// Create the file
+			await vault.create(filePath, this.cliResult.code);
+			new Notice(`CLI code saved to cli-generated${extension}`);
+		} catch (error) {
+			console.error('Save failed:', error);
+			new Notice(`Failed to save CLI code: ${error.message}`);
+		}
+	}
+
+	private downloadCLICode() {
+		if (!this.cliResult?.code) return;
+
+		try {
+			const extension = this.cliResult.metadata?.output_format === 'typescript' ? '.ts' : '.js';
+			const blob = new Blob([this.cliResult.code], { type: 'text/plain' });
+			const url = URL.createObjectURL(blob);
+			const a = document.createElement('a');
+			a.href = url;
+			a.download = `cli-generated${extension}`;
+			a.click();
+			URL.revokeObjectURL(url);
+			
+			new Notice('CLI code downloaded!');
+		} catch (error) {
+			console.error('Download failed:', error);
+			new Notice('Failed to download CLI code');
+		}
+	}
+
 	onClose() {
 		const { contentEl } = this;
 		contentEl.empty();
+		
+		// Stop file watching when modal closes
+		if (this.canvasFile) {
+			this.cliIntegration.stopWatching(this.canvasFile);
+		}
 	}
 }

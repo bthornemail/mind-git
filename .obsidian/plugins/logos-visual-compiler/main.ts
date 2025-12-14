@@ -2,16 +2,37 @@ import { App, Notice, Plugin, PluginSettingTab, Setting, TFile, Menu } from 'obs
 import { LogosPluginSettings, DEFAULT_SETTINGS } from './src/types/settings';
 import { CompilerModal } from './src/ui/CompilerModal';
 import { CanvasParser } from './src/parsers/CanvasParser';
+import { StateManager } from './src/state/StateManager';
+import { CLIIntegration } from './src/services/CLIIntegration';
+import { PathResolver } from './src/utils/PathResolver';
 
 export default class LogosPlugin extends Plugin {
 	settings: LogosPluginSettings;
 	private parser: CanvasParser;
+	private stateManager: StateManager;
+	private cliIntegration: CLIIntegration;
 
 	async onload() {
 		await this.loadSettings();
 		this.parser = new CanvasParser();
+		
+		// Initialize state management
+		this.stateManager = new StateManager({
+			cliPath: this.settings.mindGitCliPath,
+			autoCompile: this.settings.autoCompileOnFileChange,
+			showErrorsInline: this.settings.errorDisplayMode === 'inline',
+			preferredOutputFormat: this.settings.preferredOutputFormat,
+			compilationTimeout: this.settings.cliTimeout
+		});
+		
+		// Initialize CLI integration
+		this.cliIntegration = new CLIIntegration(
+			this.app,
+			this.stateManager,
+			this.settings.debounceDelay
+		);
 
-		console.log('Loading Logos Visual Compiler Plugin');
+		console.log('Loading Logos Visual Compiler Plugin with CLI Integration');
 
 		this.addRibbonIcon('zap', 'Compile Canvas', async (evt: MouseEvent) => {
 			await this.compileActiveCanvas();
@@ -50,14 +71,31 @@ export default class LogosPlugin extends Plugin {
 
 		this.addSettingTab(new LogosSettingTab(this.app, this));
 
+		// Initialize status bar
 		const statusBarItemEl = this.addStatusBarItem();
 		statusBarItemEl.setText('Logos Ready');
+		
+		// Subscribe to state changes for status updates
+		this.stateManager.subscribe((state) => {
+			if (state.isCompiling) {
+				statusBarItemEl.setText('🔧 Compiling...');
+			} else if (state.cliAvailable) {
+				statusBarItemEl.setText('✅ Logos Ready');
+			} else {
+				statusBarItemEl.setText('⚠️ Logos Limited');
+			}
+		});
 
-		new Notice('Logos Visual Compiler loaded');
+		new Notice('Logos Visual Compiler with CLI Integration loaded');
 	}
 
 	onunload() {
 		console.log('Unloading Logos Visual Compiler Plugin');
+		
+		// Clean up CLI integration
+		if (this.cliIntegration) {
+			this.cliIntegration.dispose();
+		}
 	}
 
 	async loadSettings() {
@@ -106,7 +144,12 @@ export default class LogosPlugin extends Plugin {
 				console.log(`Compiling canvas: ${file.path}`);
 			}
 
-			const modal = new CompilerModal(this.app);
+			const modal = new CompilerModal(
+				this.app, 
+				this.parser, 
+				this.stateManager, 
+				this.cliIntegration
+			);
 			await modal.openWithFile(file);
 
 			new Notice(`Compiled: ${file.basename}`);
@@ -193,6 +236,142 @@ class LogosSettingTab extends PluginSettingTab {
 				.setValue(this.plugin.settings.outputDirectory)
 				.onChange(async (value) => {
 					this.plugin.settings.outputDirectory = value;
+					await this.plugin.saveSettings();
+				}));
+
+		// CLI Integration Settings
+		containerEl.createEl('h3', { text: '🔧 CLI Integration Settings' });
+
+		new Setting(containerEl)
+			.setName('Enable CLI Integration')
+			.setDesc('Enable integration with mind-git CLI for advanced compilation features')
+			.addToggle(toggle => toggle
+				.setValue(this.plugin.settings.enableCliIntegration)
+				.onChange(async (value) => {
+					this.plugin.settings.enableCliIntegration = value;
+					await this.plugin.saveSettings();
+				}));
+
+		new Setting(containerEl)
+			.setName('CLI Path')
+			.setDesc('Path to mind-git CLI executable (leave empty for auto-detection)')
+			.addText(text => text
+				.setPlaceholder('/home/main/devops/mind-git/bin/mind-git-simple.cjs')
+				.setValue(this.plugin.settings.mindGitCliPath)
+				.onChange(async (value) => {
+					this.plugin.settings.mindGitCliPath = value;
+					await this.plugin.saveSettings();
+					// Clear path resolver cache to test new path
+					PathResolver.clearCache();
+				}));
+
+		new Setting(containerEl)
+			.setName('Preferred Output Format')
+			.setDesc('Choose your preferred compilation method')
+			.addDropdown(dropdown => dropdown
+				.addOption('cli', 'CLI (Recommended)')
+				.addOption('builtin', 'Built-in Generator')
+				.addOption('racket', 'Racket Backend')
+				.setValue(this.plugin.settings.preferredOutputFormat)
+				.onChange(async (value) => {
+					this.plugin.settings.preferredOutputFormat = value as any;
+					await this.plugin.saveSettings();
+				}));
+
+		new Setting(containerEl)
+			.setName('Auto-compile on File Change')
+			.setDesc('Automatically recompile when canvas file is modified (with debouncing)')
+			.addToggle(toggle => toggle
+				.setValue(this.plugin.settings.autoCompileOnFileChange)
+				.onChange(async (value) => {
+					this.plugin.settings.autoCompileOnFileChange = value;
+					await this.plugin.saveSettings();
+				}));
+
+		new Setting(containerEl)
+			.setName('Debounce Delay (ms)')
+			.setDesc('Delay before auto-compilation to prevent excessive recompilation')
+			.addSlider(slider => slider
+				.setLimits(100, 2000, 50)
+				.setValue(this.plugin.settings.debounceDelay)
+				.setDynamicTooltip()
+				.onChange(async (value) => {
+					this.plugin.settings.debounceDelay = value;
+					await this.plugin.saveSettings();
+				}));
+
+		new Setting(containerEl)
+			.setName('CLI Timeout (ms)')
+			.setDesc('Maximum time to wait for CLI compilation')
+			.addSlider(slider => slider
+				.setLimits(5000, 60000, 1000)
+				.setValue(this.plugin.settings.cliTimeout)
+				.setDynamicTooltip()
+				.onChange(async (value) => {
+					this.plugin.settings.cliTimeout = value;
+					await this.plugin.saveSettings();
+				}));
+
+		// Error Display Settings
+		containerEl.createEl('h3', { text: '⚠️ Error Display Settings' });
+
+		new Setting(containerEl)
+			.setName('Error Display Mode')
+			.setDesc('How to display compilation errors')
+			.addDropdown(dropdown => dropdown
+				.addOption('inline', 'Inline (Red Underline)')
+				.addOption('console', 'Console Only')
+				.addOption('both', 'Both')
+				.setValue(this.plugin.settings.errorDisplayMode)
+				.onChange(async (value) => {
+					this.plugin.settings.errorDisplayMode = value as any;
+					await this.plugin.saveSettings();
+				}));
+
+		new Setting(containerEl)
+			.setName('Show Error Tooltips')
+			.setDesc('Show detailed error information in tooltips')
+			.addToggle(toggle => toggle
+				.setValue(this.plugin.settings.showErrorTooltips)
+				.onChange(async (value) => {
+					this.plugin.settings.showErrorTooltips = value;
+					await this.plugin.saveSettings();
+				}));
+
+		// Cache Settings
+		containerEl.createEl('h3', { text: '💾 Cache Settings' });
+
+		new Setting(containerEl)
+			.setName('Enable Compilation Cache')
+			.setDesc('Cache compilation results to improve performance')
+			.addToggle(toggle => toggle
+				.setValue(this.plugin.settings.enableCompilationCache)
+				.onChange(async (value) => {
+					this.plugin.settings.enableCompilationCache = value;
+					await this.plugin.saveSettings();
+				}));
+
+		new Setting(containerEl)
+			.setName('Max Cache Entries')
+			.setDesc('Maximum number of compilation results to cache')
+			.addSlider(slider => slider
+				.setLimits(10, 500, 10)
+				.setValue(this.plugin.settings.maxCacheEntries)
+				.setDynamicTooltip()
+				.onChange(async (value) => {
+					this.plugin.settings.maxCacheEntries = value;
+					await this.plugin.saveSettings();
+				}));
+
+		new Setting(containerEl)
+			.setName('Cache Max Age (minutes)')
+			.setDesc('Maximum age for cached entries before expiration')
+			.addSlider(slider => slider
+				.setLimits(5, 120, 5)
+				.setValue(this.plugin.settings.cacheMaxAge / 60000)
+				.setDynamicTooltip()
+				.onChange(async (value) => {
+					this.plugin.settings.cacheMaxAge = value * 60000;
 					await this.plugin.saveSettings();
 				}));
 
