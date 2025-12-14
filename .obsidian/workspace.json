@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "mission/TODO_03_The Complete Integration - MindGit as Meaning Infrastructure.md",
+                "file": "dev-docs/Architecture/BlackboardKetEntangler in CanvasL.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "TODO_03_The Complete Integration - MindGit as Meaning Infrastructure"
+              "title": "BlackboardKetEntangler in CanvasL"
             }
           }
         ]
@@ -53,7 +53,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "logos-",
+                "query": "webrtc",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -74,7 +74,8 @@
               "title": "Bookmarks"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -186,9 +187,19 @@
   },
   "active": "1fded648ba7a72a7",
   "lastOpenFiles": [
+    "mind-git-final-demonstration.cjs",
+    "dev-docs/Architecture/CanvasL — A Mathematically Complete P2P Reality Entanglement Engine.md",
+    "dev-docs/Architecture/Release/P2P Projective Linking as Quantum Ket Entanglement v1.md",
+    "dev-docs/Architecture/Release/P2P Projective Linking as Quantum Ket Entanglement.md",
+    "mind-git-complete-system.cjs",
+    "dev-docs/Architecture/BlackboardKetEntangler in CanvasL.md",
+    "docs/research/history/COMPLETE_FINDINGS_FINAL.md",
+    "docs/research/history/11d_cayley_dickson_formal.md",
+    "mission/CanvasL_Executive_Summary (1).md",
+    "mission/CanvasL_Executive_Summary (2).md",
+    "mission/TODO_03_The Complete Integration - MindGit as Meaning Infrastructure.md",
     "mission/TODO_02_Grounding the Synthesis in CanvasL AST Terms.md",
     "mission/TODO_01_Grounding the Dimensional Expansion System.md",
-    "mission/TODO_03_The Complete Integration - MindGit as Meaning Infrastructure.md",
     "mission/TODO_04_Complete Integration - The Full System.md",
     "AAL_CANVASL_INTEGRATION.md",
     "demonstrate-aal-integration.cjs",
@@ -201,7 +212,6 @@
     "src/components/AALVerificationDashboard.tsx",
     "src/components",
     "src",
-    "logos-system/src/verification/coq-bridge.ts",
     "mission/Grounding the Dimensional Expansion System.md",
     "mission/Grounding the Synthesis in CanvasL AST Terms.md",
     "examples/advanced/README.md",
@@ -213,15 +223,6 @@
     "docs/architecture.md",
     "docs/canvas-nodes.md",
     "docs/mathematical-foundation.md",
-    "node_modules/commander/Readme.md",
-    "IMPLEMENTATION_STATUS.md",
-    "mission/A Decentralized, Federated AST for Shared Semantic States.md",
-    "mission/CanvasL_Complete_Specification.md",
-    "mission/CanvasL_Federated_AST_Summary (1).md",
-    "mission/CanvasL_Executive_Summary (2).md",
-    "mission/RFC-LOGOS-TALK-01.md",
-    "mission/CanvasL_Federated_AST_Summary.md",
-    "mission/CanvasL_Executive_Summary (1).md",
     "dev-docs/Test-AST.canvas",
     "Untitled.canvas",
     "Test-AST.canvas",
