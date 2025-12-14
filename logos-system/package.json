@@ -9,12 +9,16 @@
     "build:wasm": "cd formal && make all",
     "build:dev": "tsc --project tsconfig.json",
     "dev": "tsc --project tsconfig.build.json --watch",
-    "test": "npm run test:unit && npm run test:formal",
+    "test": "npm run test:unit && npm run test:formal && npm run test:security",
     "test:unit": "jest src/",
     "test:formal": "cd formal && make test",
+    "test:security": "jest src/core/cryptography/production-crypto.test.ts",
+    "test:performance": "node --expose-gc dist/test/performance-benchmark.js",
     "serve": "http-server dist -p 8080",
     "clean": "rm -rf dist formal/*.o formal/*.wasm",
-    "verify": "cd formal && coqc Polynomials.v && coqc IdentityChain.v && coqc AAL.v"
+    "verify": "cd formal && coqc Polynomials.v && coqc IdentityChain.v && coqc AAL.v",
+    "security:audit": "node dist/security/audit.js",
+    "security:hardening": "npm run build && npm run test:security"
   },
   "keywords": [
     "canvasl",

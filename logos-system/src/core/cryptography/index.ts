@@ -511,3 +511,8 @@ export class CubicTensorEngine {
 export * from './cubic-keygen';
 export * from './cubic-dh';
 export * from './bhargava-solver';
+export * from './lll-reduction';
+export * from './secure-memory';
+export * from './constant-time';
+export * from './key-erasure';
+export * from './production-crypto';
