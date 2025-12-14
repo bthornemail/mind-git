@@ -1,7 +1,7 @@
-# 🤖 AGENTS.md - obsidianPlugin
+# 🤖 AGENTS.md - webrtcFederation
 
 ## 🎯 **Mission Scope**
-**Layer**: 4 | **Category**: ide-integration | **Type**: integration
+**Layer**: 5 | **Category**: distributed-sync | **Type**: federation
 
 ---
 
@@ -24,16 +24,16 @@
 ## 📁 **File Organization**
 
 ```
-.editorconfig
-.eslintignore
-.eslintrc
-.gitignore
-.npmrc
-AGENTS.md
-LICENSE
-README.md
-esbuild.config.mjs
-main.js
+blackboard/quantum-blackboard.js
+core/genome.js
+math/bqf.js
+math/hadamard.js
+math/hopf.js
+math/identities/brahmagupta2.js
+math/identities/degen8.js
+math/identities/euler4.js
+math/identities/pfister16.js
+math/identities/pfister32.js
 ```
 
 ### **Key Files**
@@ -57,7 +57,7 @@ cd formal && make verify
 
 ### **Integration Tests**
 ```bash
-npm run test:integration obsidianPlugin
+npm run test:integration webrtcFederation
 ```
 
 ---

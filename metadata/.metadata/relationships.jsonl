@@ -1,0 +1,5 @@
+{"type":"dependency","from":"mathematicalFoundation","to":"compiler"}
+{"type":"dependency","from":"compiler","to":"cli"}
+{"type":"integration","from":"compiler","to":"obsidianPlugin"}
+{"type":"federation","from":"compiler","to":"webrtcFederation"}
+{"type":"research","from":"mathematicalFoundation","to":"research"}

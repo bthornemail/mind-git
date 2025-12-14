@@ -1,35 +1,16 @@
 #!/usr/bin/env node
 
 /**
- * MIND-GIT Metadata Integration Script
+ * MIND-GIT Metadata Integration Script (Simplified)
  * 
- * Integrates the unified metadata framework with existing components
+ * Integrates unified metadata framework with existing components
  */
 
 import fs from 'fs';
 import { promises as fsAsync } from 'fs';
 import path from 'path';
 import { execSync } from 'child_process';
-import { parse as parseYAML } from 'yaml';
 import crypto from 'crypto';
-
-// Import MetadataService dynamically to avoid TypeScript compilation issues
-let MetadataService;
-try {
-  const serviceModule = await import('../core/MetadataService.js');
-  MetadataService = serviceModule.MetadataService;
-} catch (error) {
-  console.warn('⚠️ MetadataService not available, using fallback implementation');
-}
-
-/**
- * @typedef {Object} ComponentConfig
- * @property {string} path
- * @property {string} type
- * @property {number} layer
- * @property {string} category
- * @property {number[]} dimensions
- */
 
 console.log('🧠 MIND-GIT Metadata Integration');
 console.log('='.repeat(80));
@@ -91,8 +72,10 @@ async function integrateMetadata() {
   console.log('\n📊 Component Analysis');
   console.log('='.repeat(80));
   
-  const basePath = process.cwd();
-  const service = MetadataService ? new MetadataService(basePath) : null;
+  const basePath = path.resolve(process.cwd(), '..');
+  
+  // Ensure metadata directories exist
+  ensureMetadataDirectories(basePath);
   
   for (const [name, config] of Object.entries(COMPONENTS)) {
     console.log(`\n🔍 Analyzing ${name}...`);
@@ -138,6 +121,24 @@ async function integrateMetadata() {
   }
 }
 
+function ensureMetadataDirectories(basePath) {
+  const dirs = [
+    path.join(basePath, '.metadata'),
+    path.join(basePath, '.metadata', '.hidden'),
+    path.join(basePath, '.metadata', '.hidden', 'cache'),
+    path.join(basePath, '.metadata', '.hidden', 'registry'),
+    path.join(basePath, '.metadata', 'schemas'),
+    path.join(basePath, '.metadata', 'templates'),
+    path.join(basePath, '.metadata', 'exports')
+  ];
+  
+  dirs.forEach(dir => {
+    if (!fs.existsSync(dir)) {
+      fs.mkdirSync(dir, { recursive: true });
+    }
+  });
+}
+
 /**
  * Analyze component and generate metadata
  * @param {string} basePath 
@@ -149,7 +150,7 @@ async function analyzeComponent(basePath, name, config) {
   const componentPath = path.join(basePath, config.path);
   
   // Check if path exists
-  if (!require('fs').existsSync(componentPath)) {
+  if (!fs.existsSync(componentPath)) {
     console.warn(`⚠️ Path does not exist: ${componentPath}`);
     return null;
   }
@@ -163,9 +164,6 @@ async function analyzeComponent(basePath, name, config) {
   
   // Analyze mathematical content
   const mathematicalContent = analyzeMathematicalContent(files);
-  
-  // Analyze performance characteristics
-  const performance = analyzePerformance(componentPath);
   
   return {
     id: `mind-git:${config.type}:${config.category}`,
@@ -274,7 +272,7 @@ function analyzeMathematicalContent(files) {
   
   for (const file of files) {
     try {
-      const content = require('fs').readFileSync(file, 'utf8');
+      const content = fs.readFileSync(file, 'utf8');
       
       // Check for mathematical foundations
       if (content.includes('polynomial') || content.includes('algebra')) {
@@ -326,20 +324,6 @@ function analyzeMathematicalContent(files) {
 }
 
 /**
- * Analyze performance characteristics
- * @param {string} componentPath 
- * @returns {any}
- */
-function analyzePerformance(componentPath) {
-  // Simple performance analysis based on file structure
-  return {
-    complexity: 'medium',
-    optimization: 'basic',
-    caching: false
-  };
-}
-
-/**
  * Extract CanvasL types from files
  * @param {string[]} files 
  * @returns {string[]}
@@ -349,7 +333,7 @@ function extractCanvasLTypes(files) {
   
   for (const file of files) {
     try {
-      const content = require('fs').readFileSync(file, 'utf8');
+      const content = fs.readFileSync(file, 'utf8');
       const matches = content.match(/#(\w+):/g);
       if (matches) {
         for (const match of matches) {
@@ -375,7 +359,7 @@ function extractAALMnemonics(files) {
   
   for (const file of files) {
     try {
-      const content = require('fs').readFileSync(file, 'utf8');
+      const content = fs.readFileSync(file, 'utf8');
       const patterns = content.match(/#(Observe|Activate|Transform|Verify|Store|Integrate|Propagate|BackPropagate):/g);
       if (patterns) {
         for (const pattern of patterns) {
@@ -422,7 +406,7 @@ function calculateDifficulty(files) {
   
   for (const file of files) {
     try {
-      const content = require('fs').readFileSync(file, 'utf8');
+      const content = fs.readFileSync(file, 'utf8');
       
       // Increase difficulty for complex patterns
       if (content.includes('polynomial') || content.includes('algebra')) difficulty += 1;
@@ -466,7 +450,7 @@ function calculateLOC(files) {
   
   for (const file of files) {
     try {
-      const content = require('fs').readFileSync(file, 'utf8');
+      const content = fs.readFileSync(file, 'utf8');
       loc += content.split('\n').length;
     } catch (error) {
       // File might not be readable
@@ -486,7 +470,7 @@ function calculateComplexity(files) {
   
   for (const file of files) {
     try {
-      const content = require('fs').readFileSync(file, 'utf8');
+      const content = fs.readFileSync(file, 'utf8');
       
       // Simple complexity metrics
       complexity += (content.match(/if|for|while|function|class/g) || []).length * 2;
@@ -515,7 +499,7 @@ function generateUUID() {
  */
 function generateFingerprint(path) {
   // Simple fingerprint based on path and current time
-  return require('crypto').createHash('sha256').update(path + Date.now()).digest('hex').substring(0, 16);
+  return crypto.createHash('sha256').update(path + Date.now()).digest('hex').substring(0, 16);
 }
 
 /**
@@ -536,7 +520,7 @@ async function createAgentsFile(basePath, name, config, metadata) {
     config.type === 'mathematics' ? 'AGENTS.md.template' : 'AGENTS-simple.md.template');
   
   try {
-    const template = await fs.readFile(templatePath, 'utf8');
+    const template = fs.readFileSync(templatePath, 'utf8');
     
     // Replace template variables
     let content = template
@@ -560,7 +544,7 @@ async function createAgentsFile(basePath, name, config, metadata) {
     
     content = content.replace(/{{fileStructure}}/g, fileStructure);
     
-    await fs.writeFile(agentsPath, content);
+    await fsAsync.writeFile(agentsPath, content);
     console.log(`  📝 Created AGENTS.md for ${name}`);
   } catch (error) {
     console.warn(`  ⚠️ Failed to create AGENTS.md for ${name}: ${error.message}`);
@@ -583,7 +567,7 @@ async function updateFrontMatter(basePath, componentPath, metadata) {
   
   for (const file of mdFiles.slice(0, 3)) { // Limit to first 3 files
     try {
-      const content = await fs.readFile(file, 'utf8');
+      const content = await fsAsync.readFile(file, 'utf8');
       
       // Check if front matter already exists
       const frontMatterMatch = content.match(/^---\n([\s\S]*?)\n---/);
@@ -612,7 +596,7 @@ lastUpdate: ${new Date().toISOString().split('T')[0]}
         updatedContent = newFrontMatter + '\n\n' + content;
       }
       
-      await fs.writeFile(file, updatedContent);
+      await fsAsync.writeFile(file, updatedContent);
       console.log(`  📝 Updated front matter in ${path.relative(basePath, file)}`);
     } catch (error) {
       console.warn(`  ⚠️ Failed to update front matter in ${file}: ${error.message}`);
@@ -634,7 +618,7 @@ async function generateJSONLMetadata(basePath, name, metadata) {
   
   try {
     const jsonlEntry = JSON.stringify(metadata);
-    await fs.writeFile(jsonlPath, jsonlEntry);
+    await fsAsync.writeFile(jsonlPath, jsonlEntry);
     console.log(`  📊 Generated JSONL metadata for ${name}`);
   } catch (error) {
     console.warn(`  ⚠️ Failed to generate JSONL for ${name}: ${error.message}`);
@@ -659,7 +643,7 @@ async function generateGlobalRelationships(basePath) {
     ];
     
     const jsonlContent = relationships.map(r => JSON.stringify(r)).join('\n');
-    await fs.writeFile(relationshipsPath, jsonlContent);
+    await fsAsync.writeFile(relationshipsPath, jsonlContent);
     console.log('  🔗 Generated global relationships');
   } catch (error) {
     console.warn(`  ⚠️ Failed to generate relationships: ${error.message}`);
@@ -685,7 +669,7 @@ async function createMetadataIndex(basePath) {
     }));
     
     const jsonlContent = indexEntries.map(e => JSON.stringify(e)).join('\n');
-    await fs.writeFile(indexPath, jsonlContent);
+    await fsAsync.writeFile(indexPath, jsonlContent);
     console.log('  📋 Created metadata index');
   } catch (error) {
     console.warn(`  ⚠️ Failed to create index: ${error.message}`);

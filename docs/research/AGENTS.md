@@ -1,7 +1,7 @@
-# 🤖 AGENTS.md - obsidianPlugin
+# 🤖 AGENTS.md - research
 
 ## 🎯 **Mission Scope**
-**Layer**: 4 | **Category**: ide-integration | **Type**: integration
+**Layer**: 7 | **Category**: research | **Type**: research
 
 ---
 
@@ -24,16 +24,16 @@
 ## 📁 **File Organization**
 
 ```
-.editorconfig
-.eslintignore
-.eslintrc
-.gitignore
-.npmrc
-AGENTS.md
-LICENSE
 README.md
-esbuild.config.mjs
-main.js
+RESEARCH_INTEGRATION_ROADMAP.md
+consciousness-geometry/README.md
+consciousness-geometry/geometry-of-mind.md
+consciousness-geometry/hopf-consciousness.md
+consciousness-geometry/mind-body-computation.md
+division-algebras/README.md
+division-algebras/sedenions.md
+epistemic-systems/README.md
+epistemic-systems/epistemic-observability-engine.md
 ```
 
 ### **Key Files**
@@ -57,7 +57,7 @@ cd formal && make verify
 
 ### **Integration Tests**
 ```bash
-npm run test:integration obsidianPlugin
+npm run test:integration research
 ```
 
 ---

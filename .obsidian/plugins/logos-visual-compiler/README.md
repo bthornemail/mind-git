@@ -1,3 +1,20 @@
+---
+id: mind-git:integration:ide-integration
+title: "MIND-GIT integration: ide-integration"
+type: ["integration","implementation","mind-git"]
+category: ide-integration
+layer: 4
+dimensions: [2, 3, 4]
+mathematicalFoundation: ["polynomial-algebra","hopf-fibration","identity-chain"]
+hopfCompatible: true
+normPreserving: false
+status: complete
+completeness: 80
+tags: ["integration","ide-integration","mind-git"]
+keywords: ["integration","ide-integration","canvasl","mathematics"]
+lastUpdate: 2025-12-14
+---
+
 # Obsidian Sample Plugin
 
 This is a sample plugin for Obsidian (https://obsidian.md).

@@ -1,7 +1,7 @@
-# 🤖 AGENTS.md - obsidianPlugin
+# 🤖 AGENTS.md - compiler
 
 ## 🎯 **Mission Scope**
-**Layer**: 4 | **Category**: ide-integration | **Type**: integration
+**Layer**: 3 | **Category**: core-compiler | **Type**: compiler
 
 ---
 
@@ -24,16 +24,13 @@
 ## 📁 **File Organization**
 
 ```
-.editorconfig
-.eslintignore
-.eslintrc
-.gitignore
-.npmrc
-AGENTS.md
-LICENSE
-README.md
-esbuild.config.mjs
-main.js
+aal-compiler.ts
+aal-integration.ts
+ast/index.ts
+canvas-compilation.test.ts
+codegen/index.ts
+index.ts
+parser/index.ts
 ```
 
 ### **Key Files**
@@ -57,7 +54,7 @@ cd formal && make verify
 
 ### **Integration Tests**
 ```bash
-npm run test:integration obsidianPlugin
+npm run test:integration compiler
 ```
 
 ---

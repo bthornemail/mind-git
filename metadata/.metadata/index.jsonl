@@ -1,0 +1,7 @@
+{"name":"cli","path":"bin/mind-git-simple.cjs","type":"compiler","layer":3,"category":"core-compiler"}
+{"name":"obsidianPlugin","path":".obsidian/plugins/logos-visual-compiler","type":"integration","layer":4,"category":"ide-integration"}
+{"name":"webrtcFederation","path":"src/p2p","type":"federation","layer":5,"category":"distributed-sync"}
+{"name":"mathematicalFoundation","path":"logos-system/src/core","type":"mathematics","layer":2,"category":"formal-verification"}
+{"name":"compiler","path":"logos-system/src/compiler","type":"compiler","layer":3,"category":"core-compiler"}
+{"name":"formalVerification","path":"logos-system/formal","type":"mathematics","layer":1,"category":"formal-verification"}
+{"name":"research","path":"docs/research","type":"research","layer":7,"category":"research"}

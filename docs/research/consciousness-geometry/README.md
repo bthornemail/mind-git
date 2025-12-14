@@ -1,3 +1,20 @@
+---
+id: mind-git:research:research
+title: "MIND-GIT research: research"
+type: ["research","implementation","mind-git"]
+category: research
+layer: 7
+dimensions: [8, 9, 10]
+mathematicalFoundation: ["polynomial-algebra","hopf-fibration","identity-chain"]
+hopfCompatible: true
+normPreserving: true
+status: complete
+completeness: 80
+tags: ["research","research","mind-git"]
+keywords: ["research","research","canvasl","mathematics"]
+lastUpdate: 2025-12-14
+---
+
 # Consciousness Geometry
 
 Mathematical models of consciousness using geometric propagation, Hopf fibrations, and dimensional analysis.

@@ -11,7 +11,10 @@
   "scripts": {
     "build": "cd logos-system && npm run build",
     "test": "cd logos-system && npm test",
-    "start": "node logos-system/dist/index.js"
+    "start": "node logos-system/dist/index.js",
+    "metadata:update": "cd metadata && node scripts/integrate-metadata-simple.js",
+    "metadata:export": "cd metadata && node scripts/export-system-simple.js export",
+    "metadata:status": "cd metadata && node scripts/cli.js status"
   },
   "keywords": [
     "canvasl",
