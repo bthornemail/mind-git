@@ -10,8 +10,8 @@
  * 6. Output generation
  */
 
-import { CanvasLCompiler, createCanvasLCompiler } from './src/compiler';
-import { LogosSystem } from './src/index';
+import { CanvasLCompiler, createCanvasLCompiler } from './src/compiler/index.js';
+import { LogosSystem } from './src/index.js';
 
 /**
  * Demo canvas that demonstrates all CanvasL features
@@ -518,4 +518,4 @@ export async function runCanvasLCompilerDemo(): Promise<void> {
 }
 
 // Export for direct execution
-export { demoCanvas, CanvasLCompilerDemo };
+export { demoCanvas };

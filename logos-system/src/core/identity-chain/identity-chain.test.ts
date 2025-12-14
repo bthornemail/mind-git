@@ -5,7 +5,7 @@
 
 import { IdentityChain } from '../index';
 
-// Mock Jest functions for now
+// Note: These are mock functions for now
 const describe = (name: string, fn: () => void) => fn();
 const test = (name: string, fn: () => void) => fn();
 const expect = (value: any) => ({

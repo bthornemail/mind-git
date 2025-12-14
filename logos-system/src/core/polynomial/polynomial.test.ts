@@ -124,7 +124,7 @@ describe('PolyF2 - Polynomial Algebra over F₂', () => {
       const dividend = [true, true, true, true];  // 1 + x + x² + x³
       const divisor = [true, true];               // 1 + x
       const expected_quotient = [true, false, true]; // 1 + x²
-      const expected_remainder: boolean[] = [];    // 0
+      const expected_remainder = [false];    // 0
       
       const [quotient, remainder] = PolyF2.divmod(dividend, divisor);
       
