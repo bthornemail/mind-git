@@ -21,9 +21,9 @@ export * from './types';
 export * from './dna-log';
 export * from './replay-engine';
 export * from './storage';
+export * from './commit';
 
 // Future exports (to be implemented in later phases)
-// export * from './commit';
 // export * from './identity';
 // export * from './provenance';
 // export * from './branch';
