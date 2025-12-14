@@ -1,10 +1,25 @@
 /**
  * Polynomial Algebra over F₂ (Galois Field of 2 elements)
  * 
- * Polynomials are represented as boolean arrays (little-endian):
+ * === MENTAL MODEL ===
+ * Polynomials ARE the computation substrate. Every canvas node becomes a polynomial.
+ * Spatial positions (x,y) encode as coefficients. Graph topology becomes divisibility.
+ * 
+ * === WHY THIS WORKS ===
+ * - F₂ (boolean coefficients) gives lossless compression
+ * - Polynomial divisibility encodes graph structure (A divides B = A ancestor of B)
+ * - GCD operations enable O(log n) structural queries vs O(n) graph traversal
+ * - Norm preservation acts as automatic checksums
+ * 
+ * === REPRESENTATION ===
+ * Polynomials are boolean arrays (little-endian):
  * [a₀; a₁; a₂; ...] ≡ a₀ + a₁x + a₂x² + ...
  * 
- * All operations are formally verified in Coq and extracted to WebAssembly.
+ * Example: Node at (100, 50) → P(x,y) with degree ∝ distance from origin
+ * 
+ * === VERIFICATION ===
+ * All operations are formally verified in Coq (formal/Polynomials.v) and extracted to WebAssembly.
+ * No "trust me, this works" - every property is mechanically proven.
  */
 
 export type Polynomial = boolean[];
