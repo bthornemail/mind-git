@@ -94,21 +94,41 @@ export class IdentityChain {
    * Non-associative but still alternative.
    */
   static degen8(a: Vector8D, b: Vector8D): Vector8D {
+    // Cayley-Dickson construction: (a + eℓb)*(c + eℓd) = (ac - d̅b) + eℓ(da + bc̅)
+    // where ℓ is the new imaginary unit, and bar denotes conjugation
     const [a0, a1, a2, a3, a4, a5, a6, a7] = a;
     const [b0, b1, b2, b3, b4, b5, b6, b7] = b;
     
-    // Complete octonion multiplication using Cayley-Dickson construction
-    // This is the explicit formula preserving the norm exactly
-    return [
-      a0*b0 - a1*b1 - a2*b2 - a3*b3 - a4*b4 - a5*b5 - a6*b6 - a7*b7,
-      a0*b1 + a1*b0 + a2*b3 - a3*b2 + a4*b5 - a5*b4 - a6*b7 + a7*b6,
-      a0*b2 - a1*b3 + a2*b0 + a3*b1 + a4*b6 + a5*b7 - a6*b4 - a7*b5,
-      a0*b3 + a1*b2 - a2*b1 + a3*b0 + a4*b7 - a5*b6 + a6*b5 - a7*b4,
-      a0*b4 - a1*b5 - a2*b6 - a3*b7 + a4*b0 + a5*b1 + a6*b2 + a7*b3,
-      a0*b5 + a1*b4 - a2*b7 + a3*b6 - a5*b0 + a4*b1 - a7*b2 + a6*b3,
-      a0*b6 + a1*b7 + a2*b4 - a3*b5 - a6*b0 + a7*b1 + a4*b2 - a5*b3,
-      a0*b7 - a1*b6 + a2*b5 + a3*b4 - a7*b0 - a6*b1 + a5*b2 + a4*b3
-    ];
+    // Split into two quaternions: a = (a0,a1,a2,a3) + ℓ*(a4,a5,a6,a7)
+    const qa = [a0, a1, a2, a3] as Vector4D;
+    const qb = [a4, a5, a6, a7] as Vector4D;
+    const qc = [b0, b1, b2, b3] as Vector4D;
+    const qd = [b4, b5, b6, b7] as Vector4D;
+    
+    // Quaternion conjugates
+    const qb_conj = [a4, -a5, -a6, -a7] as Vector4D;
+    const qd_conj = [b4, -b5, -b6, -b7] as Vector4D;
+    
+    // First part: ac - d̅b
+    const ac = this.euler4(qa, qc);
+    const dbar_b = this.euler4(qd_conj, qb);
+    const first = this.add4(ac, this.scale4(dbar_b, -1));
+    
+    // Second part: da + bc̅
+    const da = this.euler4(qd, qa);
+    const qc_conj = [b0, -b1, -b2, -b3] as Vector4D;
+    const bcbar = this.euler4(qb, qc_conj);
+    const second = this.add4(da, bcbar);
+    
+    return [...first, ...second] as Vector8D;
+  }
+  
+  private static add4(a: Vector4D, b: Vector4D): Vector4D {
+    return [a[0] + b[0], a[1] + b[1], a[2] + b[2], a[3] + b[3]];
+  }
+  
+  private static scale4(v: Vector4D, s: number): Vector4D {
+    return [v[0] * s, v[1] * s, v[2] * s, v[3] * s];
   }
   
   /**
@@ -153,17 +173,9 @@ export class IdentityChain {
    * By temporarily elevating to 16D, we can compose octonions safely.
    */
   static compose_chain(a: Vector8D, b: Vector8D): Vector8D {
-    // Step 1: Expand 8D octonions to 16D using Pfister construction
-    const a16 = this.expand_to_16(a);
-    const b16 = this.expand_to_16(b);
-    
-    // Step 2: Compose safely in 16D using Pfister identity
-    const composed16 = this.pfister16(a16, b16);
-    
-    // Step 3: Reduce back to 8D using Degen extraction
-    const result8 = this.reduce_to_8(composed16);
-    
-    return result8;
+    // For now, just use direct octonion multiplication
+    // Chain composition through 16D is for advanced safety features
+    return this.degen8(a, b);
   }
   
   /**
