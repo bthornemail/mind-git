@@ -1,5 +1,5 @@
 {
-  "frontMatterSchemas": {
+  "frontMatter": {
     "core": {
       "required": [
         "id",
@@ -45,14 +45,14 @@
     },
     "canvasL": {
       "nodeTypes": [
-        "Observe",
-        "Activate",
-        "Integrate",
-        "Propagate",
-        "BackPropagate",
-        "Transform",
-        "Verify",
-        "Store"
+        "#Observe:",
+        "#Activate:",
+        "#Integrate:",
+        "#Propagate:",
+        "#BackPropagate:",
+        "#Transform:",
+        "#Verify:",
+        "#Store:"
       ],
       "aalMnemonics": [
         "MOV",
@@ -77,165 +77,234 @@
     }
   },
   "layerClassifications": {
-    "1": {
-      "name": "Mathematical Foundation",
-      "categories": [
-        "mathematical-foundation",
-        "formal-verification"
-      ]
+    "universal": {
+      "1": {
+        "name": "Mathematical Foundation",
+        "categories": [
+          "mathematical-foundation",
+          "formal-verification"
+        ]
+      },
+      "2": {
+        "name": "Theoretical Framework",
+        "categories": [
+          "theoretical-framework",
+          "mathematics"
+        ]
+      },
+      "3": {
+        "name": "System Architecture",
+        "categories": [
+          "system-architecture",
+          "compiler",
+          "api"
+        ]
+      },
+      "4": {
+        "name": "Implementation Details",
+        "categories": [
+          "implementation-details",
+          "examples",
+          "guides"
+        ]
+      },
+      "5": {
+        "name": "Security & Production",
+        "categories": [
+          "security-production",
+          "p2p",
+          "federation"
+        ]
+      },
+      "6": {
+        "name": "Integration Ecosystem",
+        "categories": [
+          "integration-ecosystem",
+          "plugins"
+        ]
+      },
+      "7": {
+        "name": "Research & Development",
+        "categories": [
+          "research-development",
+          "papers"
+        ]
+      },
+      "8": {
+        "name": "Applications & Demos",
+        "categories": [
+          "demos",
+          "applications"
+        ]
+      }
     },
-    "2": {
-      "name": "Theoretical Framework",
-      "categories": [
-        "theoretical-framework",
-        "mathematics"
-      ]
-    },
-    "3": {
-      "name": "System Architecture",
-      "categories": [
-        "system-architecture",
-        "compiler",
-        "api"
-      ]
-    },
-    "4": {
-      "name": "Implementation Details",
-      "categories": [
-        "implementation-details",
-        "examples",
-        "guides"
-      ]
-    },
-    "5": {
-      "name": "Security & Production",
-      "categories": [
-        "security-production",
-        "p2p",
-        "federation"
-      ]
-    },
-    "6": {
-      "name": "Integration Ecosystem",
-      "categories": [
-        "integration-ecosystem",
-        "plugins"
-      ]
-    },
-    "7": {
-      "name": "Research & Development",
-      "categories": [
-        "research-development",
-        "papers"
-      ]
-    },
-    "8": {
-      "name": "Applications & Demos",
-      "categories": [
-        "demos",
-        "applications"
-      ]
+    "detection": {
+      "directory": {
+        "1._*": 1,
+        "2._*": 2,
+        "3._*": 3,
+        "4._*": 4,
+        "5._*": 5,
+        "6._*": 6,
+        "7._*": 7
+      },
+      "content": {
+        "mathematical": 1,
+        "compiler": 2,
+        "ast": 3,
+        "api": 3,
+        "p2p": 5,
+        "federation": 5,
+        "formal": 1
+      },
+      "filename": {
+        "README": 8,
+        "AGENTS": "auto-detect",
+        "package.json": "auto-detect"
+      }
     }
   },
   "mathematicalPatterns": {
-    "detection": [
-      "polynomial",
-      "algebra",
-      "theorem",
-      "proof",
-      "coq",
-      "lean",
-      "isabelle",
-      "hopf",
-      "fibration",
-      "octonion",
-      "sedenion",
-      "cayley",
-      "dickson",
-      "identity",
-      "chain",
-      "norm",
-      "preserving",
-      "composition"
-    ],
-    "foundations": {
-      "polynomial-algebra": [
-        "F2",
-        "field",
-        "ring",
-        "polynomial"
-      ],
-      "identity-chain": [
-        "brahmagupta",
-        "euler",
-        "degen",
-        "pfister",
-        "adams"
-      ],
-      "hopf-fibration": [
-        "S1",
-        "S3",
-        "S7",
-        "fiber",
-        "bundle"
-      ],
-      "division-algebras": [
-        "complex",
-        "quaternion",
+    "detection": {
+      "keywords": [
+        "polynomial",
+        "algebra",
+        "theorem",
+        "proof",
+        "coq",
+        "lean",
+        "isabelle",
+        "hopf",
+        "fibration",
         "octonion",
-        "sedenion"
+        "sedenion",
+        "cayley",
+        "dickson",
+        "identity",
+        "chain",
+        "norm",
+        "preserving",
+        "composition",
+        "group",
+        "ring",
+        "field",
+        "category",
+        "functor",
+        "monad"
+      ],
+      "patterns": [
+        {},
+        {},
+        {},
+        {},
+        {}
       ]
+    },
+    "foundations": {
+      "polynomial-algebra": {
+        "concepts": [
+          "F2",
+          "field",
+          "ring",
+          "polynomial",
+          "gcd",
+          "lcm"
+        ],
+        "operations": [
+          "addition",
+          "multiplication",
+          "division",
+          "composition"
+        ]
+      },
+      "identity-chain": {
+        "concepts": [
+          "brahmagupta",
+          "euler",
+          "degen",
+          "pfister",
+          "adams"
+        ],
+        "properties": [
+          "norm-preservation",
+          "composition",
+          "dimensional-constraints"
+        ]
+      },
+      "hopf-fibration": {
+        "concepts": [
+          "S1",
+          "S3",
+          "S7",
+          "fiber",
+          "bundle",
+          "base space"
+        ],
+        "properties": [
+          "fibration",
+          "homotopy",
+          "exact-sequence"
+        ]
+      },
+      "division-algebras": {
+        "concepts": [
+          "complex",
+          "quaternion",
+          "octonion",
+          "sedenion"
+        ],
+        "properties": [
+          "normed-division",
+          "composition",
+          "alternativity"
+        ]
+      }
     }
   },
   "canvasLPatterns": {
-    "nodePrefixes": [
-      "#Observe:",
-      "#Activate:",
-      "#Integrate:",
-      "#Propagate:",
-      "#BackPropagate:",
-      "#Transform:",
-      "#Verify:",
-      "#Store:"
-    ],
-    "classification": {
+    "nodeTypes": {
       "spatial": [
-        "Observe",
-        "Activate",
-        "Integrate",
-        "Propagate"
+        "#Observe:",
+        "#Activate:",
+        "#Integrate:",
+        "#Propagate:"
       ],
       "computational": [
-        "BackPropagate",
-        "Transform",
-        "Verify",
-        "Store"
+        "#BackPropagate:",
+        "#Transform:",
+        "#Verify:",
+        "#Store:"
       ]
     },
     "compilation": {
       "order": [
-        "Observe",
-        "Activate",
-        "Integrate",
-        "Propagate",
-        "BackPropagate",
-        "Transform",
-        "Verify",
-        "Store"
+        "#Observe:",
+        "#Activate:",
+        "#Integrate:",
+        "#Propagate:",
+        "#BackPropagate:",
+        "#Transform:",
+        "#Verify:",
+        "#Store:"
       ],
       "dependencies": {
         "Transform": [
-          "Integrate",
-          "Propagate"
+          "Integrate:",
+          "Propagate:"
         ],
         "Verify": [
           "Transform"
         ],
         "Store": [
-          "Verify",
+          "Verify:",
           "Transform"
         ]
       }
+    },
+    "visualization": {
+      "coordinates": "spatial-x-y",
+      "layers": "z-index for compilation order",
+      "connections": "edges for dependencies"
     }
   },
   "agentsTemplates": {
@@ -265,6 +334,116 @@
         "API Compatibility",
         "Integration Standards",
         "Communication"
+      ]
+    },
+    "qualityMetrics": {
+      "quantitative": [
+        "Test Coverage",
+        "Performance Benchmarks",
+        "Code Complexity"
+      ],
+      "qualitative": [
+        "Code Clarity",
+        "Mathematical Rigor",
+        "User Experience"
+      ]
+    }
+  },
+  "repositoryTypes": {
+    "detection": {
+      "package.json": "javascript/typescript",
+      "setup.py": "python",
+      "Cargo.toml": "rust",
+      "pom.xml": "java",
+      "go.mod": "go",
+      "CMakeLists.txt": "cpp",
+      "requirements.txt": "python"
+    },
+    "classification": {
+      "library": "reusable components",
+      "application": "standalone system",
+      "framework": "development framework",
+      "tool": "command-line or utility",
+      "research": "academic or experimental"
+    },
+    "technologies": {
+      "javascript": [
+        "node",
+        "npm",
+        "yarn"
+      ],
+      "python": [
+        "pip",
+        "conda",
+        "poetry"
+      ],
+      "rust": [
+        "cargo",
+        "rustc"
+      ],
+      "java": [
+        "maven",
+        "gradle"
+      ],
+      "go": [
+        "go mod"
+      ],
+      "cpp": [
+        "cmake",
+        "make"
+      ]
+    }
+  },
+  "qualityStandards": {
+    "code": {
+      "complexity": [
+        "cyclomatic",
+        "cognitive",
+        "halstead"
+      ],
+      "coverage": [
+        "statement",
+        "branch",
+        "function"
+      ],
+      "quality": [
+        "maintainability",
+        "readability",
+        "technical-debt"
+      ]
+    },
+    "mathematical": {
+      "verification": [
+        "coq",
+        "lean",
+        "isabelle"
+      ],
+      "correctness": [
+        "type-safety",
+        "termination",
+        "soundness"
+      ],
+      "performance": [
+        "asymptotic",
+        "concrete",
+        "empirical"
+      ]
+    },
+    "documentation": {
+      "completeness": [
+        "api",
+        "examples",
+        "tutorials"
+      ],
+      "accuracy": [
+        "up-to-date",
+        "tested",
+        "verified"
+      ],
+      "accessibility": [
+        "wcag",
+        "screen-reader",
+        "keyboard"
       ]
     }
   }
