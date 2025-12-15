@@ -119,3 +119,11 @@ docs/_build/
 
 
 
+
+# Security and sensitive files
+SECURITY-WARNING.md
+*.txt
+*.cast
+
+# Conversation exports
+2025-*.txt
