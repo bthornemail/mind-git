@@ -97,9 +97,22 @@ Based on:
 
 ## Customizing 3D Models
 
-### Using GLTF/GLB Models
+### Khronos Model Library (NEW! 🎉)
 
-The visualizer supports custom 3D models in GLTF (JSON) and GLB (binary) formats:
+**Browse 16+ professional models from the official Khronos glTF repository**:
+
+1. Click **"🎨 Customize Models"** (bottom-left)
+2. Browse the gallery of high-quality 3D models
+3. Click any model to apply it to a node type
+4. Models load instantly from GitHub CDN!
+
+**Featured models**: Duck, Avocado, Flight Helmet, Lantern, Brain Stem, and more!
+
+See **KHRONOS-MODELS-COMPLETE.md** for the complete guide.
+
+### Using Custom GLTF/GLB Models
+
+The visualizer also supports your own custom 3D models in GLTF (JSON) and GLB (binary) formats:
 
 1. **Create or obtain** GLTF/GLB models (Blender, Maya, etc.)
 2. **Place models** in `public/models/`
@@ -130,5 +143,6 @@ Each node type uses a procedurally generated shape with mathematical significanc
 
 - [mind-git Repository](../README.md)
 - [CanvasL Documentation](../logos-system/README.md)
+- [Khronos Model Library Guide](../KHRONOS-MODELS-COMPLETE.md) ⭐ NEW
 - [GLTF/GLB Model Guide](GLTF-GUIDE.md)
 - [Model Quick Reference](MODELS-QUICK-REF.md)

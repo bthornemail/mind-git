@@ -24,15 +24,22 @@ interface GeometryProps {
   onPointerEnter?: () => void;
   onPointerLeave?: () => void;
   meshRef?: React.RefObject<THREE.Mesh | null>;
+  customModelPath?: string;  // Path to custom GLTF/GLB model
 }
 
 /**
  * Main geometry selector component
- * Routes to appropriate geometry based on node type
+ * Routes to appropriate geometry based on node type or custom model
  */
 export const NodeGeometry: React.FC<GeometryProps> = (props) => {
-  const { nodeType, ...otherProps } = props;
+  const { nodeType, customModelPath, ...otherProps } = props;
 
+  // If custom model path is provided, use it
+  if (customModelPath) {
+    return <GLTFNode modelPath={customModelPath} nodeType={nodeType} {...otherProps} />;
+  }
+
+  // Otherwise use procedural geometry
   if (!nodeType) {
     return <BoxGeometry {...otherProps} />;
   }

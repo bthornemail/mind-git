@@ -5,13 +5,16 @@ import * as THREE from 'three';
 import { CanvasNode, parseNodeType, getNodeColor } from '../types';
 import { NodeGeometry } from './NodeGeometry';
 
+import { KhronosModel } from '../services/modelLibrary';
+
 interface Node3DProps {
   node: CanvasNode;
   onClick?: (node: CanvasNode) => void;
   onDrag?: (node: CanvasNode, position: [number, number, number]) => void;
+  customModel?: KhronosModel;  // Optional Khronos model override
 }
 
-export const Node3D: React.FC<Node3DProps> = ({ node, onClick, onDrag }) => {
+export const Node3D: React.FC<Node3DProps> = ({ node, onClick, onDrag, customModel }) => {
   const meshRef = useRef<THREE.Mesh>(null);
   const [hovered, setHovered] = useState(false);
   const [selected, setSelected] = useState(false);
@@ -95,6 +98,7 @@ export const Node3D: React.FC<Node3DProps> = ({ node, onClick, onDrag }) => {
         hovered={hovered}
         selected={selected}
         meshRef={meshRef}
+        customModelPath={customModel?.glbPath}
         onClick={handleClick}
         onPointerDown={handlePointerDown}
         onPointerUp={handlePointerUp}

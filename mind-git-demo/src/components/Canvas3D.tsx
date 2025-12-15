@@ -4,7 +4,9 @@ import { OrbitControls, PerspectiveCamera, Grid, Text } from '@react-three/drei'
 import { Node3D } from './Node3D';
 import { Edge3D } from './Edge3D';
 import { CompilerPanel } from './CompilerPanel';
-import { Canvas, CanvasNode } from '../types';
+import { ModelSelector } from './ModelSelector';
+import { Canvas, CanvasNode, NodeType, parseNodeType } from '../types';
+import { KhronosModel } from '../services/modelLibrary';
 
 interface Canvas3DProps {
   canvas: Canvas;
@@ -12,6 +14,7 @@ interface Canvas3DProps {
 
 export const Canvas3D: React.FC<Canvas3DProps> = ({ canvas }) => {
   const [selectedNode, setSelectedNode] = useState<CanvasNode | null>(null);
+  const [customModels, setCustomModels] = useState<Map<NodeType, KhronosModel>>(new Map());
 
   const handleNodeClick = (node: CanvasNode) => {
     setSelectedNode(selectedNode?.id === node.id ? null : node);
@@ -22,10 +25,18 @@ export const Canvas3D: React.FC<Canvas3DProps> = ({ canvas }) => {
     // In a real app, this would update the canvas state
   };
 
+  const handleModelChange = (nodeType: NodeType, model: KhronosModel) => {
+    setCustomModels(new Map(customModels.set(nodeType, model)));
+    console.log(`Model changed for ${nodeType}:`, model.name);
+  };
+
   return (
     <div style={{ width: '100%', height: '100vh', background: '#1a1a2e' }}>
       {/* Compiler panel */}
       <CompilerPanel canvas={canvas} />
+
+      {/* Model selector */}
+      <ModelSelector onModelChange={handleModelChange} />
 
       {/* Info panel */}
       <div
@@ -170,14 +181,19 @@ export const Canvas3D: React.FC<Canvas3DProps> = ({ canvas }) => {
           ))}
 
           {/* Render all nodes */}
-          {canvas.nodes.map((node) => (
-            <Node3D
-              key={node.id}
-              node={node}
-              onClick={handleNodeClick}
-              onDrag={handleNodeDrag}
-            />
-          ))}
+          {canvas.nodes.map((node) => {
+            const nodeType = parseNodeType(node.text);
+            const customModel = nodeType ? customModels.get(nodeType) : undefined;
+            return (
+              <Node3D
+                key={node.id}
+                node={node}
+                onClick={handleNodeClick}
+                onDrag={handleNodeDrag}
+                customModel={customModel}
+              />
+            );
+          })}
         </Suspense>
       </ThreeCanvas>
     </div>
