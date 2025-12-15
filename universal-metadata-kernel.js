@@ -985,7 +985,7 @@ class UniversalMetadataKernel {
 ## 🏗️ **Component Analysis**
 
 ### **File Structure**
-${component.files.map(f => `- \`${f}``).join('\n')}
+${component.files.map(f => '- `' + f + '`').join('\n')}
 
 ### **Mathematical Content**
 ${component.metadata.mathematical.hasMathematical ? 
@@ -996,8 +996,8 @@ ${component.metadata.mathematical.hasMathematical ?
 }
 
 ### **Dependencies**
-${component.metadata.dependencies.length > 0 ? 
-  component.metadata.dependencies.map(dep => `- \`${dep}``).join('\n') : 
+${component.metadata.dependencies.length > 0 ?
+  component.metadata.dependencies.map(dep => '- `' + dep + '`').join('\n') :
   'No external dependencies detected'
 }
 
@@ -1026,7 +1026,7 @@ ${this.getLayerResponsibilities(component.metadata.layer)}
 ## 🔗 **Integration Points**
 
 ### **Input Dependencies**
-${component.metadata.dependencies.map(dep => `- \`${dep}``).join('\n')}
+${component.metadata.dependencies.map(dep => '- `' + dep + '`').join('\n')}
 
 ### **Output Interfaces**
 ${this.identifyOutputInterfaces(component)}
@@ -1036,7 +1036,7 @@ ${this.identifyOutputInterfaces(component)}
 ## 📈 **Quality Metrics**
 
 | Metric | Current | Target | Status |
-|---------|---------|--------|
+|---------|---------|--------|--------|
 | **Complexity** | ${component.metadata.complexity} | ${component.metadata.complexity + 10} | ✅ |
 | **Test Coverage** | ${Math.round((component.metadata.tests.length / component.files.length) * 100)}% | 80% | ${component.metadata.tests.length / component.files.length >= 0.8 ? '✅' : '⚠️'} |
 | **Documentation** | ${component.metadata.documentation.length > 0 ? '✅' : '❌'} | Complete | ${component.metadata.documentation.length > 0 ? '✅' : '❌'} |
@@ -1146,7 +1146,7 @@ ${this.identifyOutputInterfaces(component)}
       }
     }
     
-    return interfaces.length > 0 ? interfaces.map(intf => `- \`${intf}``).join('\n') : 'No explicit exports found';
+    return interfaces.length > 0 ? interfaces.map(intf => '- `' + intf + '`').join('\n') : 'No explicit exports found';
   }
 
   /**

@@ -4,9 +4,9 @@
  * MIND-GIT CLI with Metadata Integration
  */
 
-import { Command } from 'commander';
-import { execSync } from 'child_process';
-import path from 'path';
+const { Command } = require('commander');
+const { execSync } = require('child_process');
+const path = require('path');
 
 const program = new Command();
 
@@ -112,6 +112,64 @@ program
     }
   });
 
+// Universal Kernel Commands
+program
+  .command('kernel:analyze')
+  .description('Analyze any Git repository with Universal Metadata Kernel')
+  .argument('[path]', 'Repository path (defaults to current directory)', '.')
+  .action((repoPath) => {
+    console.log(`🧠 Analyzing repository with Universal Metadata Kernel...`);
+    try {
+      execSync(`node ${path.join(__dirname, '../universal-metadata-kernel.js')} analyze ${repoPath}`, { stdio: 'inherit' });
+    } catch (error) {
+      console.error('❌ Kernel analysis failed:', error.message);
+      process.exit(1);
+    }
+  });
+
+program
+  .command('kernel:visualize')
+  .description('Generate CanvasL visualization of repository')
+  .argument('[path]', 'Repository path (defaults to current directory)', '.')
+  .action((repoPath) => {
+    console.log(`🎨 Generating CanvasL visualization...`);
+    try {
+      execSync(`node ${path.join(__dirname, '../universal-metadata-kernel.js')} visualize ${repoPath}`, { stdio: 'inherit' });
+    } catch (error) {
+      console.error('❌ Visualization failed:', error.message);
+      process.exit(1);
+    }
+  });
+
+program
+  .command('kernel:export')
+  .description('Export repository metadata to federated formats')
+  .argument('[path]', 'Repository path (defaults to current directory)', '.')
+  .option('--format <format>', 'Export format (all, json, jsonld, markdown, rdf, ipfs, federation)', 'export')
+  .option('--layers <layers>', 'Filter by layers (e.g., 1,2,3)')
+  .option('--only-mathematical', 'Only export mathematical components')
+  .option('--max-complexity <num>', 'Maximum complexity threshold')
+  .action((repoPath, options) => {
+    console.log(`📤 Exporting repository metadata...`);
+    try {
+      const kernelPath = path.join(repoPath, '.metadata-kernel');
+
+      // Default to 'export' (all formats)
+      const format = options.format === 'all' ? 'export' : options.format;
+
+      let command = `node ${path.join(__dirname, '../universal-exporter.js')} ${format} ${kernelPath}`;
+
+      if (options.layers) command += ` --layers ${options.layers}`;
+      if (options.onlyMathematical) command += ` --only-mathematical`;
+      if (options.maxComplexity) command += ` --max-complexity ${options.maxComplexity}`;
+
+      execSync(command, { stdio: 'inherit' });
+    } catch (error) {
+      console.error('❌ Export failed:', error.message);
+      process.exit(1);
+    }
+  });
+
 // Help command
 program
   .command('help')
@@ -125,6 +183,11 @@ program
   mind-git metadata:update            Update all component metadata
   mind-git metadata:export <target>   Export filtered documentation
   mind-git metadata:status           Show metadata system status
+
+🧠 Universal Kernel Commands:
+  mind-git kernel:analyze [path]     Analyze any Git repository
+  mind-git kernel:visualize [path]   Generate CanvasL visualization
+  mind-git kernel:export [path]      Export repository metadata
 
 📤 Export Targets:
   docs        - General documentation export
@@ -152,11 +215,28 @@ program
   - AGENTS.md development directives
 
 Examples:
+  # Compile CanvasL
   mind-git compile example.canvas
+
+  # Metadata operations
   mind-git metadata:update
   mind-git metadata:export docs --min-completeness 80
   mind-git metadata:export research --only-verified
   mind-git metadata:status
+
+  # Universal Kernel (works on any repository!)
+  mind-git kernel:analyze .
+  mind-git kernel:analyze /path/to/react
+  mind-git kernel:visualize /path/to/any-repo
+  mind-git kernel:export . --format json
+
+🌟 The Universal Kernel works on ANY Git repository:
+  - JavaScript/TypeScript (Node.js, React, Vue, etc.)
+  - Python (Flask, Django, FastAPI, etc.)
+  - Rust, Go, Java, C++, and more!
+  - Automatically detects language and framework
+  - Generates AGENTS.md development contracts
+  - Creates CanvasL visualizations for Obsidian
 
 For more information, see: metadata/README.md
     `);

@@ -1,114 +1,80 @@
-# 🤖 AGENTS.md - Development Documentation
+# 🤖 AGENTS.md - dev-docs
 
 ## 🎯 **Mission Scope**
-**Directory**: dev-docs | **Category**: dev-docs
-**Mission**: Guide development of MIND-GIT system with mathematical rigor
+**Layer**: 8 | **Type**: documentation
+**Complexity**: 144 | **Files**: 8
 
 ---
 
-## 🏗️ **Core Responsibilities**
+## 🏗️ **Component Analysis**
 
-- [ ] **Maintain mathematical foundation documentation**
-- [ ] **Ensure all theoretical concepts are properly explained**
-- [ ] **Keep implementation details current**
-- [ ] **Document development workflows and best practices**
+### **File Structure**
+- `dev-docs/AGENTS.md`
+- `dev-docs/ARCHIVE_ORGANIZATION_COMPLETE.md`
+- `dev-docs/ARCHIVE_ORGANIZATION_SUCCESS.md`
+- `dev-docs/CanvasL MindGit Intergration.md`
+- `dev-docs/DOCUMENTATION_INDEX.md`
+- `dev-docs/DOCUMENTATION_STANDARDS.md`
+- `dev-docs/UNIFIED_DOCUMENTATION_STRUCTURE.md`
+- `dev-docs/UNIFIED_IMPLEMENTATION_COMPLETE.md`
+
+### **Mathematical Content**
+**Concepts**: category, polynomial, algebra, theorem, geometry, topology, group, matrix, proof
+**Theorems**: 23
+**Formal Systems**: lean, coq
+
+### **Dependencies**
+- `../cryptography`
+- `../aal`
+- `../multiverse`
+- `../polynomial`
+
+### **Test Coverage**
+No tests found
 
 ---
 
-## 📁 **File Organization**
-
-### **Directory Structure**
-```
-dev-docs/
-├── .metadata/           # Metadata and configuration
-├── AGENTS.md           # This file - development directives
-└── [component files]   # Implementation files
-```
-
----
-
-## 🧪 **Quality Standards**
+## 📊 **Development Responsibilities**
 
 ### **Code Quality**
-- [ ] **Mathematical Correctness**: All operations mathematically sound
-- [ ] **Performance**: Meets established benchmarks
-- [ ] **Documentation**: Complete and current
-- [ ] **Testing**: Adequate test coverage
+- [ ] **Maintainability**: Keep complexity ≤ 154
+- [ ] **Documentation**: Update AGENTS.md when structure changes
+- [ ] **Testing**: Ensure test coverage ≥ 80%
+- [ ] **Dependencies**: Review and update dependencies regularly
 
-### **Integration Standards**
-- [ ] **API Compatibility**: Maintain stable interfaces
-- [ ] **Mathematical Consistency**: Follow established patterns
-- [ ] **Error Handling**: Comprehensive error management
-- [ ] **Resource Management**: Efficient memory and CPU usage
-
----
-
-## 📊 **Status Tracking**
-
-| Component | Status | Completeness | Priority |
-|-----------|---------|--------------|----------|
-| **Core** | 🔄 In Progress | 75% | High |
-| **Documentation** | 🔄 In Progress | 60% | Medium |
-| **Testing** | 🔄 In Progress | 50% | Medium |
+### **Documentation Layer**
+- [ ] **Clarity**: Write clear, understandable documentation,- [ ] **Completeness**: Document all public interfaces,- [ ] **Examples**: Provide working examples,- [ ] **Maintenance**: Keep docs updated with changes
 
 ---
 
 ## 🔗 **Integration Points**
 
-### **Dependencies**
-- Mathematical foundation components
-- CanvasL compiler system
-- Core AAL implementation
+### **Input Dependencies**
+- `../cryptography`
+- `../aal`
+- `../multiverse`
+- `../polynomial`
 
 ### **Output Interfaces**
-- Public APIs for other components
-- Documentation for users
-- Examples and tutorials
+No explicit exports found
 
 ---
 
-## 📈 **Development Workflow**
+## 📈 **Quality Metrics**
 
-### **1. Before Making Changes**
-- [ ] Review mathematical requirements
-- [ ] Understand impact on dependent components
-- [ ] Check for breaking changes
-- [ ] Update relevant documentation
-
-### **2. Implementation**
-- [ ] Follow established coding patterns
-- [ ] Maintain mathematical rigor
-- [ ] Add appropriate tests
-- [ ] Update documentation
-
-### **3. Quality Assurance**
-- [ ] Run full test suite
-- [ ] Verify mathematical properties
-- [ ] Check performance benchmarks
-- [ ] Review documentation accuracy
-
----
-
-## 🎯 **Success Metrics**
-
-### **Quantitative**
-- **Test Coverage**: ≥ 90%
-- **Performance**: < 100ms compilation time
-- **Documentation**: 100% API coverage
-- **Mathematical Verification**: All core operations verified
-
-### **Qualitative**
-- **Code Clarity**: Easy to understand and maintain
-- **Mathematical Rigor**: All operations formally sound
-- **User Experience**: Smooth and intuitive
-- **Integration**: Seamless with other components
+| Metric | Current | Target | Status |
+|---------|---------|--------|--------|
+| **Complexity** | 144 | 154 | ✅ |
+| **Test Coverage** | 0% | 80% | ⚠️ |
+| **Documentation** | ✅ | Complete | ✅ |
 
 ---
 
 > **Last Updated**: 2025-12-15  
-> **Directory**: dev-docs  
-> **Status**: Active Development
+> **Component ID**: kernel:dev-docs  
+> **Layer**: 8 - Documentation
 
 ---
 
-*This AGENTS.md file provides development directives for the Development Documentation directory. Update this file to reflect changes in responsibilities and status.*
+*This AGENTS.md file was auto-generated by the Universal Metadata Kernel*
+*Update this file to reflect changes in component structure and responsibilities*

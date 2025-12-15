@@ -6,7 +6,9 @@
   "types": "logos-system/dist/index.d.ts",
   "bin": {
     "mind-git": "./bin/mind-git-simple.cjs",
-    "mind-git-metadata": "./bin/mind-git-metadata.cjs"
+    "mind-git-metadata": "./bin/mind-git-metadata.cjs",
+    "universal-kernel": "./universal-metadata-kernel.js",
+    "universal-exporter": "./universal-exporter.js"
   },
   "type": "module",
   "scripts": {
@@ -43,7 +45,10 @@
     "README.md",
     "LICENSE",
     "json.canvas.d.ts",
-    "json.canvas.js"
+    "json.canvas.js",
+    "universal-metadata-kernel.js",
+    "universal-exporter.js",
+    "UNIVERSAL-KERNEL-README.md"
   ],
   "dependencies": {
     "@trbn/jsoncanvas": "^1.0.6",

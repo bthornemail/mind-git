@@ -848,7 +848,7 @@ class UniversalMetadataKernel {
 
 > **Last Updated**: \${new Date().toISOString().split('T')[0]}  
 > **Component ID**: \${component.id}  
-> **Layer**: \${component.metadata.layer} - \${layerNames[component.metadata.layer - 1] || 'Unknown'}
+> **Layer**: \${component.metadata.layer} - \${(layerNames[component.metadata.layer - 1] || 'Unknown')}
 
 ---
 
