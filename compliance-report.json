@@ -1,0 +1,24 @@
+{
+  "timestamp": "2025-12-15T02:02:23.442Z",
+  "filesAnalyzed": 1,
+  "results": [
+    {
+      "file": "../../AGENTS.md",
+      "overall": "NON_COMPLIANT",
+      "score": 0,
+      "violations": 25,
+      "redFlags": 14,
+      "recommendations": [
+        "Fix 25 RFC violations",
+        "Add more domain qualifiers to improve clarity",
+        "CRITICAL: Review and address red flags before continuing"
+      ]
+    }
+  ],
+  "summary": {
+    "totalViolations": 25,
+    "totalRedFlags": 14,
+    "compliantFiles": 0,
+    "averageScore": 0
+  }
+}
