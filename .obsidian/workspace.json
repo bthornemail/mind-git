@@ -186,6 +186,8 @@
   },
   "active": "1fded648ba7a72a7",
   "lastOpenFiles": [
+    "METADATA_IMPLEMENTATION_COMPLETE.md",
+    "bin/mind-git-metadata-cli.cjs",
     "bin/mind-git-metadata.cjs",
     "metadata/scripts/export-system-simple.js",
     "docs/research/AGENTS.md",
@@ -200,8 +202,6 @@
     "metadata/node_modules/typescript/lib/typescript.d.ts",
     "metadata/node_modules/typescript/lib/tsserverlibrary.d.ts",
     "metadata/node_modules/typescript/lib/lib.webworker.iterable.d.ts",
-    "metadata/node_modules/typescript/lib/lib.webworker.importscripts.d.ts",
-    "metadata/node_modules/typescript/lib/lib.webworker.d.ts",
     "metadata/node_modules/typescript/SECURITY.md",
     "metadata/node_modules/typescript/README.md",
     "metadata/node_modules/yaml/README.md",

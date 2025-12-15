@@ -5,7 +5,8 @@
   "main": "logos-system/dist/index.js",
   "types": "logos-system/dist/index.d.ts",
   "bin": {
-    "mind-git": "./bin/mind-git-simple.cjs"
+    "mind-git": "./bin/mind-git-simple.cjs",
+    "mind-git-metadata": "./bin/mind-git-metadata.cjs"
   },
   "type": "module",
   "scripts": {
