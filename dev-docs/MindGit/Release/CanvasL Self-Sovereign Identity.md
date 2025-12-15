@@ -1,3 +1,21 @@
+---
+id: "mind-git:development:canvasl-self-sovereign-identity"
+title: "CanvasL Self-Sovereign Identity"
+type: ["development"]
+category: development
+layer: 7
+dimensions: [0, 1, 2, 4, 8, 9]
+mathematicalFoundation: ["polynomial-algebra","identity-chain","formal-verification"]
+hopfCompatible: false
+normPreserving: true
+status: "complete"
+completeness: 95
+tags: ["development","documentation","canvasl","mathematics","polynomial","algebra"]
+keywords: ["canvasl","aal","polynomial","algebra","mathematics","verification","coq","proof","identity","chain","federation"]
+lastUpdate: "2025-12-15"
+
+---
+
 # CanvasL Self-Sovereign Identity  
 **The First Mathematically Sovereign, Living Identity System**  
 *No central issuer. No Merkle trees. Just pure algebra.*

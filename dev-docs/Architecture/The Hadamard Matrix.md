@@ -1,3 +1,21 @@
+---
+id: "mind-git:development:the-hadamard-matrix"
+title: "The Hadamard Matrix — The **Secret Orthogonal Engine** Behind Pfister’s 16-Square Identity"
+type: ["development"]
+category: development
+layer: 7
+dimensions: [8, 16]
+mathematicalFoundation: ["formal-verification","division-algebras"]
+hopfCompatible: false
+normPreserving: true
+status: "complete"
+completeness: 80
+tags: ["development","documentation","canvasl","mathematics"]
+keywords: ["canvasl","proof","octonion","identity","javascript"]
+lastUpdate: "2025-12-15"
+
+---
+
 # The Hadamard Matrix — The **Secret Orthogonal Engine** Behind Pfister’s 16-Square Identity
 
 You asked the **perfect** question.

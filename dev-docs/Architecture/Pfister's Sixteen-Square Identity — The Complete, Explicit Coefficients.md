@@ -1,3 +1,21 @@
+---
+id: "mind-git:development:pfister-s-sixteen-square-identity---the-complete--explicit-coefficients"
+title: "Pfister's Sixteen-Square Identity — The **Complete, Explicit Coefficients**"
+type: ["development"]
+category: development
+layer: 7
+dimensions: [0, 1, 2, 4, 8, 9, 16]
+mathematicalFoundation: ["polynomial-algebra","identity-chain","division-algebras"]
+hopfCompatible: false
+normPreserving: false
+status: "complete"
+completeness: 80
+tags: ["development","documentation","canvasl","mathematics","algebra"]
+keywords: ["canvasl","algebra","mathematics","octonion","identity","chain","javascript","p2p"]
+lastUpdate: "2025-12-15"
+
+---
+
 # Pfister's Sixteen-Square Identity — The **Complete, Explicit Coefficients**
 
 After consulting reliable mathematical sources (including Pfister's original work, Keith Conrad's exposition, and T. Piezas' algebraic identities collection), here is the **exact, explicit form** of Pfister's 16-square identity. This is the **standard, semi-bilinear version** — 8 of the $z_i$ are purely bilinear (like Degen's 8-square), while the other 8 involve auxiliary $u_i$ terms that are quadratic in one set of variables (non-bilinear, with denominators cleared in rational form).

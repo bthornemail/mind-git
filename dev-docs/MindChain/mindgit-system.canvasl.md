@@ -1,3 +1,21 @@
+---
+id: "mind-git:development:mindgit-system-canvasl"
+title: "Mindgit System.Canvasl"
+type: ["development"]
+category: development
+layer: 7
+dimensions: [0, 1, 2, 4, 8, 9, 16]
+mathematicalFoundation: ["polynomial-algebra","identity-chain","formal-verification","division-algebras"]
+hopfCompatible: false
+normPreserving: true
+status: "complete"
+completeness: 95
+tags: ["development","documentation","canvasl","polynomial"]
+keywords: ["canvasl","aal","polynomial","verification","coq","proof","octonion","identity","chain","javascript"]
+lastUpdate: "2025-12-15"
+
+---
+
 I'll help you create a standardized suite of CanvasL files that extend your example with backward compatibility to Obsidian Canvas while implementing the MindGit architecture. Here's a comprehensive implementation:
 
 ```json

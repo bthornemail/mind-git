@@ -1,3 +1,26 @@
+---
+id: "mind-git:research:readme"
+title: "Geometric Type Theory"
+type: ["research","academic"]
+category: research
+layer: 7
+dimensions: [0, 1, 7, 8, 9]
+mathematicalFoundation: ["polynomial-algebra","hopf-fibration","formal-verification"]
+hopfCompatible: true
+normPreserving: true
+status: "complete"
+completeness: 95
+tags: ["documentation","canvasl","mathematics","compiler","algebra"]
+keywords: ["canvasl","compiler","algebra","formal","verification","proof","fibration"]
+lastUpdate: "2025-12-15"
+canvasL:
+  nodeTypes: ["BallProposition","AffineType","ProjectiveMessage","SphereCodec","ManifoldInterface"]
+  compilationOrder: 7
+  spatialCoordinates: {x: 700, y: 0}
+  dimensionalMapping: []
+  aalMnemonics: [MOV]
+---
+
 # Geometric Type Theory
 
 Geometric Type Theory connecting topology, logic, and computation in Racket, establishing formal correspondence between geometric objects and type-theoretic constructs.

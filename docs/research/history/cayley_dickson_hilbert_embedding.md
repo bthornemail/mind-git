@@ -1,3 +1,21 @@
+---
+id: "mind-git:research:cayley-dickson-hilbert-embedding"
+title: "Cayley-Dickson Doubling Embedded in Hilbert Basis"
+type: ["research","academic"]
+category: research
+layer: 7
+dimensions: [0, 1, 8, 9, 16]
+mathematicalFoundation: ["polynomial-algebra","division-algebras"]
+hopfCompatible: false
+normPreserving: false
+status: "complete"
+completeness: 95
+tags: ["documentation","ast","algebra"]
+keywords: ["ast","algebra","theorem","octonion","sedenion"]
+lastUpdate: "2025-12-15"
+
+---
+
 # Cayley-Dickson Doubling Embedded in Hilbert Basis
 **The 1D, 2D, 4D vs 8D, 16D, 32D Structure**
 

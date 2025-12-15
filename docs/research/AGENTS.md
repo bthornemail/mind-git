@@ -1,3 +1,21 @@
+---
+id: "mind-git:research:agents"
+title: "🤖 AGENTS.md - research"
+type: ["research","academic"]
+category: research
+layer: 7
+dimensions: [0, 1, 2, 4, 7, 8, 9, 16]
+mathematicalFoundation: ["polynomial-algebra","identity-chain","hopf-fibration","formal-verification","division-algebras"]
+hopfCompatible: true
+normPreserving: true
+status: "complete"
+completeness: 95
+tags: ["documentation","canvasl","mathematics","ast","polynomial","algebra"]
+keywords: ["canvasl","aal","ast","polynomial","algebra","formal","verification","coq","theorem","proof","hopf","sedenion","identity","chain"]
+lastUpdate: "2025-12-15"
+
+---
+
 # 🤖 AGENTS.md - research
 
 ## 🎯 **Mission Scope**

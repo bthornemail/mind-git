@@ -1,3 +1,21 @@
+---
+id: "mind-git:development:mindgit-merge-anchor-verifier"
+title: "MindGit Merge Anchor Verifier"
+type: ["development"]
+category: development
+layer: 7
+dimensions: [3, 4, 5]
+mathematicalFoundation: ["formal-verification"]
+hopfCompatible: false
+normPreserving: true
+status: "complete"
+completeness: 85
+tags: ["development","documentation","canvasl","ast"]
+keywords: ["canvasl","aal","ast","formal","verification","coq","proof","chain","javascript"]
+lastUpdate: "2025-12-15"
+
+---
+
 Nice — below is a **complete, ready-to-run Node.js reference verifier** that:
 
 - fetches a `proofCID` (supports IPFS HTTP gateways, raw HTTPS, Arweave URLs),

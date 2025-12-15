@@ -1,3 +1,26 @@
+---
+id: "mind-git:api:logos-system-api"
+title: "Complete API Reference"
+type: ["api","reference"]
+category: api
+layer: 3
+dimensions: [0, 1, 2, 4, 7, 8, 9, 16]
+mathematicalFoundation: ["polynomial-algebra","identity-chain","hopf-fibration","formal-verification","division-algebras"]
+hopfCompatible: true
+normPreserving: true
+status: "complete"
+completeness: 95
+tags: ["documentation","canvasl","mathematics","compiler","ast","api","polynomial","algebra"]
+keywords: ["canvasl","aal","ast","compiler","polynomial","algebra","formal","verification","coq","theorem","proof","hopf","fibration","octonion","identity","chain","typescript","javascript"]
+lastUpdate: "2025-12-15"
+canvasL:
+  nodeTypes: ["Observer","Activate"]
+  compilationOrder: 3
+  spatialCoordinates: {x: 300, y: 0}
+  dimensionalMapping: [D0]
+  aalMnemonics: [MOV, CALL]
+---
+
 # Complete API Reference
 
 This document provides comprehensive reference for all public APIs in the mind-gitsystem. Each API includes mathematical foundations, usage examples, and verification properties.

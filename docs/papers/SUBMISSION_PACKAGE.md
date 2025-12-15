@@ -1,3 +1,21 @@
+---
+id: "mind-git:papers:submission-package"
+title: "Submission Package: Computational Verification of the Complete N-Square Identity Chain"
+type: ["papers","academic"]
+category: papers
+layer: 7
+dimensions: [2, 4, 8]
+mathematicalFoundation: ["identity-chain"]
+hopfCompatible: false
+normPreserving: false
+status: "complete"
+completeness: 70
+tags: ["documentation","mathematics"]
+keywords: ["mathematics","verification","identity","chain","typescript"]
+lastUpdate: "2025-12-15"
+
+---
+
 # Submission Package: Computational Verification of the Complete N-Square Identity Chain
 
 **Paper Title:** Computational Verification of the Complete N-Square Identity Chain: From Brahmagupta (628 AD) to Pfister (1965)

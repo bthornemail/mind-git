@@ -1,3 +1,21 @@
+---
+id: "mind-git:development:white-paper-grok-4-----the-canvasl-paradigm---linear-exponential-references-in-self-evolving-systems"
+title: "White Paper: The CanvasL Paradigm — Linear Exponential References in Self-Evolving Systems"
+type: ["development"]
+category: development
+layer: 7
+dimensions: [0, 1, 2, 4, 8, 9]
+mathematicalFoundation: ["polynomial-algebra","identity-chain","formal-verification"]
+hopfCompatible: false
+normPreserving: true
+status: "complete"
+completeness: 95
+tags: ["development","documentation","canvasl","mathematics","compiler","ast","polynomial","algebra"]
+keywords: ["canvasl","aal","ast","compiler","polynomial","algebra","formal","verification","coq","theorem","proof","identity","chain"]
+lastUpdate: "2025-12-15"
+
+---
+
 # White Paper: The CanvasL Paradigm — Linear Exponential References in Self-Evolving Systems
 
 ## Authors

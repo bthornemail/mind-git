@@ -1,3 +1,21 @@
+---
+id: "mind-git:documentation:readme"
+title: "Vision Documentation"
+type: ["documentation"]
+category: documentation
+layer: 4
+dimensions: [0, 1, 7, 8, 9]
+mathematicalFoundation: ["polynomial-algebra","hopf-fibration","formal-verification"]
+hopfCompatible: true
+normPreserving: true
+status: "complete"
+completeness: 95
+tags: ["documentation","mathematics","compiler","ast","algebra"]
+keywords: ["ast","compiler","algebra","mathematics","formal","verification","coq","theorem","proof","hopf","fibration"]
+lastUpdate: "2025-12-15"
+
+---
+
 # Vision Documentation
 
 This directory contains visionary, philosophical, and long-term strategic thinking behind the mind-gitproject. While architecture and research explain *how* the system works, the vision explains *why* it exists and *where* it's going.

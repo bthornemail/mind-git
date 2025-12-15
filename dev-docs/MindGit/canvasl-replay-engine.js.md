@@ -1,3 +1,21 @@
+---
+id: "mind-git:development:canvasl-replay-engine-js"
+title: "Canvasl Replay Engine.Js"
+type: ["development"]
+category: development
+layer: 7
+dimensions: [8, 16]
+mathematicalFoundation: ["division-algebras"]
+hopfCompatible: false
+normPreserving: false
+status: "complete"
+completeness: 70
+tags: ["development","documentation","canvasl","ast","api"]
+keywords: ["canvasl","ast","octonion","javascript"]
+lastUpdate: "2025-12-15"
+
+---
+
 ```js
 // canvasl-replay-engine.js
 

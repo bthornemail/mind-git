@@ -1,3 +1,21 @@
+---
+id: "mind-git:development:unified-canvasl-core-engine---canvasl-engine-js"
+title: "Unified CanvasL Core Engine   Canvasl Engine.Js"
+type: ["development"]
+category: development
+layer: 7
+dimensions: [8, 16]
+mathematicalFoundation: ["division-algebras"]
+hopfCompatible: false
+normPreserving: false
+status: "complete"
+completeness: 80
+tags: ["development","documentation","canvasl","mathematics","ast"]
+keywords: ["canvasl","ast","octonion","javascript"]
+lastUpdate: "2025-12-15"
+
+---
+
 Looking at your existing CanvasL implementation, I can see you're building a sophisticated ecosystem. Let me create a **native, integrated solution** that combines all these components while maintaining backward compatibility with Obsidian Canvas. Here's a complete implementation:
 
 ## **1. Unified CanvasL Core Engine** (`canvasl-engine.js`)

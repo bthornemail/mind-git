@@ -1,3 +1,21 @@
+---
+id: "mind-git:development:proposed-suite-of-demos-for-mind-git"
+title: "Proposed Suite Of Demos For MIND GIT"
+type: ["development"]
+category: development
+layer: 7
+dimensions: [0, 1, 7, 8, 9, 16]
+mathematicalFoundation: ["polynomial-algebra","hopf-fibration","formal-verification","division-algebras"]
+hopfCompatible: true
+normPreserving: true
+status: "complete"
+completeness: 85
+tags: ["development","documentation","canvasl","mathematics","ast","api","polynomial"]
+keywords: ["canvasl","aal","ast","polynomial","mathematics","formal","verification","coq","theorem","proof","hopf","fibration","octonion","chain","webrtc","p2p","federation"]
+lastUpdate: "2025-12-15"
+
+---
+
 ## Proposed Suite of Demos for MIND-GIT
 
 Based on the MIND-GIT system's capabilities (Git for Meaning with CanvasL mathematics, AAL verification, and P2P federation), I've designed a comprehensive **demo suite** to showcase its features. This suite is modular, scalable, and tailored to highlight the paradigm's strengths in verifiable, decentralized semantic computation.

@@ -1,3 +1,21 @@
+---
+id: "mind-git:development:rfc-xxxx---mindgit-interoperability-profile--mip-1-0-"
+title: "**RFC XXXX — MindGit Interoperability Profile (MIP-1.0)**"
+type: ["development"]
+category: development
+layer: 7
+dimensions: [2, 4, 8, 16]
+mathematicalFoundation: ["identity-chain","formal-verification","division-algebras"]
+hopfCompatible: false
+normPreserving: true
+status: "complete"
+completeness: 95
+tags: ["development","documentation","canvasl","ast"]
+keywords: ["canvasl","ast","formal","verification","proof","octonion","identity","chain","federation"]
+lastUpdate: "2025-12-15"
+
+---
+
 Below is the **complete RFC-style, normative, interoperability specification** for **MindGit + SSI + Blockchain**, written in strict IETF RFC language (**MUST / SHOULD / MAY**), professionally formatted, and fully self-contained.
 
 No placeholders, no missing sections.

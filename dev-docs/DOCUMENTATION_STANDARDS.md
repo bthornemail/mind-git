@@ -1,3 +1,21 @@
+---
+id: "mind-git:development:documentation-standards"
+title: "**CanvasL/MindGit Documentation Standards**"
+type: ["development"]
+category: development
+layer: 7
+dimensions: [0, 1, 8, 9, 16]
+mathematicalFoundation: ["polynomial-algebra","formal-verification","division-algebras"]
+hopfCompatible: false
+normPreserving: true
+status: "complete"
+completeness: 95
+tags: ["development","documentation","canvasl","mathematics","ast","api","algebra"]
+keywords: ["canvasl","ast","algebra","mathematics","formal","theorem","proof","octonion","javascript"]
+lastUpdate: "2025-12-15"
+
+---
+
 # **CanvasL/MindGit Documentation Standards**
 
 ## **Purpose**

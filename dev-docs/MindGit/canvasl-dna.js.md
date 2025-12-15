@@ -1,3 +1,21 @@
+---
+id: "mind-git:development:canvasl-dna-js"
+title: "Extract generation 42"
+type: ["development"]
+category: development
+layer: 7
+dimensions: [8, 16]
+mathematicalFoundation: ["division-algebras"]
+hopfCompatible: false
+normPreserving: false
+status: "complete"
+completeness: 80
+tags: ["development","documentation","canvasl","mathematics","ast","api"]
+keywords: ["canvasl","ast","octonion","javascript"]
+lastUpdate: "2025-12-15"
+
+---
+
 ### New file: `canvasl-dna.js` (≈ 140 lines, zero dependencies)
 
 ```javascript

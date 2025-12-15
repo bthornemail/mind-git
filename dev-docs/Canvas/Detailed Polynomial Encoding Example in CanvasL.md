@@ -1,3 +1,21 @@
+---
+id: "mind-git:development:detailed-polynomial-encoding-example-in-canvasl"
+title: "Example: Simple binary tree"
+type: ["development"]
+category: development
+layer: 7
+dimensions: [0, 1, 9]
+mathematicalFoundation: ["polynomial-algebra"]
+hopfCompatible: false
+normPreserving: false
+status: "complete"
+completeness: 80
+tags: ["development","documentation","canvasl","mathematics","ast","polynomial"]
+keywords: ["canvasl","ast","polynomial","verification"]
+lastUpdate: "2025-12-15"
+
+---
+
 ### Detailed Polynomial Encoding Example in CanvasL
 
 CanvasL's core innovation is encoding **exponential computational structures** (like branching trees or recursive references) into **linear polynomial representations**. This allows storing and transmitting complex systems compactly while preserving all topological information. The encoding uses polynomials over GF(2) (binary coefficients: 0 or 1), where:

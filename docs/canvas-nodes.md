@@ -1,3 +1,26 @@
+---
+id: "mind-git:documentation:canvas-nodes"
+title: "Canvas Node Types"
+type: ["documentation"]
+category: documentation
+layer: 4
+dimensions: [0, 1, 7, 8, 9, 16]
+mathematicalFoundation: ["polynomial-algebra","hopf-fibration","division-algebras"]
+hopfCompatible: true
+normPreserving: false
+status: "complete"
+completeness: 80
+tags: ["documentation","canvasl","mathematics","ast","polynomial","algebra"]
+keywords: ["canvasl","aal","ast","polynomial","algebra","theorem","hopf","fibration","sedenion","identity"]
+lastUpdate: "2025-12-15"
+canvasL:
+  nodeTypes: ["Activate","Integrate","Propagate","BackPropagate","Transform","Verify","Store","Observe","GeometricPropagate","GeometricObserve","EpistemicBound","SedenionTransform"]
+  compilationOrder: 4
+  spatialCoordinates: {x: 400, y: 0}
+  dimensionalMapping: [D0, D1, D2, D3, D4, D5, D6, D7]
+  aalMnemonics: [CALL, ADD, MOV, FEEDBACK, MUL, CMP]
+---
+
 # Canvas Node Types
 
 CanvasL nodes are classified by text prefix, mapping directly to mathematical operations and dimensional levels.

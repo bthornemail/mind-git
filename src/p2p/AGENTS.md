@@ -1,3 +1,21 @@
+---
+id: "mind-git:compiler:agents"
+title: "🤖 AGENTS.md - webrtcFederation"
+type: ["compiler","development"]
+category: compiler
+layer: 3
+dimensions: [0, 1, 2, 4, 7, 8, 9]
+mathematicalFoundation: ["polynomial-algebra","identity-chain","hopf-fibration","formal-verification"]
+hopfCompatible: true
+normPreserving: true
+status: "complete"
+completeness: 95
+tags: ["canvasl","mathematics","ast","polynomial","algebra"]
+keywords: ["canvasl","aal","ast","polynomial","algebra","formal","verification","coq","theorem","proof","hopf","identity","chain","webrtc","federation"]
+lastUpdate: "2025-12-15"
+
+---
+
 # 🤖 AGENTS.md - webrtcFederation
 
 ## 🎯 **Mission Scope**

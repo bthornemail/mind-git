@@ -1,3 +1,26 @@
+---
+id: "mind-git:architecture:layers"
+title: "The Four-Layer Architecture"
+type: ["architecture","system"]
+category: architecture
+layer: 3
+dimensions: [0, 1, 2, 4, 7, 8, 9, 16]
+mathematicalFoundation: ["polynomial-algebra","identity-chain","hopf-fibration","formal-verification","division-algebras"]
+hopfCompatible: true
+normPreserving: true
+status: "complete"
+completeness: 95
+tags: ["documentation","mathematics","compiler","ast","api","polynomial","algebra"]
+keywords: ["aal","ast","compiler","polynomial","algebra","mathematics","formal","verification","coq","theorem","proof","hopf","fibration","octonion","identity","chain","typescript","javascript"]
+lastUpdate: "2025-12-15"
+canvasL:
+  nodeTypes: ["Activate","Integrate"]
+  compilationOrder: 3
+  spatialCoordinates: {x: 300, y: 0}
+  dimensionalMapping: [D0, D1]
+  aalMnemonics: [CALL, ADD]
+---
+
 # The Four-Layer Architecture
 
 ## Mental Model

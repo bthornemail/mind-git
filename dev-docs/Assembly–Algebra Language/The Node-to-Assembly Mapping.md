@@ -1,3 +1,21 @@
+---
+id: "mind-git:development:the-node-to-assembly-mapping"
+title: "canvasl-self-edit.jsonl"
+type: ["development"]
+category: development
+layer: 7
+dimensions: [0, 1, 8, 9, 16]
+mathematicalFoundation: ["polynomial-algebra","formal-verification","division-algebras"]
+hopfCompatible: false
+normPreserving: true
+status: "complete"
+completeness: 95
+tags: ["development","documentation","canvasl","mathematics","compiler","polynomial","algebra"]
+keywords: ["canvasl","aal","compiler","polynomial","algebra","formal","verification","coq","theorem","proof","octonion","identity"]
+lastUpdate: "2025-12-15"
+
+---
+
 ## 🔌 The Node-to-Assembly Mapping
 
 Based on your computational node structure and the 8-tuple isomorphism, here's how each node type maps to specific assembly instructions through the computational archetypes:

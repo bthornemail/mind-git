@@ -1,3 +1,21 @@
+---
+id: "mind-git:papers:identity-chain-real"
+title: "Computational Verification of the Complete N-Square Identity Chain: From Brahmagupta (628 AD) to Pfister (1965)"
+type: ["papers","academic"]
+category: papers
+layer: 7
+dimensions: [0, 1, 2, 4, 7, 8, 9, 16]
+mathematicalFoundation: ["polynomial-algebra","identity-chain","hopf-fibration","formal-verification","division-algebras"]
+hopfCompatible: true
+normPreserving: true
+status: "complete"
+completeness: 95
+tags: ["documentation","mathematics","ast","algebra"]
+keywords: ["ast","algebra","mathematics","formal","verification","coq","theorem","proof","hopf","octonion","sedenion","identity","chain","typescript"]
+lastUpdate: "2025-12-15"
+
+---
+
 # Computational Verification of the Complete N-Square Identity Chain: From Brahmagupta (628 AD) to Pfister (1965)
 
 **Brian Thorne**

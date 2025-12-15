@@ -1,3 +1,21 @@
+---
+id: "mind-git:development:how-the-algebraic-merge-works-in-mindgit---in-plain-english--and-a-little-math-"
+title: "How The Algebraic Merge Works In MindGit — In Plain English (And A Little Math)"
+type: ["development"]
+category: development
+layer: 7
+dimensions: [0, 1, 8, 9, 16]
+mathematicalFoundation: ["polynomial-algebra","formal-verification","division-algebras"]
+hopfCompatible: false
+normPreserving: true
+status: "complete"
+completeness: 95
+tags: ["development","documentation","canvasl","mathematics","ast","polynomial","algebra"]
+keywords: ["canvasl","aal","ast","polynomial","algebra","coq","theorem","proof","octonion"]
+lastUpdate: "2025-12-15"
+
+---
+
 ### How the Algebraic Merge Works in MindGit — In Plain English (and a little math)
 
 Imagine two CanvasL minds have been evolving separately for a while:

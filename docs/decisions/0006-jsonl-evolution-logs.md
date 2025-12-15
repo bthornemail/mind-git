@@ -1,3 +1,26 @@
+---
+id: "mind-git:documentation:0006-jsonl-evolution-logs"
+title: "ADR 0006: Use JSONL for Append-Only Evolution Logs"
+type: ["documentation"]
+category: documentation
+layer: 4
+dimensions: [0, 1, 9]
+mathematicalFoundation: ["polynomial-algebra","formal-verification"]
+hopfCompatible: false
+normPreserving: true
+status: "complete"
+completeness: 95
+tags: ["documentation","canvasl","ast","polynomial"]
+keywords: ["canvasl","ast","polynomial","verification","proof","chain","typescript","javascript"]
+lastUpdate: "2025-12-15"
+canvasL:
+  nodeTypes: ["10"]
+  compilationOrder: 4
+  spatialCoordinates: {x: 400, y: 0}
+  dimensionalMapping: []
+  aalMnemonics: [MOV]
+---
+
 # ADR 0006: Use JSONL for Append-Only Evolution Logs
 
 ## Status

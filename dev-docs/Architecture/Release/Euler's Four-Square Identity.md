@@ -1,3 +1,21 @@
+---
+id: "mind-git:development:euler-s-four-square-identity"
+title: "Euler's Four-Square Identity — The **Exact**, Beautiful, CanvasL-Ready Formula"
+type: ["development"]
+category: development
+layer: 7
+dimensions: [2, 4, 8, 16]
+mathematicalFoundation: ["identity-chain","division-algebras"]
+hopfCompatible: false
+normPreserving: false
+status: "complete"
+completeness: 80
+tags: ["development","documentation","canvasl","mathematics"]
+keywords: ["canvasl","mathematics","octonion","identity","chain","javascript"]
+lastUpdate: "2025-12-15"
+
+---
+
 # Euler's Four-Square Identity — The **Exact**, Beautiful, CanvasL-Ready Formula
 
 This is the **only** way to multiply two sums of **four squares** and get back a sum of **four squares** — the direct ancestor of Degen’s 8-square and the **heart** of quaternionic multiplication.

@@ -1,3 +1,26 @@
+---
+id: "mind-git:guides:getting-started"
+title: "Getting Started with CanvasL"
+type: ["guides","tutorial"]
+category: guides
+layer: 4
+dimensions: [0, 1, 7, 8, 9]
+mathematicalFoundation: ["polynomial-algebra","hopf-fibration","formal-verification"]
+hopfCompatible: true
+normPreserving: true
+status: "complete"
+completeness: 95
+tags: ["documentation","canvasl","mathematics","compiler","ast","api","polynomial","algebra"]
+keywords: ["canvasl","ast","compiler","polynomial","algebra","mathematics","formal","verification","coq","theorem","proof","hopf","fibration","identity","typescript","javascript"]
+lastUpdate: "2025-12-15"
+canvasL:
+  nodeTypes: ["Observer","Activate","Invalid","Integrate","Transform","Store","Observe"]
+  compilationOrder: 4
+  spatialCoordinates: {x: 400, y: 0}
+  dimensionalMapping: [D0, D1, D4, D6, D7]
+  aalMnemonics: [MOV, CALL, ADD, MUL]
+---
+
 # Getting Started with CanvasL
 
 **"Your First Canvas in 10 Minutes"**

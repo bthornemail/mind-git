@@ -1,3 +1,26 @@
+---
+id: "mind-git:documentation:api-reference"
+title: "API Reference"
+type: ["documentation"]
+category: documentation
+layer: 4
+dimensions: [0, 1, 2, 4, 7, 8, 9, 16]
+mathematicalFoundation: ["polynomial-algebra","identity-chain","hopf-fibration","formal-verification","division-algebras"]
+hopfCompatible: true
+normPreserving: true
+status: "complete"
+completeness: 95
+tags: ["documentation","canvasl","mathematics","compiler","ast","api","polynomial","algebra"]
+keywords: ["canvasl","aal","ast","compiler","polynomial","algebra","mathematics","formal","verification","coq","theorem","proof","hopf","fibration","octonion","sedenion","identity","chain","typescript","javascript"]
+lastUpdate: "2025-12-15"
+canvasL:
+  nodeTypes: ["Observe","Integrate"]
+  compilationOrder: 4
+  spatialCoordinates: {x: 400, y: 0}
+  dimensionalMapping: [D7, D1]
+  aalMnemonics: [MOV, ADD]
+---
+
 # API Reference
 
 Complete API documentation for CanvasL visual programming language and mathematical foundation.

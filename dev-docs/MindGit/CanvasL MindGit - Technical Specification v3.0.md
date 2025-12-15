@@ -1,3 +1,21 @@
+---
+id: "mind-git:development:canvasl-mindgit---technical-specification-v3-0"
+title: "CanvasL MindGit™"
+type: ["development"]
+category: development
+layer: 7
+dimensions: [0, 1, 2, 4, 7, 8, 9, 16]
+mathematicalFoundation: ["polynomial-algebra","identity-chain","hopf-fibration","formal-verification","division-algebras"]
+hopfCompatible: true
+normPreserving: true
+status: "complete"
+completeness: 95
+tags: ["development","documentation","canvasl","mathematics","ast","api","polynomial","algebra"]
+keywords: ["canvasl","aal","ast","polynomial","algebra","formal","verification","coq","theorem","proof","fibration","octonion","identity","chain","typescript","p2p"]
+lastUpdate: "2025-12-15"
+
+---
+
 # CanvasL MindGit™
 
 ## Technical Specification v3.0

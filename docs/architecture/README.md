@@ -1,3 +1,21 @@
+---
+id: "mind-git:architecture:readme"
+title: "Architecture Documentation"
+type: ["architecture","system"]
+category: architecture
+layer: 3
+dimensions: [0, 1, 2, 4, 7, 8, 9]
+mathematicalFoundation: ["polynomial-algebra","identity-chain","hopf-fibration","formal-verification"]
+hopfCompatible: true
+normPreserving: true
+status: "complete"
+completeness: 95
+tags: ["documentation","canvasl","mathematics","compiler","polynomial","algebra"]
+keywords: ["canvasl","aal","compiler","polynomial","algebra","mathematics","formal","verification","coq","theorem","proof","hopf","fibration","identity","chain","typescript"]
+lastUpdate: "2025-12-15"
+
+---
+
 # Architecture Documentation
 
 This directory contains the complete architectural documentation for the mind-gitproject. The architecture is not arbitrary - it emerges from mathematical necessity.

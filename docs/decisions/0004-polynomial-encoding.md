@@ -1,3 +1,21 @@
+---
+id: "mind-git:documentation:0004-polynomial-encoding"
+title: "ADR 0004: Use Polynomial Divisibility for Graph Topology"
+type: ["documentation"]
+category: documentation
+layer: 4
+dimensions: [0, 1, 9]
+mathematicalFoundation: ["polynomial-algebra","formal-verification"]
+hopfCompatible: false
+normPreserving: true
+status: "complete"
+completeness: 95
+tags: ["documentation","mathematics","compiler","polynomial","algebra"]
+keywords: ["compiler","polynomial","algebra","verification","proof","typescript"]
+lastUpdate: "2025-12-15"
+
+---
+
 # ADR 0004: Use Polynomial Divisibility for Graph Topology
 
 ## Status

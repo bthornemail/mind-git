@@ -1,3 +1,21 @@
+---
+id: "mind-git:api:readme"
+title: "API Reference Documentation"
+type: ["api","reference"]
+category: api
+layer: 3
+dimensions: [0, 1, 2, 4, 8, 9, 16]
+mathematicalFoundation: ["polynomial-algebra","identity-chain","formal-verification","division-algebras"]
+hopfCompatible: false
+normPreserving: true
+status: "complete"
+completeness: 95
+tags: ["documentation","canvasl","mathematics","compiler","ast","api","polynomial","algebra"]
+keywords: ["canvasl","aal","ast","compiler","polynomial","algebra","formal","verification","coq","theorem","proof","octonion","identity","chain","typescript","javascript"]
+lastUpdate: "2025-12-15"
+
+---
+
 # API Reference Documentation
 
 This directory contains complete API reference for all components of the mind-gitsystem. Each API is documented with mathematical foundations, usage examples, and verification properties.

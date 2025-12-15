@@ -1,3 +1,21 @@
+---
+id: "mind-git:development:clarifying-the-linking-number-computation-in-the-hopf-invariant-calculation"
+title: "Clarifying The Linking Number Computation In The Hopf Invariant Calculation"
+type: ["development"]
+category: development
+layer: 7
+dimensions: [0, 1, 7, 8, 9, 16]
+mathematicalFoundation: ["polynomial-algebra","hopf-fibration","formal-verification","division-algebras"]
+hopfCompatible: true
+normPreserving: true
+status: "complete"
+completeness: 95
+tags: ["development","documentation","canvasl","algebra"]
+keywords: ["canvasl","algebra","proof","hopf","fibration","octonion","chain"]
+lastUpdate: "2025-12-15"
+
+---
+
 ### Clarifying the Linking Number Computation in the Hopf Invariant Calculation  
 Why the cup product $u \smile u = \pm v$ comes from **linking number ±1**
 

@@ -1,3 +1,21 @@
+---
+id: "mind-git:development:main-ui-patch-js"
+title: "Main Ui Patch.Js"
+type: ["development"]
+category: development
+layer: 7
+dimensions: [8, 16]
+mathematicalFoundation: ["division-algebras"]
+hopfCompatible: false
+normPreserving: false
+status: "complete"
+completeness: 70
+tags: ["development","documentation","canvasl","api"]
+keywords: ["canvasl","octonion"]
+lastUpdate: "2025-12-15"
+
+---
+
 ```js
 // DROP-IN PATCH for Main UI/Engine
 

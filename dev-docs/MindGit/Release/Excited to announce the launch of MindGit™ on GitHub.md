@@ -1,3 +1,21 @@
+---
+id: "mind-git:development:excited-to-announce-the-launch-of-mindgit--on-github"
+title: "Excited To Announce The Launch Of MindGit™ On GitHub"
+type: ["development"]
+category: development
+layer: 7
+dimensions: [0, 1, 9]
+mathematicalFoundation: ["polynomial-algebra","formal-verification"]
+hopfCompatible: false
+normPreserving: true
+status: "complete"
+completeness: 65
+tags: ["development","documentation","canvasl","mathematics","ast","algebra"]
+keywords: ["canvasl","ast","algebra","formal","verification","coq","proof"]
+lastUpdate: "2025-12-15"
+
+---
+
 Just shipped something wild to GitHub 🔥
 
 MindGit™ — Git, but for living minds.

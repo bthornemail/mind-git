@@ -1,3 +1,21 @@
+---
+id: "mind-git:development:canvasl-federated-ast-summary"
+title: "CanvasL"
+type: ["development"]
+category: development
+layer: 7
+dimensions: [0, 1, 2, 4, 8, 9, 16]
+mathematicalFoundation: ["polynomial-algebra","identity-chain","division-algebras"]
+hopfCompatible: false
+normPreserving: false
+status: "complete"
+completeness: 95
+tags: ["development","documentation","canvasl","mathematics","compiler","ast","algebra"]
+keywords: ["canvasl","ast","compiler","algebra","mathematics","verification","theorem","octonion","identity","chain","p2p","federation"]
+lastUpdate: "2025-12-15"
+
+---
+
 # CanvasL
 
 ## A Decentralized, Federated AST for Shared Semantic States

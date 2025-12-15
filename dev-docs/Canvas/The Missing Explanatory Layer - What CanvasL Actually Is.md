@@ -1,3 +1,21 @@
+---
+id: "mind-git:development:the-missing-explanatory-layer---what-canvasl-actually-is"
+title: "**The Missing Explanatory Layer: What CanvasL Actually Is**"
+type: ["development"]
+category: development
+layer: 7
+dimensions: [0, 1, 9]
+mathematicalFoundation: ["polynomial-algebra","formal-verification"]
+hopfCompatible: false
+normPreserving: true
+status: "complete"
+completeness: 95
+tags: ["development","documentation","canvasl","mathematics","compiler","ast","polynomial","algebra"]
+keywords: ["canvasl","ast","compiler","polynomial","algebra","mathematics","formal","verification","proof","identity"]
+lastUpdate: "2025-12-15"
+
+---
+
 # **The Missing Explanatory Layer: What CanvasL Actually Is**
 
 ## **🎯 The Core Metaphor: CanvasL as a "Computational Origami Pattern"**

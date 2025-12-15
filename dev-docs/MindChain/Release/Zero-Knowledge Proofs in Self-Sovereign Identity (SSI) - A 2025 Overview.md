@@ -1,3 +1,21 @@
+---
+id: "mind-git:development:zero-knowledge-proofs-in-self-sovereign-identity--ssi----a-2025-overview"
+title: "Zero Knowledge Proofs In Self Sovereign Identity (SSI)   A 2025 Overview"
+type: ["development"]
+category: development
+layer: 7
+dimensions: [2, 4, 8]
+mathematicalFoundation: ["identity-chain","formal-verification"]
+hopfCompatible: false
+normPreserving: true
+status: "complete"
+completeness: 85
+tags: ["development","documentation","ast"]
+keywords: ["ast","verification","proof","identity","chain"]
+lastUpdate: "2025-12-15"
+
+---
+
 ### Zero-Knowledge Proofs in Self-Sovereign Identity (SSI): A 2025 Overview
 
 Zero-knowledge proofs (ZKPs) are cryptographic protocols allowing one party (the prover) to convince another (the verifier) that a statement is true without revealing any underlying data beyond the statement's validity. In SSI, ZKPs enable **selective disclosure**—proving attributes (e.g., "I'm over 21") without exposing full details (e.g., exact birthdate)—aligning with SSI's core principles of user control, privacy, and minimal data sharing. By December 2025, ZKPs are integral to SSI standards, powering verifiable credentials (VCs) in high-stakes sectors like finance, healthcare, and governance, with market growth projected from $75M in 2024 to $10B by 2030.

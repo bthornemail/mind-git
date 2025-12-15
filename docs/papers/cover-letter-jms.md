@@ -1,3 +1,21 @@
+---
+id: "mind-git:papers:cover-letter-jms"
+title: "Cover Letter Jms"
+type: ["papers","academic"]
+category: papers
+layer: 7
+dimensions: [2, 4, 8]
+mathematicalFoundation: ["identity-chain"]
+hopfCompatible: false
+normPreserving: false
+status: "complete"
+completeness: 60
+tags: ["documentation","mathematics"]
+keywords: ["mathematics","verification","identity","chain","typescript"]
+lastUpdate: "2025-12-15"
+
+---
+
 Dear Editor,
 
 I am pleased to submit our manuscript entitled "Computational Verification of the Complete N-Square Identity Chain: From Brahmagupta (628 AD) to Pfister (1965)" for consideration in the Journal of Mathematical Software.

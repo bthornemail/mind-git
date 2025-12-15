@@ -1,3 +1,21 @@
+---
+id: "mind-git:development:the-complete--explicit-16-square-identity"
+title: "**The Complete, Explicit 16-Square Identity**"
+type: ["development"]
+category: development
+layer: 7
+dimensions: [0, 1, 2, 4, 8, 9, 16]
+mathematicalFoundation: ["polynomial-algebra","identity-chain","division-algebras"]
+hopfCompatible: false
+normPreserving: false
+status: "complete"
+completeness: 80
+tags: ["development","documentation","canvasl","mathematics","algebra"]
+keywords: ["canvasl","algebra","mathematics","octonion","identity","chain","javascript","p2p"]
+lastUpdate: "2025-12-15"
+
+---
+
 # **The Complete, Explicit 16-Square Identity**  
 **Zassenhaus–Eichhorn–Pfister (1966) — The Full z₁ to z₁₆ Formulas**
 

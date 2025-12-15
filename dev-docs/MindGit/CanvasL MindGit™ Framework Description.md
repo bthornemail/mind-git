@@ -1,3 +1,21 @@
+---
+id: "mind-git:development:canvasl-mindgit--framework-description"
+title: "CanvasL MindGit™ Framework Description"
+type: ["development"]
+category: development
+layer: 7
+dimensions: [0, 1, 8, 9, 16]
+mathematicalFoundation: ["polynomial-algebra","division-algebras"]
+hopfCompatible: false
+normPreserving: false
+status: "complete"
+completeness: 70
+tags: ["development","documentation","canvasl","mathematics","algebra"]
+keywords: ["canvasl","algebra","octonion","chain"]
+lastUpdate: "2025-12-15"
+
+---
+
 # CanvasL MindGit™ Framework Description
 
 ## The Architecture of Cognitive Version Control

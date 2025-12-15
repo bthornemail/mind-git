@@ -1,3 +1,26 @@
+---
+id: "mind-git:research:readme"
+title: "Division Algebras"
+type: ["research","academic"]
+category: research
+layer: 7
+dimensions: [0, 1, 2, 4, 7, 8, 9, 16]
+mathematicalFoundation: ["polynomial-algebra","identity-chain","hopf-fibration","division-algebras"]
+hopfCompatible: true
+normPreserving: false
+status: "complete"
+completeness: 80
+tags: ["documentation","canvasl","mathematics","algebra"]
+keywords: ["canvasl","algebra","mathematics","verification","theorem","hopf","fibration","octonion","sedenion","identity","chain"]
+lastUpdate: "2025-12-15"
+canvasL:
+  nodeTypes: ["Transform"]
+  compilationOrder: 7
+  spatialCoordinates: {x: 700, y: 0}
+  dimensionalMapping: [D4]
+  aalMnemonics: [MUL]
+---
+
 # Division Algebras
 
 Complete theory of division algebras from ℝ through sedenions (𝕊), establishing the mathematical foundation for CanvasL operations.

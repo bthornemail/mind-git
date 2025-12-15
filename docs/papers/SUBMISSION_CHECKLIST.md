@@ -1,3 +1,21 @@
+---
+id: "mind-git:papers:submission-checklist"
+title: "Navier-Stokes Paper Submission Checklist"
+type: ["papers","academic"]
+category: papers
+layer: 7
+dimensions: [3, 4, 5]
+mathematicalFoundation: ["formal-verification"]
+hopfCompatible: false
+normPreserving: true
+status: "complete"
+completeness: 85
+tags: ["documentation","mathematics","ast"]
+keywords: ["ast","verification","proof"]
+lastUpdate: "2025-12-15"
+
+---
+
 # Navier-Stokes Paper Submission Checklist
 
 ## Phase 1: Pre-Submission Preparation (2-3 weeks)

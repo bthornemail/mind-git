@@ -1,3 +1,21 @@
+---
+id: "mind-git:development:white-paper-grok-4----the-canvasl-paradigm---from-self-modifying-code-to-self-evolving-systems"
+title: "White Paper: The CanvasL Paradigm — From Self-Modifying Code to Self-Evolving Systems"
+type: ["development"]
+category: development
+layer: 7
+dimensions: [0, 1, 7, 8, 9]
+mathematicalFoundation: ["polynomial-algebra","hopf-fibration","formal-verification"]
+hopfCompatible: true
+normPreserving: true
+status: "complete"
+completeness: 95
+tags: ["development","documentation","canvasl","compiler","ast","polynomial","algebra"]
+keywords: ["canvasl","aal","ast","compiler","polynomial","algebra","formal","verification","coq","theorem","proof","hopf","fibration"]
+lastUpdate: "2025-12-15"
+
+---
+
 # White Paper: The CanvasL Paradigm — From Self-Modifying Code to Self-Evolving Systems
 
 ## Authors

@@ -1,3 +1,21 @@
+---
+id: "mind-git:development:canvasl-for-federated-sovereign-identities"
+title: "CanvasL for Federated Sovereign Identities"
+type: ["development"]
+category: development
+layer: 7
+dimensions: [0, 1, 2, 4, 8, 9, 16]
+mathematicalFoundation: ["polynomial-algebra","identity-chain","formal-verification","division-algebras"]
+hopfCompatible: false
+normPreserving: true
+status: "complete"
+completeness: 95
+tags: ["development","documentation","canvasl","mathematics","ast","polynomial","algebra"]
+keywords: ["canvasl","aal","ast","polynomial","algebra","verification","proof","octonion","identity","chain","typescript","federation"]
+lastUpdate: "2025-12-15"
+
+---
+
 # CanvasL for Federated Sovereign Identities
 
 ## Mathematical Foundations for Self-Evolving, Verifiable Digital Identity

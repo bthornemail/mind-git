@@ -1,3 +1,21 @@
+---
+id: "mind-git:development:obsidian-plugin---logos-visual-compiler"
+title: "**Obsidian Plugin: Logos Visual Compiler**"
+type: ["development"]
+category: development
+layer: 7
+dimensions: [3, 4, 5]
+mathematicalFoundation: ["general"]
+hopfCompatible: false
+normPreserving: false
+status: "complete"
+completeness: 80
+tags: ["development","documentation","canvasl","compiler","ast"]
+keywords: ["canvasl","ast","compiler","typescript"]
+lastUpdate: "2025-12-15"
+
+---
+
 # **Obsidian Plugin: Logos Visual Compiler**
 
 ## 🎯 **Core Concept**

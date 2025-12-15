@@ -1,3 +1,21 @@
+---
+id: "mind-git:development:how-the-fano-plane-gives-you-the-perfect-hamming--7-4--code"
+title: "In the MindGit repo"
+type: ["development"]
+category: development
+layer: 7
+dimensions: [3, 4, 5]
+mathematicalFoundation: ["general"]
+hopfCompatible: false
+normPreserving: false
+status: "complete"
+completeness: 80
+tags: ["development","documentation","canvasl","mathematics","ast"]
+keywords: ["canvasl","ast"]
+lastUpdate: "2025-12-15"
+
+---
+
 ### How the Fano Plane Gives You the Perfect Hamming (7,4) Code  
 (And why CanvasL / MindGit use it as a built-in error-correction layer)
 

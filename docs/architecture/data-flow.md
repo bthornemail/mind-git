@@ -1,3 +1,26 @@
+---
+id: "mind-git:architecture:data-flow"
+title: "Complete Data Flow Architecture"
+type: ["architecture","system"]
+category: architecture
+layer: 3
+dimensions: [0, 1, 7, 8, 9]
+mathematicalFoundation: ["polynomial-algebra","hopf-fibration","formal-verification"]
+hopfCompatible: true
+normPreserving: true
+status: "complete"
+completeness: 95
+tags: ["documentation","canvasl","mathematics","compiler","ast","polynomial","algebra"]
+keywords: ["canvasl","aal","ast","compiler","polynomial","algebra","formal","verification","coq","proof","hopf","fibration","typescript","javascript"]
+lastUpdate: "2025-12-15"
+canvasL:
+  nodeTypes: ["Activate","Integrate","Observer"]
+  compilationOrder: 3
+  spatialCoordinates: {x: 300, y: 0}
+  dimensionalMapping: [D0, D1]
+  aalMnemonics: [CALL, ADD, MOV]
+---
+
 # Complete Data Flow Architecture
 
 ## Mental Model

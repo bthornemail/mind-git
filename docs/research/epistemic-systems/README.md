@@ -1,3 +1,26 @@
+---
+id: "mind-git:research:readme"
+title: "Epistemic Systems"
+type: ["research","academic"]
+category: research
+layer: 7
+dimensions: [0, 1, 8, 9, 16]
+mathematicalFoundation: ["polynomial-algebra","division-algebras"]
+hopfCompatible: false
+normPreserving: false
+status: "complete"
+completeness: 95
+tags: ["documentation","canvasl","mathematics","algebra"]
+keywords: ["canvasl","algebra","theorem","octonion","identity"]
+lastUpdate: "2025-12-15"
+canvasL:
+  nodeTypes: ["EpistemicBound","Canonicalize","GeometricRBAC","NonCollapseObs"]
+  compilationOrder: 7
+  spatialCoordinates: {x: 700, y: 0}
+  dimensionalMapping: []
+  aalMnemonics: [MOV]
+---
+
 # Epistemic Systems
 
 Bounded uncertainty engines using exceptional Lie groups and geometric canonicalization, providing mathematically provable bounds on distributed knowledge systems.

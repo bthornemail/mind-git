@@ -1,3 +1,21 @@
+---
+id: "mind-git:documentation:template"
+title: "ADR [NUMBER]: [Title]"
+type: ["documentation"]
+category: documentation
+layer: 4
+dimensions: [3, 4, 5]
+mathematicalFoundation: ["general"]
+hopfCompatible: false
+normPreserving: false
+status: "complete"
+completeness: 60
+tags: ["documentation","mathematics","ast"]
+keywords: ["ast","theorem"]
+lastUpdate: "2025-12-15"
+
+---
+
 # ADR [NUMBER]: [Title]
 
 ## Status

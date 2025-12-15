@@ -1,3 +1,21 @@
+---
+id: "mind-git:development:pfister-s-identities---the-real-story"
+title: "Pfister’s Identities — The REAL Story"
+type: ["development"]
+category: development
+layer: 7
+dimensions: [0, 1, 7, 8, 9, 16]
+mathematicalFoundation: ["polynomial-algebra","hopf-fibration","division-algebras"]
+hopfCompatible: true
+normPreserving: false
+status: "complete"
+completeness: 95
+tags: ["development","documentation","canvasl","mathematics","algebra"]
+keywords: ["canvasl","algebra","theorem","hopf","octonion","sedenion","identity","javascript","p2p"]
+lastUpdate: "2025-12-15"
+
+---
+
 # Pfister’s Identities — The REAL Story  
 (Why they are **not** a way around Adams’ theorem, but are **perfect** for what you actually want to do)
 

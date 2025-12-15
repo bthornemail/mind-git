@@ -1,3 +1,21 @@
+---
+id: "mind-git:research:final-embedding-perfect"
+title: "The Perfect Embedding: Cayley-Dickson in Hilbert Basis"
+type: ["research","academic"]
+category: research
+layer: 7
+dimensions: [0, 1, 8, 9, 16]
+mathematicalFoundation: ["polynomial-algebra","formal-verification","division-algebras"]
+hopfCompatible: false
+normPreserving: true
+status: "complete"
+completeness: 95
+tags: ["documentation","mathematics","ast","algebra"]
+keywords: ["ast","algebra","formal","verification","theorem","proof","octonion","sedenion"]
+lastUpdate: "2025-12-15"
+
+---
+
 # The Perfect Embedding: Cayley-Dickson in Hilbert Basis
 **The Split at 8 and the Transition to Multiverse Ownership**
 

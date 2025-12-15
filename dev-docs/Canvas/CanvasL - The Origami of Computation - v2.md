@@ -1,3 +1,21 @@
+---
+id: "mind-git:development:canvasl---the-origami-of-computation---v2"
+title: "**CanvasL: The Origami of Computation**"
+type: ["development"]
+category: development
+layer: 7
+dimensions: [0, 1, 2, 4, 8, 9]
+mathematicalFoundation: ["polynomial-algebra","identity-chain","formal-verification"]
+hopfCompatible: false
+normPreserving: true
+status: "complete"
+completeness: 95
+tags: ["development","documentation","canvasl","mathematics","compiler","ast","polynomial","algebra"]
+keywords: ["canvasl","ast","compiler","polynomial","algebra","mathematics","formal","verification","coq","proof","identity","chain"]
+lastUpdate: "2025-12-15"
+
+---
+
 # **CanvasL: The Origami of Computation**
 
 **Linear Exponential References in Self-Evolving, Mathematically Verified Systems**

@@ -1,3 +1,21 @@
+---
+id: "mind-git:research:sedenions"
+title: "Sedenions (ℂ ⊕ ℝ¹⁶) — The Next Division Algebra After Octonions"
+type: ["research","academic"]
+category: research
+layer: 7
+dimensions: [0, 1, 7, 8, 9, 16]
+mathematicalFoundation: ["polynomial-algebra","hopf-fibration","division-algebras"]
+hopfCompatible: true
+normPreserving: false
+status: "complete"
+completeness: 80
+tags: ["documentation","ast","algebra"]
+keywords: ["ast","algebra","mathematics","hopf","fibration","octonion","sedenion"]
+lastUpdate: "2025-12-15"
+
+---
+
 # Sedenions (ℂ ⊕ ℝ¹⁶) — The Next Division Algebra After Octonions  
 **Version:** 2.0 (Canonical & Production-Ready)  
 **Date:** 2025-11-27  

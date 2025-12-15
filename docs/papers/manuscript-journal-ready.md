@@ -1,3 +1,21 @@
+---
+id: "mind-git:papers:manuscript-journal-ready"
+title: "Computational Verification of the Complete N-Square Identity Chain"
+type: ["papers","academic"]
+category: papers
+layer: 7
+dimensions: [0, 1, 2, 4, 8, 9, 16]
+mathematicalFoundation: ["polynomial-algebra","identity-chain","division-algebras"]
+hopfCompatible: false
+normPreserving: false
+status: "complete"
+completeness: 80
+tags: ["documentation","mathematics","algebra"]
+keywords: ["algebra","mathematics","verification","octonion","sedenion","identity","chain","typescript"]
+lastUpdate: "2025-12-15"
+
+---
+
 # Computational Verification of the Complete N-Square Identity Chain
 ## From Brahmagupta (628 AD) to Pfister (1965)
 

@@ -1,3 +1,21 @@
+---
+id: "mind-git:development:step-by-step-explicit-calculation-of-the-hopf-invariant-for-the-complex-hopf-fibration"
+title: "Step By Step Explicit Calculation Of The Hopf Invariant For The Complex Hopf Fibration"
+type: ["development"]
+category: development
+layer: 7
+dimensions: [0, 1, 7, 8, 9, 16]
+mathematicalFoundation: ["polynomial-algebra","hopf-fibration","formal-verification","division-algebras"]
+hopfCompatible: true
+normPreserving: true
+status: "complete"
+completeness: 95
+tags: ["development","documentation","canvasl","algebra"]
+keywords: ["canvasl","algebra","theorem","proof","hopf","fibration","octonion","chain","javascript"]
+lastUpdate: "2025-12-15"
+
+---
+
 ### Step-by-Step Explicit Calculation of the Hopf Invariant for the Complex Hopf Fibration  
 $S^3 \to S^2$ → $H(f) = \pm 1$
 

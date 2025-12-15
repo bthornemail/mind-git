@@ -1,3 +1,21 @@
+---
+id: "mind-git:documentation:mental-models"
+title: "Mental Models for Understanding CanvasL"
+type: ["documentation"]
+category: documentation
+layer: 4
+dimensions: [0, 1, 2, 4, 7, 8, 9, 16]
+mathematicalFoundation: ["polynomial-algebra","identity-chain","hopf-fibration","formal-verification","division-algebras"]
+hopfCompatible: true
+normPreserving: true
+status: "complete"
+completeness: 95
+tags: ["documentation","canvasl","mathematics","polynomial","algebra"]
+keywords: ["canvasl","aal","polynomial","algebra","mathematics","verification","proof","hopf","fibration","octonion","identity","chain","typescript"]
+lastUpdate: "2025-12-15"
+
+---
+
 # Mental Models for Understanding CanvasL
 
 This document provides multiple ways to think about the CanvasL system. Choose the model that makes the most sense to you - they're all mathematically equivalent.

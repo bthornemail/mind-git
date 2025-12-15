@@ -1,3 +1,21 @@
+---
+id: "mind-git:development:canvasl-framework-description"
+title: "CanvasL Framework Description"
+type: ["development"]
+category: development
+layer: 7
+dimensions: [0, 1, 2, 4, 8, 9]
+mathematicalFoundation: ["polynomial-algebra","identity-chain","formal-verification"]
+hopfCompatible: false
+normPreserving: true
+status: "complete"
+completeness: 95
+tags: ["development","documentation","canvasl","mathematics","compiler","ast","api","polynomial","algebra"]
+keywords: ["canvasl","aal","ast","compiler","polynomial","algebra","verification","coq","theorem","proof","identity","chain","typescript"]
+lastUpdate: "2025-12-15"
+
+---
+
 # CanvasL Framework Description
 
 ## A Complete System for Verified, Self-Evolving Computation

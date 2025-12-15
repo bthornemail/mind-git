@@ -1,3 +1,21 @@
+---
+id: "mind-git:development:explicit-computation-of-the-hopf-invariant"
+title: "Explicit Computation Of The Hopf Invariant"
+type: ["development"]
+category: development
+layer: 7
+dimensions: [0, 1, 7, 8, 9, 16]
+mathematicalFoundation: ["polynomial-algebra","hopf-fibration","division-algebras"]
+hopfCompatible: true
+normPreserving: false
+status: "complete"
+completeness: 95
+tags: ["development","documentation","canvasl","mathematics","ast","algebra"]
+keywords: ["canvasl","ast","algebra","mathematics","theorem","hopf","fibration","octonion","sedenion","javascript"]
+lastUpdate: "2025-12-15"
+
+---
+
 ### Explicit Computation of the Hopf Invariant  
 How to **actually calculate** $H(f) \in \mathbb{Z}$ for any map $f : S^{2n-1} \to S^n$
 

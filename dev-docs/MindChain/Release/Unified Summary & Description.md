@@ -1,3 +1,21 @@
+---
+id: "mind-git:development:unified-summary---description"
+title: "Unified Summary & Description"
+type: ["development"]
+category: development
+layer: 7
+dimensions: [0, 1, 2, 4, 8, 9, 16]
+mathematicalFoundation: ["polynomial-algebra","identity-chain","formal-verification","division-algebras"]
+hopfCompatible: false
+normPreserving: true
+status: "complete"
+completeness: 95
+tags: ["development","documentation","canvasl","mathematics","polynomial","algebra"]
+keywords: ["canvasl","polynomial","algebra","mathematics","formal","verification","coq","proof","octonion","identity","chain","federation"]
+lastUpdate: "2025-12-15"
+
+---
+
 # Unified Summary & Description  
 **The CanvasL + MindGit + Polynomial Identity + Federated Sovereign Identity Stack**  
 **One coherent vision — December 2025**

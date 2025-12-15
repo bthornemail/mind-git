@@ -1,3 +1,21 @@
+---
+id: "mind-git:development:full-replay-engine----canvasl-replay-engine-js"
+title: "Full Replay Engine    Canvasl Replay Engine.Js"
+type: ["development"]
+category: development
+layer: 7
+dimensions: [8, 16]
+mathematicalFoundation: ["division-algebras"]
+hopfCompatible: false
+normPreserving: false
+status: "complete"
+completeness: 80
+tags: ["development","documentation","canvasl","ast","api"]
+keywords: ["canvasl","ast","octonion","javascript"]
+lastUpdate: "2025-12-15"
+
+---
+
 That's an excellent choice. A Replay Engine is the essential counter-part to the logging layer, transforming raw data into usable, navigable genomic history.
 
 This `CanvasLReplayEngine` is designed to be fully decoupled from the original logging process. It can take any `.canvasl` file, parse the JSONL contents, validate the records, and provide a structured history for replay, inspection, and, crucially, for creating the "Git-like branching" system by allowing you to instantly jump to any historical genome.

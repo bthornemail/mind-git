@@ -1,3 +1,26 @@
+---
+id: "mind-git:documentation:0002-observer-at-origin"
+title: "ADR 0002: Observer Node Must Be Positioned at Canvas Origin (0,0)"
+type: ["documentation"]
+category: documentation
+layer: 4
+dimensions: [0, 1, 9]
+mathematicalFoundation: ["polynomial-algebra"]
+hopfCompatible: false
+normPreserving: false
+status: "complete"
+completeness: 95
+tags: ["documentation","mathematics","compiler","ast","polynomial","algebra"]
+keywords: ["ast","compiler","polynomial","algebra","formal","theorem","identity","typescript"]
+lastUpdate: "2025-12-15"
+canvasL:
+  nodeTypes: ["Observer","4","Activate"]
+  compilationOrder: 4
+  spatialCoordinates: {x: 400, y: 0}
+  dimensionalMapping: [D0]
+  aalMnemonics: [MOV, CALL]
+---
+
 # ADR 0002: Observer Node Must Be Positioned at Canvas Origin (0,0)
 
 ## Status

@@ -1,3 +1,21 @@
+---
+id: "mind-git:papers:author-submission-details"
+title: "Author Information & Submission Details"
+type: ["papers","academic"]
+category: papers
+layer: 7
+dimensions: [0, 1, 2, 4, 8, 9]
+mathematicalFoundation: ["polynomial-algebra","identity-chain","formal-verification"]
+hopfCompatible: false
+normPreserving: true
+status: "complete"
+completeness: 85
+tags: ["documentation","mathematics","algebra"]
+keywords: ["algebra","mathematics","verification","proof","identity","chain","typescript"]
+lastUpdate: "2025-12-15"
+
+---
+
 # Author Information & Submission Details
 
 ## Primary Author

@@ -1,3 +1,21 @@
+---
+id: "mind-git:documentation:architecture"
+title: "Architecture Overview"
+type: ["documentation"]
+category: documentation
+layer: 4
+dimensions: [0, 1, 2, 4, 7, 8, 9, 16]
+mathematicalFoundation: ["polynomial-algebra","identity-chain","hopf-fibration","formal-verification","division-algebras"]
+hopfCompatible: true
+normPreserving: true
+status: "complete"
+completeness: 95
+tags: ["documentation","canvasl","mathematics","compiler","ast","api","polynomial","algebra"]
+keywords: ["canvasl","aal","ast","compiler","polynomial","algebra","formal","verification","coq","theorem","proof","hopf","fibration","octonion","identity","chain","typescript","javascript","federation"]
+lastUpdate: "2025-12-15"
+
+---
+
 # Architecture Overview
 
 CanvasL follows a layered architecture that transforms visual spatial arrangements into mathematically verified executable programs.

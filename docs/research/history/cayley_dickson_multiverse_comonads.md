@@ -1,3 +1,21 @@
+---
+id: "mind-git:research:cayley-dickson-multiverse-comonads"
+title: "The Cayley-Dickson Multiverse: Comonadic Universe Branching"
+type: ["research","academic"]
+category: research
+layer: 7
+dimensions: [0, 1, 2, 4, 8, 9, 16]
+mathematicalFoundation: ["polynomial-algebra","identity-chain","division-algebras"]
+hopfCompatible: false
+normPreserving: false
+status: "complete"
+completeness: 80
+tags: ["documentation","algebra"]
+keywords: ["algebra","formal","verification","theorem","octonion","sedenion","identity","chain","javascript"]
+lastUpdate: "2025-12-15"
+
+---
+
 # The Cayley-Dickson Multiverse: Comonadic Universe Branching
 **Sedenions as Public Keys, Trigintaduonions as Private Signatures**
 

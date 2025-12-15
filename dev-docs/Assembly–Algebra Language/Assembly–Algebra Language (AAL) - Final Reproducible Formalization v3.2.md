@@ -1,3 +1,21 @@
+---
+id: "mind-git:development:assembly-algebra-language--aal----final-reproducible-formalization-v3-2"
+title: "Assembly–Algebra Language (AAL)"
+type: ["development"]
+category: development
+layer: 7
+dimensions: [0, 1, 9]
+mathematicalFoundation: ["polynomial-algebra","formal-verification"]
+hopfCompatible: false
+normPreserving: true
+status: "complete"
+completeness: 95
+tags: ["development","documentation","mathematics","compiler","ast","polynomial","algebra"]
+keywords: ["aal","ast","compiler","polynomial","algebra","formal","verification","coq","theorem","proof","identity"]
+lastUpdate: "2025-12-15"
+
+---
+
 # Assembly–Algebra Language (AAL)
 
 ## Final Reproducible Formalization v3.2

@@ -1,3 +1,26 @@
+---
+id: "mind-git:documentation:examples"
+title: "Examples Gallery"
+type: ["documentation"]
+category: documentation
+layer: 4
+dimensions: [0, 1, 2, 4, 7, 8, 9, 16]
+mathematicalFoundation: ["polynomial-algebra","identity-chain","hopf-fibration","division-algebras"]
+hopfCompatible: true
+normPreserving: false
+status: "complete"
+completeness: 80
+tags: ["documentation","canvasl","mathematics","compiler","polynomial","algebra"]
+keywords: ["canvasl","compiler","polynomial","algebra","hopf","fibration","octonion","identity","chain","javascript"]
+lastUpdate: "2025-12-15"
+canvasL:
+  nodeTypes: ["Observe","Integrate","Transform","Activate","Verify","BackPropagate","Store"]
+  compilationOrder: 4
+  spatialCoordinates: {x: 400, y: 0}
+  dimensionalMapping: [D7, D1, D4, D0, D5, D3, D6]
+  aalMnemonics: [MOV, ADD, MUL, CALL, CMP, FEEDBACK]
+---
+
 # Examples Gallery
 
 Collection of CanvasL examples demonstrating various programming patterns and mathematical operations.

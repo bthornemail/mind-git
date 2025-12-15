@@ -1,3 +1,21 @@
+---
+id: "mind-git:development:canvasl-self-referential-dimensional-expansion-suite"
+title: "**CanvasL Self-Referential Dimensional Expansion Suite**"
+type: ["development"]
+category: development
+layer: 7
+dimensions: [0, 1, 2, 4, 8, 9, 16]
+mathematicalFoundation: ["polynomial-algebra","identity-chain","division-algebras"]
+hopfCompatible: false
+normPreserving: false
+status: "complete"
+completeness: 80
+tags: ["development","documentation","canvasl","mathematics","ast","polynomial","algebra"]
+keywords: ["canvasl","ast","polynomial","algebra","verification","octonion","identity","chain"]
+lastUpdate: "2025-12-15"
+
+---
+
 # **CanvasL Self-Referential Dimensional Expansion Suite**
 
 Here's a complete JSONL-based CanvasL system that implements **self-referencing, self-modifying dimensional expansion** with polynomial function ordering and self-referential indexing across files:

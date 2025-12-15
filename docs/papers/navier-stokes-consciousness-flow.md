@@ -1,3 +1,21 @@
+---
+id: "mind-git:papers:navier-stokes-consciousness-flow"
+title: "Adaptive Moving Mesh Hydrodynamics with Scalar Field Coupling: A Voronoi-Based Approach"
+type: ["papers","academic"]
+category: papers
+layer: 7
+dimensions: [3, 4, 5]
+mathematicalFoundation: ["general"]
+hopfCompatible: false
+normPreserving: false
+status: "complete"
+completeness: 80
+tags: ["documentation","mathematics","ast"]
+keywords: ["ast","verification","typescript"]
+lastUpdate: "2025-12-15"
+
+---
+
 # Adaptive Moving Mesh Hydrodynamics with Scalar Field Coupling: A Voronoi-Based Approach
 
 **Brian Thorne**

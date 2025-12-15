@@ -1,3 +1,21 @@
+---
+id: "mind-git:development:adem-relation-for-the-composition"
+title: "Adem Relation For The Composition"
+type: ["development"]
+category: development
+layer: 7
+dimensions: [0, 1, 7, 8, 9]
+mathematicalFoundation: ["polynomial-algebra","hopf-fibration"]
+hopfCompatible: true
+normPreserving: false
+status: "complete"
+completeness: 85
+tags: ["development","documentation","algebra"]
+keywords: ["algebra","verification","theorem","hopf","chain"]
+lastUpdate: "2025-12-15"
+
+---
+
 The Adem relation for the composition \(\Sq^8 \Sq^8\) (which is relevant to the class \(h_3^2\) in the Adams spectral sequence, and indirectly to differentials like \(d_2(h_4)\) through iterated decompositions) is derived as follows. Note that the user's query specifies "d3(h4)", but in the standard Adams spectral sequence at p=2, the class \(h_4\) is killed by \(d_2(h_4) = h_0 h_2^3\) (not d3), based on standard charts and derivations. However, the Adem relations are the primary algebraic tool for computing such differentials, as they generate the E2 page and determine boundaries. I will derive the Adem relation for \(\Sq^8 \Sq^8\) step by step, as it is the key relation leading to higher-order effects in the sequence (e.g., through secondary operations). If the query intends a different differential, this is the foundational one for h4-related computations.
 
 The general Adem relation for \(\Sq^a \Sq^b\) (with a < 2b) in the mod 2 Steenrod algebra is:

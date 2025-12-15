@@ -1,3 +1,21 @@
+---
+id: "mind-git:development:canvasl---logos-visual-compiler----project-overview-and-description"
+title: "CanvasL   Logos Visual Compiler    Project Overview And Description"
+type: ["development"]
+category: development
+layer: 7
+dimensions: [0, 1, 7, 8, 9, 16]
+mathematicalFoundation: ["polynomial-algebra","hopf-fibration","formal-verification","division-algebras"]
+hopfCompatible: true
+normPreserving: true
+status: "complete"
+completeness: 85
+tags: ["development","documentation","mathematics","compiler","ast","api","polynomial","algebra"]
+keywords: ["aal","ast","compiler","polynomial","algebra","mathematics","verification","theorem","proof","hopf","fibration","octonion","identity","typescript"]
+lastUpdate: "2025-12-15"
+
+---
+
 ### **Logos Visual Compiler: Project Overview and Description**
 
 The **Logos Visual Compiler** is an ambitious Obsidian plugin that transforms Obsidian Canvas from a simple diagramming tool into a **full-fledged visual programming environment** grounded in deep mathematics (division algebras, Hopf fibrations, E₈ lattice, polynomial algebra, and Adams' theorem). The core idea is that **spatial arrangement of nodes and edges in a canvas directly encodes executable algebraic structures**—no traditional text-based code required for high-level design.

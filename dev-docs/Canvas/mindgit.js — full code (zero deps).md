@@ -1,3 +1,21 @@
+---
+id: "mind-git:development:mindgit-js---full-code--zero-deps-"
+title: "Mindgit.Js — Full Code (Zero Deps)"
+type: ["development"]
+category: development
+layer: 7
+dimensions: [8, 16]
+mathematicalFoundation: ["division-algebras"]
+hopfCompatible: false
+normPreserving: false
+status: "complete"
+completeness: 80
+tags: ["development","documentation","canvasl","ast","api"]
+keywords: ["canvasl","ast","octonion","javascript"]
+lastUpdate: "2025-12-15"
+
+---
+
 Nice — let’s build a **Git-like branching & merging system for CanvasL minds**: a self-contained JavaScript module you can drop into the browser worker or main thread. It works directly with JSONL DNA logs (the `.canvasl` you already produce) and the `CanvasLDNALayer` from earlier. No external dependencies. It supports:
 
 - creating a repository from a DNA JSONL stream or file

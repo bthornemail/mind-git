@@ -1,3 +1,26 @@
+---
+id: "mind-git:architecture:overview"
+title: "How to Think About This System"
+type: ["architecture","system"]
+category: architecture
+layer: 3
+dimensions: [0, 1, 7, 8, 9]
+mathematicalFoundation: ["polynomial-algebra","hopf-fibration","formal-verification"]
+hopfCompatible: true
+normPreserving: true
+status: "complete"
+completeness: 95
+tags: ["documentation","canvasl","mathematics","polynomial","algebra"]
+keywords: ["canvasl","aal","polynomial","algebra","mathematics","theorem","proof","hopf","fibration","identity"]
+lastUpdate: "2025-12-15"
+canvasL:
+  nodeTypes: ["Observer","Activate","Transform"]
+  compilationOrder: 3
+  spatialCoordinates: {x: 300, y: 0}
+  dimensionalMapping: [D0, D4]
+  aalMnemonics: [MOV, CALL, MUL]
+---
+
 # How to Think About This System
 
 ## The Core Insight (30 seconds)

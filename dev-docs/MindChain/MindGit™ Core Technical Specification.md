@@ -1,3 +1,21 @@
+---
+id: "mind-git:development:mindgit--core-technical-specification"
+title: "**MindGit™ Core Technical Specification**"
+type: ["development"]
+category: development
+layer: 7
+dimensions: [0, 1, 2, 4, 8, 9, 16]
+mathematicalFoundation: ["polynomial-algebra","identity-chain","formal-verification","division-algebras"]
+hopfCompatible: false
+normPreserving: true
+status: "complete"
+completeness: 95
+tags: ["development","documentation","canvasl","mathematics","ast","polynomial","algebra"]
+keywords: ["canvasl","ast","polynomial","algebra","formal","verification","theorem","proof","octonion","identity","chain","javascript"]
+lastUpdate: "2025-12-15"
+
+---
+
 Below is the **complete, publication-grade Core Technical Specification** for **MindGit**, in clean Markdown, fully self-contained, no placeholders, ready for inclusion in standards documents, whitepapers, GitHub repos, or grant submissions.
 
 ---

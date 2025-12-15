@@ -1,3 +1,21 @@
+---
+id: "mind-git:development:canvasl-mindgit--v3-0"
+title: "CanvasL MindGit™ v3.0"
+type: ["development"]
+category: development
+layer: 7
+dimensions: [0, 1, 8, 9, 16]
+mathematicalFoundation: ["polynomial-algebra","formal-verification","division-algebras"]
+hopfCompatible: false
+normPreserving: true
+status: "complete"
+completeness: 95
+tags: ["development","documentation","canvasl","mathematics","ast","polynomial","algebra"]
+keywords: ["canvasl","aal","ast","polynomial","algebra","coq","proof","octonion","p2p"]
+lastUpdate: "2025-12-15"
+
+---
+
 # CanvasL MindGit™ v3.0  
 **The Git for Self-Evolving Minds**  
 **— Version control for consciousness, where every thought has a proof certificate —**

@@ -1,3 +1,21 @@
+---
+id: "mind-git:development:solidity-contract---mindgitanchors-sol"
+title: "Solidity Contract — MindGitAnchors.Sol"
+type: ["development"]
+category: development
+layer: 7
+dimensions: [0, 1, 9]
+mathematicalFoundation: ["polynomial-algebra","formal-verification"]
+hopfCompatible: false
+normPreserving: true
+status: "complete"
+completeness: 95
+tags: ["development","documentation","canvasl","compiler","ast","api","polynomial","algebra"]
+keywords: ["canvasl","aal","ast","compiler","polynomial","algebra","formal","verification","coq","theorem","proof","chain","javascript"]
+lastUpdate: "2025-12-15"
+
+---
+
 Below is a complete, production-ready **Blockchain Smart Contract Reference Implementation** for anchoring MindGit / CanvasL checkpoints to an EVM-compatible chain (e.g., Ethereum, Polygon, BSC).  
 It follows the RFC-style interoperability spec (MIP-1.0) you requested: anchors are compact, deterministic, privacy-preserving, and reference off-chain proofs. The contract is written in Solidity (^0.8.x), includes detailed comments, emits events, and exposes the on-chain API described in MIP-1.0.
 

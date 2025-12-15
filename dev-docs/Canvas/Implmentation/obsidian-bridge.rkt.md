@@ -1,3 +1,21 @@
+---
+id: "mind-git:development:obsidian-bridge-rkt"
+title: "Obsidian Bridge.Rkt"
+type: ["development"]
+category: development
+layer: 7
+dimensions: [0, 1, 9]
+mathematicalFoundation: ["polynomial-algebra"]
+hopfCompatible: false
+normPreserving: false
+status: "complete"
+completeness: 60
+tags: ["development","documentation","ast","polynomial"]
+keywords: ["ast","polynomial","formal","verification","identity"]
+lastUpdate: "2025-12-15"
+
+---
+
 #lang racket
 
 (require json

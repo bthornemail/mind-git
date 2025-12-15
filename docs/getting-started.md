@@ -1,3 +1,26 @@
+---
+id: "mind-git:documentation:getting-started"
+title: "Getting Started Guide"
+type: ["documentation"]
+category: documentation
+layer: 4
+dimensions: [0, 1, 7, 8, 9]
+mathematicalFoundation: ["polynomial-algebra","hopf-fibration"]
+hopfCompatible: true
+normPreserving: false
+status: "complete"
+completeness: 80
+tags: ["documentation","canvasl","mathematics","compiler","ast","api","polynomial","algebra"]
+keywords: ["canvasl","aal","ast","compiler","polynomial","algebra","formal","verification","hopf","identity","typescript","javascript"]
+lastUpdate: "2025-12-15"
+canvasL:
+  nodeTypes: ["Observe","Integrate","Transform","Activate","Compute"]
+  compilationOrder: 4
+  spatialCoordinates: {x: 400, y: 0}
+  dimensionalMapping: [D7, D1, D4, D0]
+  aalMnemonics: [MOV, ADD, MUL, CALL]
+---
+
 # Getting Started Guide
 
 Welcome to CanvasL - a visual programming language that transforms spatial diagrams into mathematically verified executable programs.

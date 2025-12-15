@@ -1,3 +1,21 @@
+---
+id: "mind-git:development:linkedin-campaign---canvasl-mindgit-identity-substrate--cmis-"
+title: "LinkedIn Campaign: CanvasL MindGit Identity Substrate (CMIS)"
+type: ["development"]
+category: development
+layer: 7
+dimensions: [0, 1, 2, 4, 8, 9, 16]
+mathematicalFoundation: ["polynomial-algebra","identity-chain","formal-verification","division-algebras"]
+hopfCompatible: false
+normPreserving: true
+status: "complete"
+completeness: 95
+tags: ["development","documentation","canvasl","mathematics","ast","api","polynomial","algebra"]
+keywords: ["canvasl","ast","polynomial","algebra","mathematics","formal","verification","proof","octonion","identity","chain"]
+lastUpdate: "2025-12-15"
+
+---
+
 # LinkedIn Campaign: CanvasL MindGit Identity Substrate (CMIS)
 
 **Objective:** Position Brian Thorne as the leader of the next generation of computational systems, moving beyond hash-based crypto and traditional Git. Target audience: AI researchers, distributed systems engineers, and venture capital.

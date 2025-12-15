@@ -1,3 +1,21 @@
+---
+id: "mind-git:development:the-extended-hamming--8-4--code"
+title: "The Extended Hamming (8,4) Code"
+type: ["development"]
+category: development
+layer: 7
+dimensions: [3, 4, 5]
+mathematicalFoundation: ["formal-verification"]
+hopfCompatible: false
+normPreserving: true
+status: "complete"
+completeness: 95
+tags: ["development","documentation","canvasl","mathematics"]
+keywords: ["canvasl","proof"]
+lastUpdate: "2025-12-15"
+
+---
+
 ### The Extended Hamming (8,4) Code  
 The Ultimate 1-Bit-Error-Correcting + 2-Bit-Error-Detecting Code  
 (and why CanvasL/MindGit use it as the gold-standard integrity layer)

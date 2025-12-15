@@ -1,3 +1,21 @@
+---
+id: "mind-git:demos:readme"
+title: "MIND-GIT Demo Suite"
+type: ["demonstration","examples"]
+category: demos
+layer: 8
+dimensions: [0, 1, 2, 4, 7, 8, 9, 16]
+mathematicalFoundation: ["polynomial-algebra","identity-chain","hopf-fibration","formal-verification","division-algebras"]
+hopfCompatible: true
+normPreserving: true
+status: "complete"
+completeness: 95
+tags: ["examples","canvasl","mathematics","ast","api","polynomial"]
+keywords: ["canvasl","aal","ast","polynomial","formal","verification","coq","theorem","proof","hopf","fibration","octonion","identity","chain","javascript","p2p","federation"]
+lastUpdate: "2025-12-15"
+
+---
+
 # MIND-GIT Demo Suite
 
 **Comprehensive demonstrations of MIND-GIT capabilities including CanvasL visual programming, AAL verification, and P2P federation.**

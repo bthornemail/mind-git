@@ -1,3 +1,21 @@
+---
+id: "mind-git:development:brahmagupta-fibonacci-two-square-identity"
+title: "Brahmagupta–Fibonacci Two-Square Identity — The **Origin** of All Higher Identities"
+type: ["development"]
+category: development
+layer: 7
+dimensions: [2, 4, 8, 16]
+mathematicalFoundation: ["identity-chain","formal-verification","division-algebras"]
+hopfCompatible: false
+normPreserving: true
+status: "complete"
+completeness: 95
+tags: ["development","documentation","canvasl","mathematics"]
+keywords: ["canvasl","mathematics","proof","octonion","identity","chain","javascript"]
+lastUpdate: "2025-12-15"
+
+---
+
 # Brahmagupta–Fibonacci Two-Square Identity — The **Origin** of All Higher Identities
 
 This is the **first** and **simplest** identity that proves complex numbers exist — the **seed** from which Euler's 4-square, Degen's 8-square, and Pfister's 16-square all grow.

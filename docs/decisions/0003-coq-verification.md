@@ -1,3 +1,26 @@
+---
+id: "mind-git:documentation:0003-coq-verification"
+title: "ADR 0003: Use Coq for Formal Verification of AAL"
+type: ["documentation"]
+category: documentation
+layer: 4
+dimensions: [0, 1, 2, 4, 8, 9, 16]
+mathematicalFoundation: ["polynomial-algebra","identity-chain","formal-verification","division-algebras"]
+hopfCompatible: false
+normPreserving: true
+status: "complete"
+completeness: 95
+tags: ["documentation","mathematics","compiler","ast","polynomial","algebra"]
+keywords: ["aal","ast","compiler","polynomial","algebra","formal","verification","coq","theorem","proof","octonion","identity","chain","typescript","javascript"]
+lastUpdate: "2025-12-15"
+canvasL:
+  nodeTypes: ["5"]
+  compilationOrder: 4
+  spatialCoordinates: {x: 400, y: 0}
+  dimensionalMapping: []
+  aalMnemonics: [MOV]
+---
+
 # ADR 0003: Use Coq for Formal Verification of AAL
 
 ## Status

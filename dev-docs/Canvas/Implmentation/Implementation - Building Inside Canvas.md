@@ -1,3 +1,26 @@
+---
+id: "mind-git:development:implementation---building-inside-canvas"
+title: "Building the Logos Project Inside Obsidian Canvas"
+type: ["development"]
+category: development
+layer: 7
+dimensions: [0, 1, 9]
+mathematicalFoundation: ["polynomial-algebra"]
+hopfCompatible: false
+normPreserving: false
+status: "complete"
+completeness: 80
+tags: ["development","documentation","canvasl","compiler","ast","polynomial","algebra"]
+keywords: ["canvasl","aal","ast","compiler","polynomial","algebra"]
+lastUpdate: "2025-12-15"
+canvasL:
+  nodeTypes: ["Build","Module","Test"]
+  compilationOrder: 7
+  spatialCoordinates: {x: 700, y: 0}
+  dimensionalMapping: []
+  aalMnemonics: [MOV]
+---
+
 Implementation: Building Inside Canvas
 # Building the Logos Project Inside Obsidian Canvas
 

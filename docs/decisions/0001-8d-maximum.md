@@ -1,3 +1,26 @@
+---
+id: "mind-git:documentation:0001-8d-maximum"
+title: "ADR 0001: Use 8D Octonions as Maximum Dimension for Core Genomes"
+type: ["documentation"]
+category: documentation
+layer: 4
+dimensions: [0, 1, 2, 4, 7, 8, 9, 16]
+mathematicalFoundation: ["polynomial-algebra","identity-chain","hopf-fibration","formal-verification","division-algebras"]
+hopfCompatible: true
+normPreserving: true
+status: "complete"
+completeness: 95
+tags: ["documentation","mathematics","compiler","algebra"]
+keywords: ["aal","compiler","algebra","formal","verification","theorem","proof","hopf","fibration","octonion","sedenion","identity","chain","typescript"]
+lastUpdate: "2025-12-15"
+canvasL:
+  nodeTypes: ["2"]
+  compilationOrder: 4
+  spatialCoordinates: {x: 400, y: 0}
+  dimensionalMapping: []
+  aalMnemonics: [MOV]
+---
+
 # ADR 0001: Use 8D Octonions as Maximum Dimension for Core Genomes
 
 ## Status

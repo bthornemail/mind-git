@@ -1,3 +1,21 @@
+---
+id: "mind-git:papers:cover-letter-template"
+title: "Cover Letter Template for Journal Submission"
+type: ["papers","academic"]
+category: papers
+layer: 7
+dimensions: [3, 4, 5]
+mathematicalFoundation: ["general"]
+hopfCompatible: false
+normPreserving: false
+status: "complete"
+completeness: 70
+tags: ["documentation","mathematics","ast"]
+keywords: ["ast","verification","typescript"]
+lastUpdate: "2025-12-15"
+
+---
+
 # Cover Letter Template for Journal Submission
 
 ---

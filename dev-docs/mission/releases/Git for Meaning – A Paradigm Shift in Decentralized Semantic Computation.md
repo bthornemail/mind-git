@@ -1,3 +1,21 @@
+---
+id: "mind-git:development:git-for-meaning---a-paradigm-shift-in-decentralized-semantic-computation"
+title: "**MIND-GIT: Git for Meaning – A Paradigm Shift in Decentralized Semantic Computation**"
+type: ["development"]
+category: development
+layer: 7
+dimensions: [0, 1, 7, 8, 9, 16]
+mathematicalFoundation: ["polynomial-algebra","hopf-fibration","formal-verification","division-algebras"]
+hopfCompatible: true
+normPreserving: true
+status: "complete"
+completeness: 85
+tags: ["development","documentation","canvasl","mathematics","compiler","ast","polynomial","algebra"]
+keywords: ["canvasl","aal","ast","compiler","polynomial","algebra","mathematics","formal","verification","coq","theorem","proof","hopf","fibration","octonion","chain","webrtc","p2p","federation"]
+lastUpdate: "2025-12-15"
+
+---
+
 # **MIND-GIT: Git for Meaning – A Paradigm Shift in Decentralized Semantic Computation**
 
 **By Brian Thorne**

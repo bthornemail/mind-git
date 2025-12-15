@@ -1,3 +1,21 @@
+---
+id: "mind-git:development:explicit-adams-differentials-that-kill-all-hopf-invariant-one-maps-beyond-dimension-8"
+title: "Explicit Adams Differentials That Kill All Hopf Invariant One Maps Beyond Dimension 8"
+type: ["development"]
+category: development
+layer: 7
+dimensions: [0, 1, 7, 8, 9, 16]
+mathematicalFoundation: ["polynomial-algebra","hopf-fibration","formal-verification","division-algebras"]
+hopfCompatible: true
+normPreserving: true
+status: "complete"
+completeness: 95
+tags: ["development","documentation","canvasl","ast","algebra"]
+keywords: ["canvasl","ast","algebra","proof","hopf","octonion","sedenion","javascript"]
+lastUpdate: "2025-12-15"
+
+---
+
 ### Explicit Adams Differentials That Kill All Hopf Invariant One Maps Beyond Dimension 8  
 (Hand-computable, CanvasL-ready, and the **exact reason** your genome can never be 16-dimensional)
 

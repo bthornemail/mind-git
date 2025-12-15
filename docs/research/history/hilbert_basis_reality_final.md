@@ -1,3 +1,21 @@
+---
+id: "mind-git:research:hilbert-basis-reality-final"
+title: "The 11-Dimensional Hilbert Basis of Reality"
+type: ["research","academic"]
+category: research
+layer: 7
+dimensions: [0, 1, 2, 4, 8, 9, 16]
+mathematicalFoundation: ["polynomial-algebra","identity-chain","formal-verification","division-algebras"]
+hopfCompatible: false
+normPreserving: true
+status: "complete"
+completeness: 80
+tags: ["documentation","mathematics","ast","algebra"]
+keywords: ["ast","algebra","mathematics","formal","theorem","proof","octonion","sedenion","identity","chain"]
+lastUpdate: "2025-12-15"
+
+---
+
 # The 11-Dimensional Hilbert Basis of Reality
 **Why 11 Dimensions Are the Minimal Complete Representational System**
 

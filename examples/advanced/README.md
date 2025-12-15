@@ -1,3 +1,21 @@
+---
+id: "mind-git:examples:readme"
+title: "Advanced CanvasL Examples"
+type: ["examples","tutorial"]
+category: examples
+layer: 4
+dimensions: [0, 1, 9]
+mathematicalFoundation: ["polynomial-algebra"]
+hopfCompatible: false
+normPreserving: false
+status: "complete"
+completeness: 80
+tags: ["examples","canvasl","mathematics","compiler","ast","algebra"]
+keywords: ["canvasl","aal","ast","compiler","algebra","javascript"]
+lastUpdate: "2025-12-15"
+
+---
+
 # Advanced CanvasL Examples
 
 This directory contains advanced examples demonstrating the enhanced dynamic node parsing capabilities of the CanvasL visual compiler.

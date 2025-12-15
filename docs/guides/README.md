@@ -1,3 +1,21 @@
+---
+id: "mind-git:guides:readme"
+title: "Guides Documentation"
+type: ["guides","tutorial"]
+category: guides
+layer: 4
+dimensions: [0, 1, 7, 8, 9]
+mathematicalFoundation: ["polynomial-algebra","hopf-fibration","formal-verification"]
+hopfCompatible: true
+normPreserving: true
+status: "complete"
+completeness: 85
+tags: ["documentation","canvasl","mathematics","compiler","ast","api","polynomial","algebra"]
+keywords: ["canvasl","ast","compiler","polynomial","algebra","mathematics","formal","verification","coq","proof","hopf","fibration"]
+lastUpdate: "2025-12-15"
+
+---
+
 # Guides Documentation
 
 This directory contains practical guides and tutorials for using the mind-gitsystem. While the architecture and research documents explain *why* and *how* the system works, these guides show *how to use it* effectively.

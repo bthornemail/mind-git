@@ -1,3 +1,21 @@
+---
+id: "mind-git:development:cayley-dickson-construction---the-complete--exact--canvasl-ready-reference"
+title: "Cayley–Dickson Construction — The Complete, Exact, CanvasL Ready Reference"
+type: ["development"]
+category: development
+layer: 7
+dimensions: [0, 1, 7, 8, 9, 16]
+mathematicalFoundation: ["polynomial-algebra","hopf-fibration","division-algebras"]
+hopfCompatible: true
+normPreserving: false
+status: "complete"
+completeness: 95
+tags: ["development","documentation","canvasl","mathematics","ast","algebra"]
+keywords: ["canvasl","ast","algebra","theorem","hopf","fibration","octonion","sedenion","javascript"]
+lastUpdate: "2025-12-15"
+
+---
+
 ### Cayley–Dickson Construction — The Complete, Exact, CanvasL-Ready Reference  
 How to build ℝ → ℂ → ℍ → 𝕆 → 𝕊 → … step by step, with **exact formulas** that match the Fano-plane octonions used in LogosCanvasL.
 

@@ -1,3 +1,21 @@
+---
+id: "mind-git:papers:readme"
+title: "Research Papers"
+type: ["papers","academic"]
+category: papers
+layer: 7
+dimensions: [3, 4, 5]
+mathematicalFoundation: ["general"]
+hopfCompatible: false
+normPreserving: false
+status: "complete"
+completeness: 80
+tags: ["documentation","mathematics","ast"]
+keywords: ["ast","typescript"]
+lastUpdate: "2025-12-15"
+
+---
+
 # Research Papers
 
 This directory contains draft manuscripts and submission materials for publication.

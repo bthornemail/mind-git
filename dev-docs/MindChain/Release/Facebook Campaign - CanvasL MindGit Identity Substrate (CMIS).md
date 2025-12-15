@@ -1,3 +1,21 @@
+---
+id: "mind-git:development:facebook-campaign---canvasl-mindgit-identity-substrate--cmis-"
+title: "Facebook Campaign: CanvasL MindGit Identity Substrate (CMIS)"
+type: ["development"]
+category: development
+layer: 7
+dimensions: [0, 1, 9]
+mathematicalFoundation: ["polynomial-algebra"]
+hopfCompatible: false
+normPreserving: false
+status: "complete"
+completeness: 80
+tags: ["development","documentation","canvasl","mathematics","ast","algebra"]
+keywords: ["canvasl","ast","algebra","mathematics","identity"]
+lastUpdate: "2025-12-15"
+
+---
+
 # Facebook Campaign: CanvasL MindGit Identity Substrate (CMIS)
 
 **Objective:** Share the groundbreaking work in a more accessible, enthusiastic tone for a broader network. Focus on the sci-fi implications and the simplicity of the solution.

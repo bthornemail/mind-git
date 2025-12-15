@@ -1,3 +1,21 @@
+---
+id: "mind-git:development:octonions-in-one-sentence"
+title: "Octonions In One Sentence"
+type: ["development"]
+category: development
+layer: 7
+dimensions: [0, 1, 8, 9, 16]
+mathematicalFoundation: ["polynomial-algebra","formal-verification","division-algebras"]
+hopfCompatible: false
+normPreserving: true
+status: "complete"
+completeness: 95
+tags: ["development","documentation","canvasl","polynomial","algebra"]
+keywords: ["canvasl","polynomial","algebra","coq","theorem","octonion"]
+lastUpdate: "2025-12-15"
+
+---
+
 ### Octonions in One Sentence  
 Octonions are an 8-dimensional number system where **multiplication is neither commutative nor associative**, but they are a **division algebra** — you can always divide (no zero divisors). They are the biggest, weirdest cousin in the sequence:  
 Reals (1D) → Complex (2D) → Quaternions (4D) → **Octonions (8D)** → stops here (Hurwitz theorem).

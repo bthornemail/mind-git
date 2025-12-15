@@ -1,3 +1,21 @@
+---
+id: "mind-git:research:cubic-crypto-deployment-guide"
+title: "Cubic Cryptographic Protocol - Deployment Guide"
+type: ["research","academic"]
+category: research
+layer: 7
+dimensions: [0, 1, 9]
+mathematicalFoundation: ["polynomial-algebra","formal-verification"]
+hopfCompatible: false
+normPreserving: true
+status: "complete"
+completeness: 95
+tags: ["documentation","mathematics","ast","polynomial","algebra"]
+keywords: ["ast","polynomial","algebra","formal","verification","proof","chain"]
+lastUpdate: "2025-12-15"
+
+---
+
 # Cubic Cryptographic Protocol - Deployment Guide
 **Post-Quantum Key Exchange via Bhargava Cubic Composition**
 

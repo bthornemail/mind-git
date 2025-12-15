@@ -1,3 +1,21 @@
+---
+id: "mind-git:architecture:module-boundaries"
+title: "Module Boundaries and Code Organization"
+type: ["architecture","system"]
+category: architecture
+layer: 3
+dimensions: [0, 1, 2, 4, 8, 9, 16]
+mathematicalFoundation: ["polynomial-algebra","identity-chain","formal-verification","division-algebras"]
+hopfCompatible: false
+normPreserving: true
+status: "complete"
+completeness: 95
+tags: ["documentation","canvasl","mathematics","compiler","ast","api","polynomial","algebra"]
+keywords: ["canvasl","aal","ast","compiler","polynomial","algebra","mathematics","formal","verification","coq","proof","octonion","identity","chain","typescript","javascript"]
+lastUpdate: "2025-12-15"
+
+---
+
 # Module Boundaries and Code Organization
 
 ## Mental Model

@@ -1,3 +1,21 @@
+---
+id: "mind-git:development:quaternionic-hopf-fibration----linking-number-computation-s7--to-s4"
+title: "Quaternionic Hopf Fibration    Linking Number Computation S7  To S4"
+type: ["development"]
+category: development
+layer: 7
+dimensions: [0, 1, 7, 8, 9, 16]
+mathematicalFoundation: ["polynomial-algebra","hopf-fibration","division-algebras"]
+hopfCompatible: true
+normPreserving: false
+status: "complete"
+completeness: 95
+tags: ["development","documentation","canvasl","algebra"]
+keywords: ["canvasl","algebra","verification","theorem","hopf","fibration","octonion","javascript"]
+lastUpdate: "2025-12-15"
+
+---
+
 ### Quaternionic Hopf Fibration: Linking Number Computation  
 $S^7 \to S^4$ → Hopf invariant = ±1
 

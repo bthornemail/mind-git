@@ -1,3 +1,21 @@
+---
+id: "mind-git:development:press-release-v2"
+title: "PRESS RELEASE"
+type: ["development"]
+category: development
+layer: 7
+dimensions: [0, 1, 9]
+mathematicalFoundation: ["polynomial-algebra","formal-verification"]
+hopfCompatible: false
+normPreserving: true
+status: "complete"
+completeness: 85
+tags: ["development","documentation","canvasl","mathematics","compiler","ast","polynomial","algebra"]
+keywords: ["canvasl","aal","ast","compiler","polynomial","algebra","mathematics","formal","verification","coq","theorem","proof","chain"]
+lastUpdate: "2025-12-15"
+
+---
+
 # PRESS RELEASE
 
 ## Axiomatic Research Laboratory Announces CanvasL 2.0: The World's First Mathematically Verified Self-Evolving Software Platform

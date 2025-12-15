@@ -1,3 +1,21 @@
+---
+id: "mind-git:development:obsidian-canvas-rkt"
+title: "Navigate to your logos-system directory"
+type: ["development"]
+category: development
+layer: 7
+dimensions: [0, 1, 8, 9, 16]
+mathematicalFoundation: ["polynomial-algebra","division-algebras"]
+hopfCompatible: false
+normPreserving: false
+status: "complete"
+completeness: 80
+tags: ["development","documentation","mathematics","compiler","ast","polynomial","algebra"]
+keywords: ["ast","compiler","polynomial","algebra","formal","verification","sedenion","identity"]
+lastUpdate: "2025-12-15"
+
+---
+
 **Let's implement `src/interface/obsidian-canvas.rkt` first.** This gives you IMMEDIATE visual organization while you work on everything else.
 
 ## 🚀 **STEP 1: CREATE THE FILE**

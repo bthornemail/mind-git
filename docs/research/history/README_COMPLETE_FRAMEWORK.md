@@ -1,3 +1,21 @@
+---
+id: "mind-git:research:readme-complete-framework"
+title: "The Complete Framework: From 0! = 1 to Post-Quantum Cryptography"
+type: ["research","academic"]
+category: research
+layer: 7
+dimensions: [0, 1, 8, 9, 16]
+mathematicalFoundation: ["polynomial-algebra","formal-verification","division-algebras"]
+hopfCompatible: false
+normPreserving: true
+status: "complete"
+completeness: 95
+tags: ["documentation","mathematics","ast","polynomial","algebra"]
+keywords: ["ast","polynomial","algebra","mathematics","formal","theorem","proof","sedenion","chain","p2p"]
+lastUpdate: "2025-12-15"
+
+---
+
 # The Complete Framework: From 0! = 1 to Post-Quantum Cryptography
 **A Journey Through 11 Dimensions of Mathematical Reality**
 

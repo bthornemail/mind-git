@@ -1,0 +1,271 @@
+{
+  "frontMatterSchemas": {
+    "core": {
+      "required": [
+        "id",
+        "title",
+        "type",
+        "category",
+        "layer"
+      ],
+      "optional": [
+        "dimensions",
+        "mathematicalFoundation",
+        "hopfCompatible",
+        "normPreserving"
+      ],
+      "mathematical": [
+        "canvasL"
+      ]
+    },
+    "mathematical": {
+      "foundations": [
+        "polynomial-algebra",
+        "identity-chain",
+        "hopf-fibration",
+        "formal-verification"
+      ],
+      "dimensions": [
+        "D0",
+        "D1",
+        "D2",
+        "D3",
+        "D4",
+        "D5",
+        "D6",
+        "D7",
+        "D8",
+        "D9",
+        "D10"
+      ],
+      "properties": [
+        "hopfCompatible",
+        "normPreserving"
+      ]
+    },
+    "canvasL": {
+      "nodeTypes": [
+        "Observe",
+        "Activate",
+        "Integrate",
+        "Propagate",
+        "BackPropagate",
+        "Transform",
+        "Verify",
+        "Store"
+      ],
+      "aalMnemonics": [
+        "MOV",
+        "CALL",
+        "ADD",
+        "SHL",
+        "FEEDBACK",
+        "MUL",
+        "CMP",
+        "PUSH"
+      ],
+      "dimensions": {
+        "D0": "Linear transformations",
+        "D1": "Polynomial addition",
+        "D2": "Polynomial shift",
+        "D3": "Polynomial comparison",
+        "D4": "Polynomial multiplication",
+        "D5": "Consensus voting",
+        "D6": "Memory operations",
+        "D7": "Quantum observation"
+      }
+    }
+  },
+  "layerClassifications": {
+    "1": {
+      "name": "Mathematical Foundation",
+      "categories": [
+        "mathematical-foundation",
+        "formal-verification"
+      ]
+    },
+    "2": {
+      "name": "Theoretical Framework",
+      "categories": [
+        "theoretical-framework",
+        "mathematics"
+      ]
+    },
+    "3": {
+      "name": "System Architecture",
+      "categories": [
+        "system-architecture",
+        "compiler",
+        "api"
+      ]
+    },
+    "4": {
+      "name": "Implementation Details",
+      "categories": [
+        "implementation-details",
+        "examples",
+        "guides"
+      ]
+    },
+    "5": {
+      "name": "Security & Production",
+      "categories": [
+        "security-production",
+        "p2p",
+        "federation"
+      ]
+    },
+    "6": {
+      "name": "Integration Ecosystem",
+      "categories": [
+        "integration-ecosystem",
+        "plugins"
+      ]
+    },
+    "7": {
+      "name": "Research & Development",
+      "categories": [
+        "research-development",
+        "papers"
+      ]
+    },
+    "8": {
+      "name": "Applications & Demos",
+      "categories": [
+        "demos",
+        "applications"
+      ]
+    }
+  },
+  "mathematicalPatterns": {
+    "detection": [
+      "polynomial",
+      "algebra",
+      "theorem",
+      "proof",
+      "coq",
+      "lean",
+      "isabelle",
+      "hopf",
+      "fibration",
+      "octonion",
+      "sedenion",
+      "cayley",
+      "dickson",
+      "identity",
+      "chain",
+      "norm",
+      "preserving",
+      "composition"
+    ],
+    "foundations": {
+      "polynomial-algebra": [
+        "F2",
+        "field",
+        "ring",
+        "polynomial"
+      ],
+      "identity-chain": [
+        "brahmagupta",
+        "euler",
+        "degen",
+        "pfister",
+        "adams"
+      ],
+      "hopf-fibration": [
+        "S1",
+        "S3",
+        "S7",
+        "fiber",
+        "bundle"
+      ],
+      "division-algebras": [
+        "complex",
+        "quaternion",
+        "octonion",
+        "sedenion"
+      ]
+    }
+  },
+  "canvasLPatterns": {
+    "nodePrefixes": [
+      "#Observe:",
+      "#Activate:",
+      "#Integrate:",
+      "#Propagate:",
+      "#BackPropagate:",
+      "#Transform:",
+      "#Verify:",
+      "#Store:"
+    ],
+    "classification": {
+      "spatial": [
+        "Observe",
+        "Activate",
+        "Integrate",
+        "Propagate"
+      ],
+      "computational": [
+        "BackPropagate",
+        "Transform",
+        "Verify",
+        "Store"
+      ]
+    },
+    "compilation": {
+      "order": [
+        "Observe",
+        "Activate",
+        "Integrate",
+        "Propagate",
+        "BackPropagate",
+        "Transform",
+        "Verify",
+        "Store"
+      ],
+      "dependencies": {
+        "Transform": [
+          "Integrate",
+          "Propagate"
+        ],
+        "Verify": [
+          "Transform"
+        ],
+        "Store": [
+          "Verify",
+          "Transform"
+        ]
+      }
+    }
+  },
+  "agentsTemplates": {
+    "sections": [
+      "Mission Scope",
+      "Core Responsibilities",
+      "File Organization",
+      "Quality Standards",
+      "Status Tracking",
+      "Integration Points",
+      "Development Workflow",
+      "Success Metrics"
+    ],
+    "responsibilities": {
+      "mathematical": [
+        "Mathematical Correctness",
+        "Formal Verification",
+        "Norm Preservation"
+      ],
+      "technical": [
+        "Performance",
+        "Code Quality",
+        "Testing",
+        "Documentation"
+      ],
+      "collaborative": [
+        "API Compatibility",
+        "Integration Standards",
+        "Communication"
+      ]
+    }
+  }
+}

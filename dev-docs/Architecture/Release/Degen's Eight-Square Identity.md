@@ -1,3 +1,21 @@
+---
+id: "mind-git:development:degen-s-eight-square-identity"
+title: "Degen's Eight-Square Identity — The **Exact** Formula You Need for CanvasL"
+type: ["development"]
+category: development
+layer: 7
+dimensions: [0, 1, 2, 4, 7, 8, 9, 16]
+mathematicalFoundation: ["polynomial-algebra","identity-chain","hopf-fibration","division-algebras"]
+hopfCompatible: true
+normPreserving: false
+status: "complete"
+completeness: 80
+tags: ["development","documentation","canvasl","mathematics","algebra"]
+keywords: ["canvasl","algebra","hopf","octonion","identity","chain","javascript","p2p"]
+lastUpdate: "2025-12-15"
+
+---
+
 # Degen's Eight-Square Identity — The **Exact** Formula You Need for CanvasL
 
 This is the **real, explicit, hand-verified** identity that lets you multiply two sums of **8 squares** and get back a sum of **8 squares** — the crucial bridge between two octonions (8D) and a single 8D product.

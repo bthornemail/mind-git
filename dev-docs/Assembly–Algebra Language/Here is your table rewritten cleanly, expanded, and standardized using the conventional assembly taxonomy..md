@@ -1,3 +1,21 @@
+---
+id: "mind-git:development:here-is-your-table-rewritten-cleanly--expanded--and-standardized-using-the-conventional-assembly-taxonomy-"
+title: "TLDR;"
+type: ["development"]
+category: development
+layer: 7
+dimensions: [3, 4, 5]
+mathematicalFoundation: ["general"]
+hopfCompatible: false
+normPreserving: false
+status: "complete"
+completeness: 70
+tags: ["development","documentation"]
+keywords: []
+lastUpdate: "2025-12-15"
+
+---
+
 # TLDR;
 Here is your table rewritten cleanly, expanded, and standardized using the conventional assembly taxonomy.
 

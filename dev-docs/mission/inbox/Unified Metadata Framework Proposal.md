@@ -1,3 +1,26 @@
+---
+id: "mind-git:development:unified-metadata-framework-proposal"
+title: "Core Identification"
+type: ["development"]
+category: development
+layer: 7
+dimensions: [0, 1, 2, 4, 7, 8, 9]
+mathematicalFoundation: ["polynomial-algebra","identity-chain","hopf-fibration","formal-verification"]
+hopfCompatible: true
+normPreserving: true
+status: "complete"
+completeness: 95
+tags: ["development","documentation","canvasl","mathematics","compiler","ast","api","polynomial","algebra"]
+keywords: ["canvasl","aal","ast","compiler","polynomial","algebra","mathematics","formal","verification","coq","theorem","proof","hopf","identity","chain","typescript","javascript","webrtc","federation"]
+lastUpdate: "2025-12-15"
+canvasL:
+  nodeTypes: ["Transform","Verify","Store","EXPORT_TAGS","EXPORT_TARGETS","EXPORT_FORMATS","NO_REF","DRAFT","CLASSIFIED","Observe","Activate","Integrate","Propagate","BackPropagate"]
+  compilationOrder: 7
+  spatialCoordinates: {x: 700, y: 0}
+  dimensionalMapping: [D4, D5, D6, D7, D0, D1, D2, D3]
+  aalMnemonics: [MUL, CMP, ADD, MOV, CALL, FEEDBACK]
+---
+
 Based on my analysis of your codebase, I can propose a comprehensive metadata framework that builds upon your existing sophisticated patterns. Here's my proposal:
 🏗️ Unified Metadata Framework Proposal
 Core Architecture

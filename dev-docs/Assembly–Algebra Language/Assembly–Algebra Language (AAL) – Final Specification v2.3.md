@@ -1,3 +1,21 @@
+---
+id: "mind-git:development:assembly-algebra-language--aal----final-specification-v2-3"
+title: "**Assembly–Algebra Language (AAL) – Final Specification v2.3**"
+type: ["development"]
+category: development
+layer: 7
+dimensions: [0, 1, 9]
+mathematicalFoundation: ["polynomial-algebra","formal-verification"]
+hopfCompatible: false
+normPreserving: true
+status: "complete"
+completeness: 80
+tags: ["development","documentation","mathematics","ast","polynomial","algebra"]
+keywords: ["aal","ast","polynomial","algebra","formal","verification","coq"]
+lastUpdate: "2025-12-15"
+
+---
+
 # **Assembly–Algebra Language (AAL) – Final Specification v2.3**  
 **Fully Correct, Verified, and Complete**
 
