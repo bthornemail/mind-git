@@ -1,0 +1,11 @@
+{
+  "nodes": [
+    {"id": "input", "x": 50, "y": 100, "content": "const data = [1,2,3]", "type": "text"},
+    {"id": "process", "x": 200, "y": 100, "content": "const sum = data.reduce((a,b) => a+b)", "type": "text"},
+    {"id": "output", "x": 350, "y": 100, "content": "console.log('Sum:', sum)", "type": "text"}
+  ],
+  "edges": [
+    {"from": "input", "to": "process"},
+    {"from": "process", "to": "output"}
+  ]
+}

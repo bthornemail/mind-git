@@ -1,0 +1,6 @@
+{
+  "nodes": [
+    {"id": "demo", "x": 100, "y": 100, "content": "2 + 3", "type": "text"}
+  ],
+  "edges": []
+}

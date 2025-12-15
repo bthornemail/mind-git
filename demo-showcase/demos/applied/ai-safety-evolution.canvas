@@ -1,0 +1,88 @@
+{
+  "nodes": [
+    {
+      "id": "ethics-framework",
+      "type": "text",
+      "x": 0,
+      "y": 0,
+      "width": 250,
+      "height": 60,
+      "text": "#Integrate: AI Ethics Framework",
+      "color": "1"
+    },
+    {
+      "id": "safety-constraints",
+      "type": "text",
+      "x": 300,
+      "y": 0,
+      "width": 250,
+      "height": 60,
+      "text": "#Store: Safety Constraints",
+      "color": "6"
+    },
+    {
+      "id": "evolution-cycle",
+      "type": "text",
+      "x": 150,
+      "y": 100,
+      "width": 250,
+      "height": 60,
+      "text": "#Transform: Evolution Cycle",
+      "color": "4"
+    },
+    {
+      "id": "verification",
+      "type": "text",
+      "x": 0,
+      "y": 200,
+      "width": 200,
+      "height": 60,
+      "text": "#Verify: Safety Proof",
+      "color": "5"
+    },
+    {
+      "id": "optimization",
+      "type": "text",
+      "x": 350,
+      "y": 200,
+      "width": 200,
+      "height": 60,
+      "text": "#BackPropagate: Optimization",
+      "color": "3"
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge-1",
+      "fromNode": "ethics-framework",
+      "toNode": "evolution-cycle",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "label": "guides"
+    },
+    {
+      "id": "edge-2",
+      "fromNode": "safety-constraints",
+      "toNode": "evolution-cycle",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "label": "constrains"
+    },
+    {
+      "id": "edge-3",
+      "fromNode": "evolution-cycle",
+      "toNode": "verification",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "label": "verifies"
+    },
+    {
+      "id": "edge-4",
+      "fromNode": "evolution-cycle",
+      "toNode": "optimization",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "label": "improves"
+    }
+  ]
+}

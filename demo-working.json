@@ -1,0 +1,15 @@
+{
+  "nodes": [
+    {
+      "id": "hello-world",
+      "x": 200,
+      "y": 200,
+      "width": 200,
+      "height": 100,
+      "color": "#4CAF50",
+      "content": "console.log('Hello from CanvasL!')\nconst result = 2 + 3\nconsole.log(`2 + 3 = ${result}`)",
+      "type": "text"
+    }
+  ],
+  "edges": []
+}

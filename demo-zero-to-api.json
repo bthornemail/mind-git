@@ -1,0 +1,64 @@
+{
+  "nodes": [
+    {
+      "id": "express-server",
+      "x": 200,
+      "y": 100,
+      "width": 180,
+      "height": 80,
+      "color": "#4CAF50",
+      "content": "#Integrate:\nconst express = require('express')\nconst app = express()\nconst port = 3000",
+      "type": "text"
+    },
+    {
+      "id": "get-users-route",
+      "x": 100,
+      "y": 250,
+      "width": 160,
+      "height": 80,
+      "color": "#2196F3",
+      "content": "#Propagate:\napp.get('/users', (req, res) => {\n  const users = ['Alice', 'Bob']\n  res.json(users)\n})",
+      "type": "text"
+    },
+    {
+      "id": "server-start",
+      "x": 300,
+      "y": 250,
+      "width": 160,
+      "height": 80,
+      "color": "#FF9800",
+      "content": "#Activate:\napp.listen(port, () => {\n  console.log(`Server running on ${port}`)\n})",
+      "type": "text"
+    },
+    {
+      "id": "client-request",
+      "x": 200,
+      "y": 400,
+      "width": 140,
+      "height": 60,
+      "color": "#9C27B0",
+      "content": "#Observe:\ncurl http://localhost:3000/users",
+      "type": "text"
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge-1",
+      "from": ["express-server", "right"],
+      "to": ["get-users-route", "top"],
+      "color": "#4CAF50"
+    },
+    {
+      "id": "edge-2", 
+      "from": ["express-server", "left"],
+      "to": ["server-start", "top"],
+      "color": "#FF9800"
+    },
+    {
+      "id": "edge-3",
+      "from": ["get-users-route", "bottom"],
+      "to": ["client-request", "top"],
+      "color": "#2196F3"
+    }
+  ]
+}

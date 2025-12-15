@@ -1,0 +1,9 @@
+{
+  "nodes": [
+    {"id": "math", "x": 100, "y": 100, "content": "const result = 2 + 3", "type": "text"},
+    {"id": "output", "x": 300, "y": 100, "content": "console.log(result)", "type": "text"}
+  ],
+  "edges": [
+    {"from": "math", "to": "output"}
+  ]
+}

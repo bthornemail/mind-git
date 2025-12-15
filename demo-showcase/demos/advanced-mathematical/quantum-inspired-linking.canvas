@@ -1,0 +1,88 @@
+{
+  "nodes": [
+    {
+      "id": "hopf-fibration",
+      "type": "text",
+      "x": 0,
+      "y": 0,
+      "width": 250,
+      "height": 60,
+      "text": "#Transform: Hopf Fibration S³→S²",
+      "color": "4"
+    },
+    {
+      "id": "octonion-expansion",
+      "type": "text",
+      "x": 300,
+      "y": 0,
+      "width": 250,
+      "height": 60,
+      "text": "#Integrate: Octonion Algebra",
+      "color": "1"
+    },
+    {
+      "id": "pfister-identity",
+      "type": "text",
+      "x": 150,
+      "y": 100,
+      "width": 250,
+      "height": 60,
+      "text": "#Verify: Pfister 16-Square Identity",
+      "color": "5"
+    },
+    {
+      "id": "peer-entanglement",
+      "type": "text",
+      "x": 0,
+      "y": 200,
+      "width": 200,
+      "height": 60,
+      "text": "#Observe: Peer Entanglement",
+      "color": "0"
+    },
+    {
+      "id": "quantum-state",
+      "type": "text",
+      "x": 350,
+      "y": 200,
+      "width": 200,
+      "height": 60,
+      "text": "#Store: Quantum State",
+      "color": "6"
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge-1",
+      "fromNode": "hopf-fibration",
+      "toNode": "pfister-identity",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "label": "enables"
+    },
+    {
+      "id": "edge-2",
+      "fromNode": "octonion-expansion",
+      "toNode": "pfister-identity",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "label": "extends"
+    },
+    {
+      "id": "edge-3",
+      "fromNode": "pfister-identity",
+      "toNode": "peer-entanglement",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "label": "creates"
+    },
+    {
+      "id": "edge-4",
+      "fromNode": "pfister-identity",
+      "toNode": "quantum-state",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "label": "maintains"
+    }
+  ]
+}

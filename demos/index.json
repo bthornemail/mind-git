@@ -1,0 +1,130 @@
+{
+  "title": "MIND-GIT Demo Suite",
+  "description": "Comprehensive demonstrations of MIND-GIT capabilities including CanvasL visual programming, AAL verification, and P2P federation.",
+  "generated": "2025-12-15T18:44:35.176Z",
+  "totalDemos": 6,
+  "categories": {
+    "basic": [
+      "intro-meaning-repos"
+    ],
+    "verification-focused": [
+      "verified-computations"
+    ],
+    "visual": [
+      "spatial-knowledge-building"
+    ],
+    "distributed": [
+      "p2p-knowledge-sync"
+    ],
+    "applied": [
+      "ai-safety-evolution"
+    ],
+    "advanced-mathematical": [
+      "quantum-inspired-linking"
+    ]
+  },
+  "demos": [
+    {
+      "id": "intro-meaning-repos",
+      "title": "Intro to Meaning Repos",
+      "description": "Walk through creating a repo, adding a \"belief\" node, and committing with Git-like commands. Output: A simple semantic graph.",
+      "category": "basic",
+      "audience": "developers",
+      "form": "interactive-tutorial",
+      "functions": [
+        "node-creation"
+      ],
+      "difficulty": "beginner",
+      "estimatedTime": "10 minutes",
+      "files": [
+        "web/intro-meaning-repos.html",
+        "basic/intro-meaning-repos.canvas"
+      ]
+    },
+    {
+      "id": "verified-computations",
+      "title": "Verified Computations",
+      "description": "Generate Coq/LEAN theorems for a node, verify norm preservation, and extract to JS/WebAssembly.",
+      "category": "verification-focused",
+      "audience": "researchers",
+      "form": "code-notebook",
+      "functions": [
+        "formal-proof"
+      ],
+      "difficulty": "advanced",
+      "estimatedTime": "25 minutes",
+      "files": [
+        "notebooks/verified-computations.ipynb",
+        "verification-focused/verified-computations.canvas"
+      ]
+    },
+    {
+      "id": "spatial-knowledge-building",
+      "title": "Spatial Knowledge Building",
+      "description": "Draw a CanvasL diagram (e.g., a reasoning tree), compiles to code, and shows topological invariance.",
+      "category": "visual",
+      "audience": "general",
+      "form": "video-walkthrough",
+      "functions": [
+        "visual-compilation"
+      ],
+      "difficulty": "intermediate",
+      "estimatedTime": "15 minutes",
+      "files": [
+        "docs/spatial-knowledge-building.md",
+        "visual/spatial-knowledge-building.canvas"
+      ]
+    },
+    {
+      "id": "p2p-knowledge-sync",
+      "title": "P2P Knowledge Sync",
+      "description": "Simulates a multi-peer mesh, syncs nodes in real-time via WebRTC, and resolves a mock contradiction.",
+      "category": "distributed",
+      "audience": "enterprises",
+      "form": "live-webinar",
+      "functions": [
+        "federation-sync"
+      ],
+      "difficulty": "advanced",
+      "estimatedTime": "30 minutes",
+      "files": [
+        "docs/p2p-knowledge-sync.md",
+        "distributed/p2p-knowledge-sync.canvas"
+      ]
+    },
+    {
+      "id": "ai-safety-evolution",
+      "title": "AI Safety Evolution",
+      "description": "Evolves a semantic model (e.g., for ethical AI decisions) with proof-guaranteed improvements.",
+      "category": "applied",
+      "audience": "ai-ml",
+      "form": "static-docs",
+      "functions": [
+        "self-evolution"
+      ],
+      "difficulty": "expert",
+      "estimatedTime": "45 minutes",
+      "files": [
+        "docs/ai-safety-evolution.md",
+        "applied/ai-safety-evolution.canvas"
+      ]
+    },
+    {
+      "id": "quantum-inspired-linking",
+      "title": "Quantum-Inspired Linking",
+      "description": "Visualizes Hopf fibrations for peer \"entanglement,\" expanding octonions with Pfister identities.",
+      "category": "advanced-mathematical",
+      "audience": "power-users",
+      "form": "vr-ar",
+      "functions": [
+        "mathematical-operations"
+      ],
+      "difficulty": "expert",
+      "estimatedTime": "60 minutes",
+      "files": [
+        "docs/quantum-inspired-linking.md",
+        "advanced-mathematical/quantum-inspired-linking.canvas"
+      ]
+    }
+  ]
+}

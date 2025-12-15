@@ -1,0 +1,9 @@
+{
+  "nodes": [
+    {"id": "data", "x": 100, "y": 100, "content": "const data = [1,2,3]", "type": "text"},
+    {"id": "sum", "x": 300, "y": 100, "content": "const sum = data.reduce((a,b) => a+b)", "type": "text"}
+  ],
+  "edges": [
+    {"from": "data", "to": "sum"}
+  ]
+}

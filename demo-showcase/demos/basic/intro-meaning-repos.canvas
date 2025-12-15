@@ -1,0 +1,62 @@
+{
+  "nodes": [
+    {
+      "id": "observer",
+      "type": "text",
+      "x": 0,
+      "y": 0,
+      "width": 200,
+      "height": 60,
+      "text": "#Observe: main",
+      "color": "0"
+    },
+    {
+      "id": "belief-node",
+      "type": "text",
+      "x": 100,
+      "y": 100,
+      "width": 250,
+      "height": 60,
+      "text": "#Integrate: \"AI can help humanity\"",
+      "color": "1"
+    },
+    {
+      "id": "confidence",
+      "type": "text",
+      "x": 100,
+      "y": 200,
+      "width": 250,
+      "height": 60,
+      "text": "#Store: confidence: 0.8",
+      "color": "3"
+    },
+    {
+      "id": "commit",
+      "type": "text",
+      "x": 400,
+      "y": 150,
+      "width": 250,
+      "height": 60,
+      "text": "#Verify: Commit semantic state",
+      "color": "5"
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge-1",
+      "fromNode": "belief-node",
+      "toNode": "confidence",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "label": "quantify"
+    },
+    {
+      "id": "edge-2",
+      "fromNode": "confidence",
+      "toNode": "commit",
+      "fromSide": "right",
+      "toSide": "left",
+      "label": "verify"
+    }
+  ]
+}

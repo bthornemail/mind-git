@@ -1,0 +1,104 @@
+{
+  "nodes": [
+    {
+      "id": "question",
+      "type": "text",
+      "x": 200,
+      "y": 0,
+      "width": 200,
+      "height": 60,
+      "text": "#Observe: Why is the sky blue?",
+      "color": "0"
+    },
+    {
+      "id": "physics",
+      "type": "text",
+      "x": 0,
+      "y": 100,
+      "width": 180,
+      "height": 60,
+      "text": "#Integrate: Rayleigh scattering",
+      "color": "1"
+    },
+    {
+      "id": "atmosphere",
+      "type": "text",
+      "x": 220,
+      "y": 100,
+      "width": 180,
+      "height": 60,
+      "text": "#Integrate: Atmosphere composition",
+      "color": "1"
+    },
+    {
+      "id": "light",
+      "type": "text",
+      "x": 440,
+      "y": 100,
+      "width": 180,
+      "height": 60,
+      "text": "#Integrate: Light spectrum",
+      "color": "1"
+    },
+    {
+      "id": "conclusion",
+      "type": "text",
+      "x": 200,
+      "y": 200,
+      "width": 220,
+      "height": 60,
+      "text": "#Transform: Blue light scatters most",
+      "color": "4"
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge-1",
+      "fromNode": "question",
+      "toNode": "physics",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "label": "investigates"
+    },
+    {
+      "id": "edge-2",
+      "fromNode": "question",
+      "toNode": "atmosphere",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "label": "requires"
+    },
+    {
+      "id": "edge-3",
+      "fromNode": "question",
+      "toNode": "light",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "label": "depends on"
+    },
+    {
+      "id": "edge-4",
+      "fromNode": "physics",
+      "toNode": "conclusion",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "label": "explains"
+    },
+    {
+      "id": "edge-5",
+      "fromNode": "atmosphere",
+      "toNode": "conclusion",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "label": "enables"
+    },
+    {
+      "id": "edge-6",
+      "fromNode": "light",
+      "toNode": "conclusion",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "label": "provides"
+    }
+  ]
+}

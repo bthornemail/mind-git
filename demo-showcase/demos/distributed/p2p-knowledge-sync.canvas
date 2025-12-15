@@ -1,0 +1,88 @@
+{
+  "nodes": [
+    {
+      "id": "peer1",
+      "type": "text",
+      "x": 0,
+      "y": 0,
+      "width": 200,
+      "height": 60,
+      "text": "#Observe: Peer 1 - Research Team",
+      "color": "0"
+    },
+    {
+      "id": "peer2",
+      "type": "text",
+      "x": 300,
+      "y": 0,
+      "width": 200,
+      "height": 60,
+      "text": "#Observe: Peer 2 - Engineering Team",
+      "color": "0"
+    },
+    {
+      "id": "shared-belief",
+      "type": "text",
+      "x": 150,
+      "y": 100,
+      "width": 200,
+      "height": 60,
+      "text": "#Integrate: AI safety is critical",
+      "color": "1"
+    },
+    {
+      "id": "contradiction",
+      "type": "text",
+      "x": 150,
+      "y": 200,
+      "width": 200,
+      "height": 60,
+      "text": "#BackPropagate: Timeline disagreement",
+      "color": "3"
+    },
+    {
+      "id": "consensus",
+      "type": "text",
+      "x": 150,
+      "y": 300,
+      "width": 200,
+      "height": 60,
+      "text": "#Verify: Consensus resolution",
+      "color": "5"
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge-1",
+      "fromNode": "peer1",
+      "toNode": "shared-belief",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "label": "proposes"
+    },
+    {
+      "id": "edge-2",
+      "fromNode": "peer2",
+      "toNode": "shared-belief",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "label": "agrees"
+    },
+    {
+      "id": "edge-3",
+      "fromNode": "shared-belief",
+      "toNode": "contradiction",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "label": "conflicts"
+    },
+    {
+      "id": "edge-4",
+      "fromNode": "contradiction",
+      "toNode": "consensus",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "label": "resolves"
+    }
+  ]
+}

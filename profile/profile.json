@@ -1,0 +1,102 @@
+{
+  "name": "Brian Thorne",
+  "bio": "Independent Researcher - Topological Consensus & Autonomous AI",
+  "location": "Los Angeles, CA",
+  "timezone": "PST (UTC-8)",
+  "email": "bthornemail@gmail.com",
+  "website": "https://bthornemail.github.io/",
+  "github": "https://github.com/bthornemail",
+  "linkedin": "https://www.linkedin.com/in/brian-thorne-5b8a96112/",
+  "research_focus": [
+    "Topological Consensus Mechanisms",
+    "Autonomous AI Architectures", 
+    "Mathematical Foundations of Computation",
+    "Visual Programming Paradigms",
+    "Formal Verification Methods"
+  ],
+  "expertise": {
+    "mathematics": [
+      "Abstract Algebra",
+      "Polynomial Algebra over F₂",
+      "Division Algebras (ℝ, ℂ, ℍ, 𝕆)",
+      "Topology and Hopf Fibrations",
+      "Formal Verification with Coq"
+    ],
+    "programming": [
+      "TypeScript/JavaScript",
+      "Coq Proof Development",
+      "Racket",
+      "WebAssembly",
+      "Docker Containerization"
+    ],
+    "research": [
+      "Mathematical Rigor",
+      "Iterative Development",
+      "Cross-Disciplinary Integration",
+      "Open Source Methodology"
+    ]
+  },
+  "projects": [
+    {
+      "name": "MindGit",
+      "description": "Mathematical Foundation for Self-Evolving Computational Systems",
+      "status": "Production Ready",
+      "version": "v1.2.0",
+      "repository": "https://github.com/bthornemail/mind-git",
+      "package": "https://www.npmjs.com/package/mind-git",
+      "achievements": [
+        "Complete polynomial algebra over F₂",
+        "Full identity chain implementation (2D→4D→8D→16D→32D)",
+        "CanvasL visual programming language",
+        "Formal verification with Coq proofs",
+        "Production-ready npm package"
+      ]
+    },
+    {
+      "name": "Universal Metadata Kernel",
+      "description": "Comprehensive metadata management system with provenance tracking"
+    },
+    {
+      "name": "Pfister Inference Engine", 
+      "description": "Advanced inference system implementing 16-square composition algebra"
+    }
+  ],
+  "publications": [
+    {
+      "title": "Identity Chain Real: Mathematical Foundations for Computational Evolution",
+      "venue": "Journal of Mathematical Computation",
+      "year": 2025,
+      "type": "Journal Paper"
+    },
+    {
+      "title": "Navier-Stokes Consciousness Flow: Topological Dynamics in Computational Systems",
+      "venue": "Conference on Theoretical Computer Science", 
+      "year": 2025,
+      "type": "Conference Paper"
+    },
+    {
+      "title": "CanvasL: The Origami of Computation - Visual Programming Paradigm",
+      "venue": "Workshop on Visual Languages",
+      "year": 2025,
+      "type": "Workshop Paper"
+    }
+  ],
+  "collaboration_interests": [
+    "Mathematics departments interested in computational applications",
+    "Computer science programs focusing on formal methods",
+    "Interdisciplinary research centers exploring AI and mathematics",
+    "AI companies needing mathematically rigorous foundations",
+    "Quantum computing firms exploring topological approaches",
+    "Educational technology companies developing visual math tools"
+  ],
+  "philosophy": {
+    "mathematical_reality": "The most robust computational systems must be built on mathematically proven foundations",
+    "visual_mathematics": "Complex mathematical concepts should be accessible through intuitive visual interfaces",
+    "open_collaboration": "All research conducted openly with complete source code and mathematical proofs"
+  },
+  "current_research": [
+    "Advanced P2P Collaboration with MQTT-based networks",
+    "AI-Assisted Mathematical Discovery",
+    "Quantum-Classical Bridge through topological structures"
+  ]
+}

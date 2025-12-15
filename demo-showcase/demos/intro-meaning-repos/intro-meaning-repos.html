@@ -1,0 +1,186 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intro to Meaning Repos - MIND-GIT Demo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script type="module">
+        import { CanvasLCompiler } from 'https://cdn.jsdelivr.net/npm/mind-git@1.1.0/dist/index.js';
+        
+        window.CanvasLCompiler = CanvasLCompiler;
+        window.runDemo = async function(canvasData) {
+            const compiler = new CanvasLCompiler();
+            try {
+                const result = await compiler.compileCanvas(canvasData);
+                eval(result.generated_code.javascript_code);
+                return { success: true, result };
+            } catch (error) {
+                return { success: false, error: error.message };
+            }
+        };
+    </script>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <div class="container mx-auto px-4 py-8">
+        <header class="mb-8">
+            <h1 class="text-4xl font-bold text-gray-900 mb-2">Intro to Meaning Repos</h1>
+            <p class="text-xl text-gray-600">Walk through creating a repo, adding a "belief" node, and committing with Git-like commands. Output: A simple semantic graph.</p>
+            <div class="mt-4 flex gap-2">
+                <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">basic</span>
+                <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm">developers</span>
+                <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm">node-creation</span>
+            </div>
+        </header>
+
+        <main>
+            <div class="grid lg:grid-cols-2 gap-8">
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <h2 class="text-2xl font-semibold mb-4">Canvas Editor</h2>
+                    <div id="canvas-editor" class="border-2 border-dashed border-gray-300 rounded-lg p-4 min-h-[400px]">
+                        {
+  "nodes": [
+    {
+      "id": "observer",
+      "type": "text",
+      "x": 0,
+      "y": 0,
+      "width": 200,
+      "height": 60,
+      "text": "#Observe: main",
+      "color": "0"
+    },
+    {
+      "id": "belief-node",
+      "type": "text",
+      "x": 100,
+      "y": 100,
+      "width": 250,
+      "height": 60,
+      "text": "#Integrate: \"AI can help humanity\"",
+      "color": "1"
+    },
+    {
+      "id": "confidence",
+      "type": "text",
+      "x": 100,
+      "y": 200,
+      "width": 250,
+      "height": 60,
+      "text": "#Store: confidence: 0.8",
+      "color": "3"
+    },
+    {
+      "id": "commit",
+      "type": "text",
+      "x": 400,
+      "y": 150,
+      "width": 250,
+      "height": 60,
+      "text": "#Verify: Commit semantic state",
+      "color": "5"
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge-1",
+      "fromNode": "belief-node",
+      "toNode": "confidence",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "label": "quantify"
+    },
+    {
+      "id": "edge-2",
+      "fromNode": "confidence",
+      "toNode": "commit",
+      "fromSide": "right",
+      "toSide": "left",
+      "label": "verify"
+    }
+  ]
+}
+                    </div>
+                    <button onclick="runDemoFromEditor()" class="mt-4 bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition">
+                        Run Demo
+                    </button>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <h2 class="text-2xl font-semibold mb-4">Output & Verification</h2>
+                    <div id="output" class="bg-gray-900 text-green-400 p-4 rounded-lg font-mono text-sm min-h-[400px] overflow-auto">
+                        Ready to execute...
+                    </div>
+                    <div id="verification" class="mt-4 p-4 bg-yellow-50 rounded-lg">
+                        <h3 class="font-semibold text-yellow-800">Mathematical Verification</h3>
+                        <div id="verification-details" class="text-sm text-yellow-700 mt-2">
+                            Awaiting execution...
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-8 bg-white rounded-lg shadow-lg p-6">
+                <h2 class="text-2xl font-semibold mb-4">Step-by-Step Guide</h2>
+                <div class="space-y-4">
+                    
+      <div class="flex items-start space-x-3">
+        <div class="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-semibold">
+          1
+        </div>
+        <div class="flex-1">
+          <h3 class="font-semibold text-gray-900">Initialize Repository</h3>
+          <p class="text-gray-600 mt-1">Create a new MIND-GIT repository to store semantic knowledge.</p>
+          <pre class="bg-gray-100 p-3 rounded mt-2 text-sm overflow-x-auto"><code># Initialize new repo
+mind-git init my-semantic-repo
+cd my-semantic-repo</code></pre>
+        </div>
+      </div>
+    
+      <div class="flex items-start space-x-3">
+        <div class="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-semibold">
+          2
+        </div>
+        <div class="flex-1">
+          <h3 class="font-semibold text-gray-900">Add Belief Node</h3>
+          <p class="text-gray-600 mt-1">Create your first semantic node representing a belief or concept.</p>
+          <pre class="bg-gray-100 p-3 rounded mt-2 text-sm overflow-x-auto"><code># Add a belief node
+mind-git add-belief "AI can help humanity" --confidence 0.8</code></pre>
+        </div>
+      </div>
+    
+      <div class="flex items-start space-x-3">
+        <div class="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-semibold">
+          3
+        </div>
+        <div class="flex-1">
+          <h3 class="font-semibold text-gray-900">Verify Mathematical Structure</h3>
+          <p class="text-gray-600 mt-1">The system automatically verifies the mathematical integrity of your semantic graph.</p>
+          <pre class="bg-gray-100 p-3 rounded mt-2 text-sm overflow-x-auto"><code># Verify polynomial encoding
+mind-git verify --show-math</code></pre>
+        </div>
+      </div>
+    
+      <div class="flex items-start space-x-3">
+        <div class="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-semibold">
+          4
+        </div>
+        <div class="flex-1">
+          <h3 class="font-semibold text-gray-900">Commit Semantic State</h3>
+          <p class="text-gray-600 mt-1">Commit your changes with automatic mathematical verification.</p>
+          <pre class="bg-gray-100 p-3 rounded mt-2 text-sm overflow-x-auto"><code># Commit with mathematical proof
+mind-git commit -m "Add belief about AI potential"</code></pre>
+        </div>
+      </div>
+    
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        
+    </script>
+</body>
+</html>

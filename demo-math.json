@@ -1,0 +1,15 @@
+{
+  "nodes": [
+    {
+      "id": "math-demo",
+      "x": 200,
+      "y": 200,
+      "width": 200,
+      "height": 100,
+      "color": "#4CAF50",
+      "content": "const sum = 2 + 3\nconsole.log(`Result: ${sum}`)",
+      "type": "text"
+    }
+  ],
+  "edges": []
+}
