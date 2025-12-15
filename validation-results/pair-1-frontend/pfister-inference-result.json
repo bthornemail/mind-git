@@ -1,0 +1,310 @@
+{
+  "repoA": {
+    "path": "test-repos/react",
+    "vector": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      0.9164569536423841,
+      0.22847682119205298,
+      1,
+      1,
+      0.1814457831325301,
+      0.12048192771084337,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.65,
+      0.10846153846153847,
+      0,
+      1,
+      0.85,
+      0.18529411764705883,
+      0.058823529411764705,
+      1,
+      0.05,
+      0.1,
+      0,
+      1
+    ],
+    "norm": 3.0243332316058535,
+    "name": "react"
+  },
+  "repoB": {
+    "path": "test-repos/vue",
+    "vector": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      0.49875,
+      0.225,
+      1,
+      1,
+      0.14476190476190476,
+      0.19047619047619047,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.05,
+      0.02,
+      0,
+      1,
+      0.9,
+      0.5766666666666667,
+      0.2222222222222222,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "norm": 2.747988520937168,
+    "name": "vue"
+  },
+  "similarity": 0.8997051956176227,
+  "composed": {
+    "vector": [
+      1.1698568296972083,
+      1.1698568296972083,
+      1.1698568296972083,
+      1.1698568296972083,
+      1.9287678387956066,
+      1.9287678387956066,
+      1.9287678387956066,
+      1.9287678387956066,
+      1.8991412209126635,
+      1.8991412209126635,
+      1.8991412209126635,
+      1.8991412209126635,
+      1.3991122673378038,
+      1.3991122673378038,
+      1.3991122673378038,
+      1.3991122673378038,
+      1.2562094208650936,
+      1.2562094208650936,
+      1.2562094208650936,
+      1.2562094208650936,
+      1.4339564540708962,
+      1.4339564540708962,
+      1.4339564540708962,
+      1.4339564540708962,
+      1.4061379320798282,
+      1.4061379320798282,
+      1.4061379320798282,
+      1.4061379320798282,
+      1.0015020259739122,
+      1.0015020259739122,
+      1.0015020259739122,
+      1.0015020259739122
+    ],
+    "norm": 8.310833003941696,
+    "normPreserved": true
+  },
+  "integrationPoints": [
+    {
+      "dimension": 9,
+      "layer": 3,
+      "layerName": "API/Interface",
+      "feature": "Complexity",
+      "strengthA": 0.1814457831325301,
+      "strengthB": 0.14476190476190476,
+      "composedStrength": 1.8991412209126635,
+      "synergy": 10.466714564126898,
+      "description": "weak overlap in algorithmic sophistication at API design layer"
+    },
+    {
+      "dimension": 10,
+      "layer": 3,
+      "layerName": "API/Interface",
+      "feature": "Mathematical Content",
+      "strengthA": 0.12048192771084337,
+      "strengthB": 0.19047619047619047,
+      "composedStrength": 1.8991412209126635,
+      "synergy": 9.970491409791483,
+      "description": "weak overlap in formal methods and proofs at API design layer"
+    },
+    {
+      "dimension": 6,
+      "layer": 2,
+      "layerName": "Core Implementation",
+      "feature": "Mathematical Content",
+      "strengthA": 0.22847682119205298,
+      "strengthB": 0.225,
+      "composedStrength": 1.9287678387956066,
+      "synergy": 8.441853439366279,
+      "description": "weak overlap in formal methods and proofs at core implementation layer"
+    },
+    {
+      "dimension": 25,
+      "layer": 7,
+      "layerName": "Tests",
+      "feature": "Complexity",
+      "strengthA": 0.18529411764705883,
+      "strengthB": 0.5766666666666667,
+      "composedStrength": 1.4061379320798282,
+      "synergy": 2.4383894775950776,
+      "description": "moderate overlap in algorithmic sophistication at testing infrastructure layer"
+    },
+    {
+      "dimension": 5,
+      "layer": 2,
+      "layerName": "Core Implementation",
+      "feature": "Complexity",
+      "strengthA": 0.9164569536423841,
+      "strengthB": 0.49875,
+      "composedStrength": 1.9287678387956066,
+      "synergy": 2.104591853583384,
+      "description": "strong overlap in algorithmic sophistication at core implementation layer"
+    },
+    {
+      "dimension": 4,
+      "layer": 2,
+      "layerName": "Core Implementation",
+      "feature": "Presence",
+      "strengthA": 1,
+      "strengthB": 1,
+      "composedStrength": 1.9287678387956066,
+      "synergy": 1.9287678387956066,
+      "description": "strong overlap in component organization at core implementation layer"
+    },
+    {
+      "dimension": 7,
+      "layer": 2,
+      "layerName": "Core Implementation",
+      "feature": "Test Coverage",
+      "strengthA": 1,
+      "strengthB": 1,
+      "composedStrength": 1.9287678387956066,
+      "synergy": 1.9287678387956066,
+      "description": "strong overlap in testing practices at core implementation layer"
+    },
+    {
+      "dimension": 8,
+      "layer": 3,
+      "layerName": "API/Interface",
+      "feature": "Presence",
+      "strengthA": 1,
+      "strengthB": 1,
+      "composedStrength": 1.8991412209126635,
+      "synergy": 1.8991412209126635,
+      "description": "strong overlap in component organization at API design layer"
+    },
+    {
+      "dimension": 11,
+      "layer": 3,
+      "layerName": "API/Interface",
+      "feature": "Test Coverage",
+      "strengthA": 1,
+      "strengthB": 1,
+      "composedStrength": 1.8991412209126635,
+      "synergy": 1.8991412209126635,
+      "description": "strong overlap in testing practices at API design layer"
+    },
+    {
+      "dimension": 24,
+      "layer": 7,
+      "layerName": "Tests",
+      "feature": "Presence",
+      "strengthA": 0.85,
+      "strengthB": 0.9,
+      "composedStrength": 1.4061379320798282,
+      "synergy": 1.562375480088698,
+      "description": "strong overlap in component organization at testing infrastructure layer"
+    }
+  ],
+  "emergentPatterns": [
+    {
+      "type": "cross-layer-coordination",
+      "description": "Coordinated activity across layers 1, 2, 3, 4, 5, 6, 7, 8",
+      "strength": 7.715071355182427,
+      "layers": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ]
+    },
+    {
+      "type": "mathematical-practical-bridge",
+      "description": "Strong connection between mathematical foundations and practical implementation",
+      "strength": 1.5493123342464075,
+      "implications": [
+        "Formal verification possible",
+        "Theory-backed optimizations"
+      ]
+    },
+    {
+      "type": "full-stack-coherence",
+      "description": "Coherent full-stack architecture emerging from composition",
+      "strength": 1.5297690319495512,
+      "implications": [
+        "End-to-end integration viable",
+        "Unified data flow possible"
+      ]
+    },
+    {
+      "type": "test-driven-culture",
+      "description": "Strong test coverage culture in composed space",
+      "strength": 1.4368354987166265,
+      "implications": [
+        "High reliability expected",
+        "Refactoring safety"
+      ]
+    }
+  ],
+  "recommendations": [
+    {
+      "type": "high-similarity",
+      "priority": "high",
+      "title": "Direct Integration Viable",
+      "description": "Repositories show 90.0% semantic similarity. Consider direct API integration or code sharing.",
+      "actions": [
+        "Identify common interfaces for direct integration",
+        "Extract shared utilities into common library",
+        "Establish unified testing framework"
+      ]
+    },
+    {
+      "type": "mathematical-verification",
+      "priority": "high",
+      "title": "Formal Verification Opportunity",
+      "description": "Both repositories contain significant mathematical content. Consider formal verification of integration.",
+      "actions": [
+        "Extract mathematical invariants from both repositories",
+        "Prove composition preserves critical properties",
+        "Use Coq/Lean for integration verification"
+      ]
+    },
+    {
+      "type": "unified-testing",
+      "priority": "medium",
+      "title": "Unified Testing Framework",
+      "description": "Both repositories have substantial test suites. Create unified testing strategy.",
+      "actions": [
+        "Merge test utilities and helpers",
+        "Establish common test patterns",
+        "Create integration test suite for composition"
+      ]
+    }
+  ]
+}

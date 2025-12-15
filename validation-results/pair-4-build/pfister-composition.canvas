@@ -1,0 +1,104 @@
+{
+  "nodes": [
+    {
+      "id": "layer-1",
+      "type": "text",
+      "x": 0,
+      "y": 100,
+      "width": 80,
+      "height": 60,
+      "text": "Mathematical Foundation\nComposed: 4.30"
+    },
+    {
+      "id": "layer-2",
+      "type": "text",
+      "x": 100,
+      "y": 100,
+      "width": 80,
+      "height": 60,
+      "text": "Core Implementation\nComposed: 7.09"
+    },
+    {
+      "id": "layer-3",
+      "type": "text",
+      "x": 200,
+      "y": 100,
+      "width": 80,
+      "height": 60,
+      "text": "API/Interface\nComposed: 8.39"
+    },
+    {
+      "id": "layer-4",
+      "type": "text",
+      "x": 300,
+      "y": 100,
+      "width": 80,
+      "height": 60,
+      "text": "Services/Business Logic\nComposed: 8.43"
+    },
+    {
+      "id": "layer-5",
+      "type": "text",
+      "x": 400,
+      "y": 100,
+      "width": 80,
+      "height": 60,
+      "text": "Data Layer\nComposed: 9.14"
+    },
+    {
+      "id": "layer-6",
+      "type": "text",
+      "x": 500,
+      "y": 100,
+      "width": 80,
+      "height": 60,
+      "text": "UI/Presentation\nComposed: 9.05"
+    },
+    {
+      "id": "layer-7",
+      "type": "text",
+      "x": 600,
+      "y": 100,
+      "width": 80,
+      "height": 60,
+      "text": "Tests\nComposed: 7.68"
+    },
+    {
+      "id": "layer-8",
+      "type": "text",
+      "x": 700,
+      "y": 100,
+      "width": 80,
+      "height": 60,
+      "text": "Documentation\nComposed: 4.66"
+    },
+    {
+      "id": "repo-a",
+      "type": "text",
+      "x": -100,
+      "y": 0,
+      "width": 100,
+      "height": 80,
+      "text": "Repository A\nwebpack\nNorm: 3.31"
+    },
+    {
+      "id": "repo-b",
+      "type": "text",
+      "x": -100,
+      "y": 200,
+      "width": 100,
+      "height": 80,
+      "text": "Repository B\nvite\nNorm: 3.23"
+    },
+    {
+      "id": "composed",
+      "type": "text",
+      "x": 400,
+      "y": 400,
+      "width": 120,
+      "height": 100,
+      "text": "Pfister Composition\nNorm: 10.68\nSimilarity: 83.7%"
+    }
+  ],
+  "edges": []
+}

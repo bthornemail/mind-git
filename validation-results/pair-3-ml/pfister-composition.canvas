@@ -1,0 +1,104 @@
+{
+  "nodes": [
+    {
+      "id": "layer-1",
+      "type": "text",
+      "x": 0,
+      "y": 100,
+      "width": 80,
+      "height": 60,
+      "text": "Mathematical Foundation\nComposed: 7.34"
+    },
+    {
+      "id": "layer-2",
+      "type": "text",
+      "x": 100,
+      "y": 100,
+      "width": 80,
+      "height": 60,
+      "text": "Core Implementation\nComposed: 10.45"
+    },
+    {
+      "id": "layer-3",
+      "type": "text",
+      "x": 200,
+      "y": 100,
+      "width": 80,
+      "height": 60,
+      "text": "API/Interface\nComposed: 12.56"
+    },
+    {
+      "id": "layer-4",
+      "type": "text",
+      "x": 300,
+      "y": 100,
+      "width": 80,
+      "height": 60,
+      "text": "Services/Business Logic\nComposed: 13.81"
+    },
+    {
+      "id": "layer-5",
+      "type": "text",
+      "x": 400,
+      "y": 100,
+      "width": 80,
+      "height": 60,
+      "text": "Data Layer\nComposed: 14.06"
+    },
+    {
+      "id": "layer-6",
+      "type": "text",
+      "x": 500,
+      "y": 100,
+      "width": 80,
+      "height": 60,
+      "text": "UI/Presentation\nComposed: 13.36"
+    },
+    {
+      "id": "layer-7",
+      "type": "text",
+      "x": 600,
+      "y": 100,
+      "width": 80,
+      "height": 60,
+      "text": "Tests\nComposed: 12.14"
+    },
+    {
+      "id": "layer-8",
+      "type": "text",
+      "x": 700,
+      "y": 100,
+      "width": 80,
+      "height": 60,
+      "text": "Documentation\nComposed: 9.28"
+    },
+    {
+      "id": "repo-a",
+      "type": "text",
+      "x": -100,
+      "y": 0,
+      "width": 100,
+      "height": 80,
+      "text": "Repository A\ntensorflow\nNorm: 4.49"
+    },
+    {
+      "id": "repo-b",
+      "type": "text",
+      "x": -100,
+      "y": 200,
+      "width": 100,
+      "height": 80,
+      "text": "Repository B\npytorch\nNorm: 3.73"
+    },
+    {
+      "id": "composed",
+      "type": "text",
+      "x": 400,
+      "y": 400,
+      "width": 120,
+      "height": 100,
+      "text": "Pfister Composition\nNorm: 16.74\nSimilarity: 82.7%"
+    }
+  ],
+  "edges": []
+}

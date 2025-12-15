@@ -1,0 +1,321 @@
+{
+  "repoA": {
+    "path": "test-repos/webpack",
+    "vector": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      0.37420634920634915,
+      0.1111111111111111,
+      1,
+      1,
+      0.1941346153846154,
+      0.11538461538461539,
+      1,
+      0.05,
+      0.07,
+      0,
+      1,
+      0.85,
+      0.08588235294117647,
+      0.11764705882352941,
+      1,
+      1,
+      0.08674418604651163,
+      0,
+      1,
+      1,
+      0.08406593406593407,
+      0.008791208791208791,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "norm": 3.3119727442399767,
+    "name": "webpack"
+  },
+  "repoB": {
+    "path": "test-repos/vite",
+    "vector": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      0.15888888888888889,
+      0.10317460317460317,
+      1,
+      1,
+      0.06272435897435898,
+      0.035256410256410256,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0.15,
+      0.07,
+      0,
+      1,
+      0.7,
+      0.15714285714285714,
+      0.14285714285714285,
+      1,
+      1,
+      0.07121495327102804,
+      0.04672897196261682,
+      1,
+      0.25,
+      0.298,
+      0.8,
+      1
+    ],
+    "norm": 3.2252332077900814,
+    "name": "vite"
+  },
+  "similarity": 0.8369971291615588,
+  "composed": {
+    "vector": [
+      1.0753008354287592,
+      1.0753008354287592,
+      1.0753008354287592,
+      1.0753008354287592,
+      1.7728713597730106,
+      1.7728713597730106,
+      1.7728713597730106,
+      1.7728713597730106,
+      2.097972305555927,
+      2.097972305555927,
+      2.097972305555927,
+      2.097972305555927,
+      2.1083597462568444,
+      2.1083597462568444,
+      2.1083597462568444,
+      2.1083597462568444,
+      2.284911715661339,
+      2.284911715661339,
+      2.284911715661339,
+      2.284911715661339,
+      2.2624549253942177,
+      2.2624549253942177,
+      2.2624549253942177,
+      2.2624549253942177,
+      1.91953846974035,
+      1.91953846974035,
+      1.91953846974035,
+      1.91953846974035,
+      1.164258934395394,
+      1.164258934395394,
+      1.164258934395394,
+      1.164258934395394
+    ],
+    "norm": 10.681884478018414,
+    "normPreserved": true
+  },
+  "integrationPoints": [
+    {
+      "dimension": 6,
+      "layer": 2,
+      "layerName": "Core Implementation",
+      "feature": "Mathematical Content",
+      "strengthA": 0.1111111111111111,
+      "strengthB": 0.10317460317460317,
+      "composedStrength": 1.7728713597730106,
+      "synergy": 15.955842237957096,
+      "description": "weak overlap in formal methods and proofs at core implementation layer"
+    },
+    {
+      "dimension": 5,
+      "layer": 2,
+      "layerName": "Core Implementation",
+      "feature": "Complexity",
+      "strengthA": 0.37420634920634915,
+      "strengthB": 0.15888888888888889,
+      "composedStrength": 1.7728713597730106,
+      "synergy": 4.737683803423105,
+      "description": "weak overlap in algorithmic sophistication at core implementation layer"
+    },
+    {
+      "dimension": 16,
+      "layer": 5,
+      "layerName": "Data Layer",
+      "feature": "Presence",
+      "strengthA": 0.85,
+      "strengthB": 0.15,
+      "composedStrength": 2.284911715661339,
+      "synergy": 2.6881314301898107,
+      "description": "moderate overlap in component organization at data handling layer"
+    },
+    {
+      "dimension": 19,
+      "layer": 5,
+      "layerName": "Data Layer",
+      "feature": "Test Coverage",
+      "strengthA": 1,
+      "strengthB": 1,
+      "composedStrength": 2.284911715661339,
+      "synergy": 2.284911715661339,
+      "description": "strong overlap in testing practices at data handling layer"
+    },
+    {
+      "dimension": 20,
+      "layer": 6,
+      "layerName": "UI/Presentation",
+      "feature": "Presence",
+      "strengthA": 1,
+      "strengthB": 0.7,
+      "composedStrength": 2.2624549253942177,
+      "synergy": 2.2624549253942177,
+      "description": "strong overlap in component organization at user interface layer"
+    },
+    {
+      "dimension": 23,
+      "layer": 6,
+      "layerName": "UI/Presentation",
+      "feature": "Test Coverage",
+      "strengthA": 1,
+      "strengthB": 1,
+      "composedStrength": 2.2624549253942177,
+      "synergy": 2.2624549253942177,
+      "description": "strong overlap in testing practices at user interface layer"
+    },
+    {
+      "dimension": 8,
+      "layer": 3,
+      "layerName": "API/Interface",
+      "feature": "Presence",
+      "strengthA": 1,
+      "strengthB": 1,
+      "composedStrength": 2.097972305555927,
+      "synergy": 2.097972305555927,
+      "description": "strong overlap in component organization at API design layer"
+    },
+    {
+      "dimension": 11,
+      "layer": 3,
+      "layerName": "API/Interface",
+      "feature": "Test Coverage",
+      "strengthA": 1,
+      "strengthB": 1,
+      "composedStrength": 2.097972305555927,
+      "synergy": 2.097972305555927,
+      "description": "strong overlap in testing practices at API design layer"
+    },
+    {
+      "dimension": 24,
+      "layer": 7,
+      "layerName": "Tests",
+      "feature": "Presence",
+      "strengthA": 1,
+      "strengthB": 1,
+      "composedStrength": 1.91953846974035,
+      "synergy": 1.91953846974035,
+      "description": "strong overlap in component organization at testing infrastructure layer"
+    },
+    {
+      "dimension": 27,
+      "layer": 7,
+      "layerName": "Tests",
+      "feature": "Test Coverage",
+      "strengthA": 1,
+      "strengthB": 1,
+      "composedStrength": 1.91953846974035,
+      "synergy": 1.91953846974035,
+      "description": "strong overlap in testing practices at testing infrastructure layer"
+    }
+  ],
+  "emergentPatterns": [
+    {
+      "type": "cross-layer-coordination",
+      "description": "Coordinated activity across layers 1, 2, 3, 4, 5, 6, 7, 8",
+      "strength": 9.139646862645357,
+      "layers": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ]
+    },
+    {
+      "type": "mathematical-practical-bridge",
+      "description": "Strong connection between mathematical foundations and practical implementation",
+      "strength": 1.424086097600885,
+      "implications": [
+        "Formal verification possible",
+        "Theory-backed optimizations"
+      ]
+    },
+    {
+      "type": "full-stack-coherence",
+      "description": "Coherent full-stack architecture emerging from composition",
+      "strength": 2.2151129822038285,
+      "implications": [
+        "End-to-end integration viable",
+        "Unified data flow possible"
+      ]
+    },
+    {
+      "type": "test-driven-culture",
+      "description": "Strong test coverage culture in composed space",
+      "strength": 1.8357085365257302,
+      "implications": [
+        "High reliability expected",
+        "Refactoring safety"
+      ]
+    }
+  ],
+  "recommendations": [
+    {
+      "type": "high-similarity",
+      "priority": "high",
+      "title": "Direct Integration Viable",
+      "description": "Repositories show 83.7% semantic similarity. Consider direct API integration or code sharing.",
+      "actions": [
+        "Identify common interfaces for direct integration",
+        "Extract shared utilities into common library",
+        "Establish unified testing framework"
+      ]
+    },
+    {
+      "type": "mathematical-verification",
+      "priority": "high",
+      "title": "Formal Verification Opportunity",
+      "description": "Both repositories contain significant mathematical content. Consider formal verification of integration.",
+      "actions": [
+        "Extract mathematical invariants from both repositories",
+        "Prove composition preserves critical properties",
+        "Use Coq/Lean for integration verification"
+      ]
+    },
+    {
+      "type": "unified-testing",
+      "priority": "medium",
+      "title": "Unified Testing Framework",
+      "description": "Both repositories have substantial test suites. Create unified testing strategy.",
+      "actions": [
+        "Merge test utilities and helpers",
+        "Establish common test patterns",
+        "Create integration test suite for composition"
+      ]
+    },
+    {
+      "type": "complementary-layers",
+      "priority": "high",
+      "title": "Complementary Architecture",
+      "description": "Repository A focuses on Core Implementation, Repository B on Documentation. Natural composition opportunity.",
+      "actions": [
+        "Layer A provides foundational capabilities",
+        "Layer B builds higher-level abstractions",
+        "Clear separation of concerns possible"
+      ]
+    }
+  ]
+}

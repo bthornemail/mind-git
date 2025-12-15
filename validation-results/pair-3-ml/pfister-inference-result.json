@@ -1,0 +1,321 @@
+{
+  "repoA": {
+    "path": "test-repos/tensorflow",
+    "vector": [
+      0.2,
+      0.6025,
+      0.5,
+      1,
+      1,
+      0.508030303030303,
+      0.5681818181818182,
+      1,
+      1,
+      0.5223721590909091,
+      0.5610795454545454,
+      1,
+      1,
+      1,
+      0.7142857142857143,
+      1,
+      1,
+      0.6831818181818181,
+      0.4772727272727273,
+      1,
+      1,
+      0.22791666666666668,
+      0.375,
+      1,
+      1,
+      0.7438157894736842,
+      0.47368421052631576,
+      1,
+      1,
+      0.20543478260869566,
+      0.391304347826087,
+      1
+    ],
+    "norm": 4.493537302638677,
+    "name": "tensorflow"
+  },
+  "repoB": {
+    "path": "test-repos/pytorch",
+    "vector": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      0.6431722054380664,
+      0.649546827794562,
+      1,
+      1,
+      0.44067285382830623,
+      0.505800464037123,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0.95,
+      0.27631578947368424,
+      0.3684210526315789,
+      1,
+      0.4,
+      0.53375,
+      0.625,
+      1,
+      1,
+      0.6497765363128493,
+      0.44692737430167595,
+      1,
+      0.5,
+      0.642,
+      0.6,
+      1
+    ],
+    "norm": 3.7255636373500503,
+    "name": "pytorch"
+  },
+  "similarity": 0.8268418814823421,
+  "composed": {
+    "vector": [
+      1.8355897060947914,
+      1.8355897060947914,
+      1.8355897060947914,
+      1.8355897060947914,
+      2.6116817573755142,
+      2.6116817573755142,
+      2.6116817573755142,
+      2.6116817573755142,
+      3.140946127309956,
+      3.140946127309956,
+      3.140946127309956,
+      3.140946127309956,
+      3.4536189376080344,
+      3.4536189376080344,
+      3.4536189376080344,
+      3.4536189376080344,
+      3.513891948912396,
+      3.513891948912396,
+      3.513891948912396,
+      3.513891948912396,
+      3.3388397012397446,
+      3.3388397012397446,
+      3.3388397012397446,
+      3.3388397012397446,
+      3.034433780042486,
+      3.034433780042486,
+      3.034433780042486,
+      3.034433780042486,
+      2.319171294150899,
+      2.319171294150899,
+      2.319171294150899,
+      2.319171294150899
+    ],
+    "norm": 16.740959177786678,
+    "normPreserved": true
+  },
+  "integrationPoints": [
+    {
+      "dimension": 18,
+      "layer": 5,
+      "layerName": "Data Layer",
+      "feature": "Mathematical Content",
+      "strengthA": 0.4772727272727273,
+      "strengthB": 0.3684210526315789,
+      "composedStrength": 3.513891948912396,
+      "synergy": 7.3624402739116865,
+      "description": "moderate overlap in formal methods and proofs at data handling layer"
+    },
+    {
+      "dimension": 26,
+      "layer": 7,
+      "layerName": "Tests",
+      "feature": "Mathematical Content",
+      "strengthA": 0.47368421052631576,
+      "strengthB": 0.44692737430167595,
+      "composedStrength": 3.034433780042486,
+      "synergy": 6.406026868978582,
+      "description": "moderate overlap in formal methods and proofs at testing infrastructure layer"
+    },
+    {
+      "dimension": 21,
+      "layer": 6,
+      "layerName": "UI/Presentation",
+      "feature": "Complexity",
+      "strengthA": 0.22791666666666668,
+      "strengthB": 0.53375,
+      "composedStrength": 3.3388397012397446,
+      "synergy": 6.255437379371887,
+      "description": "moderate overlap in algorithmic sophistication at user interface layer"
+    },
+    {
+      "dimension": 9,
+      "layer": 3,
+      "layerName": "API/Interface",
+      "feature": "Complexity",
+      "strengthA": 0.5223721590909091,
+      "strengthB": 0.44067285382830623,
+      "composedStrength": 3.140946127309956,
+      "synergy": 6.012851321893159,
+      "description": "moderate overlap in algorithmic sophistication at API design layer"
+    },
+    {
+      "dimension": 10,
+      "layer": 3,
+      "layerName": "API/Interface",
+      "feature": "Mathematical Content",
+      "strengthA": 0.5610795454545454,
+      "strengthB": 0.505800464037123,
+      "composedStrength": 3.140946127309956,
+      "synergy": 5.59804069272458,
+      "description": "moderate overlap in formal methods and proofs at API design layer"
+    },
+    {
+      "dimension": 22,
+      "layer": 6,
+      "layerName": "UI/Presentation",
+      "feature": "Mathematical Content",
+      "strengthA": 0.375,
+      "strengthB": 0.625,
+      "composedStrength": 3.3388397012397446,
+      "synergy": 5.3421435219835915,
+      "description": "moderate overlap in formal methods and proofs at user interface layer"
+    },
+    {
+      "dimension": 17,
+      "layer": 5,
+      "layerName": "Data Layer",
+      "feature": "Complexity",
+      "strengthA": 0.6831818181818181,
+      "strengthB": 0.27631578947368424,
+      "composedStrength": 3.513891948912396,
+      "synergy": 5.143421349040101,
+      "description": "moderate overlap in algorithmic sophistication at data handling layer"
+    },
+    {
+      "dimension": 25,
+      "layer": 7,
+      "layerName": "Tests",
+      "feature": "Complexity",
+      "strengthA": 0.7438157894736842,
+      "strengthB": 0.6497765363128493,
+      "composedStrength": 3.034433780042486,
+      "synergy": 4.079550102303714,
+      "description": "strong overlap in algorithmic sophistication at testing infrastructure layer"
+    },
+    {
+      "dimension": 5,
+      "layer": 2,
+      "layerName": "Core Implementation",
+      "feature": "Complexity",
+      "strengthA": 0.508030303030303,
+      "strengthB": 0.6431722054380664,
+      "composedStrength": 2.6116817573755142,
+      "synergy": 4.060625965011486,
+      "description": "moderate overlap in algorithmic sophistication at core implementation layer"
+    },
+    {
+      "dimension": 6,
+      "layer": 2,
+      "layerName": "Core Implementation",
+      "feature": "Mathematical Content",
+      "strengthA": 0.5681818181818182,
+      "strengthB": 0.649546827794562,
+      "composedStrength": 2.6116817573755142,
+      "synergy": 4.020775170657187,
+      "description": "strong overlap in formal methods and proofs at core implementation layer"
+    }
+  ],
+  "emergentPatterns": [
+    {
+      "type": "cross-layer-coordination",
+      "description": "Coordinated activity across layers 1, 2, 3, 4, 5, 6, 7, 8",
+      "strength": 14.055567795649583,
+      "layers": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ]
+    },
+    {
+      "type": "mathematical-practical-bridge",
+      "description": "Strong connection between mathematical foundations and practical implementation",
+      "strength": 2.2236357317351527,
+      "implications": [
+        "Formal verification possible",
+        "Theory-backed optimizations"
+      ]
+    },
+    {
+      "type": "full-stack-coherence",
+      "description": "Coherent full-stack architecture emerging from composition",
+      "strength": 3.3312259258206987,
+      "implications": [
+        "End-to-end integration viable",
+        "Unified data flow possible"
+      ]
+    },
+    {
+      "type": "test-driven-culture",
+      "description": "Strong test coverage culture in composed space",
+      "strength": 2.9060216565917276,
+      "implications": [
+        "High reliability expected",
+        "Refactoring safety"
+      ]
+    }
+  ],
+  "recommendations": [
+    {
+      "type": "high-similarity",
+      "priority": "high",
+      "title": "Direct Integration Viable",
+      "description": "Repositories show 82.7% semantic similarity. Consider direct API integration or code sharing.",
+      "actions": [
+        "Identify common interfaces for direct integration",
+        "Extract shared utilities into common library",
+        "Establish unified testing framework"
+      ]
+    },
+    {
+      "type": "mathematical-verification",
+      "priority": "high",
+      "title": "Formal Verification Opportunity",
+      "description": "Both repositories contain significant mathematical content. Consider formal verification of integration.",
+      "actions": [
+        "Extract mathematical invariants from both repositories",
+        "Prove composition preserves critical properties",
+        "Use Coq/Lean for integration verification"
+      ]
+    },
+    {
+      "type": "unified-testing",
+      "priority": "medium",
+      "title": "Unified Testing Framework",
+      "description": "Both repositories have substantial test suites. Create unified testing strategy.",
+      "actions": [
+        "Merge test utilities and helpers",
+        "Establish common test patterns",
+        "Create integration test suite for composition"
+      ]
+    },
+    {
+      "type": "complementary-layers",
+      "priority": "high",
+      "title": "Complementary Architecture",
+      "description": "Repository A focuses on Services/Business Logic, Repository B on Core Implementation. Natural composition opportunity.",
+      "actions": [
+        "Layer A provides foundational capabilities",
+        "Layer B builds higher-level abstractions",
+        "Clear separation of concerns possible"
+      ]
+    }
+  ]
+}

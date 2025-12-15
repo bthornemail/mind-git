@@ -1,0 +1,104 @@
+{
+  "nodes": [
+    {
+      "id": "layer-1",
+      "type": "text",
+      "x": 0,
+      "y": 100,
+      "width": 80,
+      "height": 60,
+      "text": "Mathematical Foundation\nComposed: 4.68"
+    },
+    {
+      "id": "layer-2",
+      "type": "text",
+      "x": 100,
+      "y": 100,
+      "width": 80,
+      "height": 60,
+      "text": "Core Implementation\nComposed: 7.72"
+    },
+    {
+      "id": "layer-3",
+      "type": "text",
+      "x": 200,
+      "y": 100,
+      "width": 80,
+      "height": 60,
+      "text": "API/Interface\nComposed: 7.60"
+    },
+    {
+      "id": "layer-4",
+      "type": "text",
+      "x": 300,
+      "y": 100,
+      "width": 80,
+      "height": 60,
+      "text": "Services/Business Logic\nComposed: 5.60"
+    },
+    {
+      "id": "layer-5",
+      "type": "text",
+      "x": 400,
+      "y": 100,
+      "width": 80,
+      "height": 60,
+      "text": "Data Layer\nComposed: 5.02"
+    },
+    {
+      "id": "layer-6",
+      "type": "text",
+      "x": 500,
+      "y": 100,
+      "width": 80,
+      "height": 60,
+      "text": "UI/Presentation\nComposed: 5.74"
+    },
+    {
+      "id": "layer-7",
+      "type": "text",
+      "x": 600,
+      "y": 100,
+      "width": 80,
+      "height": 60,
+      "text": "Tests\nComposed: 5.62"
+    },
+    {
+      "id": "layer-8",
+      "type": "text",
+      "x": 700,
+      "y": 100,
+      "width": 80,
+      "height": 60,
+      "text": "Documentation\nComposed: 4.01"
+    },
+    {
+      "id": "repo-a",
+      "type": "text",
+      "x": -100,
+      "y": 0,
+      "width": 100,
+      "height": 80,
+      "text": "Repository A\nreact\nNorm: 3.02"
+    },
+    {
+      "id": "repo-b",
+      "type": "text",
+      "x": -100,
+      "y": 200,
+      "width": 100,
+      "height": 80,
+      "text": "Repository B\nvue\nNorm: 2.75"
+    },
+    {
+      "id": "composed",
+      "type": "text",
+      "x": 400,
+      "y": 400,
+      "width": 120,
+      "height": 100,
+      "text": "Pfister Composition\nNorm: 8.31\nSimilarity: 90.0%"
+    }
+  ],
+  "edges": []
+}
