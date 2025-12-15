@@ -4,6 +4,7 @@ import { Text } from '@react-three/drei';
 import * as THREE from 'three';
 import { CanvasNode, parseNodeType, getNodeColor } from '../types';
 import { NodeGeometry } from './NodeGeometry';
+import { TransformControls } from './TransformControls';
 
 import { KhronosModel } from '../services/modelLibrary';
 
@@ -11,13 +12,24 @@ interface Node3DProps {
   node: CanvasNode;
   onClick?: (node: CanvasNode) => void;
   onDrag?: (node: CanvasNode, position: [number, number, number]) => void;
+  onTransform?: (node: CanvasNode, position: [number, number, number], rotation: [number, number, number], scale: [number, number, number]) => void;
   customModel?: KhronosModel;  // Optional Khronos model override
+  isSelected?: boolean;
+  transformMode?: 'translate' | 'rotate' | 'scale';
 }
 
-export const Node3D: React.FC<Node3DProps> = ({ node, onClick, onDrag, customModel }) => {
+export const Node3D: React.FC<Node3DProps> = ({ 
+  node, 
+  onClick, 
+  onDrag, 
+  onTransform,
+  customModel, 
+  isSelected = false,
+  transformMode = 'translate'
+}) => {
   const meshRef = useRef<THREE.Mesh>(null);
+  const groupRef = useRef<THREE.Group>(null);
   const [hovered, setHovered] = useState(false);
-  const [selected, setSelected] = useState(false);
   const [isDragging, setIsDragging] = useState(false);
 
   // Convert 2D canvas coordinates to 3D space
@@ -42,7 +54,7 @@ export const Node3D: React.FC<Node3DProps> = ({ node, onClick, onDrag, customMod
         0.1
       );
 
-      const targetScale = hovered || selected ? 1.1 : 1.0;
+      const targetScale = hovered || isSelected ? 1.1 : 1.0;
       meshRef.current.scale.setScalar(
         THREE.MathUtils.lerp(meshRef.current.scale.x, targetScale, 0.1)
       );
@@ -51,7 +63,6 @@ export const Node3D: React.FC<Node3DProps> = ({ node, onClick, onDrag, customMod
 
   const handleClick = (e: any) => {
     e.stopPropagation();
-    setSelected(!selected);
     onClick?.(node);
   };
 
@@ -77,6 +88,27 @@ export const Node3D: React.FC<Node3DProps> = ({ node, onClick, onDrag, customMod
     }
   };
 
+  const handleTransformChange = (object: THREE.Object3D) => {
+    if (groupRef.current && onTransform) {
+      const position: [number, number, number] = [
+        groupRef.current.position.x,
+        groupRef.current.position.y,
+        groupRef.current.position.z
+      ];
+      const rotation: [number, number, number] = [
+        groupRef.current.rotation.x,
+        groupRef.current.rotation.y,
+        groupRef.current.rotation.z
+      ];
+      const scale: [number, number, number] = [
+        groupRef.current.scale.x,
+        groupRef.current.scale.y,
+        groupRef.current.scale.z
+      ];
+      onTransform(node, position, rotation, scale);
+    }
+  };
+
   // Get display text (remove prefix for cleaner display)
   const displayText = node.text.split('\n')[0].replace(/^#\w+:\s*/, '');
   const detailText = node.text.split('\n').slice(1).join('\n');
@@ -87,7 +119,10 @@ export const Node3D: React.FC<Node3DProps> = ({ node, onClick, onDrag, customMod
   const depth = 0.3;
 
   return (
-    <group position={position}>
+    <group 
+      ref={groupRef}
+      position={position}
+    >
       {/* Node geometry (supports multiple shapes based on type) */}
       <NodeGeometry
         nodeType={nodeType}
@@ -96,7 +131,7 @@ export const Node3D: React.FC<Node3DProps> = ({ node, onClick, onDrag, customMod
         height={height}
         depth={depth}
         hovered={hovered}
-        selected={selected}
+        selected={isSelected}
         meshRef={meshRef}
         customModelPath={customModel?.glbPath}
         onClick={handleClick}
@@ -156,6 +191,15 @@ export const Node3D: React.FC<Node3DProps> = ({ node, onClick, onDrag, customMod
           intensity={0.5}
           distance={5}
           color="#A8D8EA"
+        />
+      )}
+
+      {/* Transform controls for selected nodes */}
+      {isSelected && (
+        <TransformControls
+          object={groupRef.current}
+          mode={transformMode}
+          onTransformChange={handleTransformChange}
         />
       )}
     </group>

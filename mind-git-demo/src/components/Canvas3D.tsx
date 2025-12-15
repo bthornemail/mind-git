@@ -1,20 +1,28 @@
 import React, { Suspense, useState } from 'react';
 import { Canvas as ThreeCanvas } from '@react-three/fiber';
 import { OrbitControls, PerspectiveCamera, Grid, Text } from '@react-three/drei';
+import * as THREE from 'three';
 import { Node3D } from './Node3D';
 import { Edge3D } from './Edge3D';
 import { CompilerPanel } from './CompilerPanel';
 import { ModelSelector } from './ModelSelector';
+import { SceneSwitcher } from './SceneSwitcher';
+import { FlyControls } from './FlyControls';
 import { Canvas, CanvasNode, NodeType, parseNodeType } from '../types';
 import { KhronosModel } from '../services/modelLibrary';
 
 interface Canvas3DProps {
   canvas: Canvas;
+  onSceneChange?: (sceneId: string) => void;
+  currentSceneId?: string;
 }
 
-export const Canvas3D: React.FC<Canvas3DProps> = ({ canvas }) => {
+export const Canvas3D: React.FC<Canvas3DProps> = ({ canvas, onSceneChange, currentSceneId }) => {
   const [selectedNode, setSelectedNode] = useState<CanvasNode | null>(null);
   const [customModels, setCustomModels] = useState<Map<NodeType, KhronosModel>>(new Map());
+  const [transformMode, setTransformMode] = useState<'translate' | 'rotate' | 'scale'>('translate');
+  const [useFlyControls, setUseFlyControls] = useState(false);
+  const [cameraPosition, setCameraPosition] = useState<[number, number, number]>([15, 10, 15]);
 
   const handleNodeClick = (node: CanvasNode) => {
     setSelectedNode(selectedNode?.id === node.id ? null : node);
@@ -30,6 +38,16 @@ export const Canvas3D: React.FC<Canvas3DProps> = ({ canvas }) => {
     console.log(`Model changed for ${nodeType}:`, model.name);
   };
 
+  const handleNodeTransform = (node: CanvasNode, position: [number, number, number], rotation: [number, number, number], scale: [number, number, number]) => {
+    console.log(`Node ${node.id} transformed:`, { position, rotation, scale });
+    // In a real app, this would update the canvas state
+    // For now, just log the transformation
+  };
+
+  const handleCameraChange = (position: THREE.Vector3, rotation: THREE.Euler) => {
+    setCameraPosition([position.x, position.y, position.z]);
+  };
+
   return (
     <div style={{ width: '100%', height: '100vh', background: '#1a1a2e' }}>
       {/* Compiler panel */}
@@ -38,7 +56,17 @@ export const Canvas3D: React.FC<Canvas3DProps> = ({ canvas }) => {
       {/* Model selector */}
       <ModelSelector onModelChange={handleModelChange} />
 
-      {/* Info panel */}
+      {/* Scene switcher */}
+      {onSceneChange && currentSceneId && (
+        <div style={{ position: 'absolute', top: 20, right: 320, zIndex: 1000 }}>
+          <SceneSwitcher
+            currentSceneId={currentSceneId}
+            onSceneChange={onSceneChange}
+          />
+        </div>
+      )}
+
+      {/* Control panel */}
       <div
         style={{
           position: 'absolute',
@@ -57,10 +85,16 @@ export const Canvas3D: React.FC<Canvas3DProps> = ({ canvas }) => {
           mind-git Canvas Visualizer
         </h2>
         <p style={{ margin: '5px 0', fontSize: '12px' }}>
-          🖱️ Click & drag nodes to move
+          🖱️ Click nodes to select
         </p>
         <p style={{ margin: '5px 0', fontSize: '12px' }}>
-          🔄 Right-click & drag to rotate
+          🎛️ Transform selected nodes
+        </p>
+        <p style={{ margin: '5px 0', fontSize: '12px' }}>
+          🚁 Switch to Fly mode for navigation
+        </p>
+        <p style={{ margin: '5px 0', fontSize: '12px' }}>
+          🔄 Orbit mode: Right-click & drag to rotate
         </p>
         <p style={{ margin: '5px 0', fontSize: '12px' }}>
           🔍 Scroll to zoom
@@ -68,6 +102,83 @@ export const Canvas3D: React.FC<Canvas3DProps> = ({ canvas }) => {
         <p style={{ margin: '10px 0 5px 0', fontSize: '12px', fontWeight: 'bold' }}>
           Nodes: {canvas.nodes.length} | Edges: {canvas.edges.length}
         </p>
+
+        {/* Transform controls */}
+        <div style={{ margin: '10px 0' }}>
+          <p style={{ margin: '5px 0', fontSize: '11px', fontWeight: 'bold' }}>
+            Transform Mode:
+          </p>
+          <div style={{ display: 'flex', gap: '5px' }}>
+            <button
+              onClick={() => setTransformMode('translate')}
+              style={{
+                padding: '3px 6px',
+                fontSize: '10px',
+                backgroundColor: transformMode === 'translate' ? '#4CAF50' : '#666',
+                color: 'white',
+                border: 'none',
+                borderRadius: '3px',
+                cursor: 'pointer'
+              }}
+            >
+              Move
+            </button>
+            <button
+              onClick={() => setTransformMode('rotate')}
+              style={{
+                padding: '3px 6px',
+                fontSize: '10px',
+                backgroundColor: transformMode === 'rotate' ? '#4CAF50' : '#666',
+                color: 'white',
+                border: 'none',
+                borderRadius: '3px',
+                cursor: 'pointer'
+              }}
+            >
+              Rotate
+            </button>
+            <button
+              onClick={() => setTransformMode('scale')}
+              style={{
+                padding: '3px 6px',
+                fontSize: '10px',
+                backgroundColor: transformMode === 'scale' ? '#4CAF50' : '#666',
+                color: 'white',
+                border: 'none',
+                borderRadius: '3px',
+                cursor: 'pointer'
+              }}
+            >
+              Scale
+            </button>
+          </div>
+        </div>
+
+        {/* Camera controls */}
+        <div style={{ margin: '10px 0' }}>
+          <p style={{ margin: '5px 0', fontSize: '11px', fontWeight: 'bold' }}>
+            Camera Mode:
+          </p>
+          <div style={{ display: 'flex', gap: '5px' }}>
+            <button
+              onClick={() => setUseFlyControls(!useFlyControls)}
+              style={{
+                padding: '3px 6px',
+                fontSize: '10px',
+                backgroundColor: useFlyControls ? '#2196F3' : '#666',
+                color: 'white',
+                border: 'none',
+                borderRadius: '3px',
+                cursor: 'pointer'
+              }}
+            >
+              {useFlyControls ? 'Fly Mode' : 'Orbit Mode'}
+            </button>
+          </div>
+          <p style={{ margin: '3px 0', fontSize: '10px', color: '#888' }}>
+            Position: ({cameraPosition[0].toFixed(1)}, {cameraPosition[1].toFixed(1)}, {cameraPosition[2].toFixed(1)})
+          </p>
+        </div>
         {selectedNode && (
           <div
             style={{
@@ -127,14 +238,42 @@ export const Canvas3D: React.FC<Canvas3DProps> = ({ canvas }) => {
       <ThreeCanvas>
         <Suspense fallback={null}>
           {/* Camera */}
-          <PerspectiveCamera makeDefault position={[15, 10, 15]} />
-          <OrbitControls
-            enablePan
-            enableZoom
-            enableRotate
-            minDistance={5}
-            maxDistance={50}
-          />
+          <PerspectiveCamera makeDefault position={cameraPosition} />
+          
+          {/* Camera controls */}
+          {useFlyControls ? (
+            <FlyControls
+              enabled={true}
+              movementSpeed={2}
+              rollSpeed={0.005}
+              dragToLook={false}
+              autoForward={false}
+              onControlChange={handleCameraChange}
+            />
+          ) : (
+            <OrbitControls
+              ref={(ref) => {
+                if (ref) {
+                  (window as any).__orbitControls = ref;
+                  const camera = ref.object;
+                  if (camera) {
+                    (window as any).__camera = camera;
+                  }
+                }
+              }}
+              enablePan
+              enableZoom
+              enableRotate
+              minDistance={5}
+              maxDistance={50}
+              onChange={() => {
+                const camera = (window as any).__camera;
+                if (camera) {
+                  setCameraPosition([camera.position.x, camera.position.y, camera.position.z]);
+                }
+              }}
+            />
+          )}
 
           {/* Lighting */}
           <ambientLight intensity={0.5} />
@@ -184,13 +323,20 @@ export const Canvas3D: React.FC<Canvas3DProps> = ({ canvas }) => {
           {canvas.nodes.map((node) => {
             const nodeType = parseNodeType(node.text);
             const customModel = nodeType ? customModels.get(nodeType) : undefined;
+            // Use composite key to force re-render when model changes
+            const nodeKey = customModel
+              ? `${node.id}-${customModel.name}`
+              : node.id;
             return (
               <Node3D
-                key={node.id}
+                key={nodeKey}
                 node={node}
                 onClick={handleNodeClick}
                 onDrag={handleNodeDrag}
+                onTransform={handleNodeTransform}
                 customModel={customModel}
+                isSelected={selectedNode?.id === node.id}
+                transformMode={transformMode}
               />
             );
           })}

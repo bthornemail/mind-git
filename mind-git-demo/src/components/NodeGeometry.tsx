@@ -299,21 +299,27 @@ interface GLTFNodeProps extends GeometryProps {
 export const GLTFNode: React.FC<GLTFNodeProps> = ({
   modelPath,
   nodeType,
-  ...fallbackProps
+  color,
+  hovered,
+  meshRef,
+  ...handlers
 }) => {
-  try {
-    const { scene } = useGLTF(modelPath);
+  // Always call the hook unconditionally
+  const gltf = useGLTF(modelPath, true); // true = suspense mode
 
-    return (
-      <primitive
-        object={scene.clone()}
-        {...fallbackProps}
-      />
-    );
-  } catch (error) {
+  if (!gltf || !gltf.scene) {
     console.warn(`Failed to load GLTF model: ${modelPath}, using procedural geometry`);
-    return <NodeGeometry nodeType={nodeType} {...fallbackProps} />;
+    return <NodeGeometry nodeType={nodeType} color={color} hovered={hovered} meshRef={meshRef} {...handlers} />;
   }
+
+  return (
+    <group ref={meshRef as any} {...handlers}>
+      <primitive
+        object={gltf.scene.clone()}
+        scale={1}
+      />
+    </group>
+  );
 };
 
 // Preload GLTF models (optional, improves performance)
