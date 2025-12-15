@@ -1,8 +1,14 @@
 # 🌟 MindGit
 
+[![npm version](https://badge.fury.io/js/mind-git.svg)](https://www.npmjs.com/package/mind-git)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Node.js Version](https://img.shields.io/badge/node-%3E%3D18.0.0-brightgreen)](https://nodejs.org)
+
 **Mathematical Foundation for Self-Evolving Computational Systems**
 
 **✅ PRODUCTION READY** - Complete visual programming system with mathematical verification. CanvasL spatial diagrams compile to executable JavaScript with formal proofs.
+
+**📦 Now Available on npm!** Install globally: `npm install -g mind-git`
 
 ---
 
@@ -133,8 +139,8 @@ Arrangement → Algebra → Structure → Language → Verification
 ### Installation
 
 ```bash
-# Via npm (available now)
-npm install -g logos-system
+# Install from npm (v1.1.0 published December 15, 2025)
+npm install -g mind-git
 
 # Or run in Docker
 docker-compose up -d
@@ -150,13 +156,16 @@ npm test  # 85+ tests should pass
 
 ```bash
 # Compile a canvas file
-canvasl compile examples/spatial-hello-world.json
+mind-git compile examples/spatial-hello-world.json
 
-# Run built-in tests
-npm test
+# Use metadata tools
+mind-git-metadata export --format json
+
+# Run Pfister inference engine
+pfister-inference --analyze canvas-file.json
 
 # Show version info
-canvasl --version
+mind-git --version
 ```
 
 ### Running Tests

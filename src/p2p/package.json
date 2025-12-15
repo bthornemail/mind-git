@@ -1,0 +1,55 @@
+{
+  "name": "@mind-git/mqtt-p2p",
+  "version": "1.0.0",
+  "description": "MQTT-based P2P canvas synchronization and real-time collaboration",
+  "main": "dist/mqtt-cli.js",
+  "types": "dist/mqtt-cli.d.ts",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest",
+    "demo": "node dist/mqtt-cli.js demo",
+    "test:integration": "node dist/mqtt-cli.js test",
+    "server": "node dist/mqtt-cli.js server",
+    "client": "node dist/mqtt-cli.js client",
+    "health": "node dist/mqtt-cli.js health",
+    "monitor": "node dist/mqtt-cli.js monitor"
+  },
+  "keywords": [
+    "mqtt",
+    "p2p",
+    "canvas",
+    "synchronization",
+    "real-time",
+    "collaboration",
+    "mind-git"
+  ],
+  "author": "Brian Thorne <bthornemail@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bthornemail/mind-git.git"
+  },
+  "files": [
+    "dist/",
+    "README.md",
+    "LICENSE"
+  ],
+  "dependencies": {
+    "mqtt": "^5.3.0",
+    "commander": "^11.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "@types/jest": "^29.5.8",
+    "typescript": "^5.3.2",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.1.1",
+    "@typescript-eslint/eslint-plugin": "^6.12.0",
+    "@typescript-eslint/parser": "^6.12.0",
+    "eslint": "^8.54.0"
+  },
+  "bin": {
+    "mqtt-p2p": "./dist/mqtt-cli.js"
+  }
+}

@@ -1,0 +1,18 @@
+#!/usr/bin/env node
+
+// @domain DIGITAL - Digital systems, software, compilers, algorithms
+import { main } from './mqtt-cli.js';
+
+// Check if this is being run directly
+if (import.meta.url === `file://${process.argv[1]}`) {
+  main().catch(console.error);
+} else {
+  console.log('🚀 MQTT P2P Canvas System');
+  console.log('Run "node dist/mqtt-cli.js --help" for usage instructions');
+  console.log('');
+  console.log('📦 Available commands:');
+  console.log('  npm run demo      - Run interactive demo');
+  console.log('  npm run test      - Run integration tests');
+  console.log('  npm run server    - Start MQTT broker server');
+  console.log('  npm run client    - Start MQTT client demo');
+}

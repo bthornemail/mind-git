@@ -1,0 +1,95 @@
+[dotenv@17.2.3] injecting env (0) from ../../../../.env -- tip: 🔄 add secrets lifecycle management: https://dotenvx.com/ops
+🚀 mind-git v1.1.0 - Image Generation
+=====================================
+
+📦 Generating 10 professional images
+💰 Estimated cost: $0.40 (HD quality)
+⏱️  Estimated time: 300 seconds
+
+
+🎨 Generating: 01-launch-banner
+   Size: 1792x1024
+   Prompt: A modern, professional tech banner for a programming tool launch. Dark theme wit...
+(node:78213) Warning: Setting the NODE_TLS_REJECT_UNAUTHORIZED environment variable to '0' makes TLS connections and HTTPS requests insecure by disabling certificate verification.
+(Use `node --trace-warnings ...` to show where the warning was created)
+   ❌ Request error: 
+   ❌ Failed: 
+
+🎨 Generating: 02-npm-package-card
+   Size: 1024x1024
+   Prompt: A square social media card for an npm package release. Dark background (#1a1a1a)...
+   ❌ Request error: 
+   ❌ Failed: 
+
+🎨 Generating: 03-timeline-infographic
+   Size: 1792x1024
+   Prompt: An educational infographic showing a timeline from 628 AD to 2025. Horizontal ti...
+   ❌ Request error: 
+   ❌ Failed: 
+
+🎨 Generating: 04-architecture-diagram
+   Size: 1792x1024
+   Prompt: A technical architecture diagram in modern infographic style. Three main section...
+   ❌ Request error: 
+   ❌ Failed: 
+
+🎨 Generating: 05-spatial-concept-art
+   Size: 1792x1024
+   Prompt: Abstract concept art showing the transformation of space into code. Left half: 3...
+   ❌ Request error: 
+   ❌ Failed: 
+
+🎨 Generating: 06-compiler-pipeline
+   Size: 1024x1024
+   Prompt: A flowing pipeline diagram in isometric 3D style. Five connected platforms/stage...
+   ❌ Request error: 
+   ❌ Failed: 
+
+🎨 Generating: 07-math-foundation-pyramid
+   Size: 1024x1024
+   Prompt: A layered pyramid/stack diagram showing mathematical foundations. Each layer is ...
+   ❌ Request error: 
+   ❌ Failed: 
+
+🎨 Generating: 08-youtube-thumbnail
+   Size: 1280x720
+   Prompt: An eye-catching YouTube thumbnail template. Large text space in center reading "...
+   ❌ Request error: 
+   ❌ Failed: 
+
+🎨 Generating: 09-github-social-card
+   Size: 1280x640
+   Prompt: A GitHub repository social preview card. Top: GitHub logo in corner. Center: Lar...
+   ❌ Request error: 
+   ❌ Failed: 
+
+🎨 Generating: 10-announcement-hero
+   Size: 1792x1024
+   Prompt: A celebratory hero image for product launch announcement. Center: Large 3D rende...
+   ❌ Request error: 
+   ❌ Failed: 
+
+=====================================
+📊 Generation Summary
+
+✅ Success: 0/10
+❌ Failed: 10/10
+
+❌ Failed Images:
+   - 01-launch-banner: 
+   - 02-npm-package-card: 
+   - 03-timeline-infographic: 
+   - 04-architecture-diagram: 
+   - 05-spatial-concept-art: 
+   - 06-compiler-pipeline: 
+   - 07-math-foundation-pyramid: 
+   - 08-youtube-thumbnail: 
+   - 09-github-social-card: 
+   - 10-announcement-hero: 
+
+🎉 Image generation complete!
+📁 Images saved to: dev-docs/Announcements/December/15/visuals/
+
+⚠️  REMEMBER: Rotate your OpenAI API key NOW!
+   Visit: https://platform.openai.com/api-keys
+
