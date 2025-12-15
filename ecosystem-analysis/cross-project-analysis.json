@@ -1,0 +1,136 @@
+{
+  "ecosystem": {
+    "totalProjects": 5,
+    "projectTypes": {
+      "spatial_compiler": 1,
+      "vr_framework": 1,
+      "ai_intelligence": 1,
+      "mathematical": 1,
+      "orchestrator": 1
+    },
+    "dependencies": [],
+    "integrationComplexity": "low"
+  },
+  "projects": [
+    {
+      "name": "mind-git",
+      "type": "spatial_compiler",
+      "exists": true,
+      "hasPackageJson": true,
+      "language": "typescript/javascript",
+      "dependencies": [
+        "@trbn/jsoncanvas",
+        "commander"
+      ],
+      "entryPoints": [
+        "logos-system/dist/index.js"
+      ],
+      "hasDocker": true,
+      "hasReadme": true
+    },
+    {
+      "name": "hyperdev-ide",
+      "type": "vr_framework",
+      "exists": true,
+      "hasPackageJson": true,
+      "language": "typescript/javascript",
+      "dependencies": [
+        "@monaco-editor/react",
+        "@radix-ui/react-alert-dialog",
+        "@radix-ui/react-avatar",
+        "@radix-ui/react-dialog",
+        "@radix-ui/react-dropdown-menu",
+        "@radix-ui/react-icons",
+        "@radix-ui/react-label",
+        "@radix-ui/react-popover",
+        "@radix-ui/react-progress",
+        "@radix-ui/react-scroll-area",
+        "@radix-ui/react-select",
+        "@radix-ui/react-separator",
+        "@radix-ui/react-slider",
+        "@radix-ui/react-switch",
+        "@radix-ui/react-tabs",
+        "@radix-ui/react-toast",
+        "@radix-ui/react-tooltip",
+        "@tailwindcss/postcss",
+        "aframe",
+        "aframe-extras",
+        "class-variance-authority",
+        "clsx",
+        "cmdk",
+        "d3",
+        "firebase",
+        "framer-motion",
+        "lucide-react",
+        "monaco-editor",
+        "react",
+        "react-dom",
+        "react-hotkeys-hook",
+        "react-resizable-panels",
+        "react-use",
+        "rxjs",
+        "tailwind-merge",
+        "tailwindcss-animate",
+        "three",
+        "three-stdlib",
+        "uuid",
+        "ws",
+        "zustand"
+      ],
+      "entryPoints": [
+        "index.js"
+      ],
+      "hasDocker": false,
+      "hasReadme": true
+    },
+    {
+      "name": "h2gnn-enhanced",
+      "type": "ai_intelligence",
+      "exists": true,
+      "hasPackageJson": true,
+      "language": "typescript/javascript",
+      "dependencies": [
+        "@modelcontextprotocol/sdk",
+        "@tailwindcss/postcss",
+        "lucide-react",
+        "node-fetch",
+        "react",
+        "react-dom",
+        "readline",
+        "wordpos",
+        "zod",
+        "bip32",
+        "bip39",
+        "mqtt",
+        "ws",
+        "redis",
+        "ethers"
+      ],
+      "entryPoints": [
+        "index.js"
+      ],
+      "hasDocker": false,
+      "hasReadme": true
+    },
+    {
+      "name": "computational-scheme-theory",
+      "type": "mathematical",
+      "exists": true,
+      "hasPackageJson": false,
+      "language": "unknown",
+      "dependencies": [],
+      "entryPoints": [],
+      "hasDocker": false,
+      "hasReadme": true
+    },
+    {
+      "name": "meta-log",
+      "type": "orchestrator",
+      "exists": false,
+      "hasPackageJson": false,
+      "language": "unknown",
+      "dependencies": [],
+      "entryPoints": []
+    }
+  ]
+}

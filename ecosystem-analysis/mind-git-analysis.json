@@ -1,0 +1,706 @@
+{
+  "project": "mind-git",
+  "version": "1.2.0",
+  "timestamp": "2025-12-15T21:41:46.363Z",
+  "architecture": {
+    "layers": [
+      {
+        "name": "cli.ts",
+        "files": 1,
+        "description": "Unknown purpose"
+      },
+      {
+        "name": "compiler",
+        "files": 7,
+        "description": "Code compilation and transformation"
+      },
+      {
+        "name": "core",
+        "files": 28,
+        "description": "Core functionality and base classes"
+      },
+      {
+        "name": "governance",
+        "files": 4,
+        "description": "DAO and governance frameworks"
+      },
+      {
+        "name": "identity",
+        "files": 7,
+        "description": "Digital identity and verification systems"
+      },
+      {
+        "name": "index.ts",
+        "files": 1,
+        "description": "Unknown purpose"
+      },
+      {
+        "name": "json.canvas.ts",
+        "files": 1,
+        "description": "Unknown purpose"
+      },
+      {
+        "name": "types.ts",
+        "files": 1,
+        "description": "Unknown purpose"
+      },
+      {
+        "name": "verification",
+        "files": 1,
+        "description": "Formal verification and proof systems"
+      }
+    ],
+    "patterns": [],
+    "gaps": []
+  },
+  "files": [
+    {
+      "path": "logos-system/src/cli.ts",
+      "type": ".ts",
+      "lines": 71,
+      "size": 1888,
+      "module": "cli.ts"
+    },
+    {
+      "path": "logos-system/src/compiler/aal-compiler.ts",
+      "type": ".ts",
+      "lines": 732,
+      "size": 24996,
+      "module": "compiler"
+    },
+    {
+      "path": "logos-system/src/compiler/aal-integration.ts",
+      "type": ".ts",
+      "lines": 285,
+      "size": 7179,
+      "module": "compiler"
+    },
+    {
+      "path": "logos-system/src/compiler/ast/index.ts",
+      "type": ".ts",
+      "lines": 640,
+      "size": 19284,
+      "module": "compiler"
+    },
+    {
+      "path": "logos-system/src/compiler/canvas-compilation.test.ts",
+      "type": ".ts",
+      "lines": 94,
+      "size": 3075,
+      "module": "compiler"
+    },
+    {
+      "path": "logos-system/src/compiler/codegen/index.ts",
+      "type": ".ts",
+      "lines": 819,
+      "size": 24421,
+      "module": "compiler"
+    },
+    {
+      "path": "logos-system/src/compiler/index.ts",
+      "type": ".ts",
+      "lines": 527,
+      "size": 17198,
+      "module": "compiler"
+    },
+    {
+      "path": "logos-system/src/compiler/parser/index.ts",
+      "type": ".ts",
+      "lines": 931,
+      "size": 29771,
+      "module": "compiler"
+    },
+    {
+      "path": "logos-system/src/core/aal/index.ts",
+      "type": ".ts",
+      "lines": 615,
+      "size": 20557,
+      "module": "core"
+    },
+    {
+      "path": "logos-system/src/core/aal/types.ts",
+      "type": ".ts",
+      "lines": 13,
+      "size": 266,
+      "module": "core"
+    },
+    {
+      "path": "logos-system/src/core/cryptography/bhargava-solver.ts",
+      "type": ".ts",
+      "lines": 336,
+      "size": 9655,
+      "module": "core"
+    },
+    {
+      "path": "logos-system/src/core/cryptography/commit-signature.ts",
+      "type": ".ts",
+      "lines": 411,
+      "size": 11973,
+      "module": "core"
+    },
+    {
+      "path": "logos-system/src/core/cryptography/constant-time.ts",
+      "type": ".ts",
+      "lines": 491,
+      "size": 12538,
+      "module": "core"
+    },
+    {
+      "path": "logos-system/src/core/cryptography/cryptography.test.ts",
+      "type": ".ts",
+      "lines": 515,
+      "size": 15658,
+      "module": "core"
+    },
+    {
+      "path": "logos-system/src/core/cryptography/cubic-dh.ts",
+      "type": ".ts",
+      "lines": 516,
+      "size": 14329,
+      "module": "core"
+    },
+    {
+      "path": "logos-system/src/core/cryptography/cubic-keygen.ts",
+      "type": ".ts",
+      "lines": 210,
+      "size": 6158,
+      "module": "core"
+    },
+    {
+      "path": "logos-system/src/core/cryptography/cubic-signature.ts",
+      "type": ".ts",
+      "lines": 259,
+      "size": 7520,
+      "module": "core"
+    },
+    {
+      "path": "logos-system/src/core/cryptography/index.ts",
+      "type": ".ts",
+      "lines": 523,
+      "size": 14892,
+      "module": "core"
+    },
+    {
+      "path": "logos-system/src/core/cryptography/key-erasure.ts",
+      "type": ".ts",
+      "lines": 470,
+      "size": 12922,
+      "module": "core"
+    },
+    {
+      "path": "logos-system/src/core/cryptography/lll-reduction.ts",
+      "type": ".ts",
+      "lines": 464,
+      "size": 13161,
+      "module": "core"
+    },
+    {
+      "path": "logos-system/src/core/cryptography/production-crypto.test.ts",
+      "type": ".ts",
+      "lines": 528,
+      "size": 16249,
+      "module": "core"
+    },
+    {
+      "path": "logos-system/src/core/cryptography/production-crypto.ts",
+      "type": ".ts",
+      "lines": 659,
+      "size": 17133,
+      "module": "core"
+    },
+    {
+      "path": "logos-system/src/core/cryptography/secure-memory.ts",
+      "type": ".ts",
+      "lines": 369,
+      "size": 8936,
+      "module": "core"
+    },
+    {
+      "path": "logos-system/src/core/identity-chain/identity-chain.test.ts",
+      "type": ".ts",
+      "lines": 385,
+      "size": 15402,
+      "module": "core"
+    },
+    {
+      "path": "logos-system/src/core/identity-chain/index.ts",
+      "type": ".ts",
+      "lines": 396,
+      "size": 13464,
+      "module": "core"
+    },
+    {
+      "path": "logos-system/src/core/mindgit/commit.ts",
+      "type": ".ts",
+      "lines": 596,
+      "size": 18238,
+      "module": "core"
+    },
+    {
+      "path": "logos-system/src/core/mindgit/dna-log.ts",
+      "type": ".ts",
+      "lines": 515,
+      "size": 14134,
+      "module": "core"
+    },
+    {
+      "path": "logos-system/src/core/mindgit/index.ts",
+      "type": ".ts",
+      "lines": 271,
+      "size": 7718,
+      "module": "core"
+    },
+    {
+      "path": "logos-system/src/core/mindgit/mindgit.test.ts",
+      "type": ".ts",
+      "lines": 659,
+      "size": 20660,
+      "module": "core"
+    },
+    {
+      "path": "logos-system/src/core/mindgit/replay-engine.ts",
+      "type": ".ts",
+      "lines": 501,
+      "size": 14891,
+      "module": "core"
+    },
+    {
+      "path": "logos-system/src/core/mindgit/storage.ts",
+      "type": ".ts",
+      "lines": 528,
+      "size": 13414,
+      "module": "core"
+    },
+    {
+      "path": "logos-system/src/core/mindgit/types.ts",
+      "type": ".ts",
+      "lines": 513,
+      "size": 11660,
+      "module": "core"
+    },
+    {
+      "path": "logos-system/src/core/multiverse/index.ts",
+      "type": ".ts",
+      "lines": 657,
+      "size": 17743,
+      "module": "core"
+    },
+    {
+      "path": "logos-system/src/core/multiverse/multiverse.test.ts",
+      "type": ".ts",
+      "lines": 547,
+      "size": 16904,
+      "module": "core"
+    },
+    {
+      "path": "logos-system/src/core/polynomial/index.ts",
+      "type": ".ts",
+      "lines": 350,
+      "size": 9871,
+      "module": "core"
+    },
+    {
+      "path": "logos-system/src/core/polynomial/polynomial.test.ts",
+      "type": ".ts",
+      "lines": 310,
+      "size": 10276,
+      "module": "core"
+    },
+    {
+      "path": "logos-system/src/governance/advanced-voting.ts",
+      "type": ".ts",
+      "lines": 1529,
+      "size": 43912,
+      "module": "governance"
+    },
+    {
+      "path": "logos-system/src/governance/dao-framework.ts",
+      "type": ".ts",
+      "lines": 1313,
+      "size": 36616,
+      "module": "governance"
+    },
+    {
+      "path": "logos-system/src/governance/token-economics.ts",
+      "type": ".ts",
+      "lines": 1125,
+      "size": 28080,
+      "module": "governance"
+    },
+    {
+      "path": "logos-system/src/governance/treasury-management.ts",
+      "type": ".ts",
+      "lines": 1377,
+      "size": 37144,
+      "module": "governance"
+    },
+    {
+      "path": "logos-system/src/identity/__tests__/basic-identity.test.ts",
+      "type": ".ts",
+      "lines": 168,
+      "size": 5366,
+      "module": "identity"
+    },
+    {
+      "path": "logos-system/src/identity/__tests__/identity-integration.test.ts",
+      "type": ".ts",
+      "lines": 769,
+      "size": 25663,
+      "module": "identity"
+    },
+    {
+      "path": "logos-system/src/identity/did-core.ts",
+      "type": ".ts",
+      "lines": 560,
+      "size": 13824,
+      "module": "identity"
+    },
+    {
+      "path": "logos-system/src/identity/identity-mindgit-integration.ts",
+      "type": ".ts",
+      "lines": 710,
+      "size": 20997,
+      "module": "identity"
+    },
+    {
+      "path": "logos-system/src/identity/identity-verification.ts",
+      "type": ".ts",
+      "lines": 914,
+      "size": 24220,
+      "module": "identity"
+    },
+    {
+      "path": "logos-system/src/identity/multiverse-addressing.ts",
+      "type": ".ts",
+      "lines": 630,
+      "size": 17688,
+      "module": "identity"
+    },
+    {
+      "path": "logos-system/src/identity/sovereign-identity.ts",
+      "type": ".ts",
+      "lines": 552,
+      "size": 15366,
+      "module": "identity"
+    },
+    {
+      "path": "logos-system/src/index.ts",
+      "type": ".ts",
+      "lines": 318,
+      "size": 12501,
+      "module": "index.ts"
+    },
+    {
+      "path": "logos-system/src/json.canvas.ts",
+      "type": ".ts",
+      "lines": 60,
+      "size": 1456,
+      "module": "json.canvas.ts"
+    },
+    {
+      "path": "logos-system/src/types.ts",
+      "type": ".ts",
+      "lines": 171,
+      "size": 3662,
+      "module": "types.ts"
+    },
+    {
+      "path": "logos-system/src/verification/coq-bridge.ts",
+      "type": ".ts",
+      "lines": 571,
+      "size": 17560,
+      "module": "verification"
+    }
+  ],
+  "dependencies": {
+    "production": [
+      "@trbn/jsoncanvas",
+      "commander"
+    ],
+    "development": [
+      "dotenv"
+    ],
+    "peerDependencies": []
+  },
+  "capabilities": [
+    {
+      "name": "compiler",
+      "present": true,
+      "files": 7,
+      "confidence": "high"
+    },
+    {
+      "name": "spatial_3d",
+      "present": true,
+      "files": 2,
+      "confidence": "low"
+    },
+    {
+      "name": "mathematical",
+      "present": true,
+      "files": 2,
+      "confidence": "low"
+    },
+    {
+      "name": "collaboration",
+      "present": false,
+      "confidence": "medium"
+    },
+    {
+      "name": "formal_verification",
+      "present": false,
+      "confidence": "low",
+      "needed": true
+    }
+  ],
+  "integrationPoints": [
+    {
+      "name": "computational_scheme_theory",
+      "priority": "CRITICAL",
+      "files_needed": [
+        "scheme-theory.ts",
+        "betti-numbers.ts",
+        "proof-generation.ts"
+      ],
+      "estimated_effort": "2-3 weeks",
+      "description": "H¹ Betti numbers and formal verification"
+    },
+    {
+      "name": "h2gnn_intelligence",
+      "priority": "HIGH",
+      "files_needed": [
+        "hyperbolic-embedding.ts",
+        "canvas-learning.ts",
+        "pattern-recognition.ts"
+      ],
+      "estimated_effort": "1-2 weeks",
+      "description": "Hyperbolic geometry for spatial learning"
+    },
+    {
+      "name": "meta_log_orchestration",
+      "priority": "HIGH",
+      "files_needed": [
+        "meta-log-bridge.ts",
+        "knowledge-graph.ts",
+        "orchestrator.ts"
+      ],
+      "estimated_effort": "2-3 weeks",
+      "description": "Central nervous system for ecosystem"
+    },
+    {
+      "name": "vr_spatial_interface",
+      "priority": "MEDIUM",
+      "files_needed": [
+        "vr-canvas.ts",
+        "webxr-integration.ts",
+        "spatial-controls.ts"
+      ],
+      "estimated_effort": "3-4 weeks",
+      "description": "WebXR integration for immersive programming"
+    },
+    {
+      "name": "conscious_ai_agents",
+      "priority": "MEDIUM",
+      "files_needed": [
+        "wave-functions.ts",
+        "identity-kernel.ts",
+        "consciousness-engine.ts"
+      ],
+      "estimated_effort": "2-3 weeks",
+      "description": "Wave function consciousness for AI agents"
+    }
+  ],
+  "architectureCanvas": {
+    "nodes": [
+      {
+        "id": "cli.ts",
+        "type": "architecture_layer",
+        "position": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "properties": {
+          "name": "cli.ts",
+          "files": 1,
+          "description": "Unknown purpose"
+        },
+        "connections": []
+      },
+      {
+        "id": "compiler",
+        "type": "architecture_layer",
+        "position": {
+          "x": 200,
+          "y": 0,
+          "z": 0
+        },
+        "properties": {
+          "name": "compiler",
+          "files": 7,
+          "description": "Code compilation and transformation"
+        },
+        "connections": []
+      },
+      {
+        "id": "core",
+        "type": "architecture_layer",
+        "position": {
+          "x": 400,
+          "y": 0,
+          "z": 0
+        },
+        "properties": {
+          "name": "core",
+          "files": 28,
+          "description": "Core functionality and base classes"
+        },
+        "connections": []
+      },
+      {
+        "id": "governance",
+        "type": "architecture_layer",
+        "position": {
+          "x": 600,
+          "y": 0,
+          "z": 0
+        },
+        "properties": {
+          "name": "governance",
+          "files": 4,
+          "description": "DAO and governance frameworks"
+        },
+        "connections": []
+      },
+      {
+        "id": "identity",
+        "type": "architecture_layer",
+        "position": {
+          "x": 800,
+          "y": 0,
+          "z": 0
+        },
+        "properties": {
+          "name": "identity",
+          "files": 7,
+          "description": "Digital identity and verification systems"
+        },
+        "connections": []
+      },
+      {
+        "id": "index.ts",
+        "type": "architecture_layer",
+        "position": {
+          "x": 1000,
+          "y": 0,
+          "z": 0
+        },
+        "properties": {
+          "name": "index.ts",
+          "files": 1,
+          "description": "Unknown purpose"
+        },
+        "connections": []
+      },
+      {
+        "id": "json.canvas.ts",
+        "type": "architecture_layer",
+        "position": {
+          "x": 1200,
+          "y": 0,
+          "z": 0
+        },
+        "properties": {
+          "name": "json.canvas.ts",
+          "files": 1,
+          "description": "Unknown purpose"
+        },
+        "connections": []
+      },
+      {
+        "id": "types.ts",
+        "type": "architecture_layer",
+        "position": {
+          "x": 1400,
+          "y": 0,
+          "z": 0
+        },
+        "properties": {
+          "name": "types.ts",
+          "files": 1,
+          "description": "Unknown purpose"
+        },
+        "connections": []
+      },
+      {
+        "id": "verification",
+        "type": "architecture_layer",
+        "position": {
+          "x": 1600,
+          "y": 0,
+          "z": 0
+        },
+        "properties": {
+          "name": "verification",
+          "files": 1,
+          "description": "Formal verification and proof systems"
+        },
+        "connections": []
+      }
+    ],
+    "edges": [
+      {
+        "from": "cli.ts",
+        "to": "compiler",
+        "type": "depends_on",
+        "strength": 0.8
+      },
+      {
+        "from": "compiler",
+        "to": "core",
+        "type": "depends_on",
+        "strength": 0.8
+      },
+      {
+        "from": "core",
+        "to": "governance",
+        "type": "depends_on",
+        "strength": 0.8
+      },
+      {
+        "from": "governance",
+        "to": "identity",
+        "type": "depends_on",
+        "strength": 0.8
+      },
+      {
+        "from": "identity",
+        "to": "index.ts",
+        "type": "depends_on",
+        "strength": 0.8
+      },
+      {
+        "from": "index.ts",
+        "to": "json.canvas.ts",
+        "type": "depends_on",
+        "strength": 0.8
+      },
+      {
+        "from": "json.canvas.ts",
+        "to": "types.ts",
+        "type": "depends_on",
+        "strength": 0.8
+      },
+      {
+        "from": "types.ts",
+        "to": "verification",
+        "type": "depends_on",
+        "strength": 0.8
+      }
+    ],
+    "metadata": {
+      "analysisComplete": true,
+      "integrationReady": true
+    }
+  }
+}

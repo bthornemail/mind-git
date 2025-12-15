@@ -1,0 +1,193 @@
+{
+  "nodes": [
+    {
+      "id": "cli.ts",
+      "type": "architecture_layer",
+      "position": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "properties": {
+        "name": "cli.ts",
+        "files": 1,
+        "description": "Unknown purpose"
+      },
+      "connections": []
+    },
+    {
+      "id": "compiler",
+      "type": "architecture_layer",
+      "position": {
+        "x": 200,
+        "y": 0,
+        "z": 0
+      },
+      "properties": {
+        "name": "compiler",
+        "files": 7,
+        "description": "Code compilation and transformation"
+      },
+      "connections": []
+    },
+    {
+      "id": "core",
+      "type": "architecture_layer",
+      "position": {
+        "x": 400,
+        "y": 0,
+        "z": 0
+      },
+      "properties": {
+        "name": "core",
+        "files": 28,
+        "description": "Core functionality and base classes"
+      },
+      "connections": []
+    },
+    {
+      "id": "governance",
+      "type": "architecture_layer",
+      "position": {
+        "x": 600,
+        "y": 0,
+        "z": 0
+      },
+      "properties": {
+        "name": "governance",
+        "files": 4,
+        "description": "DAO and governance frameworks"
+      },
+      "connections": []
+    },
+    {
+      "id": "identity",
+      "type": "architecture_layer",
+      "position": {
+        "x": 800,
+        "y": 0,
+        "z": 0
+      },
+      "properties": {
+        "name": "identity",
+        "files": 7,
+        "description": "Digital identity and verification systems"
+      },
+      "connections": []
+    },
+    {
+      "id": "index.ts",
+      "type": "architecture_layer",
+      "position": {
+        "x": 1000,
+        "y": 0,
+        "z": 0
+      },
+      "properties": {
+        "name": "index.ts",
+        "files": 1,
+        "description": "Unknown purpose"
+      },
+      "connections": []
+    },
+    {
+      "id": "json.canvas.ts",
+      "type": "architecture_layer",
+      "position": {
+        "x": 1200,
+        "y": 0,
+        "z": 0
+      },
+      "properties": {
+        "name": "json.canvas.ts",
+        "files": 1,
+        "description": "Unknown purpose"
+      },
+      "connections": []
+    },
+    {
+      "id": "types.ts",
+      "type": "architecture_layer",
+      "position": {
+        "x": 1400,
+        "y": 0,
+        "z": 0
+      },
+      "properties": {
+        "name": "types.ts",
+        "files": 1,
+        "description": "Unknown purpose"
+      },
+      "connections": []
+    },
+    {
+      "id": "verification",
+      "type": "architecture_layer",
+      "position": {
+        "x": 1600,
+        "y": 0,
+        "z": 0
+      },
+      "properties": {
+        "name": "verification",
+        "files": 1,
+        "description": "Formal verification and proof systems"
+      },
+      "connections": []
+    }
+  ],
+  "edges": [
+    {
+      "from": "cli.ts",
+      "to": "compiler",
+      "type": "depends_on",
+      "strength": 0.8
+    },
+    {
+      "from": "compiler",
+      "to": "core",
+      "type": "depends_on",
+      "strength": 0.8
+    },
+    {
+      "from": "core",
+      "to": "governance",
+      "type": "depends_on",
+      "strength": 0.8
+    },
+    {
+      "from": "governance",
+      "to": "identity",
+      "type": "depends_on",
+      "strength": 0.8
+    },
+    {
+      "from": "identity",
+      "to": "index.ts",
+      "type": "depends_on",
+      "strength": 0.8
+    },
+    {
+      "from": "index.ts",
+      "to": "json.canvas.ts",
+      "type": "depends_on",
+      "strength": 0.8
+    },
+    {
+      "from": "json.canvas.ts",
+      "to": "types.ts",
+      "type": "depends_on",
+      "strength": 0.8
+    },
+    {
+      "from": "types.ts",
+      "to": "verification",
+      "type": "depends_on",
+      "strength": 0.8
+    }
+  ],
+  "metadata": {
+    "analysisComplete": true,
+    "integrationReady": true
+  }
+}

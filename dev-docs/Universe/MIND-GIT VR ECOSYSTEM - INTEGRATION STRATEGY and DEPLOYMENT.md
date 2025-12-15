@@ -19,7 +19,7 @@ cp -r /home/main/devops/automata-metaverse .
 cp -r /home/main/devops/automaton church-metaverse
 
 # 3. Initialize mind-git with VR extensions
-git clone https://github.com/your-repo/mind-git
+git clone https://github.com/bthornemail/mind-git
 cd mind-git
 npm install @types/three @types/aframe @types/webrtc
 ```
