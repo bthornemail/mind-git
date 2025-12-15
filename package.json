@@ -8,7 +8,8 @@
     "mind-git": "./bin/mind-git-simple.cjs",
     "mind-git-metadata": "./bin/mind-git-metadata.cjs",
     "universal-kernel": "./universal-metadata-kernel.js",
-    "universal-exporter": "./universal-exporter.js"
+    "universal-exporter": "./universal-exporter.js",
+    "pfister-inference": "./pfister-inference-engine.js"
   },
   "type": "module",
   "scripts": {
@@ -48,7 +49,9 @@
     "json.canvas.js",
     "universal-metadata-kernel.js",
     "universal-exporter.js",
-    "UNIVERSAL-KERNEL-README.md"
+    "pfister-inference-engine.js",
+    "UNIVERSAL-KERNEL-README.md",
+    "PFISTER-32-README.md"
   ],
   "dependencies": {
     "@trbn/jsoncanvas": "^1.0.6",

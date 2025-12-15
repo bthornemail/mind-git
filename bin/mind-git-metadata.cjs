@@ -170,6 +170,29 @@ program
     }
   });
 
+// Pfister Inference Commands
+program
+  .command('kernel:connect')
+  .description('Connect two repositories with Pfister 32 semantic inference')
+  .argument('<repo-a>', 'First repository path')
+  .argument('<repo-b>', 'Second repository path')
+  .option('--export <dir>', 'Export results to directory', './pfister-results')
+  .action((repoA, repoB, options) => {
+    console.log(`🧮 Connecting repositories with Pfister 32 inference...`);
+    try {
+      let command = `node ${path.join(__dirname, '../pfister-inference-engine.js')} connect ${repoA} ${repoB}`;
+
+      if (options.export) {
+        command += ` --export ${options.export}`;
+      }
+
+      execSync(command, { stdio: 'inherit' });
+    } catch (error) {
+      console.error('❌ Connection analysis failed:', error.message);
+      process.exit(1);
+    }
+  });
+
 // Help command
 program
   .command('help')
@@ -188,6 +211,7 @@ program
   mind-git kernel:analyze [path]     Analyze any Git repository
   mind-git kernel:visualize [path]   Generate CanvasL visualization
   mind-git kernel:export [path]      Export repository metadata
+  mind-git kernel:connect <a> <b>    Pfister 32 semantic inference
 
 📤 Export Targets:
   docs        - General documentation export
@@ -230,6 +254,10 @@ Examples:
   mind-git kernel:visualize /path/to/any-repo
   mind-git kernel:export . --format json
 
+  # Pfister 32 Semantic Inference (NEW!)
+  mind-git kernel:connect /path/to/repo-a /path/to/repo-b
+  mind-git kernel:connect ~/lodash ~/flask --export ./results
+
 🌟 The Universal Kernel works on ANY Git repository:
   - JavaScript/TypeScript (Node.js, React, Vue, etc.)
   - Python (Flask, Django, FastAPI, etc.)
@@ -237,6 +265,13 @@ Examples:
   - Automatically detects language and framework
   - Generates AGENTS.md development contracts
   - Creates CanvasL visualizations for Obsidian
+
+🧮 Pfister 32 Semantic Inference (Mathematical Composition):
+  - Connects TWO repositories with norm-preserving composition
+  - 32-dimensional semantic space (8 layers × 4 features)
+  - Finds integration points and emergent patterns
+  - Mathematically guaranteed: ||A ⊗ B|| = ||A|| × ||B||
+  - Based on Pfister's 32-square identity (1967)
 
 For more information, see: metadata/README.md
     `);

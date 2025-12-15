@@ -1,0 +1,299 @@
+{
+  "repoA": {
+    "path": "/tmp/kernel-test/lodash",
+    "vector": [
+      0,
+      0,
+      0,
+      0,
+      0.3,
+      0.235,
+      0.8333333333333334,
+      1,
+      0.35,
+      0.22571428571428573,
+      0.2857142857142857,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.2,
+      0.2375,
+      0.25,
+      1,
+      0.05,
+      0.12,
+      1,
+      1
+    ],
+    "norm": 2.504107682644894,
+    "name": "lodash"
+  },
+  "repoB": {
+    "path": "/tmp/kernel-test/flask",
+    "vector": [
+      0,
+      0,
+      0,
+      0,
+      0.2,
+      0.4875,
+      0.5,
+      1,
+      0.2,
+      0.08,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0.65,
+      0.17846153846153848,
+      0.07692307692307693,
+      1,
+      0.05,
+      0.05,
+      0,
+      1
+    ],
+    "norm": 2.244843408898129,
+    "name": "flask"
+  },
+  "similarity": 0.8680155796393237,
+  "composed": {
+    "vector": [
+      0.7756642756141741,
+      0.7756642756141741,
+      0.7756642756141741,
+      0.7756642756141741,
+      1.278854190127295,
+      1.278854190127295,
+      1.278854190127295,
+      1.278854190127295,
+      1.239083761161031,
+      1.239083761161031,
+      1.239083761161031,
+      1.239083761161031,
+      0.8796459935355473,
+      0.8796459935355473,
+      0.8796459935355473,
+      0.8796459935355473,
+      0.7447395638398648,
+      0.7447395638398648,
+      0.7447395638398648,
+      0.7447395638398648,
+      0.7999293454690656,
+      0.7999293454690656,
+      0.7999293454690656,
+      0.7999293454690656,
+      1.0593026367230618,
+      1.0593026367230618,
+      1.0593026367230618,
+      1.0593026367230618,
+      1.018313258066952,
+      1.018313258066952,
+      1.018313258066952,
+      1.018313258066952
+    ],
+    "norm": 5.621329626556561,
+    "normPreserved": true
+  },
+  "integrationPoints": [
+    {
+      "dimension": 25,
+      "layer": 7,
+      "layerName": "Tests",
+      "feature": "Complexity",
+      "strengthA": 0.2375,
+      "strengthB": 0.17846153846153848,
+      "composedStrength": 1.0593026367230618,
+      "synergy": 4.460221628307629,
+      "description": "weak overlap in algorithmic sophistication at testing infrastructure layer"
+    },
+    {
+      "dimension": 4,
+      "layer": 2,
+      "layerName": "Core Implementation",
+      "feature": "Presence",
+      "strengthA": 0.3,
+      "strengthB": 0.2,
+      "composedStrength": 1.278854190127295,
+      "synergy": 4.262847300424316,
+      "description": "weak overlap in component organization at core implementation layer"
+    },
+    {
+      "dimension": 8,
+      "layer": 3,
+      "layerName": "API/Interface",
+      "feature": "Presence",
+      "strengthA": 0.35,
+      "strengthB": 0.2,
+      "composedStrength": 1.239083761161031,
+      "synergy": 3.540239317602946,
+      "description": "weak overlap in component organization at API design layer"
+    },
+    {
+      "dimension": 5,
+      "layer": 2,
+      "layerName": "Core Implementation",
+      "feature": "Complexity",
+      "strengthA": 0.235,
+      "strengthB": 0.4875,
+      "composedStrength": 1.278854190127295,
+      "synergy": 2.623290646414964,
+      "description": "moderate overlap in algorithmic sophistication at core implementation layer"
+    },
+    {
+      "dimension": 24,
+      "layer": 7,
+      "layerName": "Tests",
+      "feature": "Presence",
+      "strengthA": 0.2,
+      "strengthB": 0.65,
+      "composedStrength": 1.0593026367230618,
+      "synergy": 1.6296963641893258,
+      "description": "moderate overlap in component organization at testing infrastructure layer"
+    },
+    {
+      "dimension": 6,
+      "layer": 2,
+      "layerName": "Core Implementation",
+      "feature": "Mathematical Content",
+      "strengthA": 0.8333333333333334,
+      "strengthB": 0.5,
+      "composedStrength": 1.278854190127295,
+      "synergy": 1.5346250281527538,
+      "description": "strong overlap in formal methods and proofs at core implementation layer"
+    },
+    {
+      "dimension": 7,
+      "layer": 2,
+      "layerName": "Core Implementation",
+      "feature": "Test Coverage",
+      "strengthA": 1,
+      "strengthB": 1,
+      "composedStrength": 1.278854190127295,
+      "synergy": 1.278854190127295,
+      "description": "strong overlap in testing practices at core implementation layer"
+    },
+    {
+      "dimension": 11,
+      "layer": 3,
+      "layerName": "API/Interface",
+      "feature": "Test Coverage",
+      "strengthA": 1,
+      "strengthB": 1,
+      "composedStrength": 1.239083761161031,
+      "synergy": 1.239083761161031,
+      "description": "strong overlap in testing practices at API design layer"
+    },
+    {
+      "dimension": 27,
+      "layer": 7,
+      "layerName": "Tests",
+      "feature": "Test Coverage",
+      "strengthA": 1,
+      "strengthB": 1,
+      "composedStrength": 1.0593026367230618,
+      "synergy": 1.0593026367230618,
+      "description": "strong overlap in testing practices at testing infrastructure layer"
+    },
+    {
+      "dimension": 31,
+      "layer": 8,
+      "layerName": "Documentation",
+      "feature": "Test Coverage",
+      "strengthA": 1,
+      "strengthB": 1,
+      "composedStrength": 1.018313258066952,
+      "synergy": 1.018313258066952,
+      "description": "strong overlap in testing practices at documentation layer"
+    }
+  ],
+  "emergentPatterns": [
+    {
+      "type": "cross-layer-coordination",
+      "description": "Coordinated activity across layers 1, 2, 3, 4, 5, 6, 7, 8",
+      "strength": 5.11541676050918,
+      "layers": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ]
+    },
+    {
+      "type": "mathematical-practical-bridge",
+      "description": "Strong connection between mathematical foundations and practical implementation",
+      "strength": 1.0272592328707346,
+      "implications": [
+        "Formal verification possible",
+        "Theory-backed optimizations"
+      ]
+    },
+    {
+      "type": "full-stack-coherence",
+      "description": "Coherent full-stack architecture emerging from composition",
+      "strength": 0.9279175568233206,
+      "implications": [
+        "End-to-end integration viable",
+        "Unified data flow possible"
+      ]
+    },
+    {
+      "type": "test-driven-culture",
+      "description": "Strong test coverage culture in composed space",
+      "strength": 0.9744416280671239,
+      "implications": [
+        "High reliability expected",
+        "Refactoring safety"
+      ]
+    }
+  ],
+  "recommendations": [
+    {
+      "type": "high-similarity",
+      "priority": "high",
+      "title": "Direct Integration Viable",
+      "description": "Repositories show 86.8% semantic similarity. Consider direct API integration or code sharing.",
+      "actions": [
+        "Identify common interfaces for direct integration",
+        "Extract shared utilities into common library",
+        "Establish unified testing framework"
+      ]
+    },
+    {
+      "type": "unified-testing",
+      "priority": "medium",
+      "title": "Unified Testing Framework",
+      "description": "Both repositories have substantial test suites. Create unified testing strategy.",
+      "actions": [
+        "Merge test utilities and helpers",
+        "Establish common test patterns",
+        "Create integration test suite for composition"
+      ]
+    }
+  ]
+}
