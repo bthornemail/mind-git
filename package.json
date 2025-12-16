@@ -9,7 +9,8 @@
     "mind-git-metadata": "bin/mind-git-metadata.cjs",
     "universal-kernel": "universal-metadata-kernel.js",
     "universal-exporter": "universal-exporter.js",
-    "pfister-inference": "pfister-inference-engine.js"
+    "pfister-inference": "pfister-inference-engine.js",
+    "mind-git-opencode": ".opencode/client.js"
   },
   "type": "module",
   "scripts": {
@@ -26,7 +27,10 @@
     "docs:serve": "npm run docs:serve",
     "health:all": "npm run health:all",
     "test:ecosystem": "npm run test:ecosystem",
-    "benchmark": "npm run test:performance"
+    "benchmark": "npm run test:performance",
+    "opencode:status": "node .opencode/client.js status",
+    "opencode:install": "cd .opencode && npm install",
+    "opencode:test": "node .opencode/client.js tools && node .opencode/client.js agents"
   },
   "keywords": [
     "canvasl",
@@ -51,7 +55,9 @@
     "natural-language",
     "kubernetes",
     "docker-ecosystem",
-    "production-ready"
+    "production-ready",
+    "opencode",
+    "ai-integration"
   ],
   "author": "Brian Thorne <bthornemail@gmail.com>",
   "license": "MIT",
@@ -64,6 +70,7 @@
     "examples/",
     "logos-system/dist/",
     "logos-system/package.json",
+    ".opencode/",
     "README.md",
     "LICENSE",
     "json.canvas.d.ts",
@@ -84,6 +91,7 @@
     "node": ">=18.0.0"
   },
   "devDependencies": {
-    "dotenv": "^17.2.3"
+    "dotenv": "^17.2.3",
+    "@opencode-ai/sdk": "^1.0.0"
   }
 }

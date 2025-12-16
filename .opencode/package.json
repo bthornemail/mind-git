@@ -1,0 +1,47 @@
+{
+  "name": "@mind-git/opencode-integration",
+  "version": "1.0.0",
+  "description": "OpenCode integration package for mind-git mathematical foundation and spatial programming",
+  "main": "client.js",
+  "type": "module",
+  "bin": {
+    "mind-git-opencode": "client.js"
+  },
+  "scripts": {
+    "start": "node client.js",
+    "test": "node client.js status",
+    "install": "npm install @opencode-ai/sdk"
+  },
+  "keywords": [
+    "opencode",
+    "ai-integration",
+    "mind-git",
+    "canvasl",
+    "mathematical-verification",
+    "spatial-programming",
+    "p2p-collaboration"
+  ],
+  "author": "Brian Thorne <bthornemail@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@opencode-ai/sdk": "^1.0.0"
+  },
+  "peerDependencies": {
+    "@opencode-ai/cli": "^1.0.0"
+  },
+  "files": [
+    "client.js",
+    "config.json",
+    "tools/",
+    "agents/",
+    "README.md"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bthornemail/mind-git.git",
+    "directory": ".opencode"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
