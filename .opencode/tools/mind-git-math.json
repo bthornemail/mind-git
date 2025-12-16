@@ -1,0 +1,101 @@
+{
+  "name": "mind-git-math",
+  "description": "Mathematical foundation tools for polynomial algebra and identity chain operations",
+  "version": "1.0.0",
+  "type": "tool",
+  "entry": "logos-system/dist/core/math/index.js",
+  "parameters": {
+    "polynomial": {
+      "type": "object",
+      "properties": {
+        "operation": {
+          "type": "string",
+          "enum": ["add", "multiply", "divide", "gcd", "lcm", "norm"],
+          "description": "Polynomial operation to perform",
+          "required": true
+        },
+        "operands": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Polynomial operands in F₂[x] notation",
+          "minItems": 1,
+          "required": true
+        },
+        "modulus": {
+          "type": "integer",
+          "description": "Modulus for polynomial operations (default: 2 for F₂)",
+          "default": 2
+        }
+      },
+      "required": ["operation", "operands"]
+    },
+    "identity": {
+      "type": "object",
+      "properties": {
+        "dimension": {
+          "type": "integer",
+          "enum": [1, 2, 4, 8, 16, 32],
+          "description": "Dimension for identity chain operation",
+          "required": true
+        },
+        "operation": {
+          "type": "string",
+          "enum": ["brahmagupta", "euler", "degen", "pfister"],
+          "description": "Identity chain operation",
+          "required": true
+        },
+        "vectors": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            }
+          },
+          "description": "Input vectors for identity operation",
+          "minItems": 2,
+          "required": true
+        }
+      },
+      "required": ["dimension", "operation", "vectors"]
+    },
+    "verify": {
+      "type": "object",
+      "properties": {
+        "theorem": {
+          "type": "string",
+          "enum": ["adams", "hopf", "norm-preservation", "composition"],
+          "description": "Mathematical theorem to verify",
+          "required": true
+        },
+        "data": {
+          "type": "object",
+          "description": "Data for theorem verification",
+          "required": true
+        }
+      },
+      "required": ["theorem", "data"]
+    }
+  },
+  "commands": {
+    "polynomial": "polynomial {{operation}} {{#each operands}}{{this}} {{/each}} --modulus {{modulus}}",
+    "identity": "identity {{dimension}} {{operation}} {{#each vectors}}{{#each this}}{{this}} {{/each}} {{/each}}",
+    "verify": "verify {{theorem}} --data '{{json data}}'"
+  },
+  "examples": [
+    {
+      "description": "Add two polynomials over F₂",
+      "command": "mind-git-math polynomial add \"x^3 + x + 1\" \"x^2 + 1\""
+    },
+    {
+      "description": "Verify norm preservation in 8D",
+      "command": "mind-git-math verify norm-preservation --data '{\"dimension\": 8, \"vectors\": [[1,0,0,0,0,0,0,0], [0,1,0,0,0,0,0,0]]}'"
+    }
+  ],
+  "dependencies": [
+    "logos-system/dist/core/polynomial",
+    "logos-system/dist/core/identity-chain"
+  ]
+}

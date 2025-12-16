@@ -1,0 +1,85 @@
+{
+  "name": "mind-git-visualizer",
+  "description": "WebGL-based visualization tools for mathematical structures and polynomial operations",
+  "version": "1.0.0",
+  "type": "tool",
+  "entry": "mind-git-visualizer/dist/index.js",
+  "parameters": {
+    "visualize": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["polynomial", "hopf-fibration", "e8-lattice", "identity-chain", "canvas-graph"],
+          "description": "Visualization type",
+          "required": true
+        },
+        "data": {
+          "description": "Data to visualize (polynomial, vectors, or canvas file)",
+          "required": true
+        },
+        "output": {
+          "type": "string",
+          "description": "Output file for visualization (HTML/JSON)",
+          "required": false
+        },
+        "interactive": {
+          "type": "boolean",
+          "description": "Generate interactive visualization",
+          "default": true
+        },
+        "dimensions": {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          },
+          "description": "Visualization dimensions [width, height, depth]",
+          "default": [800, 600, 400]
+        }
+      },
+      "required": ["type", "data"]
+    },
+    "export": {
+      "type": "object",
+      "properties": {
+        "format": {
+          "type": "string",
+          "enum": ["html", "json", "svg", "webgl"],
+          "description": "Export format",
+          "required": true
+        },
+        "source": {
+          "type": "string",
+          "description": "Source visualization file",
+          "required": true
+        },
+        "destination": {
+          "type": "string",
+          "description": "Export destination",
+          "required": true
+        }
+      },
+      "required": ["format", "source", "destination"]
+    }
+  },
+  "commands": {
+    "visualize": "visualize {{type}} {{data}} --output {{output}} {{#if interactive}}--interactive{{/if}} --dimensions {{join dimensions ' '}}",
+    "export": "export {{format}} {{source}} {{destination}}"
+  },
+  "examples": [
+    {
+      "description": "Visualize polynomial structure",
+      "command": "mind-git-visualizer visualize polynomial \"x^4 + x^2 + 1\" --output polynomial-viz.html"
+    },
+    {
+      "description": "Create Hopf fibration visualization",
+      "command": "mind-git-visualizer visualize hopf-fibration \"[1,0,0,0]\" --interactive --dimensions 1024 768 512"
+    }
+  ],
+  "dependencies": [
+    "three",
+    "webgl",
+    "d3",
+    "logos-system/dist/visualization"
+  ]
+}

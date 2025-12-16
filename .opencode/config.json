@@ -1,0 +1,44 @@
+{
+  "$schema": "https://opencode.ai/schema/config.json",
+  "model": "anthropic/claude-3-5-sonnet-20241022",
+  "tools": [
+    ".opencode/tools/mind-git-compiler.json",
+    ".opencode/tools/mind-git-math.json",
+    ".opencode/tools/mind-git-p2p.json",
+    ".opencode/tools/mind-git-visualizer.json"
+  ],
+  "agents": [
+    ".opencode/agents/canvasl-compiler.json",
+    ".opencode/agents/mathematical-verification.json",
+    ".opencode/agents/p2p-collaboration.json"
+  ],
+  "rules": [
+    "Maintain mathematical integrity in all operations",
+    "Follow CanvasL visual programming language specifications",
+    "Preserve norm preservation in polynomial algebra",
+    "Ensure formal verification matches implementation"
+  ],
+  "permissions": {
+    "allow": [
+      "read",
+      "write",
+      "execute"
+    ],
+    "deny": [
+      "system"
+    ]
+  },
+  "workspace": {
+    "include": [
+      "logos-system/**/*",
+      "examples/**/*",
+      "demos/**/*",
+      "dev-docs/**/*"
+    ],
+    "exclude": [
+      "node_modules/**/*",
+      ".git/**/*",
+      "*.log"
+    ]
+  }
+}
