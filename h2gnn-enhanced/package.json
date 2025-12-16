@@ -1,0 +1,55 @@
+{
+  "name": "h2gnn-enhanced",
+  "version": "1.0.0",
+  "description": "🧠 Advanced computational intelligence system by Brian Thorne",
+  "main": "dist/index.js",
+  "bin": {
+    "h2gnn-enhanced": "bin/h2gnn-enhanced.cjs"
+  },
+  "scripts": {
+    "build": "tsc && npm run build:bin",
+    "build:bin": "chmod +x bin/*.cjs",
+    "dev": "tsc --watch",
+    "test": "node test/test.js",
+    "start": "node dist/index.js",
+    "deploy": "npm run build && npm publish"
+  },
+  "keywords": [
+    "artificial-intelligence",
+    "distributed-computing",
+    "emergent-intelligence",
+    "swarm-intelligence",
+    "topological-consensus",
+    "autonomous-systems",
+    "collective-intelligence",
+    "brian-thorne"
+  ],
+  "author": {
+    "name": "Brian Thorne",
+    "email": "bthornemail@gmail.com",
+    "url": "https://github.com/bthornemail"
+  },
+  "license": "GPL-3.0-or-later",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bthornemail/h2gnn-enhanced"
+  },
+  "funding": {
+    "type": "individual",
+    "url": ["https://cash.app/$brianthorne", "https://venmo.com/u/brianthorne"]
+  },
+  "files": [
+    "dist/**/*",
+    "bin/**/*", 
+    "examples/**/*",
+    "docs/**/*",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

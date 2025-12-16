@@ -9,7 +9,7 @@ import { PolyF2 } from '../core/polynomial/index';
 import { AALType } from '../core/aal/types';
 import { DIDDocument } from '../identity/did-core';
 import { CubicSignature } from '../core/cryptography/cubic-signature';
-import { ProductionCryptography } from '../core/cryptography/production-crypto';
+import { ProductionCryptography } from '@cryptography/production-crypto';
 import { Vote, VoteChoice, DAOProposal } from './dao-framework';
 
 export interface VotingMechanism {

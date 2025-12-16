@@ -384,22 +384,23 @@ export class ReplayEngine {
    * @param polynomial - Polynomial to verify
    * @returns Array of invariant violation errors
    */
-  private verifyPolynomialInvariants(polynomial: boolean[]): string[] {
+  private verifyPolynomialInvariants(polynomial: boolean[]): { errors: string[], warnings: string[] } {
     const errors: string[] = [];
-
+    const warnings: string[] = [];
+    
     // Check for invalid polynomial values
     for (let i = 0; i < polynomial.length; i++) {
       if (typeof polynomial[i] !== 'boolean') {
         errors.push(`Invalid polynomial coefficient at index ${i}: ${polynomial[i]}`);
       }
     }
-
+    
     // Check for leading zeros (unnecessary padding)
     const firstNonZero = polynomial.findIndex(coeff => coeff === true);
     if (firstNonZero > 0) {
       warnings.push(`Polynomial has ${firstNonZero} leading zeros`);
     }
-
+    
     return { errors, warnings };
   }
 

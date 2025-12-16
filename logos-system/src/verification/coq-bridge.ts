@@ -12,12 +12,12 @@ import {
   AALInstruction, 
   Dimension, 
   AssemblyOp 
-} from '../../core/aal';
+} from '@core/aal';
 import { 
   VerificationResult, 
   AALEnhancedCanvasNode,
   QuadForm 
-} from './aal-integration';
+} from '@compiler/aal-integration';
 
 /**
  * Coq proof bridge configuration

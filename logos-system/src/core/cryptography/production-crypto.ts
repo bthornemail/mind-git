@@ -657,3 +657,6 @@ export class ProductionCryptography {
     }
   }
 }
+
+// Alias for backward compatibility
+export type ProductionCrypto = ProductionCryptography;

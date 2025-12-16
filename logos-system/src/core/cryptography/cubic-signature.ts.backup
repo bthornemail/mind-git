@@ -260,6 +260,3 @@ export async function verifyCubicSignature(
   const result = await signer.verify(message, signatureObj, publicKey);
   return result.isValid;
 }
-
-// Backward compatibility alias
-export const CubicSignature = CubicSignatureScheme;

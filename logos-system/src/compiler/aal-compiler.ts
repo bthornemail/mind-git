@@ -22,9 +22,9 @@ import {
   Dimension, 
   AALInstruction, 
   ProofHash 
-} from '../../core/aal';
+} from '@core/aal';
 
-import { Polynomial } from '../../core/polynomial';
+import { Polynomial } from '@core/polynomial';
 import { createHash } from 'crypto';
 
 /**
@@ -726,7 +726,7 @@ export class AALCanvasCompiler {
       javascript: { code: '', size: 0, executionTime: 0, memoryUsage: 0 },
       webassembly: { code: new ArrayBuffer(0), size: 0, compilationTime: 0, verified: false },
       racket: { code: '', size: 0, typeChecked: false },
-      coq: { code: '', size: 0, extracted: false, verified: false }
+      coq: { code: '', extracted: false, verified: false, size: 0 }
     };
   }
 }

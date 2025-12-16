@@ -3,6 +3,16 @@
     "target": "ES2020",
     "module": "ESNext",
     "moduleResolution": "node",
+    "baseUrl": "./src",
+    "paths": {
+      "@core/*": ["./core/*"],
+      "@compiler/*": ["./compiler/*"],
+      "@cryptography/*": ["./core/cryptography/*"],
+      "@identity/*": ["./identity/*"],
+      "@governance/*": ["./governance/*"],
+      "@mindgit/*": ["./core/mindgit/*"],
+      "@verification/*": ["./verification/*"]
+    },
     "lib": ["ES2020", "ES2015", "ES2016", "ES2017", "DOM"],
     "declaration": true,
     "outDir": "./dist",

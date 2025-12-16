@@ -15,7 +15,15 @@
     "test": "node test/test.js",
     "start": "node dist/index.js",
     "deploy": "npm run build && npm publish",
-    "demo": "node examples/quick-demo.js"
+    "demo": "node examples/quick-demo.js",
+    "demo:tensorflow": "node examples/tensorflow-demo.js",
+    "demo:swarm": "node examples/swarm-intelligence-demo.js",
+    "demo:hybrid": "node examples/hybrid-intelligence-demo.js",
+    "benchmark": "node examples/benchmark-demo.js",
+    "start:tf": "node bin/emergent-android.cjs --ai-engine tensorflow",
+    "start:hybrid": "node bin/emergent-android.cjs --ai-engine hybrid",
+    "train:local": "node scripts/train-local-model.js",
+    "swarm:learn": "node scripts/federated-learning.js"
   },
   "keywords": [
     "android",
@@ -50,7 +58,12 @@
     "chalk": "^4.1.2",
     "inquirer": "^8.2.6",
     "commander": "^9.4.1",
-    "node-cron": "^3.0.3"
+    "node-cron": "^3.0.3",
+    "@tensorflow/tfjs": "^4.10.0",
+    "@tensorflow/tfjs-backend-cpu": "^4.10.0",
+    "@tensorflow/tfjs-backend-webgl": "^4.10.0",
+    "@tensorflow/tfjs-backend-wasm": "^4.10.0",
+    "onnxruntime-web": "^1.15.0"
   },
   "devDependencies": {
     "@types/node": "^20.10.5",

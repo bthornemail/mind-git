@@ -16,7 +16,7 @@
 export type Vector2D = [number, number];
 export type Vector4D = [number, number, number, number];
 export type Vector8D = [number, number, number, number, number, number, number, number];
-export type Vector16D = [number, number, number, number, number, number, number, number, number, number, number, number, number, number, number, number];
+export type Vector16DIdentity = [number, number, number, number, number, number, number, number, number, number, number, number, number, number, number, number];
 
 /**
  * Mathematical constants for the identity chain

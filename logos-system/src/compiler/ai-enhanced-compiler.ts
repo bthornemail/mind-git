@@ -18,6 +18,9 @@ export interface AIEnhancedCompilationResult extends AALCanvasCompilationResult 
   topologicalAnalysis?: any;
   learningMetrics?: any;
   aiOptimizations?: any[];
+  compilationTime?: number;
+  errors?: string[];
+  warnings?: string[];
 }
 
 export class AIEnhancedCompiler extends AALCanvasCompiler {
@@ -87,7 +90,7 @@ export class AIEnhancedCompiler extends AALCanvasCompiler {
     }
 
     // Perform standard compilation
-    const compilationResult = await this.compile(optimizedCanvas);
+    const compilationResult = await super.compile(optimizedCanvas);
 
     // Enhance result with AI insights
     const enhancedResult: AIEnhancedCompilationResult = {

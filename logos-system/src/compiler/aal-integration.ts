@@ -6,8 +6,8 @@
  */
 
 import type { CanvasJSON, Node, Edge } from '../../json.canvas';
-import { AssemblyOp, Dimension, AALInstruction, ProofHash } from '../../core/aal';
-import { Polynomial } from '../../core/polynomial';
+import { AssemblyOp, Dimension, AALInstruction, ProofHash } from '@core/aal';
+import { Polynomial } from '@core/polynomial';
 
 /**
  * Enhanced Canvas Node with AAL integration

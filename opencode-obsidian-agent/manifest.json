@@ -1,0 +1,13 @@
+{
+  "id": "opencode-obsidian-agent",
+  "name": "opencode-obsidian-agent",
+  "version": "1.0.0",
+  "minAppVersion": "0.15.0",
+  "description": "opencode-obsidian-agent by Brian Thorne - Advanced computational intelligence",
+  "author": {
+    "name": "Brian Thorne",
+    "email": "bthornemail@gmail.com",
+    "url": "https://github.com/bthornemail"
+  },
+  "fundingUrl": "https://github.com/bthornemail/funding"
+}

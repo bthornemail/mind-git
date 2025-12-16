@@ -39,6 +39,10 @@ export interface SovereignIdentity {
   claims: Map<string, any>;
   created_at: number;
   updated_at: number;
+  // Additional properties for extended functionality
+  generation?: number;
+  timestamp?: number;
+  sedenion_address?: any;
 }
 
 export interface DNAManifestEntry {
@@ -112,7 +116,7 @@ export interface VerificationConstraints {
 }
 
 export interface VerifiableCredential {
-  id?: string;
+  id: string;
   [key: string]: any;
 }
 
@@ -124,7 +128,6 @@ export interface BudgetMetadata {
   department?: string;
   project?: string;
   costCenter?: string;
-  manager?: string;
   reviewers: string[];
   tags: string[];
   notes: string;
@@ -134,27 +137,11 @@ export interface Attachment {
   [key: string]: any;
 }
 
-// Additional type definitions for missing interfaces
-export interface MindGitCommit {
-  id: string;
-  author: {
-    did: string;
-    cubic_public_key: any;
-  };
-  signatures: {
-    hash_chain: string;
-  };
-  aal_proof: ProofHash;
-  timestamp: number;
-}
+// Re-export MindGitCommit from proper location
+export { MindGitCommit } from './core/mindgit/types';
 
-export interface CanvasLState {
-  polynomial: boolean[];
-  fitness?: number;
-  diversity?: number;
-  mutation_rate?: number;
-  generation?: number;
-}
+// Re-export CanvasLState from proper location
+export { CanvasLState } from './core/mindgit/types';
 
 export interface MindGitBranch {
   name: string;

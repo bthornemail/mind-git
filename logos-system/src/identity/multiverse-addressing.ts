@@ -7,7 +7,7 @@
 
 import { PolyF2 } from '../core/polynomial/index';
 import { AALType } from '../core/aal/types';
-import { ProductionCryptography } from '../core/cryptography/production-crypto';
+import { ProductionCryptography } from '@cryptography/production-crypto';
 
 export interface MultiverseAddress {
   universeId: string;

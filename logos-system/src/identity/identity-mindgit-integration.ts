@@ -5,13 +5,13 @@
  * addressing with MindGit's version control and computational organism evolution.
  */
 
-import { PolyF2 } from '../core/polynomial/index';
-import { AALType } from '../core/aal/types';
-import { MindGitMain } from '../mindgit/index';
-import { SovereignIdentityManager } from './sovereign-identity';
-import { MultiverseAddressManager } from './multiverse-addressing';
-import { IdentityVerifier, CredentialManager, AttestationManager } from './identity-verification';
-import { DIDDocument } from './did-core';
+import { PolyF2 } from '@core/polynomial';
+import { AALType } from '@core/aal/types';
+import { MindGitMain } from '@mindgit/index';
+import { SovereignIdentityManager } from '@identity/sovereign-identity';
+import { MultiverseAddressManager } from '@identity/multiverse-addressing';
+import { IdentityVerifier, CredentialManager, AttestationManager } from '@identity/identity-verification';
+import { DIDDocument } from '@identity/did-core';
 import { ProductionCryptography } from '../core/cryptography/production-crypto';
 
 export interface IdentityGitConfig {

@@ -1,3 +1,7 @@
+import { EmergentAIManager, EmergentAIConfig } from '../ai/EmergentAIManager';
+import { SwarmNode, Task, SwarmState } from '../ai/SwarmIntelligenceEngine';
+import { EventEmitter } from 'events';
+
 export interface NodeConfig {
   id: string;
   role: 'coordinator' | 'worker' | 'hybrid';
@@ -6,7 +10,514 @@ export interface NodeConfig {
   webrtcPort: number;
   webPort: number;
   aiInterval: number;
+  location?: { x: number; y: number };
 }
+
+export interface SwarmStatus {
+  nodeId: string;
+  role: string;
+  status: 'initializing' | 'active' | 'idle' | 'error';
+  uptime: number;
+  tasksProcessed: number;
+  decisionsMade: number;
+  learningRounds: number;
+  swarmHealth: number;
+  capabilities: any;
+}
+
+export class EmergentIntelligence extends EventEmitter {
+  private config: NodeConfig;
+  private aiManager: EmergentAIManager;
+  private isRunning = false;
+  private startTime = 0;
+  private status: SwarmStatus;
+  private decisionTimer?: NodeJS.Timeout;
+  private metricsTimer?: NodeJS.Timeout;
+
+  constructor(config: NodeConfig) {
+    super();
+    this.config = config;
+    
+    // Initialize AI configuration based on node role
+    const aiConfig: EmergentAIConfig = this.getAIConfigForRole(config.role);
+    
+    this.aiManager = new EmergentAIManager(aiConfig);
+    
+    this.status = {
+      nodeId: config.id,
+      role: config.role,
+      status: 'initializing',
+      uptime: 0,
+      tasksProcessed: 0,
+      decisionsMade: 0,
+      learningRounds: 0,
+      swarmHealth: 100,
+      capabilities: {}
+    };
+  }
+
+  private getAIConfigForRole(role: string): EmergentAIConfig {
+    switch (role) {
+      case 'coordinator':
+        return {
+          enableTensorFlow: true,
+          enableLLM: true,
+          llmEndpoint: process.env.LLM_ENDPOINT || 'http://localhost:11434',
+          intelligenceLevel: 'hybrid',
+          learningRate: 0.001,
+          federatedLearning: true,
+          modelUpdateInterval: 30000 // 30 seconds for coordinators
+        };
+      
+      case 'hybrid':
+        return {
+          enableTensorFlow: true,
+          enableLLM: true,
+          llmEndpoint: process.env.LLM_ENDPOINT,
+          intelligenceLevel: 'advanced',
+          learningRate: 0.0008,
+          federatedLearning: true,
+          modelUpdateInterval: 60000 // 1 minute for hybrids
+        };
+      
+      case 'worker':
+      default:
+        return {
+          enableTensorFlow: true,
+          enableLLM: false,
+          intelligenceLevel: 'enhanced',
+          learningRate: 0.0005,
+          federatedLearning: true,
+          modelUpdateInterval: 120000 // 2 minutes for workers
+        };
+    }
+  }
+
+  async initialize(): Promise<void> {
+    console.log(`🧠 Initializing Emergent Intelligence Node: ${this.config.id}`);
+    
+    try {
+      // Initialize AI manager
+      await this.aiManager.initialize();
+      
+      // Set up event listeners
+      this.setupEventListeners();
+      
+      // Update status
+      this.status.status = 'idle';
+      this.status.capabilities = this.aiManager.getCapabilities();
+      
+      console.log(`✅ Node ${this.config.id} initialized successfully`);
+      this.emit('initialized', this.status);
+    } catch (error) {
+      console.error(`❌ Failed to initialize node ${this.config.id}:`, error);
+      this.status.status = 'error';
+      throw error;
+    }
+  }
+
+  private setupEventListeners(): void {
+    // AI Manager events
+    this.aiManager.on('decisionMade', (data) => {
+      this.status.decisionsMade++;
+      this.emit('decision', data);
+    });
+
+    this.aiManager.on('learning', (data) => {
+      this.status.learningRounds = data.round;
+      this.emit('learning', data);
+    });
+
+    this.aiManager.on('modelUpdate', (data) => {
+      this.emit('modelUpdate', data);
+    });
+
+    this.aiManager.on('optimization', (data) => {
+      this.emit('optimization', data);
+    });
+
+    this.aiManager.on('capabilitiesUpdated', (capabilities) => {
+      this.status.capabilities = capabilities;
+      this.emit('capabilitiesUpdated', capabilities);
+    });
+  }
+
+  async start(): Promise<void> {
+    if (this.isRunning) {
+      console.log(`⚠️ Node ${this.config.id} is already running`);
+      return;
+    }
+
+    console.log(`🚀 Starting Emergent Intelligence Node: ${this.config.id}`);
+    
+    this.isRunning = true;
+    this.startTime = Date.now();
+    this.status.status = 'active';
+
+    // Start periodic decision making
+    this.startDecisionMaking();
+
+    // Start metrics collection
+    this.startMetricsCollection();
+
+    console.log(`✅ Node ${this.config.id} started successfully`);
+    this.emit('started', this.status);
+  }
+
+  private startDecisionMaking(): void {
+    if (this.decisionTimer) {
+      clearInterval(this.decisionTimer);
+    }
+
+    this.decisionTimer = setInterval(async () => {
+      try {
+        await this.makePeriodicDecision();
+      } catch (error) {
+        console.error(`❌ Decision making failed for node ${this.config.id}:`, error);
+      }
+    }, this.config.aiInterval * 1000);
+
+    console.log(`🔄 Decision making started (interval: ${this.config.aiInterval}s)`);
+  }
+
+  private startMetricsCollection(): void {
+    if (this.metricsTimer) {
+      clearInterval(this.metricsTimer);
+    }
+
+    this.metricsTimer = setInterval(async () => {
+      try {
+        await this.updateMetrics();
+      } catch (error) {
+        console.error(`❌ Metrics update failed for node ${this.config.id}:`, error);
+      }
+    }, 5000); // Update every 5 seconds
+
+    console.log('📊 Metrics collection started');
+  }
+
+  private async makePeriodicDecision(): Promise<void> {
+    // Create a mock decision context for demonstration
+    const context = this.createDecisionContext();
+    
+    const decision = await this.aiManager.makeDecision(context);
+    
+    console.log(`🧠 Decision made for node ${this.config.id}:`, {
+      action: decision.action,
+      confidence: (decision.confidence * 100).toFixed(1) + '%',
+      allocations: decision.allocation?.length || 0
+    });
+
+    // Learn from decision (mock experience)
+    if (Math.random() > 0.7) { // 30% chance of learning
+      await this.aiManager.learnFromExperience({
+        state: context,
+        action: decision,
+        reward: decision.confidence * (Math.random() * 0.4 + 0.8), // Random reward 0.8-1.2
+        nextState: context
+      });
+    }
+  }
+
+  private createDecisionContext(): any {
+    // Create mock tasks and nodes for demonstration
+    const tasks: Task[] = [
+      {
+        id: `task-${Date.now()}`,
+        type: ['computation', 'sensing', 'coordination'][Math.floor(Math.random() * 3)] as Task['type'],
+        requirements: {
+          cpu: Math.random() * 50 + 10,
+          memory: Math.random() * 1024 + 256,
+          battery: Math.random() * 20 + 5,
+          network: Math.random() * 40 + 10
+        },
+        payload: {},
+        priority: Math.random() * 10
+      }
+    ];
+
+    const nodes: SwarmNode[] = [
+      {
+        id: this.config.id,
+        capabilities: {
+          cpu: 80,
+          memory: 2048,
+          battery: 75,
+          network: 60
+        },
+        role: this.config.role,
+        location: this.config.location || { x: 0, y: 0 }
+      }
+    ];
+
+    const swarmState: SwarmState = {
+      nodes,
+      tasks,
+      networkLatency: Math.random() * 100 + 20,
+      swarmHealth: this.status.swarmHealth
+    };
+
+    return {
+      tasks,
+      nodes,
+      swarmState,
+      complexity: 1,
+      hasUnusualConstraints: Math.random() > 0.8,
+      requiresExplanation: Math.random() > 0.9
+    };
+  }
+
+  private async updateMetrics(): Promise<void> {
+    this.status.uptime = Date.now() - this.startTime;
+    
+    // Update swarm health from AI manager
+    const aiMetrics = this.aiManager.getMetrics();
+    this.status.swarmHealth = aiMetrics.swarmHealth;
+    
+    // Emit metrics update
+    this.emit('metrics', this.status);
+  }
+
+  async stop(): Promise<void> {
+    if (!this.isRunning) {
+      console.log(`⚠️ Node ${this.config.id} is not running`);
+      return;
+    }
+
+    console.log(`🛑 Stopping Emergent Intelligence Node: ${this.config.id}`);
+    
+    this.isRunning = false;
+    this.status.status = 'idle';
+
+    // Clear timers
+    if (this.decisionTimer) {
+      clearInterval(this.decisionTimer);
+      this.decisionTimer = undefined;
+    }
+
+    if (this.metricsTimer) {
+      clearInterval(this.metricsTimer);
+      this.metricsTimer = undefined;
+    }
+
+    console.log(`✅ Node ${this.config.id} stopped successfully`);
+    this.emit('stopped', this.status);
+  }
+
+  // Public API methods
+
+  async processTask(task: Task): Promise<{
+    taskId: string;
+    nodeId: string;
+    status: 'accepted' | 'rejected' | 'completed';
+    result?: any;
+    reasoning?: string;
+  }> {
+    console.log(`📋 Processing task ${task.id} on node ${this.config.id}`);
+
+    try {
+      // Create decision context for this specific task
+      const context = {
+        tasks: [task],
+        nodes: [{
+          id: this.config.id,
+          capabilities: this.status.capabilities.device || {
+            cpu: 80,
+            memory: 2048,
+            battery: 75,
+            network: 60
+          },
+          role: this.config.role,
+          location: this.config.location
+        }],
+        swarmState: {
+          nodes: [],
+          tasks: [task],
+          networkLatency: 50,
+          swarmHealth: this.status.swarmHealth
+        },
+        complexity: 1,
+        hasUnusualConstraints: false,
+        requiresExplanation: false
+      };
+
+      // Make decision about task
+      const decision = await this.aiManager.makeDecision(context);
+
+      if (decision.confidence > 0.5 && decision.allocation && decision.allocation.length > 0) {
+        // Task accepted
+        this.status.tasksProcessed++;
+        
+        // Simulate task processing
+        await new Promise(resolve => setTimeout(resolve, Math.random() * 2000 + 500));
+
+        const result = {
+          taskId: task.id,
+          nodeId: this.config.id,
+          status: 'completed' as const,
+          result: {
+            output: `Task ${task.id} processed successfully`,
+            processingTime: Math.random() * 1500 + 500,
+            confidence: decision.confidence
+          },
+          reasoning: decision.reasoning
+        };
+
+        // Learn from experience
+        await this.aiManager.learnFromExperience({
+          state: context,
+          action: decision,
+          reward: 0.9, // Good outcome
+          nextState: context
+        });
+
+        console.log(`✅ Task ${task.id} completed successfully`);
+        this.emit('taskCompleted', result);
+        
+        return result;
+      } else {
+        // Task rejected
+        const result = {
+          taskId: task.id,
+          nodeId: this.config.id,
+          status: 'rejected' as const,
+          reasoning: decision.reasoning || 'Insufficient confidence or resources'
+        };
+
+        console.log(`❌ Task ${task.id} rejected: ${result.reasoning}`);
+        this.emit('taskRejected', result);
+        
+        return result;
+      }
+    } catch (error) {
+      console.error(`❌ Error processing task ${task.id}:`, error);
+      
+      const result = {
+        taskId: task.id,
+        nodeId: this.config.id,
+        status: 'rejected' as const,
+        reasoning: `Processing error: ${error.message}`
+      };
+
+      this.emit('taskError', result);
+      return result;
+    }
+  }
+
+  async optimizeSwarm(swarmState: SwarmState): Promise<{
+    routing: { [sourceId: string]: string };
+    behavior: { [nodeId: string]: { dx: number; dy: number } };
+    health: any;
+    anomalies: { [nodeId: string]: number };
+  }> {
+    console.log(`🔧 Optimizing swarm from node ${this.config.id}`);
+    
+    try {
+      const optimization = await this.aiManager.optimizeSwarm(swarmState);
+      
+      console.log(`✅ Swarm optimization completed:`, {
+        routingRules: Object.keys(optimization.routing).length,
+        behaviorUpdates: Object.keys(optimization.behavior).length,
+        health: optimization.health.overall.toFixed(1) + '%',
+        anomalies: Object.keys(optimization.anomalies).filter(id => optimization.anomalies[id] > 0.7).length
+      });
+
+      this.emit('swarmOptimized', optimization);
+      return optimization;
+    } catch (error) {
+      console.error(`❌ Swarm optimization failed:`, error);
+      throw error;
+    }
+  }
+
+  async solveProblem(
+    objective: (x: number[]) => number,
+    dimensions: number = 3,
+    options?: { swarmSize?: number; maxIterations?: number }
+  ): Promise<{ bestSolution: number[]; bestFitness: number }> {
+    console.log(`🔍 Solving optimization problem (${dimensions}D) from node ${this.config.id}`);
+    
+    try {
+      const result = await this.aiManager.solveOptimizationProblem(objective, dimensions, options);
+      
+      console.log(`✅ Problem solved:`, {
+        bestSolution: result.bestSolution.map(v => v.toFixed(3)),
+        bestFitness: result.bestFitness.toFixed(6)
+      });
+
+      this.emit('problemSolved', result);
+      return result;
+    } catch (error) {
+      console.error(`❌ Problem solving failed:`, error);
+      throw error;
+    }
+  }
+
+  // Status and monitoring
+  getStatus(): SwarmStatus {
+    return { ...this.status };
+  }
+
+  async getDetailedStatus(): Promise<any> {
+    return await this.aiManager.getDetailedStatus();
+  }
+
+  async runBenchmark(iterations: number = 10): Promise<any> {
+    console.log(`🏃 Running benchmark on node ${this.config.id} (${iterations} iterations)`);
+    
+    try {
+      const results = await this.aiManager.runBenchmark(iterations);
+      
+      console.log(`📊 Benchmark results for node ${this.config.id}:`, {
+        overall: `${results.overall.score} (${results.overall.grade})`,
+        decisionMaking: `${results.decisionMaking.avgTime.toFixed(1)}ms avg, ${(results.decisionMaking.avgConfidence * 100).toFixed(1)}% confidence`,
+        optimization: `${results.optimization.avgTime.toFixed(1)}ms avg`
+      });
+
+      this.emit('benchmarkCompleted', results);
+      return results;
+    } catch (error) {
+      console.error(`❌ Benchmark failed:`, error);
+      throw error;
+    }
+  }
+
+  // Configuration
+  async updateConfig(config: Partial<NodeConfig>): Promise<void> {
+    console.log(`⚙️ Updating configuration for node ${this.config.id}`);
+    
+    const oldConfig = { ...this.config };
+    this.config = { ...this.config, ...config };
+    
+    // Update AI configuration if role changed
+    if (oldConfig.role !== config.role) {
+      const newAIConfig = this.getAIConfigForRole(this.config.role);
+      await this.aiManager.updateConfig(newAIConfig);
+    }
+
+    // Update decision interval if changed
+    if (oldConfig.aiInterval !== config.aiInterval && this.isRunning) {
+      this.startDecisionMaking();
+    }
+
+    this.status.role = this.config.role;
+    console.log(`✅ Configuration updated for node ${this.config.id}`);
+    this.emit('configUpdated', this.config);
+  }
+
+  // Cleanup
+  async dispose(): Promise<void> {
+    console.log(`🧹 Disposing Emergent Intelligence Node: ${this.config.id}`);
+    
+    await this.stop();
+    await this.aiManager.dispose();
+    
+    this.removeAllListeners();
+    console.log(`✅ Node ${this.config.id} disposed`);
+  }
+}
+
+export default EmergentIntelligence;
 
 export interface NetworkNode {
   id: string;

@@ -9,7 +9,7 @@ import { PolyF2 } from '../core/polynomial/index';
 import { AALType } from '../core/aal/types';
 import { DIDDocument, DIDRegistry, VerificationMethod } from './did-core';
 import { CubicSignature } from '../core/cryptography/cubic-signature';
-import { ProductionCryptography } from '../core/cryptography/production-crypto';
+import { ProductionCryptography } from '@cryptography/production-crypto';
 
 export interface IdentityKeyPair {
   keyId: string;
