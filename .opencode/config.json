@@ -2,15 +2,15 @@
   "$schema": "https://opencode.ai/schema/config.json",
   "model": "anthropic/claude-3-5-sonnet-20241022",
   "tools": [
-    ".opencode/tools/mind-git-compiler.json",
-    ".opencode/tools/mind-git-math.json",
-    ".opencode/tools/mind-git-p2p.json",
-    ".opencode/tools/mind-git-visualizer.json"
+    ".opencode/tool/mind-git-compiler.json",
+    ".opencode/tool/mind-git-math.json",
+    ".opencode/tool/mind-git-p2p.json",
+    ".opencode/tool/mind-git-visualizer.json"
   ],
   "agents": [
-    ".opencode/agents/canvasl-compiler.json",
-    ".opencode/agents/mathematical-verification.json",
-    ".opencode/agents/p2p-collaboration.json"
+    ".opencode/agent/canvasl-compiler.json",
+    ".opencode/agent/mathematical-verification.json",
+    ".opencode/agent/p2p-collaboration.json"
   ],
   "rules": [
     "Maintain mathematical integrity in all operations",

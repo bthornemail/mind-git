@@ -131,6 +131,19 @@ The visualizer also supports your own custom 3D models in GLTF (JSON) and GLB (b
 
 See **GLTF-GUIDE.md** for complete documentation and **MODELS-QUICK-REF.md** for quick reference.
 
+## 👤 Author
+
+**Brian Thorne**  
+Independent Researcher - Topological Consensus & Autonomous AI  
+Universal Life Protocol  
+Los Angeles, CA  
+
+📧 bthornemail@gmail.com  
+🔗 https://github.com/bthornemail  
+💰 https://cash.app/$brianthorne  
+💰 https://venmo.com/u/brianthorne  
+💼 https://linkedin.com/in/brian-thorne-5b8a96112
+
 ### Default Geometries
 
 Each node type uses a procedurally generated shape with mathematical significance:

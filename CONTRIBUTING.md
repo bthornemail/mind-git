@@ -797,6 +797,19 @@ Example:
 
 By contributing, you agree that your contributions will be licensed under the same license as the project (see LICENSE file).
 
+## 👤 Project Author
+
+**Brian Thorne**  
+Independent Researcher - Topological Consensus & Autonomous AI  
+Universal Life Protocol  
+Los Angeles, CA  
+
+📧 bthornemail@gmail.com  
+🔗 https://github.com/bthornemail  
+💰 https://cash.app/$brianthorne  
+💰 https://venmo.com/u/brianthorne  
+💼 https://linkedin.com/in/brian-thorne-5b8a96112
+
 ---
 
 Thank you for contributing to the future of formally verified visual computation! Every line of code brings the mathematical vision closer to reality.

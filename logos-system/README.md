@@ -511,6 +511,19 @@ We need contributors for:
 
 MIT License - see LICENSE file for details.
 
+## 👤 Author
+
+**Brian Thorne**  
+Independent Researcher - Topological Consensus & Autonomous AI  
+Universal Life Protocol  
+Los Angeles, CA  
+
+📧 bthornemail@gmail.com  
+🔗 https://github.com/bthornemail  
+💰 https://cash.app/$brianthorne  
+💰 https://venmo.com/u/brianthorne  
+💼 https://linkedin.com/in/brian-thorne-5b8a96112
+
 ## 🙏 Acknowledgments
 
 Mathematical foundations from:

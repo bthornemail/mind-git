@@ -59,7 +59,11 @@
     "opencode",
     "ai-integration"
   ],
-  "author": "Brian Thorne <bthornemail@gmail.com>",
+  "author": {
+    "name": "Brian Thorne",
+    "email": "bthornemail@gmail.com",
+    "url": "https://github.com/bthornemail"
+  },
   "license": "MIT",
   "repository": {
     "type": "git",
