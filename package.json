@@ -1,7 +1,7 @@
 {
   "name": "mind-git",
-  "version": "1.2.0",
-  "description": "Mathematical foundation for self-evolving computational systems with CanvasL visual programming",
+  "version": "2.0.0",
+  "description": "World's most advanced VR spatial programming ecosystem with AI intelligence, E8 lattice routing, and immersive WebXR interfaces",
   "main": "logos-system/dist/index.js",
   "types": "logos-system/dist/index.d.ts",
   "bin": {
@@ -18,7 +18,15 @@
     "start": "node logos-system/dist/index.js",
     "metadata:update": "cd metadata && node scripts/integrate-metadata-simple.js",
     "metadata:export": "cd metadata && node scripts/export-system-simple.js export",
-    "metadata:status": "cd metadata && node scripts/cli.js status"
+    "metadata:status": "cd metadata && node scripts/cli.js status",
+    "deploy:docker": "docker-compose -f docker-compose.vr-ecosystem.yml up -d",
+    "deploy:k8s": "kubectl apply -f k8s/vr-ecosystem.yml",
+    "deploy:monitoring": "kubectl apply -f k8s/monitoring.yml",
+    "docs:generate": "npm run docs:build",
+    "docs:serve": "npm run docs:serve",
+    "health:all": "npm run health:all",
+    "test:ecosystem": "npm run test:ecosystem",
+    "benchmark": "npm run test:performance"
   },
   "keywords": [
     "canvasl",
@@ -30,7 +38,20 @@
     "formal-verification",
     "spatial-computing",
     "typescript",
-    "javascript"
+    "javascript",
+    "vr-spatial-programming",
+    "ai-intelligence",
+    "h2gnn",
+    "hyperbolic-geometry",
+    "e8-lattice",
+    "webxr",
+    "immersive-vr",
+    "meta-log-orchestrator",
+    "knowledge-graph",
+    "natural-language",
+    "kubernetes",
+    "docker-ecosystem",
+    "production-ready"
   ],
   "author": "Brian Thorne <bthornemail@gmail.com>",
   "license": "MIT",
@@ -55,7 +76,9 @@
   ],
   "dependencies": {
     "@trbn/jsoncanvas": "^1.0.6",
-    "commander": "^11.0.0"
+    "commander": "^11.0.0",
+    "kubernetes": "^1.28.0",
+    "@kubernetes/client": "^1.28.0"
   },
   "engines": {
     "node": ">=18.0.0"
