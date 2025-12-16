@@ -1,6 +1,6 @@
 {
   "name": "mind-git",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "World's most advanced VR spatial programming ecosystem with AI intelligence, E8 lattice routing, and immersive WebXR interfaces",
   "main": "logos-system/dist/index.js",
   "types": "logos-system/dist/index.d.ts",
