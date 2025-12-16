@@ -1,5 +1,6 @@
 import { EmergentAIManager, EmergentAIConfig } from '../ai/EmergentAIManager';
-import { SwarmNode, Task, SwarmState } from '../ai/SwarmIntelligenceEngine';
+import { ProgressiveIntelligenceOrchestrator } from '../ai/ProgressiveIntelligenceOrchestrator';
+import { SwarmIntelligenceEngine, SwarmNode, Task, SwarmState } from '../ai/SwarmIntelligenceEngine';
 import { EventEmitter } from 'events';
 
 export interface NodeConfig {
@@ -28,15 +29,18 @@ export interface SwarmStatus {
 export class EmergentIntelligence extends EventEmitter {
   private config: NodeConfig;
   private aiManager: EmergentAIManager;
+  private progressiveOrchestrator?: ProgressiveIntelligenceOrchestrator;
   private isRunning = false;
   private startTime = 0;
   private status: SwarmStatus;
   private decisionTimer?: NodeJS.Timeout;
   private metricsTimer?: NodeJS.Timeout;
+  private useProgressiveIntelligence: boolean;
 
-  constructor(config: NodeConfig) {
+  constructor(config: NodeConfig, options: { useProgressiveIntelligence?: boolean } = {}) {
     super();
     this.config = config;
+    this.useProgressiveIntelligence = options.useProgressiveIntelligence !== false; // Default to true
     
     // Initialize AI configuration based on node role
     const aiConfig: EmergentAIConfig = this.getAIConfigForRole(config.role);
@@ -95,10 +99,21 @@ export class EmergentIntelligence extends EventEmitter {
 
   async initialize(): Promise<void> {
     console.log(`🧠 Initializing Emergent Intelligence Node: ${this.config.id}`);
+    console.log(`📐 Progressive Intelligence: ${this.useProgressiveIntelligence ? 'ENABLED' : 'DISABLED'}`);
     
     try {
       // Initialize AI manager
       await this.aiManager.initialize();
+      
+      // Initialize progressive orchestrator if enabled
+      if (this.useProgressiveIntelligence) {
+        const tfEngine = this.aiManager.getTensorFlowEngine();
+        this.progressiveOrchestrator = new ProgressiveIntelligenceOrchestrator(
+          tfEngine,
+          process.env.LLM_ENDPOINT
+        );
+        console.log('✅ Progressive Intelligence Orchestrator initialized');
+      }
       
       // Set up event listeners
       this.setupEventListeners();
@@ -200,13 +215,27 @@ export class EmergentIntelligence extends EventEmitter {
     // Create a mock decision context for demonstration
     const context = this.createDecisionContext();
     
-    const decision = await this.aiManager.makeDecision(context);
-    
-    console.log(`🧠 Decision made for node ${this.config.id}:`, {
-      action: decision.action,
-      confidence: (decision.confidence * 100).toFixed(1) + '%',
-      allocations: decision.allocation?.length || 0
-    });
+    let decision;
+    if (this.useProgressiveIntelligence && this.progressiveOrchestrator) {
+      // Use progressive intelligence (mathematical constraints first)
+      decision = await this.progressiveOrchestrator.makeDecision(context);
+      
+      console.log(`🧠 Progressive Decision made for node ${this.config.id}:`, {
+        path: decision.decisionPath,
+        confidence: (decision.confidence * 100).toFixed(1) + '%',
+        allocations: decision.allocation?.length || 0,
+        e8Routing: decision.e8Routing ? 'YES' : 'NO'
+      });
+    } else {
+      // Use traditional AI manager
+      decision = await this.aiManager.makeDecision(context);
+      
+      console.log(`🤖 Traditional AI Decision made for node ${this.config.id}:`, {
+        action: decision.action,
+        confidence: (decision.confidence * 100).toFixed(1) + '%',
+        allocations: decision.allocation?.length || 0
+      });
+    }
 
     // Learn from decision (mock experience)
     if (Math.random() > 0.7) { // 30% chance of learning
@@ -342,7 +371,12 @@ export class EmergentIntelligence extends EventEmitter {
       };
 
       // Make decision about task
-      const decision = await this.aiManager.makeDecision(context);
+      let decision;
+      if (this.useProgressiveIntelligence && this.progressiveOrchestrator) {
+        decision = await this.progressiveOrchestrator.makeDecision(context);
+      } else {
+        decision = await this.aiManager.makeDecision(context);
+      }
 
       if (decision.confidence > 0.5 && decision.allocation && decision.allocation.length > 0) {
         // Task accepted
@@ -409,18 +443,37 @@ export class EmergentIntelligence extends EventEmitter {
     behavior: { [nodeId: string]: { dx: number; dy: number } };
     health: any;
     anomalies: { [nodeId: string]: number };
+    e8Paths?: { [sourceId: string]: any };
+    mathematicalSolution?: any;
   }> {
     console.log(`🔧 Optimizing swarm from node ${this.config.id}`);
     
     try {
-      const optimization = await this.aiManager.optimizeSwarm(swarmState);
+      let optimization;
       
-      console.log(`✅ Swarm optimization completed:`, {
-        routingRules: Object.keys(optimization.routing).length,
-        behaviorUpdates: Object.keys(optimization.behavior).length,
-        health: optimization.health.overall.toFixed(1) + '%',
-        anomalies: Object.keys(optimization.anomalies).filter(id => optimization.anomalies[id] > 0.7).length
-      });
+      if (this.useProgressiveIntelligence && this.progressiveOrchestrator) {
+        // Use progressive optimization with mathematical constraints
+        optimization = await this.progressiveOrchestrator.optimizeSwarmWithMathematics(swarmState);
+        
+        console.log(`✅ Progressive Swarm optimization completed:`, {
+          validNodes: `${optimization.mathematicalSolution.validNodes.length}/${swarmState.nodes.length}`,
+          routingRules: Object.keys(optimization.routing).length,
+          behaviorUpdates: Object.keys(optimization.behavior).length,
+          e8Paths: Object.keys(optimization.e8Paths).length,
+          health: optimization.health.overall.toFixed(1) + '%',
+          anomalies: Object.keys(optimization.anomalies).filter(id => optimization.anomalies[id] > 0.7).length
+        });
+      } else {
+        // Use traditional optimization
+        optimization = await this.aiManager.optimizeSwarm(swarmState);
+        
+        console.log(`✅ Traditional Swarm optimization completed:`, {
+          routingRules: Object.keys(optimization.routing).length,
+          behaviorUpdates: Object.keys(optimization.behavior).length,
+          health: optimization.health.overall.toFixed(1) + '%',
+          anomalies: Object.keys(optimization.anomalies).filter(id => optimization.anomalies[id] > 0.7).length
+        });
+      }
 
       this.emit('swarmOptimized', optimization);
       return optimization;
@@ -505,11 +558,57 @@ export class EmergentIntelligence extends EventEmitter {
     this.emit('configUpdated', this.config);
   }
 
+  // Progressive Intelligence specific methods
+  getProgressiveMetrics(): any {
+    if (this.useProgressiveIntelligence && this.progressiveOrchestrator) {
+      return this.progressiveOrchestrator.getMetrics();
+    }
+    return null;
+  }
+
+  getDecisionBreakdown(): any {
+    if (this.useProgressiveIntelligence && this.progressiveOrchestrator) {
+      return this.progressiveOrchestrator.getDecisionBreakdown();
+    }
+    return null;
+  }
+
+  addMathematicalConstraint(constraint: any): void {
+    if (this.useProgressiveIntelligence && this.progressiveOrchestrator) {
+      this.progressiveOrchestrator.addConstraint(constraint);
+    }
+  }
+
+  removeMathematicalConstraint(type: string): void {
+    if (this.useProgressiveIntelligence && this.progressiveOrchestrator) {
+      this.progressiveOrchestrator.removeConstraint(type);
+    }
+  }
+
+  getMathematicalConstraints(): any[] {
+    if (this.useProgressiveIntelligence && this.progressiveOrchestrator) {
+      return this.progressiveOrchestrator.getConstraints();
+    }
+    return [];
+  }
+
+  analyzeConstraintEffectiveness(nodes: SwarmNode[]): any[] {
+    if (this.useProgressiveIntelligence && this.progressiveOrchestrator) {
+      return this.progressiveOrchestrator.analyzeConstraintEffectiveness(nodes);
+    }
+    return [];
+  }
+
   // Cleanup
   async dispose(): Promise<void> {
     console.log(`🧹 Disposing Emergent Intelligence Node: ${this.config.id}`);
     
     await this.stop();
+    
+    if (this.useProgressiveIntelligence && this.progressiveOrchestrator) {
+      this.progressiveOrchestrator.dispose();
+    }
+    
     await this.aiManager.dispose();
     
     this.removeAllListeners();

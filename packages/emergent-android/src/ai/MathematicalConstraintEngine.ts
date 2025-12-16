@@ -484,7 +484,7 @@ export class MathematicalConstraintEngine extends EventEmitter {
     // Verify confidence calculation
     const expectedConfidence = this.calculateMathematicalConfidence(
       solution.validNodes, 
-      Array.from(solution.validNodes).concat(solution.violations.map(v => ({ id: v.nodeId } as any)), 
+      Array.from(solution.validNodes).concat(solution.violations.map(v => ({ id: v.nodeId } as any))),
       solution.violations
     );
 

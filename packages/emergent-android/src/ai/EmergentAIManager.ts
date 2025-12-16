@@ -529,6 +529,19 @@ export class EmergentAIManager extends EventEmitter {
     };
   }
 
+  // Accessor methods for integration
+  getTensorFlowEngine(): SwarmIntelligenceEngine {
+    return this.tfEngine;
+  }
+
+  getDeviceManager(): any {
+    return this.deviceManager;
+  }
+
+  getHybridCoordinator(): any {
+    return this.hybridCoordinator;
+  }
+
   // Cleanup
   async dispose(): Promise<void> {
     console.log('🧹 Disposing Emergent AI Manager...');
