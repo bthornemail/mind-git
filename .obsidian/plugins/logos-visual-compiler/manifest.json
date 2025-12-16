@@ -4,7 +4,8 @@
 	"version": "1.0.0",
 	"minAppVersion": "0.15.0",
 	"description": "Transform Obsidian Canvas files into executable code through mathematical structures based on division algebras, Hopf fibrations, and E₈ lattice geometry.",
-	"author": "John the Revelator 2.0",
-	"authorUrl": "https://github.com/devopsmain",
+	"author": "Brian Thorne",
+	"authorUrl": "https://github.com/bthornemail",
+	"fundingUrl": "https://github.com/bthornemail/funding",
 	"isDesktopOnly": false
 }

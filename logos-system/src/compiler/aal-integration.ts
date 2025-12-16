@@ -200,6 +200,7 @@ export interface CodeGenerationResult {
     code: string;
     extracted: boolean;
     verified: boolean;
+    size: number;
   };
 }
 

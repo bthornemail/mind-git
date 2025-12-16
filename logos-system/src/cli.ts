@@ -6,6 +6,8 @@ import { join } from 'path';
 
 const args = process.argv.slice(2);
 
+async function main() {
+
 if (args.length === 0) {
   console.log(`
 CanvasL Logos System CLI
@@ -37,7 +39,7 @@ if (command === 'compile') {
     const canvas = JSON.parse(canvasContent);
     
     console.log(`Compiling ${inputFile}...`);
-    const result = compileCanvas(canvas);
+    const result = await compileCanvas(canvas);
     
     if (result.success && result.javascript_code) {
       writeFileSync(outputFile, result.javascript_code);
@@ -69,3 +71,9 @@ For more information, visit: https://github.com/bthornemail/mind-git
   console.error('Use --help for available commands');
   process.exit(1);
 }
+}
+
+main().catch(error => {
+  console.error('❌ CLI Error:', error.message);
+  process.exit(1);
+});

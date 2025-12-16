@@ -1,0 +1,67 @@
+{
+  "name": "emergent-android-intelligence",
+  "version": "1.0.5",
+  "description": "🧠📱 Transform Android phones into collaborative emergent intelligence nodes",
+  "main": "dist/index.js",
+  "bin": {
+    "emergent-android": "bin/emergent-android.cjs",
+    "android-swarm": "bin/android-swarm.cjs",
+    "mind-git-mobile": "bin/mind-git-mobile.cjs"
+  },
+  "scripts": {
+    "build": "tsc && npm run build:bin",
+    "build:bin": "chmod +x bin/*.cjs",
+    "dev": "tsc --watch",
+    "test": "node test/test.js",
+    "start": "node dist/index.js",
+    "deploy": "npm run build && npm publish",
+    "demo": "node examples/quick-demo.js"
+  },
+  "keywords": [
+    "android",
+    "emergent-intelligence", 
+    "swarm-intelligence",
+    "distributed-computing",
+    "mobile-computing",
+    "p2p-network",
+    "ai",
+    "collaboration",
+    "mesh-network",
+    "edge-computing"
+  ],
+  "author": "Brian Thorne <brian@mind-git.ai>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mind-git/emergent-android.git"
+  },
+  "files": [
+    "dist/**/*",
+    "bin/**/*", 
+    "examples/**/*",
+    "docs/**/*",
+    "README.md",
+    "LICENSE"
+  ],
+  "dependencies": {
+    "mqtt": "^5.3.4",
+    "ws": "^8.16.0",
+    "express": "^4.18.2",
+    "chalk": "^4.1.2",
+    "inquirer": "^8.2.6",
+    "commander": "^9.4.1",
+    "node-cron": "^3.0.3"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.5",
+    "@types/ws": "^8.5.10",
+    "@types/express": "^4.17.21",
+    "typescript": "^5.3.3"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

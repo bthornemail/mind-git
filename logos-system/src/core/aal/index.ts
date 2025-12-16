@@ -90,13 +90,7 @@ export interface AALInstruction {
 /**
  * Proof hash for verification
  */
-export interface ProofHash {
-  algorithm: 'sha256' | 'blake3' | 'poseidon';
-  hash: string;
-  timestamp: number;
-  theorem_reference: string;
-  security_level?: 'safe' | 'degraded' | 'compromised';
-}
+export { ProofHash } from '../../types';
 
 /**
  * AAL Program with complete type information

@@ -214,6 +214,7 @@ export class H2GNNBridge {
         type: 'error_prevention',
         confidence: 0.9,
         reasoning: `High cyclomatic complexity detected (H¹ = ${h1}). Consider simplifying structure.`,
+        suggested_elements: [],
         expected_improvement: 'Reduced complexity and improved maintainability'
       });
     }
@@ -224,6 +225,7 @@ export class H2GNNBridge {
         type: 'connection_optimization',
         confidence: 0.8,
         reasoning: `${components.length} disconnected components detected. Consider adding bridges.`,
+        suggested_elements: [],
         expected_improvement: 'Improved connectivity and information flow'
       });
     }

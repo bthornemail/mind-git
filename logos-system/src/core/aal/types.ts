@@ -6,8 +6,5 @@ export interface AALType {
   properties: any[];
 }
 
-export interface ProofHash {
-  hash: string;
-  theorem_reference: string;
-  security_level: 'safe' | 'degraded' | 'compromised';
-}
+// Re-export from main types to maintain consistency
+export { ProofHash } from '../../types';

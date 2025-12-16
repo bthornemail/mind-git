@@ -56,7 +56,7 @@ export class SuggestionEngine {
       
       // Convert learning suggestions to AISuggestion format
       const convertedSuggestions = learningSuggestions.map(ls => ({
-        type: ls.pattern.type.includes('error') ? 'error_prevention' : 'pattern_completion',
+        type: (ls.pattern.type.includes('error') ? 'error_prevention' : 'pattern_completion') as AISuggestion['type'],
         confidence: ls.confidence,
         reasoning: ls.reasoning,
         suggested_elements: ls.suggestedActions || [],
@@ -185,6 +185,7 @@ export class SuggestionEngine {
         type: 'error_prevention',
         confidence: 0.8,
         reasoning: 'Large canvas detected. Consider organizing into modules.',
+        suggested_elements: [],
         expected_improvement: 'Improved performance and maintainability'
       });
     }

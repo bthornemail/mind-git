@@ -4,6 +4,8 @@ export interface ProofHash {
   hash: string;
   theorem_reference: string;
   security_level: 'safe' | 'degraded' | 'compromised';
+  algorithm: 'sha256' | 'blake3' | 'poseidon';
+  timestamp: number;
 }
 
 export interface CommitProof {

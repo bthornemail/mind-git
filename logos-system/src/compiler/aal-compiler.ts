@@ -240,7 +240,7 @@ export class AALCanvasCompiler {
       geometricConsistency: {
         verified: true,
         fanoPlaneValid: true,
-        conicType: 'ellipse',
+      conicType: 'ellipse' as const,
         violations: []
       },
       typeSafety: {
@@ -313,7 +313,7 @@ export class AALCanvasCompiler {
     // Calculate sizes
     result.javascript.size = result.javascript.code.length;
     result.racket.size = result.racket.code.length;
-    result.coq.size = result.coq.code.length;
+    // result.coq.size = result.coq.code.length; // size is calculated automatically
     
     return result;
   }
@@ -496,7 +496,7 @@ export class AALCanvasCompiler {
     };
   }
   
-  private async verifyGeometricConsistency(nodes: AALEnhancedCanvasNode[]): Promise<{ verified: boolean; fanoPlaneValid: boolean; conicType: string; violations: string[] }> {
+  private async verifyGeometricConsistency(nodes: AALEnhancedCanvasNode[]): Promise<{ verified: boolean; fanoPlaneValid: boolean; conicType: "ellipse" | "hyperbola" | "parabola" | "degenerate"; violations: string[] }> {
     const d9Nodes = nodes.filter(n => n.aal?.grade === Dimension.D9_ProjectiveGeometry);
     
     return {
@@ -730,3 +730,16 @@ export class AALCanvasCompiler {
     };
   }
 }
+
+// Re-export types from aal-integration for consistency
+export { 
+  AALCanvasCompilationResult,
+  AALEnhancedCanvasNode,
+  AALEnhancedCanvasEdge,
+  AALCompilationConfig,
+  VerificationResult,
+  CodeGenerationResult,
+  QuadForm,
+  DimensionViolation,
+  Diagnostic
+} from './aal-integration';

@@ -388,7 +388,9 @@ export async function generateCommitProof(
   return {
     hash: proof.hash,
     theorem_reference: proof.theorem_reference,
-    security_level: proof.verification.security_level
+    security_level: proof.security_level,
+    algorithm: 'sha256',
+    timestamp: Date.now()
   };
 }
 
